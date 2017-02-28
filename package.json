@@ -5,7 +5,26 @@
   "author": "Nicole Kelley",
   "license": "MIT",
   "scripts": {
-    "dev": "NODE_ENV=development nodemon /backend/index.js"
+    "dev": "NODE_ENV=development nodemon /backend/index.js",
+    "mkdir": "mkdir -p public",
+    "build": "npm run clean && npm run mkdir && npm run build:html && npm run build:css && npm run build:js",
+    "watch": "npm run watch:html & npm run watch:css & npm run watch:js",
+    "clean": "rm -rf public",
+    "build:html": "npm run clean:html && cp src/html/*.html public/",
+    "watch:html": "npm run build:html && chokidar src/html/*.html -c 'npm run build:html'",
+    "clean:html": "rm -f public/index.html",
+    "build:css": "npm run build:css:unminified && npm run build:css:minified",
+    "watch:css": "npm run watch:css:unminified & npm run watch:css:minified",
+    "clean:css": "npm run clean:css:unminified && npm run clean:css:minified",
+    "build:css:unminified": "npm run clean:css:unminified && lessc --source-map src/css/index.less public/$npm_package_name.$npm_package_version.css",
+    "watch:css:unminified": "npm run build:css:unminified && chokidar 'src/**/*.(css|less)' -c 'npm run build:css:unminified'",
+    "clean:css:unminified": "rm -f public/$npm_package_name.$npm_package_version.css public/$npm_package_name.$npm_package_version.css.map",
+    "build:css:minified": "npm run clean:css:minified && lessc --clean-css --source-map src/css/index.less public/$npm_package_name.$npm_package_version.min.css",
+    "watch:css:minified": "npm run build:css:minified && chokidar 'src/**/*.(css|less)' -c 'npm run build:css:minified'",
+    "clean:css:minified": "rm -f public/$npm_package_name.$npm_package_version.min.css public/$npm_package_name.$npm_package_version.min.css.map",
+    "build:js": "npm run clean:js && webpack",
+    "watch:js": "npm run build:js && webpack --watch",
+    "clean:js": "rm -f public/$npm_package_name.$npm_package_version.js public/$npm_package_name.$npm_package_version.js.map"
   },
   "dependencies": {
     "babel-cli": "^6.23.0",

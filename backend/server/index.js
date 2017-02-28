@@ -12,13 +12,14 @@ dbconfig();
 middlewaresConfig(app);
 
 app.use('/api', [UserRoutes]);
+app.use(express.static('public'));
 
 const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, err => {
-  if(err) {
-    console.error(err);
-  } {
-    console.log(`App listening to port: ${PORT}`);
-  }
+	if (err) {
+		console.error(err);
+	} else {
+		console.log(`App listening to port: ${PORT}`);
+	}
 });

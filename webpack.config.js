@@ -12,6 +12,10 @@ module.exports = {
 		path: path.resolve(__dirname, 'public'),
 		filename: filename.join('.'),
 	},
+	node: {
+		fs: 'empty',
+		net: 'empty'
+	},
 	devtool: 'source-map',
 	module: {
 		loaders: [
@@ -20,7 +24,7 @@ module.exports = {
 				exclude: /(node_modules)/,
 				loader: 'babel-loader',
 				query: {
-					presets: ['react']
+					presets: ['es2015', 'react']
 				}
 			}
 		]

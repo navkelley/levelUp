@@ -5,8 +5,8 @@
   "author": "Nicole Kelley",
   "license": "MIT",
   "scripts": {
-    "start": "node ./backend/server/index.js",
-    "dev": "NODE_ENV=development nodemon ./backend/index.js",
+    "start": "node index.js",
+    "dev": "NODE_ENV=development nodemon index.js",
     "test": "mocha --recursive --compilers js:babel-core/register",
     "mkdir": "mkdir -p public",
     "build": "npm run clean && npm run mkdir && npm run build:html && npm run build:css && npm run build:js",
@@ -29,6 +29,7 @@
     "clean:js": "rimraf public/$npm_package_name.$npm_package_version.js public/$npm_package_name.$npm_package_version.js.map"
   },
   "dependencies": {
+    "axios": "^0.15.3",
     "babel-cli": "^6.23.0",
     "babel-core": "^6.23.1",
     "babel-loader": "^6.3.2",

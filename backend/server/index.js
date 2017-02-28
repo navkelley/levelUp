@@ -1,6 +1,7 @@
 import express from 'express';
 import dbconfig from './config/db';
 import middlewaresConfig from './config/middlewares';
+import { UserRoutes } from './modules';
 
 const app = express();
 
@@ -9,6 +10,8 @@ dbconfig();
 
 //middleware
 middlewaresConfig(app);
+
+app.use('/api', [UserRoutes]);
 
 const PORT = process.env.PORT || 8080;
 

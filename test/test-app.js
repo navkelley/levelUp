@@ -18,6 +18,5 @@ describe('YouTube Embed Video', () => {
     result.should.have.property('type');
     expect(result.props).to.be.an('object');
     result.props.should.have.property('children');
-    result.props.children.should.equal('Loading...');
   });
 });

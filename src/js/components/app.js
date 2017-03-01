@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import VideoDetail from './video_detail';
 import VideoList from './video_list';
 import SearchBar from '../containers/search_bar';
-import YouTubeSearch from 'youtube-api-search';
 
 export default class App extends Component {
   constructor(props) {

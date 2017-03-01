@@ -1,46 +1,17 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, hashHistory } from 'react-router';
-import YouTubeSearch from 'youtube-api-search';
-import VideoDetail from './components/video_detail';
-import VideoList from './components/video_list';
-import SearchBar from './containers/search_bar';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import ReduxPromise from 'redux-promise';
 
-const api_key = 'AIzaSyBiZx8Ti_Bajxu-sAFjYHUr-lS4jwReH-0';
+import App from './components/app';
+import reducers from './reducers';
 
-class App extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			videos: [],
-			selectedVideo: null
-		};
-	}
+const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
-	videoSearch(term) {
-		YouTubeSearch({ key: api_key, term }, (videos) => {
-			console.log(videos);
-			this.setState({
-				videos: videos,
-				selectedVideo: videos[0]
-			});
-		});
-	}
-
-	render() {
-		return (
-			<div>
-				<SearchBar videoSearch={term => this.videoSearch(term)} />
-				<VideoDetail video={this.state.selectedVideo} />
-				<VideoList
-					onVideoSelect={selectedVideo => this.setState({ selectedVideo })}
-					videos={this.state.videos}
-				/>
-			</div>
-		);
-	}
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-	ReactDOM.render(<App />, document.getElementById('app'));
-});
+ReactDOM.render(
+	<Provider store={createStoreWithMiddleware(reducers)}>
+		<App />
+	</Provider>
+	, document.getElementById('app'));

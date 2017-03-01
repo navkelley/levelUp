@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { youTubeSearch } from '../actions/youtube';
 
 //need action for search
 
@@ -7,29 +10,36 @@ class SearchBar extends Component {
 		super();
 
 		this.state = { term: '' };
+		this.submitSearch = this.submitSearch.bind(this);
 	}
 
-	_changeTerm = e => {
+	changeTerm = e => {
 		this.setState({ term: e.target.value });
 	}
 
-	_submitSearch = e => {
+	submitSearch = e => {
 		e.preventDefault();
-		this.props.videoSearch(this.state.term);
+		this.props.youTubeSearch(this.state.term);
 		this.setState({ term: '' });
 	}
 
 	render() {
 		return (
-			<form onSubmit={this._submitSearch}>
+			<form id="search" onSubmit={this.submitSearch}>
 				<input
 					placeholder="Find videos on your favorite game"
 					value={this.state.term}
-					onChange={this._changeTerm}
+					onChange={this.changeTerm}
 				/>
+				<span className="input-btn">
+					<button type="submit" className="submit-btn">Submit</button>
+				</span>
 			</form>
 		);
 	}
 }
 
-export default SearchBar;
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators({ youTubeSearch }, dispatch);
+}
+export default connect(null, mapDispatchToProps)(SearchBar);

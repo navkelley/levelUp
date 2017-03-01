@@ -2,7 +2,7 @@ import React from 'react';
 
 const VideoDetail = ({ video }) => {
 	if (!video) {
-		return <div>No video yet</div>;
+		return <div>You have not conducted a search yet, type the name of your favorite game in the search box to get started.</div>;
 	}
 
 	const videoId = video.id.videoId;

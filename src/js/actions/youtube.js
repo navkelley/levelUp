@@ -11,7 +11,7 @@ export function youTubeSearch(term) {
 	console.log("Request:", request);
 
 	return {
-		type: youTubeSearch,
+		type: YouTube_Search,
 		payload: request
 	};
 }

@@ -13,20 +13,10 @@ export default class App extends Component {
     };
   }
 
-  /*videoSearch(term) {
-    YouTubeSearch({ key: api_key, term }, (videos) => {
-      console.log(videos);
-      this.setState({
-        videos: videos,
-        selectedVideo: videos[0]
-      });
-    });
-  }*/
-
   render() {
     return (
       <div>
-        <SearchBar videoSearch={this.videoSearch} />
+        <SearchBar />
         <VideoDetail video={this.state.selectedVideo} />
         <VideoList
           onVideoSelect={selectedVideo => this.setState({ selectedVideo })}

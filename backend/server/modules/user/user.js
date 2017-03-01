@@ -10,7 +10,7 @@ const UserSchema = new mongoose.Schema({
   name: {type: String}
 });
 
-const User = module.exports = mongoose.model("User", UserSchema);
+const User = module.exports = mongoose.model('User', UserSchema);
 
 module.exports.createUser = (newUser, callback) => {
     bcrypt.genSalt(10, (err, salt) => {

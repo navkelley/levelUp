@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import BabelPoly from 'babel-polyfill';
 import { Router, Route, hashHistory } from 'react-router';
 import YouTubeSearch from 'youtube-api-search';
 import VideoDetail from './components/video_detail';
 import VideoList from './components/video_list';
+import SearchBar from './containers/search_bar';
 
 const api_key = 'AIzaSyBiZx8Ti_Bajxu-sAFjYHUr-lS4jwReH-0';
 
@@ -15,11 +15,10 @@ class App extends Component {
 			videos: [],
 			selectedVideo: null
 		};
-		this.videoSearch();
 	}
 
-	videoSearch() {
-		YouTubeSearch({ key: api_key, term: 'doberman pinscher' }, (videos) => {
+	videoSearch(term) {
+		YouTubeSearch({ key: api_key, term }, (videos) => {
 			console.log(videos);
 			this.setState({
 				videos: videos,
@@ -31,7 +30,7 @@ class App extends Component {
 	render() {
 		return (
 			<div>
-				{this.videoSearch}
+				<SearchBar videoSearch={term => this.videoSearch(term)} />
 				<VideoDetail video={this.state.selectedVideo} />
 				<VideoList
 					onVideoSelect={selectedVideo => this.setState({ selectedVideo })}

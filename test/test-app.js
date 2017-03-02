@@ -4,7 +4,7 @@ import * as Chai from 'chai';
 let should = Chai.should();
 let expect = Chai.expect;
 
-import VideoDetail from '../js/components/video_detail';
+import VideoDetail from '../src/js/components/video_detail';
 //TODO: need to update once get twitch added!!!!!
 
 describe('YouTube Embed Video', () => {

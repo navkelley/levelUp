@@ -13965,7 +13965,7 @@ var _reducer_twitch2 = _interopRequireDefault(_reducer_twitch);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var rootReducer = (0, _redux.combineReducers)({
-  youTube: _reducer_youtube2.default
+  videos: _reducer_youtube2.default
 });
 
 exports.default = rootReducer;
@@ -15037,30 +15037,29 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var VideoListItem = function VideoListItem(_ref) {
-	var video = _ref.video,
-	    onVideoSelect = _ref.onVideoSelect;
-
+var VideoListItem = function VideoListItem(props) {
 	return _react2.default.createElement(
-		'li',
-		{ onClick: function onClick() {
-				return onVideoSelect(video);
-			}, className: 'list-group-item' },
+		'tr',
+		null,
 		_react2.default.createElement(
-			'div',
-			{ className: 'video-list media row' },
+			'td',
+			{ /*onClick={() => onVideoSelect(video)}*/className: 'list-group-item' },
 			_react2.default.createElement(
 				'div',
-				{ className: 'media-left col-3' },
-				_react2.default.createElement('img', { alt: 'video', className: 'media-object' /*src=*/ })
-			),
-			_react2.default.createElement(
-				'div',
-				{ className: 'media-body col-3' },
+				{ className: 'video-list media row' },
 				_react2.default.createElement(
 					'div',
-					{ className: 'media-heading' },
-					'Title'
+					{ className: 'media-left col-3' },
+					_react2.default.createElement('img', { alt: 'video', className: 'media-object', src: props.src })
+				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'media-body col-3' },
+					_react2.default.createElement(
+						'div',
+						{ className: 'media-heading' },
+						props.title
+					)
 				)
 			)
 		)
@@ -31320,6 +31319,8 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(4);
@@ -31350,20 +31351,68 @@ var VideoList = function (_Component) {
 	}
 
 	_createClass(VideoList, [{
+		key: 'renderVideo',
+		value: function renderVideo(videoData) {
+			//think need loop to go through each video
+			var _iteratorNormalCompletion = true;
+			var _didIteratorError = false;
+			var _iteratorError = undefined;
+
+			try {
+				for (var _iterator = Object.entries(videoData.items.map(function (items) {
+					return videoData.items.snippet;
+				}))[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+					var _step$value = _slicedToArray(_step.value, 1),
+					    _videoData = _step$value[0];
+
+					console.log(_videoData);
+				}
+			} catch (err) {
+				_didIteratorError = true;
+				_iteratorError = err;
+			} finally {
+				try {
+					if (!_iteratorNormalCompletion && _iterator.return) {
+						_iterator.return();
+					}
+				} finally {
+					if (_didIteratorError) {
+						throw _iteratorError;
+					}
+				}
+			}
+
+			return _react2.default.createElement(_video_list_item2.default, {
+				key: videoData.items[1].etag
+
+			});
+		}
+	}, {
 		key: 'render',
 		value: function render() {
-			return _react2.default.createElement(_video_list_item2.default, null)
-			//onVideoSelect={props.onVideoSelect}
-			//key={videos.id.videoId}
-			//video={videos}
-			;
+			return _react2.default.createElement(
+				'table',
+				{ className: 'video-table' },
+				_react2.default.createElement(
+					'tbody',
+					null,
+					this.props.videos.map(this.renderVideo)
+				)
+			);
 		}
 	}]);
 
 	return VideoList;
 }(_react.Component);
 
-exports.default = VideoList;
+function mapStateToProps(_ref) {
+	var videos = _ref.videos;
+
+	//when have key:value that are ident can reduce to just one
+	return { videos: videos };
+}
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(VideoList);
 
 /***/ })
 /******/ ]);

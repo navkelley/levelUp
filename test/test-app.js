@@ -1,10 +1,11 @@
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 import * as Chai from 'chai';
-let should = Chai.should();
-let expect = Chai.expect;
-
 import VideoDetail from '../src/js/components/video_detail';
+
+const should = Chai.should();
+const expect = Chai.expect;
+
 //TODO: need to update once get twitch added!!!!!
 
 describe('YouTube Embed Video', () => {

@@ -3,7 +3,7 @@ import YouTube_Search from './reducer_youtube';
 import Twitch_Search from './reducer_twitch';
 
 const rootReducer = combineReducers({
-	youTube: YouTube_Search,
+	videos: YouTube_Search,
   //twitch: Twitch_Search
 });
 

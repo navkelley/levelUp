@@ -20,7 +20,7 @@ class SearchBar extends Component {
 	submitSearch = e => {
 		e.preventDefault();
 		this.props.youTubeSearch(this.state.term);
-		this.props.twitchSearch(this.state.term);
+		//this.props.twitchSearch(this.state.term);
 		this.setState({ term: '' });
 	}
 

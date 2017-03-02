@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const apiKey = '457ing4rfzq3kh5y0chj63wvmyylb5';
-const rootUrl = `https://api.twitch.tv/kraken/channel/${apiKey}`;
+const clientId = '457ing4rfzq3kh5y0chj63wvmyylb5';
+const rootUrl = `https://api.twitch.tv/kraken/channel/${clientId}`;
 
 export const Twitch_Search = 'Twitch_Search';
 

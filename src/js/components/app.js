@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import VideoDetail from './video_detail';
-import VideoList from './video_list';
+import VideoList from '../containers/video_list';
 import SearchBar from '../containers/search_bar';
 
 export default class App extends Component {

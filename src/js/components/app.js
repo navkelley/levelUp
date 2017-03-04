@@ -17,7 +17,7 @@ export default class App extends Component {
         <SearchBar />
         <VideoDetail video={this.state.selectedVideo} />
         <VideoList
-          //onVideoSelect={selectedVideo => this.setState({ selectedVideo })}
+          onVideoSelect={selectedVideo => this.setState({ selectedVideo })}
         />
       </div>
     );

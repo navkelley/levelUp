@@ -10,6 +10,7 @@ export function youTubeSearch(term) {
   const request = new Promise((resolve, reject) => {
     axios.get(url)
       .then(res => {
+        console.log(res);
         const data = res.data;
         const videos = data.items;
         resolve(videos);

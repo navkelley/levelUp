@@ -9097,7 +9097,7 @@ module.exports = function bind(fn, thisArg) {
 
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+  value: true
 });
 exports.YouTube_Search = undefined;
 exports.youTubeSearch = youTubeSearch;
@@ -9114,14 +9114,22 @@ var rootUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&key=' +
 var YouTube_Search = exports.YouTube_Search = 'Youtube_Search';
 
 function youTubeSearch(term) {
-	var url = rootUrl + '&q=' + term + '&r=json';
-	var request = _axios2.default.get(url);
-	console.log("Request:", request);
+  var url = rootUrl + '&q=' + term + '&r=json';
+  var request = new Promise(function (resolve, reject) {
+    _axios2.default.get(url).then(function (res) {
+      var data = res.data;
+      var videos = data.items;
+      resolve(videos);
+    }).catch(function (err) {
+      return reject(err);
+    });
+  });
+  console.log("Request:", request);
 
-	return {
-		type: YouTube_Search,
-		payload: request
-	};
+  return {
+    type: YouTube_Search,
+    payload: request
+  };
 }
 
 /***/ }),
@@ -13910,7 +13918,6 @@ var App = function (_Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
     _this.state = {
-      videos: [],
       selectedVideo: null
     };
     return _this;
@@ -13919,19 +13926,14 @@ var App = function (_Component) {
   _createClass(App, [{
     key: 'render',
     value: function render() {
-      var _this2 = this;
-
       return _react2.default.createElement(
         'div',
         null,
         _react2.default.createElement(_search_bar2.default, null),
         _react2.default.createElement(_video_detail2.default, { video: this.state.selectedVideo }),
-        _react2.default.createElement(_video_list2.default, {
-          onVideoSelect: function onVideoSelect(selectedVideo) {
-            return _this2.setState({ selectedVideo: selectedVideo });
-          },
-          videos: this.state.videos
-        })
+        _react2.default.createElement(_video_list2.default
+        //onVideoSelect={selectedVideo => this.setState({ selectedVideo })}
+        , null)
       );
     }
   }]);
@@ -15037,20 +15039,26 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var VideoListItem = function VideoListItem(props) {
+var VideoListItem = function VideoListItem(_ref) {
+	var video = _ref.video,
+	    onVideoSelect = _ref.onVideoSelect;
+
+	var imageUrl = video.snippet.thumbnails.default.url;
 	return _react2.default.createElement(
 		'tr',
 		null,
 		_react2.default.createElement(
 			'td',
-			{ /*onClick={() => onVideoSelect(video)}*/className: 'list-group-item' },
+			{ onClick: function onClick() {
+					return onVideoSelect(video);
+				}, className: 'list-group-item' },
 			_react2.default.createElement(
 				'div',
 				{ className: 'video-list media row' },
 				_react2.default.createElement(
 					'div',
 					{ className: 'media-left col-3' },
-					_react2.default.createElement('img', { alt: 'video', className: 'media-object', src: props.src })
+					_react2.default.createElement('img', { alt: 'video', className: 'media-object', src: imageUrl })
 				),
 				_react2.default.createElement(
 					'div',
@@ -15058,7 +15066,7 @@ var VideoListItem = function VideoListItem(props) {
 					_react2.default.createElement(
 						'div',
 						{ className: 'media-heading' },
-						props.title
+						video.snippet.title
 					)
 				)
 			)
@@ -15175,19 +15183,23 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _youtube = __webpack_require__(82);
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 exports.default = function () {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments[1];
 
+  var data = action.payload;
+  console.log("in the reducer:", data);
   switch (action.type) {
     case _youtube.YouTube_Search:
-      return [action.payload.data];
+      return [data].concat(_toConsumableArray(state));
+    default:
+      return state;
   }
-  console.log("action recieved:", action);
-  return state;
 };
-
-var _youtube = __webpack_require__(82);
 
 /***/ }),
 /* 161 */
@@ -31319,8 +31331,6 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(4);
@@ -31353,37 +31363,9 @@ var VideoList = function (_Component) {
 	_createClass(VideoList, [{
 		key: 'renderVideo',
 		value: function renderVideo(videoData) {
-			//think need loop to go through each video
-			var _iteratorNormalCompletion = true;
-			var _didIteratorError = false;
-			var _iteratorError = undefined;
-
-			try {
-				for (var _iterator = Object.entries(videoData.items.map(function (items) {
-					return videoData.items.snippet;
-				}))[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-					var _step$value = _slicedToArray(_step.value, 1),
-					    _videoData = _step$value[0];
-
-					console.log(_videoData);
-				}
-			} catch (err) {
-				_didIteratorError = true;
-				_iteratorError = err;
-			} finally {
-				try {
-					if (!_iteratorNormalCompletion && _iterator.return) {
-						_iterator.return();
-					}
-				} finally {
-					if (_didIteratorError) {
-						throw _iteratorError;
-					}
-				}
-			}
 
 			return _react2.default.createElement(_video_list_item2.default, {
-				key: videoData.items[1].etag
+				key: etag
 
 			});
 		}
@@ -31393,11 +31375,7 @@ var VideoList = function (_Component) {
 			return _react2.default.createElement(
 				'table',
 				{ className: 'video-table' },
-				_react2.default.createElement(
-					'tbody',
-					null,
-					this.props.videos.map(this.renderVideo)
-				)
+				_react2.default.createElement('tbody', null)
 			);
 		}
 	}]);
@@ -31408,6 +31386,7 @@ var VideoList = function (_Component) {
 function mapStateToProps(_ref) {
 	var videos = _ref.videos;
 
+	console.log("mapping:", videos);
 	//when have key:value that are ident can reduce to just one
 	return { videos: videos };
 }

@@ -7,7 +7,15 @@ export const YouTube_Search = 'Youtube_Search';
 
 export function youTubeSearch(term) {
 	const url = `${rootUrl}&q=${term}&r=json`;
-	const request = axios.get(url);
+  const request = new Promise((resolve, reject) => {
+    axios.get(url)
+      .then(res => {
+        const data = res.data;
+        const videos = data.items;
+        resolve(videos);
+      })
+      .catch(err => reject(err));
+  });
 	console.log("Request:", request);
 
 	return {

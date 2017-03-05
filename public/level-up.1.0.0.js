@@ -18348,7 +18348,7 @@ var TwitchVideoDetail = function TwitchVideoDetail(_ref) {
   }
   var name = stream.channel.name;
 
-  var url = "http://player.twitch.tv/?channel=" + name;
+  var url = "https://player.twitch.tv/?channel=" + name;
 
   return _react2.default.createElement(
     "div",

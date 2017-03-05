@@ -11748,7 +11748,7 @@ var TwitchApi = exports.TwitchApi = function () {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.prev = 0;
-                url = this.rootUrl + 'streams/?game=' + term + '&client_id=' + this.client;
+                url = this.rootUrl + 'streams/?game=' + term + '&client_id=' + this.client + '&live=true';
                 _context.next = 4;
                 return _axios2.default.get(url);
 

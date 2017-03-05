@@ -37,6 +37,9 @@ img {
 .twitch-gamepad {
   float: right;
 }
+.ytVideo-table {
+  float: left;
+}
 .search-bar,
 .submit-btn {
   text-align: center;

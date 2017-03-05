@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import YouTubeVideoDetail from './youtube/youtube_video_detail';
 import YouTubeVideoList from '../containers/youtube_video_list';
 import SearchBar from '../containers/search_bar';

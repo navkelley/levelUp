@@ -1,7 +1,7 @@
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 import * as Chai from 'chai';
-import VideoDetail from '../src/js/components/video_detail';
+import VideoDetail from '../src/js/components/youtube/youtube_video_detail';
 
 const should = Chai.should();
 const expect = Chai.expect;

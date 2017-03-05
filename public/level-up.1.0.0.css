@@ -29,6 +29,14 @@ form {
   width: 100%;
   max-width: 100%;
 }
+img {
+  width: 240px;
+  height: 140px;
+}
+.twitch-streams,
+.twitch-gamepad {
+  float: right;
+}
 .search-bar,
 .submit-btn {
   text-align: center;

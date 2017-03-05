@@ -2,7 +2,7 @@ import React from 'react';
 
 const TwitchVideoDetail = ({ stream }) => {
   if (!stream) {
-    return <div>Click on a Twitch Stream to view it</div>;
+    return <i className="fa fa-gamepad fa-3x twitch-gamepad" aria-hidden="true"></i>;
   }
   const { name } = stream.channel;
   const url = `https://player.twitch.tv/?channel=${name}`;

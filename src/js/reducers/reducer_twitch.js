@@ -5,7 +5,7 @@ export default (state = [], action) => {
   console.log("in the reducer-twitch:", data);
   switch (action.type) {
     case TWITCH_SEARCH:
-      return data;
+      return [data, ...state];
     default: return state;
   }
 };

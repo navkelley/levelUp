@@ -4,7 +4,7 @@ import TWITCH_SEARCH from './reducer_twitch';
 
 const rootReducer = combineReducers({
 	videos: YOUTUBE_SEARCH,
-  witch: TWITCH_SEARCH
+  twitch: TWITCH_SEARCH
 });
 
 export default rootReducer;

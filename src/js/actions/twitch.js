@@ -6,9 +6,10 @@ const twitchApi = new TwitchApi();
 
 export const twitchSearch = term => async dispatch => {
   const data = await twitchApi.twitchSearch(term);
+  console.log("twitch data:", data);
 
   return dispatch({
     type: TWITCH_SEARCH,
-    data
+    payload: data
   });
 };

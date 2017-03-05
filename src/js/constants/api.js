@@ -8,7 +8,7 @@ export class TwitchApi {
 
   async twitchSearch(term) {
     try {
-      const url = `${this.rootUrl}/search/games?type=suggest&live=true&query=${term.toLowerCase().trim()}&${this.client}`;
+      const url = `${this.rootUrl}streams/?game=${term}&client_id=${this.client}`;
       const { data } = await axios.get(url);
       return data;
     } catch (e) {
@@ -17,6 +17,19 @@ export class TwitchApi {
   }
 }
 
-/*export class YoutubeApi {
+export class YouTubeApi {
+  constructor() {
+    this.key = 'AIzaSyBiZx8Ti_Bajxu-sAFjYHUr-lS4jwReH-0';
+    this.rootUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${this.key}`;
+  }
 
-}*/
+  async youTubeSearch(term) {
+    try {
+      const url = `${this.rootUrl}&q=${term}&r=json`;
+      const { data } = await axios.get(url);
+      return data;
+    } catch (e) {
+      console.log(e);
+    }
+  }
+}

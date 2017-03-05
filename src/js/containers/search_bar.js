@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { youTubeSearch } from '../actions/youtube';
+import { twitchSearch } from '../actions/twitch';
 
 //need action for search
 
@@ -20,8 +21,8 @@ class SearchBar extends Component {
 	submitSearch = e => {
 		e.preventDefault();
 		this.props.youTubeSearch(this.state.term);
-		//this.props.twitchSearch(this.state.term);
-		this.setState({ term: '' });
+		this.props.twitchSearch(this.state.term);
+		//this.setState({ term: '' });
 	}
 
 	render() {
@@ -41,6 +42,6 @@ class SearchBar extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-	return bindActionCreators({ youTubeSearch }, dispatch);
+	return bindActionCreators({ youTubeSearch, twitchSearch }, dispatch);
 }
 export default connect(null, mapDispatchToProps)(SearchBar);

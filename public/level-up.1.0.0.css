@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=VT323');
 body {
   font-family: "VT323", sans-serif;
+  background-image: url('images/link.jpg');
 }
 li {
   list-style-type: none;
@@ -36,6 +37,8 @@ img {
 .twitch-streams,
 .twitch-gamepad {
   float: right;
+  marging-left: 0;
+  margin-top: -40px;
 }
 .ytVideo-table {
   float: left;

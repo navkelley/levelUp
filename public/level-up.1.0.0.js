@@ -18289,7 +18289,7 @@ var App = function (_Component) {
         _react2.default.createElement(
           'h1',
           null,
-          'Level Up'
+          _react2.default.createElement('img', { src: '../../../images/level-up.png' })
         ),
         _react2.default.createElement(_search_bar2.default, null),
         _react2.default.createElement(_youtube_video_detail2.default, { video: this.state.selectedVideo }),

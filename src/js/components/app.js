@@ -19,7 +19,9 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <h1>Level Up</h1>
+        <h1>
+          <img src="../../../images/level-up.png" />
+        </h1>
         <SearchBar />
         <YouTubeVideoDetail video={this.state.selectedVideo} />
         <YouTubeVideoList

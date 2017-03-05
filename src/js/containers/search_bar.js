@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+
 import { youTubeSearch } from '../actions/youtube';
 import { twitchSearch } from '../actions/twitch';
-
-//need action for search
 
 class SearchBar extends Component {
 	constructor() {

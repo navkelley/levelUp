@@ -1,6 +1,6 @@
 import React from 'react';
 
-const VideoListItem = ({ video, onVideoSelect }) => {
+const YouTubeVideoListItem = ({ video, onVideoSelect }) => {
 	const { url } = video.snippet.thumbnails.default;
 	return (
 		<tr>
@@ -18,4 +18,4 @@ const VideoListItem = ({ video, onVideoSelect }) => {
 	);
 };
 
-export default VideoListItem;
+export default YouTubeVideoListItem;

@@ -17767,13 +17767,13 @@ var _react = __webpack_require__(10);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _video_detail = __webpack_require__(264);
+var _youtube_video_detail = __webpack_require__(602);
 
-var _video_detail2 = _interopRequireDefault(_video_detail);
+var _youtube_video_detail2 = _interopRequireDefault(_youtube_video_detail);
 
-var _video_list = __webpack_require__(268);
+var _youtube_video_list = __webpack_require__(599);
 
-var _video_list2 = _interopRequireDefault(_video_list);
+var _youtube_video_list2 = _interopRequireDefault(_youtube_video_list);
 
 var _search_bar = __webpack_require__(267);
 
@@ -17810,8 +17810,8 @@ var App = function (_Component) {
         'div',
         null,
         _react2.default.createElement(_search_bar2.default, null),
-        _react2.default.createElement(_video_detail2.default, { video: this.state.selectedVideo }),
-        _react2.default.createElement(_video_list2.default, {
+        _react2.default.createElement(_youtube_video_detail2.default, { video: this.state.selectedVideo }),
+        _react2.default.createElement(_youtube_video_list2.default, {
           onVideoSelect: function onVideoSelect(selectedVideo) {
             return _this2.setState({ selectedVideo: selectedVideo });
           }
@@ -17826,130 +17826,8 @@ var App = function (_Component) {
 exports.default = App;
 
 /***/ }),
-/* 264 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _react = __webpack_require__(10);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var VideoDetail = function VideoDetail(_ref) {
-	var video = _ref.video;
-
-	if (!video) {
-		return _react2.default.createElement(
-			'div',
-			null,
-			'You have not conducted a search yet, type the name of your favorite game in the search box to get started.'
-		);
-	}
-
-	var videoId = video.id.videoId;
-	var url = 'https://www.youtube.com/embed/' + videoId;
-
-	return _react2.default.createElement(
-		'div',
-		{ className: 'video-detail col-6' },
-		_react2.default.createElement(
-			'div',
-			{ className: 'embed' },
-			_react2.default.createElement('iframe', { className: 'embed-item', src: url })
-		),
-		_react2.default.createElement(
-			'div',
-			{ className: 'details' },
-			_react2.default.createElement(
-				'div',
-				null,
-				_react2.default.createElement(
-					'strong',
-					null,
-					'Title:'
-				),
-				' ',
-				video.snippet.title
-			),
-			_react2.default.createElement(
-				'div',
-				null,
-				_react2.default.createElement(
-					'strong',
-					null,
-					'Description:'
-				),
-				' ',
-				video.snippet.description
-			)
-		)
-	);
-};
-
-exports.default = VideoDetail;
-
-/***/ }),
-/* 265 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _react = __webpack_require__(10);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var VideoListItem = function VideoListItem(_ref) {
-	var video = _ref.video,
-	    onVideoSelect = _ref.onVideoSelect;
-	var url = video.snippet.thumbnails.default.url;
-
-	return _react2.default.createElement(
-		'tr',
-		null,
-		_react2.default.createElement(
-			'td',
-			{ onClick: function onClick() {
-					return onVideoSelect(video);
-				}, className: 'list-group-item' },
-			_react2.default.createElement(
-				'div',
-				{ className: 'video-list media row' },
-				_react2.default.createElement(
-					'div',
-					{ className: 'media-left col-3' },
-					_react2.default.createElement('img', { alt: 'video', className: 'media-object', src: url })
-				),
-				_react2.default.createElement(
-					'div',
-					{ className: 'media-body col-3' },
-					_react2.default.createElement(
-						'div',
-						{ className: 'media-heading' },
-						video.snippet.title
-					)
-				)
-			)
-		)
-	);
-};
-
-exports.default = VideoListItem;
-
-/***/ }),
+/* 264 */,
+/* 265 */,
 /* 266 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18112,8 +17990,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-//need action for search
-
 var SearchBar = function (_Component) {
 	_inherits(SearchBar, _Component);
 
@@ -18171,81 +18047,7 @@ function mapDispatchToProps(dispatch) {
 exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps)(SearchBar);
 
 /***/ }),
-/* 268 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(10);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRedux = __webpack_require__(151);
-
-var _video_list_item = __webpack_require__(265);
-
-var _video_list_item2 = _interopRequireDefault(_video_list_item);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var VideoList = function (_Component) {
-	_inherits(VideoList, _Component);
-
-	function VideoList() {
-		_classCallCheck(this, VideoList);
-
-		return _possibleConstructorReturn(this, (VideoList.__proto__ || Object.getPrototypeOf(VideoList)).apply(this, arguments));
-	}
-
-	_createClass(VideoList, [{
-		key: 'render',
-		value: function render() {
-			var _this2 = this;
-
-			return _react2.default.createElement(
-				'div',
-				null,
-				_react2.default.createElement(
-					'table',
-					{ className: 'video-table' },
-					_react2.default.createElement(
-						'tbody',
-						null,
-						this.props.videos.map(function (video) {
-							return _react2.default.createElement(_video_list_item2.default, { onVideoSelect: _this2.props.onVideoSelect, video: video, key: video.etag });
-						})
-					)
-				)
-			);
-		}
-	}]);
-
-	return VideoList;
-}(_react.Component);
-
-function mapStateToProps(_ref) {
-	var videos = _ref.videos;
-
-	//when have key:value that are ident can reduce to just one
-	return { videos: videos };
-}
-
-exports.default = (0, _reactRedux.connect)(mapStateToProps)(VideoList);
-
-/***/ }),
+/* 268 */,
 /* 269 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -38406,6 +38208,210 @@ module.exports = function(module) {
 __webpack_require__(244);
 module.exports = __webpack_require__(243);
 
+
+/***/ }),
+/* 599 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(10);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(151);
+
+var _youtube_video_list_item = __webpack_require__(601);
+
+var _youtube_video_list_item2 = _interopRequireDefault(_youtube_video_list_item);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var YouTubeVideoList = function (_Component) {
+	_inherits(YouTubeVideoList, _Component);
+
+	function YouTubeVideoList() {
+		_classCallCheck(this, YouTubeVideoList);
+
+		return _possibleConstructorReturn(this, (YouTubeVideoList.__proto__ || Object.getPrototypeOf(YouTubeVideoList)).apply(this, arguments));
+	}
+
+	_createClass(YouTubeVideoList, [{
+		key: 'render',
+		value: function render() {
+			var _this2 = this;
+
+			return _react2.default.createElement(
+				'div',
+				null,
+				_react2.default.createElement(
+					'table',
+					{ className: 'video-table' },
+					_react2.default.createElement(
+						'tbody',
+						null,
+						this.props.videos.map(function (video) {
+							return _react2.default.createElement(_youtube_video_list_item2.default, {
+								onVideoSelect: _this2.props.onVideoSelect,
+								video: video,
+								key: video.etag
+							});
+						})
+					)
+				)
+			);
+		}
+	}]);
+
+	return YouTubeVideoList;
+}(_react.Component);
+
+function mapStateToProps(_ref) {
+	var videos = _ref.videos;
+
+	//when have key:value that are ident can reduce to just one
+	return { videos: videos };
+}
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(YouTubeVideoList);
+
+/***/ }),
+/* 600 */,
+/* 601 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _react = __webpack_require__(10);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var YouTubeVideoListItem = function YouTubeVideoListItem(_ref) {
+	var video = _ref.video,
+	    onVideoSelect = _ref.onVideoSelect;
+	var url = video.snippet.thumbnails.default.url;
+
+	return _react2.default.createElement(
+		'tr',
+		null,
+		_react2.default.createElement(
+			'td',
+			{ onClick: function onClick() {
+					return onVideoSelect(video);
+				}, className: 'list-group-item' },
+			_react2.default.createElement(
+				'div',
+				{ className: 'video-list media row' },
+				_react2.default.createElement(
+					'div',
+					{ className: 'media-left col-3' },
+					_react2.default.createElement('img', { alt: 'video', className: 'media-object', src: url })
+				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'media-body col-3' },
+					_react2.default.createElement(
+						'div',
+						{ className: 'media-heading' },
+						video.snippet.title
+					)
+				)
+			)
+		)
+	);
+};
+
+exports.default = YouTubeVideoListItem;
+
+/***/ }),
+/* 602 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _react = __webpack_require__(10);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var YouTubeVideoDetail = function YouTubeVideoDetail(_ref) {
+	var video = _ref.video;
+
+	if (!video) {
+		return _react2.default.createElement(
+			'div',
+			null,
+			'You have not conducted a search yet, type the name of your favorite game in the search box to get started.'
+		);
+	}
+
+	var videoId = video.id.videoId;
+	var url = 'https://www.youtube.com/embed/' + videoId;
+
+	return _react2.default.createElement(
+		'div',
+		{ className: 'video-detail col-6' },
+		_react2.default.createElement(
+			'div',
+			{ className: 'embed' },
+			_react2.default.createElement('iframe', { className: 'embed-item', src: url })
+		),
+		_react2.default.createElement(
+			'div',
+			{ className: 'details' },
+			_react2.default.createElement(
+				'div',
+				null,
+				_react2.default.createElement(
+					'strong',
+					null,
+					'Title:'
+				),
+				' ',
+				video.snippet.title
+			),
+			_react2.default.createElement(
+				'div',
+				null,
+				_react2.default.createElement(
+					'strong',
+					null,
+					'Description:'
+				),
+				' ',
+				video.snippet.description
+			)
+		)
+	);
+};
+
+exports.default = YouTubeVideoDetail;
 
 /***/ })
 /******/ ]);

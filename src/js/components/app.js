@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import VideoDetail from './video_detail';
-import VideoList from '../containers/video_list';
+import YouTubeVideoDetail from './youtube/youtube_video_detail';
+import YouTubeVideoList from '../containers/youtube_video_list';
 import SearchBar from '../containers/search_bar';
 
 export default class App extends Component {
@@ -15,8 +15,8 @@ export default class App extends Component {
     return (
       <div>
         <SearchBar />
-        <VideoDetail video={this.state.selectedVideo} />
-        <VideoList
+        <YouTubeVideoDetail video={this.state.selectedVideo} />
+        <YouTubeVideoList
           onVideoSelect={selectedVideo => this.setState({ selectedVideo })}
         />
       </div>

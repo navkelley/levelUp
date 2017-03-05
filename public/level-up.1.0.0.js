@@ -11139,7 +11139,7 @@ var youtubeApi = new _api.YouTubeApi();
 var youTubeSearch = exports.youTubeSearch = function youTubeSearch(term) {
   return function () {
     var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(dispatch) {
-      var data;
+      var data, videos;
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -11149,15 +11149,16 @@ var youTubeSearch = exports.youTubeSearch = function youTubeSearch(term) {
 
             case 2:
               data = _context.sent;
+              videos = data.items;
 
-              console.log("youtube data:", data);
+              console.log("youtube data:", videos);
 
               return _context.abrupt('return', dispatch({
                 type: YOUTUBE_SEARCH,
-                payload: data
+                payload: videos
               }));
 
-            case 5:
+            case 6:
             case 'end':
               return _context.stop();
           }
@@ -17716,7 +17717,7 @@ var twitchApi = new _api.TwitchApi();
 var twitchSearch = exports.twitchSearch = function twitchSearch(term) {
   return function () {
     var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(dispatch) {
-      var data;
+      var data, streams;
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -17726,15 +17727,16 @@ var twitchSearch = exports.twitchSearch = function twitchSearch(term) {
 
             case 2:
               data = _context.sent;
+              streams = data.streams;
 
-              console.log("twitch data:", data);
+              console.log("twitch data:", streams);
 
               return _context.abrupt('return', dispatch({
                 type: TWITCH_SEARCH,
-                payload: data
+                payload: streams
               }));
 
-            case 5:
+            case 6:
             case 'end':
               return _context.stop();
           }

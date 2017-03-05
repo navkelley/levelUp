@@ -6,10 +6,11 @@ const youtubeApi = new YouTubeApi();
 
 export const youTubeSearch = term => async dispatch => {
   const data = await youtubeApi.youTubeSearch(term);
-  console.log("youtube data:", data);
+  const videos = data.items;
+  console.log("youtube data:", videos);
 
   return dispatch({
     type: YOUTUBE_SEARCH,
-    payload: data
+    payload: videos
   });
 };

@@ -18398,7 +18398,7 @@ var TwitchVideoListItem = function TwitchVideoListItem(_ref) {
         }, className: 'list-group-item' },
       _react2.default.createElement(
         'div',
-        { className: 'video-list media row' },
+        { className: 'twitch-media-row' },
         _react2.default.createElement(
           'div',
           { className: 'media-left col-3' },
@@ -18453,7 +18453,7 @@ var YouTubeVideoDetail = function YouTubeVideoDetail(_ref) {
 
 	return _react2.default.createElement(
 		'div',
-		{ className: 'video-detail col-6' },
+		{ className: 'video-detail' },
 		_react2.default.createElement(
 			'div',
 			{ className: 'embed' },
@@ -18522,7 +18522,7 @@ var YouTubeVideoListItem = function YouTubeVideoListItem(_ref) {
 				}, className: 'list-group-item' },
 			_react2.default.createElement(
 				'div',
-				{ className: 'video-list media row' },
+				{ className: 'youtube-media-row' },
 				_react2.default.createElement(
 					'div',
 					{ className: 'media-left col-3' },
@@ -18605,20 +18605,24 @@ var SearchBar = function (_Component) {
 		key: 'render',
 		value: function render() {
 			return _react2.default.createElement(
-				'form',
-				{ id: 'search', onSubmit: this.submitSearch },
-				_react2.default.createElement('input', {
-					placeholder: 'Find videos on your favorite game',
-					value: this.state.term,
-					onChange: this.changeTerm
-				}),
+				'div',
+				{ className: 'search-bar' },
 				_react2.default.createElement(
-					'span',
-					{ className: 'input-btn' },
+					'form',
+					{ id: 'search', onSubmit: this.submitSearch },
+					_react2.default.createElement('input', {
+						placeholder: 'Find videos on your favorite game',
+						value: this.state.term,
+						onChange: this.changeTerm
+					}),
 					_react2.default.createElement(
-						'button',
-						{ type: 'submit', className: 'submit-btn' },
-						'Submit'
+						'span',
+						{ className: 'input-btn' },
+						_react2.default.createElement(
+							'button',
+							{ type: 'submit', className: 'submit-btn' },
+							'Submit'
+						)
 					)
 				)
 			);
@@ -18691,7 +18695,7 @@ var TwitchVideoList = function (_Component) {
               return _react2.default.createElement(_twitch_video_list_item2.default, {
                 onStreamSelect: _this2.props.onStreamSelect,
                 stream: stream,
-                key: stream.id
+                key: stream._id
               });
             })
           )

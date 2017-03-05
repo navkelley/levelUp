@@ -5,7 +5,7 @@ const TwitchVideoListItem = ({ stream, onStreamSelect }) => {
   return (
     <tr>
       <td onClick={() => onStreamSelect(stream)} className='list-group-item'>
-        <div className='video-list media row'>
+        <div className='twitch-media-row'>
           <div className='media-left col-3'>
             <img alt="game stream" className='media-object' src={preview} />
           </div>

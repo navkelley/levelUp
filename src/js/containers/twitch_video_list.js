@@ -14,7 +14,7 @@ class TwitchVideoList extends Component {
                 <TwitchVideoListItem
                   onStreamSelect={this.props.onStreamSelect}
                   stream={stream}
-                  key={stream.id}
+                  key={stream._id}
                 />
               );
             })}

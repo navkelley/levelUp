@@ -30,16 +30,39 @@ h1 {
   background-color: #eee;
 }
 
-img, video, audio, iframe, form {
+iframe, form {
   width: 100%;
   max-width: 100%;
 }
 
-input {
+img {
+
+}
+
+.search-bar, .submit-btn {
   text-align: center;
+}
+
+#search {
+  position: relative;
+  display: inline-block;
+}
+
+input {
   width:70%;
   margin-bottom: 20px;
 }
+
+.submit-btn {
+  border-radius: 4px;
+  background-color: #4CAF50;
+  border: none;
+}
+
+.submit-btn:hover {
+  background-color: white;
+  border: 2px solid #4CAF50
+;}
 
 @media only screen and (min-width: 900px) {
   input {

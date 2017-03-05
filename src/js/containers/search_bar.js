@@ -34,7 +34,7 @@ class SearchBar extends Component {
 						onChange={this.changeTerm}
 					/>
 					<span className="input-btn">
-						<button type="submit" className="submit-btn">Submit</button>
+						<button type="submit" className="submit-btn">Submit <i className="fa fa-search" aria-hidden="true"></i></button>
 					</span>
 				</form>
 			</div>

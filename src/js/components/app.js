@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import YouTubeVideoDetail from './youtube/youtube_video_detail';
 import YouTubeVideoList from '../containers/youtube_video_list';
 import SearchBar from '../containers/search_bar';
+import TwitchVideoList from '../containers/twitch_video_list';
+
 
 export default class App extends Component {
   constructor(props) {
@@ -18,6 +20,9 @@ export default class App extends Component {
         <SearchBar />
         <YouTubeVideoDetail video={this.state.selectedVideo} />
         <YouTubeVideoList
+          onVideoSelect={selectedVideo => this.setState({ selectedVideo })}
+        />
+        <TwitchVideoList
           onVideoSelect={selectedVideo => this.setState({ selectedVideo })}
         />
       </div>

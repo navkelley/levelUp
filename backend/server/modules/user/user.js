@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
 
-const ObjectId = mongoose.Schema.ObjectId;
+const OBJECTID = mongoose.Schema.ObjectId;
 
 const UserSchema = new mongoose.Schema({
   username: {type: String, unique: true, required: true, trim: true, index: true},

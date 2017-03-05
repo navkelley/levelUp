@@ -8,16 +8,17 @@ import ReduxPromise from 'redux-promise';
 import App from './components/app';
 import reducers from './reducers';
 
-const isProd = process.env.NODE_ENV === 'production';
+const ISPROD = process.env.NODE_ENV === 'production';
 
-const enhancers = compose(
+//tool for redux dev
+const ENHANCERS = compose(
   applyMiddleware(ReduxPromise),
-  (!isProd && window.devToolsExtension ? window.devToolsExtension() : f => f)
+  (!ISPROD && window.devToolsExtension ? window.devToolsExtension() : f => f)
 );
 console.log(process.env.NODE_ENV);
 
 const store = createStore(
-  reducers, undefined, enhancers
+  reducers, undefined, ENHANCERS
 );
 
 ReactDOM.render(
@@ -25,6 +26,3 @@ ReactDOM.render(
 		<App />
 	</Provider>
 	, document.getElementById('app'));
-
-//TODO: make all component files uppercase first letter
-//redo all const to UPPERCASE

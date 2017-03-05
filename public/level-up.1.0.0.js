@@ -8616,7 +8616,7 @@ module.exports = function bind(fn, thisArg) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.YouTube_Search = undefined;
+exports.YOUTUBE_SEARCH = undefined;
 exports.youTubeSearch = youTubeSearch;
 
 var _axios = __webpack_require__(134);
@@ -8628,7 +8628,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var apiKey = 'AIzaSyBiZx8Ti_Bajxu-sAFjYHUr-lS4jwReH-0';
 var rootUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&key=' + apiKey;
 
-var YouTube_Search = exports.YouTube_Search = 'Youtube_Search';
+var YOUTUBE_SEARCH = exports.YOUTUBE_SEARCH = 'YOUTUBE_SEARCH';
 
 function youTubeSearch(term) {
   var url = rootUrl + '&q=' + term + '&r=json';
@@ -8645,7 +8645,7 @@ function youTubeSearch(term) {
   console.log("Request:", request);
 
   return {
-    type: YouTube_Search,
+    type: YOUTUBE_SEARCH,
     payload: request
   };
 }
@@ -13635,7 +13635,8 @@ var _reducer_twitch2 = _interopRequireDefault(_reducer_twitch);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var rootReducer = (0, _redux.combineReducers)({
-  videos: _reducer_youtube2.default
+  videos: _reducer_youtube2.default,
+  witch: _reducer_twitch2.default
 });
 
 exports.default = rootReducer;
@@ -14914,6 +14915,26 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps)(VideoList);
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _twitch = __webpack_require__(299);
+
+exports.default = function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments[1];
+
+  var data = action.payload;
+  console.log("in the reducer-twitch:", data);
+  switch (action.type) {
+    case _twitch.TWITCH_SEARCH:
+      return data;
+    default:
+      return state;
+  }
+};
+
 /***/ }),
 /* 157 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -14934,7 +14955,7 @@ exports.default = function () {
   var data = action.payload;
   console.log("in the reducer:", data);
   switch (action.type) {
-    case _youtube.YouTube_Search:
+    case _youtube.YOUTUBE_SEARCH:
       return data;
     default:
       return state;
@@ -30053,14 +30074,15 @@ var _reducers2 = _interopRequireDefault(_reducers);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var isProd = "production" === 'production';
+var ISPROD = "production" === 'production';
 
-var enhancers = (0, _redux.compose)((0, _redux.applyMiddleware)(_reduxPromise2.default), !isProd && window.devToolsExtension ? window.devToolsExtension() : function (f) {
+//tool for redux dev
+var ENHANCERS = (0, _redux.compose)((0, _redux.applyMiddleware)(_reduxPromise2.default), !ISPROD && window.devToolsExtension ? window.devToolsExtension() : function (f) {
 		return f;
 });
 console.log("production");
 
-var store = (0, _redux.createStore)(_reducers2.default, undefined, enhancers);
+var store = (0, _redux.createStore)(_reducers2.default, undefined, ENHANCERS);
 
 _reactDom2.default.render(_react2.default.createElement(
 		_reactRedux.Provider,
@@ -30068,8 +30090,138 @@ _reactDom2.default.render(_react2.default.createElement(
 		_react2.default.createElement(_app2.default, null)
 ), document.getElementById('app'));
 
-//TODO: make all component files uppercase first letter
-//redo all const to UPPERCASE
+/***/ }),
+/* 299 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.twitchSearch = exports.TWITCH_SEARCH = undefined;
+
+var _api = __webpack_require__(300);
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+var TWITCH_SEARCH = exports.TWITCH_SEARCH = 'TWITCH_SEARCH';
+
+var twitchApi = new _api.TwitchApi();
+
+var twitchSearch = exports.twitchSearch = function twitchSearch(term) {
+  return function () {
+    var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(dispatch) {
+      var data;
+      return regeneratorRuntime.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return twitchApi.twitchSearch(term);
+
+            case 2:
+              data = _context.sent;
+              return _context.abrupt('return', dispatch({
+                type: TWITCH_SEARCH,
+                data: data
+              }));
+
+            case 4:
+            case 'end':
+              return _context.stop();
+          }
+        }
+      }, _callee, undefined);
+    }));
+
+    return function (_x) {
+      return _ref.apply(this, arguments);
+    };
+  }();
+};
+
+/***/ }),
+/* 300 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.TwitchApi = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _axios = __webpack_require__(134);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var TwitchApi = exports.TwitchApi = function () {
+  function TwitchApi() {
+    _classCallCheck(this, TwitchApi);
+
+    this.client = '457ing4rfzq3kh5y0chj63wvmyylb5';
+    this.rootUrl = 'https://api.twitch.tv/kraken/';
+  }
+
+  _createClass(TwitchApi, [{
+    key: 'twitchSearch',
+    value: function () {
+      var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(term) {
+        var url, _ref2, data;
+
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                url = this.rootUrl + '/search/games?type=suggest&live=true&query=' + term.toLowerCase().trim() + '&' + this.client;
+                _context.next = 4;
+                return _axios2.default.get(url);
+
+              case 4:
+                _ref2 = _context.sent;
+                data = _ref2.data;
+                return _context.abrupt('return', data);
+
+              case 9:
+                _context.prev = 9;
+                _context.t0 = _context['catch'](0);
+
+                console.log(_context.t0);
+
+              case 12:
+              case 'end':
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[0, 9]]);
+      }));
+
+      function twitchSearch(_x) {
+        return _ref.apply(this, arguments);
+      }
+
+      return twitchSearch;
+    }()
+  }]);
+
+  return TwitchApi;
+}();
+
+/*export class YoutubeApi {
+
+}*/
 
 /***/ })
 /******/ ]);

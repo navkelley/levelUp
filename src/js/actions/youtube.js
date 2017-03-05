@@ -3,7 +3,7 @@ import axios from 'axios';
 const apiKey = 'AIzaSyBiZx8Ti_Bajxu-sAFjYHUr-lS4jwReH-0';
 const rootUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${apiKey}`;
 
-export const YouTube_Search = 'Youtube_Search';
+export const YOUTUBE_SEARCH = 'YOUTUBE_SEARCH';
 
 export function youTubeSearch(term) {
 	const url = `${rootUrl}&q=${term}&r=json`;
@@ -20,7 +20,7 @@ export function youTubeSearch(term) {
 	console.log("Request:", request);
 
 	return {
-		type: YouTube_Search,
+		type: YOUTUBE_SEARCH,
 		payload: request
 	};
 }

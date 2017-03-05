@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import YouTube_Search from './reducer_youtube';
-import Twitch_Search from './reducer_twitch';
+import YOUTUBE_SEARCH from './reducer_youtube';
+import TWITCH_SEARCH from './reducer_twitch';
 
 const rootReducer = combineReducers({
-	videos: YouTube_Search,
-  //twitch: Twitch_Search
+	videos: YOUTUBE_SEARCH,
+  witch: TWITCH_SEARCH
 });
 
 export default rootReducer;

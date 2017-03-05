@@ -9,6 +9,11 @@ class YouTubeVideoList extends Component {
 		return (
 			<div>
 				<table className="ytVideo-table">
+					<thead>
+						<tr>
+							<th>YouTube</th>
+						</tr>
+					</thead>
 					<tbody>
 						{this.props.videos.map((video) => {
 							return (

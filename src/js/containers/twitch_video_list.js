@@ -8,6 +8,11 @@ class TwitchVideoList extends Component {
     return (
       <div>
         <table className="twitchVideo-table">
+          <thead>
+            <tr>
+              <th>Twitch</th>
+            </tr>
+          </thead>
           <tbody>
             {this.props.streams.map((stream) => {
               return (

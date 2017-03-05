@@ -18335,32 +18335,26 @@ var TwitchVideoDetail = function TwitchVideoDetail(_ref) {
 
   if (!stream) {
     return _react2.default.createElement(
-      "div",
+      'div',
       null,
-      _react2.default.createElement("iframe", { src: "//giphy.com/embed/l1IY5CmYbirEsXWPm", width: "480", height: "270", frameBorder: "0", className: "giphy-embed", allowFullScreen: true }),
-      _react2.default.createElement(
-        "p",
-        null,
-        _react2.default.createElement("a", { href: "http://giphy.com/gifs/nintendo-mario-switch-l1IY5CmYbirEsXWPm" }),
-        "Click on a Twitch Stream to view it(via GIPHY)."
-      )
+      'Click on a Twitch Stream to view it'
     );
   }
   var name = stream.channel.name;
 
-  var url = "https://player.twitch.tv/?channel=" + name;
+  var url = 'https://player.twitch.tv/?channel=' + name;
 
   return _react2.default.createElement(
-    "div",
-    { className: "video-detail col-6" },
+    'div',
+    { className: 'video-detail col-6' },
     _react2.default.createElement(
-      "div",
-      { className: "embed" },
-      _react2.default.createElement("iframe", {
-        className: "embed-item",
+      'div',
+      { className: 'embed' },
+      _react2.default.createElement('iframe', {
+        className: 'embed-item',
         src: url,
-        height: "720",
-        width: "1280"
+        height: '720',
+        width: '1280'
       })
     )
   );
@@ -18684,6 +18678,19 @@ var TwitchVideoList = function (_Component) {
           'table',
           { className: 'twitchVideo-table' },
           _react2.default.createElement(
+            'thead',
+            null,
+            _react2.default.createElement(
+              'tr',
+              null,
+              _react2.default.createElement(
+                'th',
+                null,
+                'Twitch'
+              )
+            )
+          ),
+          _react2.default.createElement(
             'tbody',
             null,
             this.props.streams.map(function (stream) {
@@ -18765,6 +18772,19 @@ var YouTubeVideoList = function (_Component) {
 				_react2.default.createElement(
 					'table',
 					{ className: 'ytVideo-table' },
+					_react2.default.createElement(
+						'thead',
+						null,
+						_react2.default.createElement(
+							'tr',
+							null,
+							_react2.default.createElement(
+								'th',
+								null,
+								'YouTube'
+							)
+						)
+					),
 					_react2.default.createElement(
 						'tbody',
 						null,

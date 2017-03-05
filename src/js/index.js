@@ -16,7 +16,6 @@ const ENHANCERS = compose(
   applyMiddleware(ReduxPromise, thunk),
   (!ISPROD && window.devToolsExtension ? window.devToolsExtension() : f => f)
 );
-console.log(process.env.NODE_ENV);
 
 const store = createStore(
   reducers, undefined, ENHANCERS

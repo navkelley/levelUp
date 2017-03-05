@@ -16814,7 +16814,6 @@ var ISPROD = "production" === 'production';
 var ENHANCERS = (0, _redux.compose)((0, _redux.applyMiddleware)(_reduxPromise2.default, _reduxThunk2.default), !ISPROD && window.devToolsExtension ? window.devToolsExtension() : function (f) {
 		return f;
 });
-console.log("production");
 
 var store = (0, _redux.createStore)(_reducers2.default, undefined, ENHANCERS);
 

@@ -4,13 +4,15 @@ import YouTubeVideoDetail from './youtube/youtube_video_detail';
 import YouTubeVideoList from '../containers/youtube_video_list';
 import SearchBar from '../containers/search_bar';
 import TwitchVideoList from '../containers/twitch_video_list';
+import TwitchVideoDetail from './twitch/twitch_video_detail';
 
 
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedVideo: null
+      selectedVideo: null,
+      selectedStream: null
     };
   }
 
@@ -22,8 +24,9 @@ export default class App extends Component {
         <YouTubeVideoList
           onVideoSelect={selectedVideo => this.setState({ selectedVideo })}
         />
+
         <TwitchVideoList
-          onVideoSelect={selectedVideo => this.setState({ selectedVideo })}
+          onStreamSelect={selectedSteam => this.setState({ selectedStream })}
         />
       </div>
     );

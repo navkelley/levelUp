@@ -17783,6 +17783,10 @@ var _twitch_video_list = __webpack_require__(604);
 
 var _twitch_video_list2 = _interopRequireDefault(_twitch_video_list);
 
+var _twitch_video_detail = __webpack_require__(605);
+
+var _twitch_video_detail2 = _interopRequireDefault(_twitch_video_detail);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -17800,7 +17804,8 @@ var App = function (_Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
     _this.state = {
-      selectedVideo: null
+      selectedVideo: null,
+      selectedStream: null
     };
     return _this;
   }
@@ -17821,8 +17826,8 @@ var App = function (_Component) {
           }
         }),
         _react2.default.createElement(_twitch_video_list2.default, {
-          onVideoSelect: function onVideoSelect(selectedVideo) {
-            return _this2.setState({ selectedVideo: selectedVideo });
+          onStreamSelect: function onStreamSelect(selectedSteam) {
+            return _this2.setState({ selectedStream: selectedStream });
           }
         })
       );
@@ -38439,7 +38444,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var TwitchVideoListItem = function TwitchVideoListItem(_ref) {
   var stream = _ref.stream,
-      onVideoSelect = _ref.onVideoSelect;
+      onStreamSelect = _ref.onStreamSelect;
 
   var preview = stream.preview.medium;
   return _react2.default.createElement(
@@ -38448,7 +38453,7 @@ var TwitchVideoListItem = function TwitchVideoListItem(_ref) {
     _react2.default.createElement(
       'td',
       { onClick: function onClick() {
-          return onVideoSelect(stream);
+          return onStreamSelect(stream);
         }, className: 'list-group-item' },
       _react2.default.createElement(
         'div',
@@ -38552,6 +38557,75 @@ function mapStateToProps(_ref) {
 }
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(TwitchVideoList);
+
+/***/ }),
+/* 605 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(10);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var TwitchVideoDetail = function TwitchVideoDetail(_ref) {
+  var stream = _ref.stream;
+
+  //const url = stream.channel.url;
+
+  return _react2.default.createElement(
+    'div',
+    { className: 'video-detail col-6' },
+    _react2.default.createElement(
+      'div',
+      { className: 'embed' },
+      _react2.default.createElement('iframe', {
+        className: 'embed-item',
+        src: 'https://www.twitch.tv/kingoflightninggaming',
+        height: '720',
+        width: '1280',
+        frameborder: '0',
+        scrolling: 'no',
+        allowfullscreen: 'false'
+      })
+    ),
+    _react2.default.createElement(
+      'div',
+      { className: 'details' },
+      _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'strong',
+          null,
+          'Streamer:'
+        ),
+        ' ',
+        stream.channel.name
+      ),
+      _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'strong',
+          null,
+          'Status:'
+        ),
+        ' ',
+        stream.channel.status
+      )
+    )
+  );
+};
+
+exports.default = TwitchVideoDetail;
 
 /***/ })
 /******/ ]);

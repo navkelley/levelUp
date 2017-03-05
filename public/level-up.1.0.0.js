@@ -18255,10 +18255,6 @@ var _twitch_video_detail = __webpack_require__(268);
 
 var _twitch_video_detail2 = _interopRequireDefault(_twitch_video_detail);
 
-var _img = __webpack_require__(614);
-
-var _img2 = _interopRequireDefault(_img);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -18290,7 +18286,7 @@ var App = function (_Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(_img2.default, { src: '../images/level-up.jpg', alt: 'level-up-logo' }),
+        _react2.default.createElement('div', { id: 'logo' }),
         _react2.default.createElement(_search_bar2.default, null),
         _react2.default.createElement(_youtube_video_detail2.default, { video: this.state.selectedVideo }),
         _react2.default.createElement(_youtube_video_list2.default, {
@@ -39966,29 +39962,6 @@ module.exports = function(module) {
 __webpack_require__(248);
 module.exports = __webpack_require__(247);
 
-
-/***/ }),
-/* 614 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(9);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Logo = function Logo(props) {
-  return _react2.default.createElement('img', { src: props.src, alt: props.alt });
-};
-
-exports.default = Logo;
 
 /***/ })
 /******/ ]);

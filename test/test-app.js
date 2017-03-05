@@ -19,6 +19,5 @@ describe('YouTube Embed Video', () => {
     result.should.have.property('type');
     expect(result.props).to.be.an('object');
     result.props.should.have.property('className');
-    result.props.property.className.should.eq('fa fa-gamepad fa-3x youTube-gamepad');
   });
 });

@@ -5,8 +5,6 @@ import YouTubeVideoList from '../containers/youtube_video_list';
 import SearchBar from '../containers/search_bar';
 import TwitchVideoList from '../containers/twitch_video_list';
 import TwitchVideoDetail from './twitch/twitch_video_detail';
-import Logo from './img';
-
 
 export default class App extends Component {
   constructor(props) {
@@ -20,7 +18,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <Logo src="../images/level-up.jpg" alt="level-up-logo" />
+        <div id="logo"></div>
         <SearchBar />
         <YouTubeVideoDetail video={this.state.selectedVideo} />
         <YouTubeVideoList

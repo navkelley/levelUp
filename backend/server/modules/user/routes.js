@@ -6,21 +6,21 @@ import session from 'express-session';
 import flash from 'connect-flash';
 import expressValidator from 'express-validator';
 
-const router = express.Router();
+const ROUTER = express.Router();
 
 import User from './user';
 
 //middleware that is specific to this router
-const timeLog = router.use((req, res, next) => {
+const timeLog = ROUTER.use((req, res, next) => {
   console.log('Time: ', Date.now());
   next();
 });
 
-router.get('/', (req,res) => {
+ROUTER.get('/', (req,res) => {
     res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
-router.get('/', ensureAuthenticated, (req, res) => {
+ROUTER.get('/', ensureAuthenticated, (req, res) => {
    res.redirect('/');
 });
 
@@ -32,7 +32,7 @@ function ensureAuthenticated(req, res, next) {
   }
 }
 
-router.post('/register', (req, res) => {
+ROUTER.post('/register', (req, res) => {
   let name = req.body.name;
   let email = req.body.email;
   let username = req.body.username;
@@ -92,12 +92,12 @@ passport.use(new LocalStrategy(
     });
   });
 
-router.post('/login',
+ROUTER.post('/login',
   passport.authenticate('local', {successRedirect:'/', failureRedirect:'/', failureFlash: true}),
   function(req, res) {
 });
 
-router.post('/getUserId', (req, res) => {
+ROUTER.post('/getUserId', (req, res) => {
     User.getUserByUsername(req.body.username, (err, user) => {
         if (err) {
             console.log(err);
@@ -108,16 +108,16 @@ router.post('/getUserId', (req, res) => {
     });
 });
 
-router.get('/logout', (req, res) => {
+ROUTER.get('/logout', (req, res) => {
    req.logout();
    req.flash('sucess_msg', 'You are logged out');
    res.redirect('/');
 });
 
-router.use('*', (req, res) => {
+ROUTER.use('*', (req, res) => {
     res.status(404).json({
         message: 'Not Found'
     });
 });
 
-export default router;
+export default ROUTER;

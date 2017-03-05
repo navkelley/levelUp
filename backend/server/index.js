@@ -3,20 +3,20 @@ import dbconfig from './config/db';
 import middlewaresConfig from './config/middlewares';
 import { UserRoutes } from './modules';
 
-const app = express();
+const APP = express();
 
 //database
 dbconfig();
 
 //middleware
-middlewaresConfig(app);
+middlewaresConfig(APP);
 
-app.use('/api', [UserRoutes]);
-app.use(express.static('public'));
+APP.use('/api', [UserRoutes]);
+APP.use(express.static('public'));
 
 const PORT = process.env.PORT || 8080;
 
-app.listen(PORT, err => {
+APP.listen(PORT, err => {
 	if (err) {
 		console.error(err);
 	} else {

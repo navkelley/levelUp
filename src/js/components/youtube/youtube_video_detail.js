@@ -1,8 +1,8 @@
 import React from 'react';
 
-const VideoDetail = ({ video }) => {
+const YouTubeVideoDetail = ({ video }) => {
 	if (!video) {
-		return <div>Loading...</div>;
+		return <div>You have not conducted a search yet, type the name of your favorite game in the search box to get started.</div>;
 	}
 
 	const videoId = video.id.videoId;
@@ -21,4 +21,4 @@ const VideoDetail = ({ video }) => {
 	);
 };
 
-export default VideoDetail;
+export default YouTubeVideoDetail;

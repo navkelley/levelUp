@@ -1,47 +1,28 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import BabelPoly from 'babel-polyfill';
 import { Router, Route, hashHistory } from 'react-router';
-import YouTubeSearch from 'youtube-api-search';
-import VideoDetail from './components/video_detail';
-import VideoList from './components/video_list';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import ReduxPromise from 'redux-promise';
+import thunk from 'redux-thunk';
 
-const api_key = 'AIzaSyBiZx8Ti_Bajxu-sAFjYHUr-lS4jwReH-0';
+import App from './components/app';
+import reducers from './reducers';
 
-class App extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			videos: [],
-			selectedVideo: null
-		};
-		this.videoSearch();
-	}
+const ISPROD = process.env.NODE_ENV === 'production';
 
-	videoSearch() {
-		YouTubeSearch({ key: api_key, term: 'doberman pinscher' }, (videos) => {
-			console.log(videos);
-			this.setState({
-				videos: videos,
-				selectedVideo: videos[0]
-			});
-		});
-	}
+//tool for redux dev
+const ENHANCERS = compose(
+  applyMiddleware(ReduxPromise, thunk),
+  (!ISPROD && window.devToolsExtension ? window.devToolsExtension() : f => f)
+);
 
-	render() {
-		return (
-			<div>
-				{this.videoSearch}
-				<VideoDetail video={this.state.selectedVideo} />
-				<VideoList
-					onVideoSelect={selectedVideo => this.setState({ selectedVideo })}
-					videos={this.state.videos}
-				/>
-			</div>
-		);
-	}
-}
+const store = createStore(
+  reducers, undefined, ENHANCERS
+);
 
-document.addEventListener('DOMContentLoaded', function() {
-	ReactDOM.render(<App />, document.getElementById('app'));
-});
+ReactDOM.render(
+	<Provider store={store}>
+		<App />
+	</Provider>
+	, document.getElementById('app'));

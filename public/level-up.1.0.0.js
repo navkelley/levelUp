@@ -18286,6 +18286,11 @@ var App = function (_Component) {
       return _react2.default.createElement(
         'div',
         null,
+        _react2.default.createElement(
+          'h1',
+          null,
+          'Level Up'
+        ),
         _react2.default.createElement(_search_bar2.default, null),
         _react2.default.createElement(_youtube_video_detail2.default, { video: this.state.selectedVideo }),
         _react2.default.createElement(_youtube_video_list2.default, {
@@ -18355,10 +18360,7 @@ var TwitchVideoDetail = function TwitchVideoDetail(_ref) {
         className: "embed-item",
         src: url,
         height: "720",
-        width: "1280",
-        frameborder: "0",
-        scrolling: "no",
-        allowfullscreen: "false"
+        width: "1280"
       })
     )
   );

@@ -15,9 +15,6 @@ const TwitchVideoDetail = ({ stream }) => {
           src={url}
           height='720'
           width='1280'
-          frameborder='0'
-          scrolling='no'
-          allowfullscreen='false'
         />
       </div>
     </div>

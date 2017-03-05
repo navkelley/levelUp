@@ -18129,7 +18129,7 @@ var SearchBar = function (_Component) {
 			e.preventDefault();
 			_this.props.youTubeSearch(_this.state.term);
 			_this.props.twitchSearch(_this.state.term);
-			//this.setState({ term: '' });
+			_this.setState({ term: '' });
 		};
 
 		_this.state = { term: '' };
@@ -18294,7 +18294,6 @@ exports.default = function () {
   var action = arguments[1];
 
   var data = action.payload;
-  console.log("in the reducer-twitch:", data);
   switch (action.type) {
     case _twitch.TWITCH_SEARCH:
       return [data].concat(_toConsumableArray(state));
@@ -18321,7 +18320,6 @@ exports.default = function () {
   var action = arguments[1];
 
   var data = action.payload;
-  console.log("in the reducer:", data);
   switch (action.type) {
     case _youtube.YOUTUBE_SEARCH:
       return data;

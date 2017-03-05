@@ -2,7 +2,7 @@ import React from 'react';
 
 const YouTubeVideoDetail = ({ video }) => {
 	if (!video) {
-		return <div>You have not conducted a search yet, type the name of your favorite game in the search box to get started.</div>;
+		return <div>Search for your favorite game and click on a video from YouTube to play it.</div>;
 	}
 
 	const videoId = video.id.videoId;

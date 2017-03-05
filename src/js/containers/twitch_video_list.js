@@ -12,7 +12,7 @@ class TwitchVideoList extends Component {
             {this.props.streams.map((stream) => {
               return (
                 <TwitchVideoListItem
-                  onVideoSelect={this.props.onVideoSelect}
+                  onStreamSelect={this.props.onStreamSelect}
                   stream={stream}
                   key={stream.id}
                 />

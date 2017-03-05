@@ -10,7 +10,7 @@ const TwitchVideoListItem = ({ stream, onStreamSelect }) => {
             <img alt="game stream" className='media-object' src={preview} />
           </div>
           <div className='media-body col-3'>
-            <div className='media-heading'>{stream.channel.name}</div>
+            <div className='media-heading'>{stream.channel.display_name}</div>
           </div>
         </div>
       </td>

@@ -24,9 +24,9 @@ export default class App extends Component {
         <YouTubeVideoList
           onVideoSelect={selectedVideo => this.setState({ selectedVideo })}
         />
-
+        <TwitchVideoDetail stream={this.state.selectedStream} />
         <TwitchVideoList
-          onStreamSelect={selectedSteam => this.setState({ selectedStream })}
+          onStreamSelect={selectedStream => this.setState({ selectedStream })}
         />
       </div>
     );

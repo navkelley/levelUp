@@ -1,7 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=VT323');
 body {
   font-family: "VT323", sans-serif;
-  background-image: url('images/link.jpg');
+}
+#logo {
+  text-align: center;
+  font-size: 80px;
+  text-shadow: 2px 2px green;
+  width: 100%;
 }
 li {
   list-style-type: none;

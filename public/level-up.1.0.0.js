@@ -18286,7 +18286,11 @@ var App = function (_Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement('div', { id: 'logo' }),
+        _react2.default.createElement(
+          'h1',
+          { id: 'logo' },
+          'Level Up'
+        ),
         _react2.default.createElement(_search_bar2.default, null),
         _react2.default.createElement(_youtube_video_detail2.default, { video: this.state.selectedVideo }),
         _react2.default.createElement(_youtube_video_list2.default, {

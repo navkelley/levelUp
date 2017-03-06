@@ -6,7 +6,8 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import ReduxPromise from 'redux-promise';
 import thunk from 'redux-thunk';
 
-import App from './components/app';
+import MainLayout from './components/main_layout';
+import Home from './components/home';
 import reducers from './reducers';
 
 const ISPROD = process.env.NODE_ENV === 'production';
@@ -22,13 +23,12 @@ const store = createStore(
 );
 
 let routes = (
-  <Router history={hashHistory}>
-    <Route path="/" component={MainLayout} />
-  </Router>
+  <Provider store={store}>
+    <Router history={hashHistory}>
+      <Route path="/" component={MainLayout} />
+
+    </Router>
+  </Provider>
 );
 
-ReactDOM.render(
-	<Provider store={store}>
-		<App />
-	</Provider>
-	, document.getElementById('app'));
+ReactDOM.render(routes, document.getElementById('app'));

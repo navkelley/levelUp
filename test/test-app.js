@@ -9,7 +9,7 @@ const expect = Chai.expect;
 //TODO: need to update once get twitch added!!!!!
 
 describe('YouTube Embed Video', () => {
-  it('Renders the video player', () => {
+  it('Renders the video player hold icon', () => {
     const renderer = TestUtils.createRenderer();
     renderer.render(<VideoDetail />);
     const result = renderer.getRenderOutput();
@@ -18,6 +18,6 @@ describe('YouTube Embed Video', () => {
     result.should.be.an('object');
     result.should.have.property('type');
     expect(result.props).to.be.an('object');
-    result.props.should.have.property('children');
+    result.props.should.have.property('className');
   });
 });

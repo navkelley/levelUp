@@ -2,14 +2,16 @@
 body {
   font-family: "VT323", sans-serif;
 }
+#logo {
+  text-align: center;
+  font-size: 80px;
+  text-shadow: 2px 2px green;
+  width: 100%;
+}
 li {
   list-style-type: none;
   border-radius: 5px 5px 5px 5px;
   border: 1px solid #eee;
-}
-h1 {
-  font-size: 70px;
-  text-align: center;
 }
 .embed {
   width: 100%;
@@ -24,18 +26,45 @@ h1 {
 .list-group-item:hover {
   background-color: #eee;
 }
-img,
-video,
-audio,
 iframe,
 form {
   width: 100%;
   max-width: 100%;
 }
-input {
+img {
+  width: 240px;
+  height: 140px;
+}
+.twitch-streams,
+.twitch-gamepad {
+  float: right;
+  marging-left: 0;
+  margin-top: -40px;
+}
+.ytVideo-table {
+  float: left;
+}
+.search-bar,
+.submit-btn {
   text-align: center;
+}
+#search {
+  position: relative;
+  display: inline-block;
+}
+input {
   width: 70%;
   margin-bottom: 20px;
+}
+.submit-btn {
+  border-radius: 4px;
+  background-color: #4CAF50;
+  border: none;
+}
+.submit-btn:hover {
+  background-color: white;
+  border: 2px solid #4CAF50
+;
 }
 @media only screen and (min-width: 900px) {
   input {

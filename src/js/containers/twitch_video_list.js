@@ -6,16 +6,22 @@ import TwitchVideoListItem from '../components/twitch/twitch_video_list_item';
 class TwitchVideoList extends Component {
   render() {
     return (
-      <div>
-        <table className="video-table">
+      <div className="twitch-streams">
+        <table className="twitchVideo-table">
+          <thead>
+            <tr>
+              <th>Twitch</th>
+            </tr>
+          </thead>
           <tbody>
             {this.props.streams.map((stream) => {
               return (
-                <TwitchVideoListItem
-                  onStreamSelect={this.props.onStreamSelect}
-                  stream={stream}
-                  key={stream._id}
-                />
+                <tr key={stream._id}>
+                  <TwitchVideoListItem
+                    onStreamSelect={this.props.onStreamSelect}
+                    stream={stream}
+                  />
+                </tr>
               );
             })}
           </tbody>

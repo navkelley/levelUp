@@ -11748,7 +11748,7 @@ var TwitchApi = exports.TwitchApi = function () {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.prev = 0;
-                url = this.rootUrl + 'streams/?game=' + term + '&client_id=' + this.client;
+                url = this.rootUrl + 'streams/?game=' + term + '&client_id=' + this.client + '&live=true';
                 _context.next = 4;
                 return _axios2.default.get(url);
 
@@ -18288,7 +18288,7 @@ var App = function (_Component) {
         null,
         _react2.default.createElement(
           'h1',
-          null,
+          { id: 'logo' },
           'Level Up'
         ),
         _react2.default.createElement(_search_bar2.default, null),
@@ -18334,17 +18334,7 @@ var TwitchVideoDetail = function TwitchVideoDetail(_ref) {
   var stream = _ref.stream;
 
   if (!stream) {
-    return _react2.default.createElement(
-      "div",
-      null,
-      _react2.default.createElement("iframe", { src: "//giphy.com/embed/l1IY5CmYbirEsXWPm", width: "480", height: "270", frameBorder: "0", className: "giphy-embed", allowFullScreen: true }),
-      _react2.default.createElement(
-        "p",
-        null,
-        _react2.default.createElement("a", { href: "http://giphy.com/gifs/nintendo-mario-switch-l1IY5CmYbirEsXWPm" }),
-        "Click on a Twitch Stream to view it(via GIPHY)."
-      )
-    );
+    return _react2.default.createElement("i", { className: "fa fa-gamepad fa-3x twitch-gamepad", "aria-hidden": "true" });
   }
   var name = stream.channel.name;
 
@@ -18391,29 +18381,25 @@ var TwitchVideoListItem = function TwitchVideoListItem(_ref) {
 
   var preview = stream.preview.medium;
   return _react2.default.createElement(
-    'tr',
-    null,
+    'td',
+    { onClick: function onClick() {
+        return onStreamSelect(stream);
+      }, className: 'list-group-item' },
     _react2.default.createElement(
-      'td',
-      { onClick: function onClick() {
-          return onStreamSelect(stream);
-        }, className: 'list-group-item' },
+      'div',
+      { className: 'twitch-media-row' },
       _react2.default.createElement(
         'div',
-        { className: 'twitch-media-row' },
+        { className: 'media-left col-3' },
+        _react2.default.createElement('img', { alt: 'game stream', className: 'media-object', src: preview })
+      ),
+      _react2.default.createElement(
+        'div',
+        { className: 'media-body col-3' },
         _react2.default.createElement(
           'div',
-          { className: 'media-left col-3' },
-          _react2.default.createElement('img', { alt: 'game stream', className: 'media-object', src: preview })
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'media-body col-3' },
-          _react2.default.createElement(
-            'div',
-            { className: 'media-heading' },
-            stream.channel.display_name
-          )
+          { className: 'media-heading' },
+          stream.channel.display_name
         )
       )
     )
@@ -18443,47 +18429,43 @@ var YouTubeVideoDetail = function YouTubeVideoDetail(_ref) {
 	var video = _ref.video;
 
 	if (!video) {
-		return _react2.default.createElement(
-			'div',
-			null,
-			'Search for your favorite game and click on a video from YouTube to play it.'
-		);
+		return _react2.default.createElement("i", { className: "fa fa-gamepad fa-3x youTube-gamepad", "aria-hidden": "true" });
 	}
 
 	var videoId = video.id.videoId;
-	var url = 'https://www.youtube.com/embed/' + videoId;
+	var url = "https://www.youtube.com/embed/" + videoId + "?autoplay=1";
 
 	return _react2.default.createElement(
-		'div',
-		{ className: 'video-detail' },
+		"div",
+		{ className: "video-detail" },
 		_react2.default.createElement(
-			'div',
-			{ className: 'embed' },
-			_react2.default.createElement('iframe', { className: 'embed-item', src: url })
+			"div",
+			{ className: "embed" },
+			_react2.default.createElement("iframe", { className: "embed-item", src: url })
 		),
 		_react2.default.createElement(
-			'div',
-			{ className: 'details' },
+			"div",
+			{ className: "details" },
 			_react2.default.createElement(
-				'div',
+				"div",
 				null,
 				_react2.default.createElement(
-					'strong',
+					"strong",
 					null,
-					'Title:'
+					"Title:"
 				),
-				' ',
+				" ",
 				video.snippet.title
 			),
 			_react2.default.createElement(
-				'div',
+				"div",
 				null,
 				_react2.default.createElement(
-					'strong',
+					"strong",
 					null,
-					'Description:'
+					"Description:"
 				),
-				' ',
+				" ",
 				video.snippet.description
 			)
 		)
@@ -18515,29 +18497,25 @@ var YouTubeVideoListItem = function YouTubeVideoListItem(_ref) {
 	var url = video.snippet.thumbnails.default.url;
 
 	return _react2.default.createElement(
-		'tr',
-		null,
+		'td',
+		{ onClick: function onClick() {
+				return onVideoSelect(video);
+			}, className: 'list-group-item' },
 		_react2.default.createElement(
-			'td',
-			{ onClick: function onClick() {
-					return onVideoSelect(video);
-				}, className: 'list-group-item' },
+			'div',
+			{ className: 'youtube-media-row' },
 			_react2.default.createElement(
 				'div',
-				{ className: 'youtube-media-row' },
+				{ className: 'media-left' },
+				_react2.default.createElement('img', { alt: 'video', className: 'media-object', src: url })
+			),
+			_react2.default.createElement(
+				'div',
+				{ className: 'media-body col-3' },
 				_react2.default.createElement(
 					'div',
-					{ className: 'media-left col-3' },
-					_react2.default.createElement('img', { alt: 'video', className: 'media-object', src: url })
-				),
-				_react2.default.createElement(
-					'div',
-					{ className: 'media-body col-3' },
-					_react2.default.createElement(
-						'div',
-						{ className: 'media-heading' },
-						video.snippet.title
-					)
+					{ className: 'media-heading' },
+					video.snippet.title
 				)
 			)
 		)
@@ -18623,7 +18601,8 @@ var SearchBar = function (_Component) {
 						_react2.default.createElement(
 							'button',
 							{ type: 'submit', className: 'submit-btn' },
-							'Submit'
+							'Submit ',
+							_react2.default.createElement('i', { className: 'fa fa-search', 'aria-hidden': 'true' })
 						)
 					)
 				)
@@ -18686,19 +18665,35 @@ var TwitchVideoList = function (_Component) {
 
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'twitch-streams' },
         _react2.default.createElement(
           'table',
-          { className: 'video-table' },
+          { className: 'twitchVideo-table' },
+          _react2.default.createElement(
+            'thead',
+            null,
+            _react2.default.createElement(
+              'tr',
+              null,
+              _react2.default.createElement(
+                'th',
+                null,
+                'Twitch'
+              )
+            )
+          ),
           _react2.default.createElement(
             'tbody',
             null,
             this.props.streams.map(function (stream) {
-              return _react2.default.createElement(_twitch_video_list_item2.default, {
-                onStreamSelect: _this2.props.onStreamSelect,
-                stream: stream,
-                key: stream._id
-              });
+              return _react2.default.createElement(
+                'tr',
+                { key: stream._id },
+                _react2.default.createElement(_twitch_video_list_item2.default, {
+                  onStreamSelect: _this2.props.onStreamSelect,
+                  stream: stream
+                })
+              );
             })
           )
         )
@@ -18768,16 +18763,32 @@ var YouTubeVideoList = function (_Component) {
 				null,
 				_react2.default.createElement(
 					'table',
-					{ className: 'video-table' },
+					{ className: 'ytVideo-table' },
+					_react2.default.createElement(
+						'thead',
+						null,
+						_react2.default.createElement(
+							'tr',
+							null,
+							_react2.default.createElement(
+								'th',
+								null,
+								'YouTube'
+							)
+						)
+					),
 					_react2.default.createElement(
 						'tbody',
 						null,
 						this.props.videos.map(function (video) {
-							return _react2.default.createElement(_youtube_video_list_item2.default, {
-								onVideoSelect: _this2.props.onVideoSelect,
-								video: video,
-								key: video.etag
-							});
+							return _react2.default.createElement(
+								'tr',
+								{ key: video.etag },
+								_react2.default.createElement(_youtube_video_list_item2.default, {
+									onVideoSelect: _this2.props.onVideoSelect,
+									video: video
+								})
+							);
 						})
 					)
 				)

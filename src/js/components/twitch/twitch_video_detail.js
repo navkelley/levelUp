@@ -2,7 +2,7 @@ import React from 'react';
 
 const TwitchVideoDetail = ({ stream }) => {
   if (!stream) {
-    return <div><iframe src="//giphy.com/embed/l1IY5CmYbirEsXWPm" width="480" height="270" frameBorder="0" className="giphy-embed" allowFullScreen></iframe><p><a href="http://giphy.com/gifs/nintendo-mario-switch-l1IY5CmYbirEsXWPm"></a>Click on a Twitch Stream to view it(via GIPHY).</p></div>;
+    return <i className="fa fa-gamepad fa-3x twitch-gamepad" aria-hidden="true"></i>;
   }
   const { name } = stream.channel;
   const url = `https://player.twitch.tv/?channel=${name}`;

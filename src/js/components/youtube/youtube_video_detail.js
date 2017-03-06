@@ -2,11 +2,11 @@ import React from 'react';
 
 const YouTubeVideoDetail = ({ video }) => {
 	if (!video) {
-		return <div>Search for your favorite game and click on a video from YouTube to play it.</div>;
+		return <i className="fa fa-gamepad fa-3x youTube-gamepad" aria-hidden="true"></i>;
 	}
 
 	const videoId = video.id.videoId;
-	const url = `https://www.youtube.com/embed/${videoId}`;
+	const url = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
 
 	return (
 		<div className='video-detail'>

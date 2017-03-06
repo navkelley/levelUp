@@ -10,9 +10,9 @@ const MainLayout = () => {
       <div id="navbar">
         <div className="wrapper">
           <nav>
-            <Link to="/">Home</Link>
-            <Link to='#'>YouTube</Link>
-            <Link to='#'>Twitch</Link>
+            <Link to="/"><i className="fa fa-home" aria-hidden="true"></i></Link>
+            <Link to='#'><i className="fa fa-youtube" aria-hidden="true"></i></Link>
+            <Link to='#'><i className="fa fa-twitch" aria-hidden="true"></i></Link>
             <Link to='#'>Give me the Dragon Punch!</Link>
           </nav>
         </div>

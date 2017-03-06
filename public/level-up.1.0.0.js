@@ -17316,9 +17316,13 @@ var _reduxThunk = __webpack_require__(603);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-var _app = __webpack_require__(267);
+var _main_layout = __webpack_require__(614);
 
-var _app2 = _interopRequireDefault(_app);
+var _main_layout2 = _interopRequireDefault(_main_layout);
+
+var _home = __webpack_require__(615);
+
+var _home2 = _interopRequireDefault(_home);
 
 var _reducers = __webpack_require__(275);
 
@@ -17330,16 +17334,22 @@ var ISPROD = process.env.NODE_ENV === 'production';
 
 //tool for redux dev
 var ENHANCERS = (0, _redux.compose)((0, _redux.applyMiddleware)(_reduxPromise2.default, _reduxThunk2.default), /*!ISPROD &&*/window.devToolsExtension ? window.devToolsExtension() : function (f) {
-		return f;
+  return f;
 });
 
 var store = (0, _redux.createStore)(_reducers2.default, undefined, ENHANCERS);
 
-_reactDom2.default.render(_react2.default.createElement(
-		_reactRedux.Provider,
-		{ store: store },
-		_react2.default.createElement(_app2.default, null)
-), document.getElementById('app'));
+var routes = _react2.default.createElement(
+  _reactRedux.Provider,
+  { store: store },
+  _react2.default.createElement(
+    _reactRouter.Router,
+    { history: _reactRouter.hashHistory },
+    _react2.default.createElement(_reactRouter.Route, { path: '/', component: _main_layout2.default })
+  )
+);
+
+_reactDom2.default.render(routes, document.getElementById('app'));
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
@@ -18219,101 +18229,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 267 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(9);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _youtube_video_detail = __webpack_require__(270);
-
-var _youtube_video_detail2 = _interopRequireDefault(_youtube_video_detail);
-
-var _youtube_video_list = __webpack_require__(274);
-
-var _youtube_video_list2 = _interopRequireDefault(_youtube_video_list);
-
-var _search_bar = __webpack_require__(272);
-
-var _search_bar2 = _interopRequireDefault(_search_bar);
-
-var _twitch_video_list = __webpack_require__(273);
-
-var _twitch_video_list2 = _interopRequireDefault(_twitch_video_list);
-
-var _twitch_video_detail = __webpack_require__(268);
-
-var _twitch_video_detail2 = _interopRequireDefault(_twitch_video_detail);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var App = function (_Component) {
-  _inherits(App, _Component);
-
-  function App(props) {
-    _classCallCheck(this, App);
-
-    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
-
-    _this.state = {
-      selectedVideo: null,
-      selectedStream: null
-    };
-    return _this;
-  }
-
-  _createClass(App, [{
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
-
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-          'h1',
-          { id: 'logo' },
-          'Level Up'
-        ),
-        _react2.default.createElement(_search_bar2.default, null),
-        _react2.default.createElement(_youtube_video_detail2.default, { video: this.state.selectedVideo }),
-        _react2.default.createElement(_youtube_video_list2.default, {
-          onVideoSelect: function onVideoSelect(selectedVideo) {
-            return _this2.setState({ selectedVideo: selectedVideo });
-          }
-        }),
-        _react2.default.createElement(_twitch_video_detail2.default, { stream: this.state.selectedStream }),
-        _react2.default.createElement(_twitch_video_list2.default, {
-          onStreamSelect: function onStreamSelect(selectedStream) {
-            return _this2.setState({ selectedStream: selectedStream });
-          }
-        })
-      );
-    }
-  }]);
-
-  return App;
-}(_react.Component);
-
-exports.default = App;
-
-/***/ }),
+/* 267 */,
 /* 268 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -39966,6 +39882,195 @@ module.exports = function(module) {
 __webpack_require__(248);
 module.exports = __webpack_require__(247);
 
+
+/***/ }),
+/* 614 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(9);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouter = __webpack_require__(586);
+
+var _reactRedux = __webpack_require__(102);
+
+var _home = __webpack_require__(615);
+
+var _home2 = _interopRequireDefault(_home);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var MainLayout = function MainLayout() {
+  return _react2.default.createElement(
+    'div',
+    { className: 'main-layout' },
+    _react2.default.createElement(
+      'div',
+      { id: 'navbar' },
+      _react2.default.createElement(
+        'div',
+        { className: 'wrapper' },
+        _react2.default.createElement(
+          'nav',
+          null,
+          _react2.default.createElement(
+            _reactRouter.Link,
+            { to: '/' },
+            'Home'
+          ),
+          _react2.default.createElement(
+            _reactRouter.Link,
+            { to: '#' },
+            'YouTube'
+          ),
+          _react2.default.createElement(
+            _reactRouter.Link,
+            { to: '#' },
+            'Twitch'
+          ),
+          _react2.default.createElement(
+            _reactRouter.Link,
+            { to: '#' },
+            'Give me the Dragon Punch!'
+          )
+        )
+      )
+    ),
+    _react2.default.createElement(
+      'div',
+      { className: 'main' },
+      _react2.default.createElement(
+        'div',
+        { id: 'social' },
+        _react2.default.createElement(
+          _reactRouter.Link,
+          { to: '#', className: 'twit', title: 'Twitter' },
+          _react2.default.createElement('i', { className: 'fa fa-twitter', 'aria-hidden': 'true' })
+        ),
+        _react2.default.createElement(
+          _reactRouter.Link,
+          { to: '#', className: 'fbook', title: 'Facebook' },
+          _react2.default.createElement('i', { className: 'fa fa-facebook-official', 'aria-hidden': 'true' })
+        ),
+        _react2.default.createElement(
+          _reactRouter.Link,
+          { to: '#', className: 'gplus', title: 'Google Plus' },
+          _react2.default.createElement('i', { className: 'fa fa-google-plus', 'aria-hidden': 'true' })
+        )
+      ),
+      _react2.default.createElement(
+        'section',
+        null,
+        _react2.default.createElement(_home2.default, null)
+      )
+    )
+  );
+};
+
+exports.default = MainLayout;
+
+/***/ }),
+/* 615 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(9);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _youtube_video_detail = __webpack_require__(270);
+
+var _youtube_video_detail2 = _interopRequireDefault(_youtube_video_detail);
+
+var _youtube_video_list = __webpack_require__(274);
+
+var _youtube_video_list2 = _interopRequireDefault(_youtube_video_list);
+
+var _search_bar = __webpack_require__(272);
+
+var _search_bar2 = _interopRequireDefault(_search_bar);
+
+var _twitch_video_list = __webpack_require__(273);
+
+var _twitch_video_list2 = _interopRequireDefault(_twitch_video_list);
+
+var _twitch_video_detail = __webpack_require__(268);
+
+var _twitch_video_detail2 = _interopRequireDefault(_twitch_video_detail);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Home = function (_Component) {
+  _inherits(Home, _Component);
+
+  function Home(props) {
+    _classCallCheck(this, Home);
+
+    var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
+
+    _this.state = {
+      selectedVideo: null,
+      selectedStream: null
+    };
+    return _this;
+  }
+
+  _createClass(Home, [{
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'h1',
+          { id: 'logo' },
+          'Level Up'
+        ),
+        _react2.default.createElement(_search_bar2.default, null),
+        _react2.default.createElement(_youtube_video_detail2.default, { video: this.state.selectedVideo }),
+        _react2.default.createElement(_youtube_video_list2.default, {
+          onVideoSelect: function onVideoSelect(selectedVideo) {
+            return _this2.setState({ selectedVideo: selectedVideo });
+          }
+        }),
+        _react2.default.createElement(_twitch_video_detail2.default, { stream: this.state.selectedStream }),
+        _react2.default.createElement(_twitch_video_list2.default, {
+          onStreamSelect: function onStreamSelect(selectedStream) {
+            return _this2.setState({ selectedStream: selectedStream });
+          }
+        })
+      );
+    }
+  }]);
+
+  return Home;
+}(_react.Component);
+
+exports.default = Home;
 
 /***/ })
 /******/ ]);

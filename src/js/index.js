@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute, hashHistory, Link } from 'react-router';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import ReduxPromise from 'redux-promise';
 import thunk from 'redux-thunk';
 
-import App from './components/app';
+import MainLayout from './components/main_layout';
 import reducers from './reducers';
 
 const ISPROD = process.env.NODE_ENV === 'production';
@@ -21,8 +21,13 @@ const store = createStore(
   reducers, undefined, ENHANCERS
 );
 
-ReactDOM.render(
-	<Provider store={store}>
-		<App />
-	</Provider>
-	, document.getElementById('app'));
+let routes = (
+  <Provider store={store}>
+    <Router history={hashHistory}>
+      <Route path="/" component={MainLayout} />
+
+    </Router>
+  </Provider>
+);
+
+ReactDOM.render(routes, document.getElementById('app'));

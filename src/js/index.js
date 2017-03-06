@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute, hashHistory, Link } from 'react-router';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import ReduxPromise from 'redux-promise';
@@ -19,6 +19,12 @@ const ENHANCERS = compose(
 
 const store = createStore(
   reducers, undefined, ENHANCERS
+);
+
+let routes = (
+  <Router history={hashHistory}>
+    <Route path="/" component={MainLayout} />
+  </Router>
 );
 
 ReactDOM.render(

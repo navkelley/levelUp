@@ -17330,15 +17330,21 @@ var ISPROD = process.env.NODE_ENV === 'production';
 
 //tool for redux dev
 var ENHANCERS = (0, _redux.compose)((0, _redux.applyMiddleware)(_reduxPromise2.default, _reduxThunk2.default), /*!ISPROD &&*/window.devToolsExtension ? window.devToolsExtension() : function (f) {
-		return f;
+  return f;
 });
 
 var store = (0, _redux.createStore)(_reducers2.default, undefined, ENHANCERS);
 
+var routes = _react2.default.createElement(
+  _reactRouter.Router,
+  { history: _reactRouter.hashHistory },
+  _react2.default.createElement(_reactRouter.Route, { path: '/', component: MainLayout })
+);
+
 _reactDom2.default.render(_react2.default.createElement(
-		_reactRedux.Provider,
-		{ store: store },
-		_react2.default.createElement(_app2.default, null)
+  _reactRedux.Provider,
+  { store: store },
+  _react2.default.createElement(_app2.default, null)
 ), document.getElementById('app'));
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 

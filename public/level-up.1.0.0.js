@@ -18434,7 +18434,7 @@ var _reactRouter = __webpack_require__(240);
 
 var _reactRedux = __webpack_require__(82);
 
-var _reactSimpleDropdown = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"react-simple-dropdown\""); e.code = 'MODULE_NOT_FOUND';; throw e; }()));
+var _reactSimpleDropdown = __webpack_require__(616);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -40110,6 +40110,296 @@ module.exports = function(module) {
 __webpack_require__(249);
 module.exports = __webpack_require__(248);
 
+
+/***/ }),
+/* 615 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+  Copyright (c) 2016 Jed Watson.
+  Licensed under the MIT License (MIT), see
+  http://jedwatson.github.io/classnames
+*/
+/* global define */
+
+(function () {
+	'use strict';
+
+	var hasOwn = {}.hasOwnProperty;
+
+	function classNames () {
+		var classes = [];
+
+		for (var i = 0; i < arguments.length; i++) {
+			var arg = arguments[i];
+			if (!arg) continue;
+
+			var argType = typeof arg;
+
+			if (argType === 'string' || argType === 'number') {
+				classes.push(arg);
+			} else if (Array.isArray(arg)) {
+				classes.push(classNames.apply(null, arg));
+			} else if (argType === 'object') {
+				for (var key in arg) {
+					if (hasOwn.call(arg, key) && arg[key]) {
+						classes.push(key);
+					}
+				}
+			}
+		}
+
+		return classes.join(' ');
+	}
+
+	if (typeof module !== 'undefined' && module.exports) {
+		module.exports = classNames;
+	} else if (true) {
+		// register as 'classnames', consistent with npm package name
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
+			return classNames;
+		}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {
+		window.classNames = classNames;
+	}
+}());
+
+
+/***/ }),
+/* 616 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.DropdownContent = exports.DropdownTrigger = undefined;
+
+var _react = __webpack_require__(8);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(495);
+
+var _classnames = __webpack_require__(615);
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+var _DropdownTrigger = __webpack_require__(618);
+
+var _DropdownTrigger2 = _interopRequireDefault(_DropdownTrigger);
+
+var _DropdownContent = __webpack_require__(617);
+
+var _DropdownContent2 = _interopRequireDefault(_DropdownContent);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Dropdown = (0, _react.createClass)({
+  displayName: 'Dropdown',
+
+  getInitialState: function getInitialState() {
+    return {
+      active: false
+    };
+  },
+  getDefaultProps: function getDefaultProps() {
+    return {
+      className: ''
+    };
+  },
+  componentDidMount: function componentDidMount() {
+    window.addEventListener('click', this._onWindowClick);
+    window.addEventListener('touchstart', this._onWindowClick);
+  },
+  componentWillUnmount: function componentWillUnmount() {
+    window.removeEventListener('click', this._onWindowClick);
+    window.removeEventListener('touchstart', this._onWindowClick);
+  },
+  render: function render() {
+    var _this = this,
+        _arguments = arguments;
+
+    var _props = this.props;
+    var children = _props.children;
+    var className = _props.className;
+    // create component classes
+
+    var active = this.isActive();
+    var dropdown_classes = (0, _classnames2.default)({
+      dropdown: true,
+      'dropdown--active': active
+    });
+    dropdown_classes += ' ' + className;
+    // stick callback on trigger element
+    var bound_children = _react2.default.Children.map(children, function (child) {
+      if (child.type === _DropdownTrigger2.default) {
+        (function () {
+          var originalOnClick = child.props.onClick;
+          child = (0, _react.cloneElement)(child, {
+            ref: 'trigger',
+            onClick: function onClick(event) {
+              _this._onToggleClick(event);
+              if (originalOnClick) {
+                originalOnClick.apply(child, _arguments);
+              }
+            }
+          });
+        })();
+      }
+      return child;
+    });
+    return _react2.default.createElement(
+      'div',
+      {
+        style: this.props.style,
+        className: dropdown_classes },
+      bound_children
+    );
+  },
+  isActive: function isActive() {
+    return typeof this.props.active === 'boolean' ? this.props.active : this.state.active;
+  },
+  hide: function hide() {
+    this.setState({
+      active: false
+    });
+    if (this.props.onHide) {
+      this.props.onHide();
+    }
+  },
+  show: function show() {
+    this.setState({
+      active: true
+    });
+    if (this.props.onShow) {
+      this.props.onShow();
+    }
+  },
+  _onWindowClick: function _onWindowClick(event) {
+    var dropdown_element = (0, _reactDom.findDOMNode)(this);
+    if (event.target !== dropdown_element && !dropdown_element.contains(event.target) && this.isActive()) {
+      this.hide();
+    }
+  },
+  _onToggleClick: function _onToggleClick(event) {
+    event.preventDefault();
+    if (this.isActive()) {
+      this.hide();
+    } else {
+      this.show();
+    }
+  }
+});
+
+exports.DropdownTrigger = _DropdownTrigger2.default;
+exports.DropdownContent = _DropdownContent2.default;
+exports.default = Dropdown;
+
+/***/ }),
+/* 617 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _react = __webpack_require__(8);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var DropdownContent = (0, _react.createClass)({
+  displayName: 'DropdownContent',
+
+  propTypes: {
+    children: _react.PropTypes.node,
+    className: _react.PropTypes.string
+  },
+
+  getDefaultProps: function getDefaultProps() {
+    return {
+      className: ''
+    };
+  },
+  render: function render() {
+    var _props = this.props;
+    var children = _props.children;
+    var className = _props.className;
+
+    var props = _extends({}, this.props, {
+      className: 'dropdown__content ' + className
+    });
+
+    return _react2.default.createElement(
+      'div',
+      props,
+      children
+    );
+  }
+});
+
+exports.default = DropdownContent;
+
+/***/ }),
+/* 618 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _react = __webpack_require__(8);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var DropdownTrigger = (0, _react.createClass)({
+  displayName: 'DropdownTrigger',
+
+  propTypes: {
+    children: _react.PropTypes.node,
+    className: _react.PropTypes.string
+  },
+
+  getDefaultProps: function getDefaultProps() {
+    return {
+      className: ''
+    };
+  },
+  render: function render() {
+    var _props = this.props;
+    var children = _props.children;
+    var className = _props.className;
+
+    var props = _extends({}, this.props, {
+      className: 'dropdown__trigger ' + className
+    });
+
+    return _react2.default.createElement(
+      'a',
+      props,
+      children
+    );
+  }
+});
+
+exports.default = DropdownTrigger;
 
 /***/ })
 /******/ ]);

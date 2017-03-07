@@ -6,7 +6,7 @@ import { Link } from 'react-router';
 import { DropDown, DropDownTrigger, DropDownContent } from 'react-simple-dropdown';
 
 //turn to class component with state--use conditional or ?
-class MainLayout extends Component {
+export default class MainLayout extends Component {
   constructor() {
     super();
 
@@ -52,5 +52,3 @@ class MainLayout extends Component {
     );
   }
 }
-
-export default MainLayout;

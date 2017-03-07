@@ -4,7 +4,7 @@ import YouTubeVideoList from '../../containers/youtube_video_list';
 import YouTubeVideoDetail from './youtube_video_detail';
 import SearchBar from '../../containers/search_bar';
 
-class YouTubeSearch extends Component {
+export default class YouTubeSearch extends Component {
   constructor(props) {
     super(props);
 
@@ -26,5 +26,3 @@ class YouTubeSearch extends Component {
     );
   }
 }
-
-export default YouTubeSearch;

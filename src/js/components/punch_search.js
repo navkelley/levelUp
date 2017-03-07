@@ -8,7 +8,7 @@ import SearchBar from '../containers/search_bar';
 import TwitchVideoList from '../containers/twitch_video_list';
 import TwitchVideoDetail from './twitch/twitch_video_detail';
 
-class PunchSearch extends Component {
+export default class PunchSearch extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -34,5 +34,3 @@ class PunchSearch extends Component {
     );
   }
 }
-
-export default PunchSearch;

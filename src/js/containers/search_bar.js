@@ -45,4 +45,5 @@ class SearchBar extends Component {
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({ youTubeSearch, twitchSearch }, dispatch);
 }
+
 export default connect(null, mapDispatchToProps)(SearchBar);

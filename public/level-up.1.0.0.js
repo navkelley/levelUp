@@ -18375,8 +18375,7 @@ var Home = function Home() {
       "h1",
       { className: "logo" },
       "Level Up"
-    ),
-    "Hello where is my logo?"
+    )
   );
 };
 
@@ -18819,6 +18818,7 @@ var SearchBar = function (_Component) {
 function mapDispatchToProps(dispatch) {
 	return (0, _redux.bindActionCreators)({ youTubeSearch: _youtube.youTubeSearch, twitchSearch: _twitch.twitchSearch }, dispatch);
 }
+
 exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps)(SearchBar);
 
 /***/ }),

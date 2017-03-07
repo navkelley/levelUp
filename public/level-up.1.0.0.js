@@ -18462,18 +18462,18 @@ var MainLayout = function (_Component) {
               ),
               _react2.default.createElement(
                 _reactRouter.Link,
-                { to: '#' },
+                { to: '/search/youtube' },
                 _react2.default.createElement('i', { className: 'fa fa-youtube fa-2x btn2', 'aria-hidden': 'true' })
               ),
               _react2.default.createElement(
                 _reactRouter.Link,
-                { to: '#' },
+                { to: '/search/twitch' },
                 _react2.default.createElement('i', { className: 'fa fa-twitch fa-2x btn3', 'aria-hidden': 'true' })
               ),
               _react2.default.createElement(
                 _reactRouter.Link,
-                { to: '#' },
-                'Punch!'
+                { to: '/search' },
+                'Dragon Punch!'
               )
             )
           ) : _react2.default.createElement('i', { className: 'fa fa-bars', 'aria-hidden': 'true' })

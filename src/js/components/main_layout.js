@@ -30,9 +30,9 @@ export default class MainLayout extends Component {
           <div className="wrapper">
             <nav onClick={() => this.openMobileNav()}>
               <Link to="/"><i className="fa fa-home fa-2x btn1" aria-hidden="true" /></Link>
-              <Link to='#'><i className="fa fa-youtube fa-2x btn2" aria-hidden="true" /></Link>
-              <Link to='#'><i className="fa fa-twitch fa-2x btn3" aria-hidden="true" /></Link>
-              <Link to='#'>Punch!</Link>
+              <Link to='/search/youtube'><i className="fa fa-youtube fa-2x btn2" aria-hidden="true" /></Link>
+              <Link to='/search/twitch'><i className="fa fa-twitch fa-2x btn3" aria-hidden="true" /></Link>
+              <Link to='/search'>Dragon Punch!</Link>
             </nav>
           </div>
           ) : (

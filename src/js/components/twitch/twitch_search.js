@@ -18,7 +18,7 @@ export default class TwitchSearch extends Component {
       <div>
         <h1 className="logo">Level Up By Twitch</h1>
         <SearchBar />
-         <TwitchVideoDetail stream={this.state.selectedStream} />
+        <TwitchVideoDetail stream={this.state.selectedStream} />
         <TwitchVideoList
           onStreamSelect={selectedStream => this.setState({ selectedStream })}
         />

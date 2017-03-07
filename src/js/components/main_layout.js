@@ -3,7 +3,6 @@
   **/
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { Provider } from 'react-redux';
 import { DropDown, DropDownTrigger, DropDownContent } from 'react-simple-dropdown';
 
 //turn to class component with state--use conditional or ?

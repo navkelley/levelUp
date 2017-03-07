@@ -17431,6 +17431,14 @@ var _youtube_search = __webpack_require__(619);
 
 var _youtube_search2 = _interopRequireDefault(_youtube_search);
 
+var _twitch_search = __webpack_require__(620);
+
+var _twitch_search2 = _interopRequireDefault(_twitch_search);
+
+var _punch_search = __webpack_require__(621);
+
+var _punch_search2 = _interopRequireDefault(_punch_search);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ISPROD = process.env.NODE_ENV === 'production';
@@ -17448,12 +17456,17 @@ var routes = _react2.default.createElement(
   _react2.default.createElement(
     _reactRouter.Router,
     { history: _reactRouter.hashHistory },
-    _react2.default.createElement(_reactRouter.Route, { path: '/', component: _main_layout2.default }),
-    _react2.default.createElement(_reactRouter.IndexRoute, { component: _home2.default }),
     _react2.default.createElement(
       _reactRouter.Route,
-      { path: '/search' },
-      _react2.default.createElement(_reactRouter.Route, { path: 'youtube', component: _youtube_search2.default })
+      { path: '/', component: _main_layout2.default },
+      _react2.default.createElement(_reactRouter.IndexRoute, { component: _home2.default }),
+      _react2.default.createElement(
+        _reactRouter.Route,
+        { path: '/search' },
+        _react2.default.createElement(_reactRouter.Route, { path: 'youtube', component: _youtube_search2.default }),
+        _react2.default.createElement(_reactRouter.Route, { path: 'twitch', component: _twitch_search2.default }),
+        _react2.default.createElement(_reactRouter.IndexRoute, { component: _punch_search2.default })
+      )
     )
   )
 );
@@ -18348,79 +18361,24 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 var _react = __webpack_require__(8);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _youtube_video_detail = __webpack_require__(273);
-
-var _youtube_video_detail2 = _interopRequireDefault(_youtube_video_detail);
-
-var _youtube_video_list = __webpack_require__(277);
-
-var _youtube_video_list2 = _interopRequireDefault(_youtube_video_list);
-
-var _search_bar = __webpack_require__(275);
-
-var _search_bar2 = _interopRequireDefault(_search_bar);
-
-var _twitch_video_list = __webpack_require__(276);
-
-var _twitch_video_list2 = _interopRequireDefault(_twitch_video_list);
-
-var _twitch_video_detail = __webpack_require__(271);
-
-var _twitch_video_detail2 = _interopRequireDefault(_twitch_video_detail);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Home = function (_Component) {
-  _inherits(Home, _Component);
-
-  function Home(props) {
-    _classCallCheck(this, Home);
-
-    var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
-
-    _this.state = {
-      selectedStream: null
-    };
-    return _this;
-  }
-
-  _createClass(Home, [{
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
-
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-          'h1',
-          { id: 'logo' },
-          'Level Up'
-        ),
-        _react2.default.createElement(_twitch_video_detail2.default, { stream: this.state.selectedStream }),
-        _react2.default.createElement(_twitch_video_list2.default, {
-          onStreamSelect: function onStreamSelect(selectedStream) {
-            return _this2.setState({ selectedStream: selectedStream });
-          }
-        })
-      );
-    }
-  }]);
-
-  return Home;
-}(_react.Component);
+var Home = function Home() {
+  return _react2.default.createElement(
+    "div",
+    null,
+    _react2.default.createElement(
+      "h1",
+      { className: "logo" },
+      "Level Up"
+    ),
+    "Hello where is my logo?"
+  );
+};
 
 exports.default = Home;
 
@@ -18442,8 +18400,6 @@ var _react = __webpack_require__(8);
 var _react2 = _interopRequireDefault(_react);
 
 var _reactRouter = __webpack_require__(241);
-
-var _reactRedux = __webpack_require__(82);
 
 var _reactSimpleDropdown = __webpack_require__(593);
 
@@ -40466,7 +40422,7 @@ var YouTubeSearch = function (_Component) {
         null,
         _react2.default.createElement(
           'h1',
-          null,
+          { className: 'logo' },
           'Level Up By YouTube'
         ),
         _react2.default.createElement(_search_bar2.default, null),
@@ -40484,6 +40440,181 @@ var YouTubeSearch = function (_Component) {
 }(_react.Component);
 
 exports.default = YouTubeSearch;
+
+/***/ }),
+/* 620 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(8);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _twitch_video_list = __webpack_require__(276);
+
+var _twitch_video_list2 = _interopRequireDefault(_twitch_video_list);
+
+var _twitch_video_detail = __webpack_require__(271);
+
+var _twitch_video_detail2 = _interopRequireDefault(_twitch_video_detail);
+
+var _search_bar = __webpack_require__(275);
+
+var _search_bar2 = _interopRequireDefault(_search_bar);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var TwitchSearch = function (_Component) {
+  _inherits(TwitchSearch, _Component);
+
+  function TwitchSearch(props) {
+    _classCallCheck(this, TwitchSearch);
+
+    var _this = _possibleConstructorReturn(this, (TwitchSearch.__proto__ || Object.getPrototypeOf(TwitchSearch)).call(this, props));
+
+    _this.state = {
+      selectedStream: null
+    };
+    return _this;
+  }
+
+  _createClass(TwitchSearch, [{
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'h1',
+          { className: 'logo' },
+          'Level Up By Twitch'
+        ),
+        _react2.default.createElement(_search_bar2.default, null),
+        _react2.default.createElement(_twitch_video_detail2.default, { stream: this.state.selectedStream }),
+        _react2.default.createElement(_twitch_video_list2.default, {
+          onStreamSelect: function onStreamSelect(selectedStream) {
+            return _this2.setState({ selectedStream: selectedStream });
+          }
+        })
+      );
+    }
+  }]);
+
+  return TwitchSearch;
+}(_react.Component);
+
+exports.default = TwitchSearch;
+
+/***/ }),
+/* 621 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(8);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _youtube_video_detail = __webpack_require__(273);
+
+var _youtube_video_detail2 = _interopRequireDefault(_youtube_video_detail);
+
+var _youtube_video_list = __webpack_require__(277);
+
+var _youtube_video_list2 = _interopRequireDefault(_youtube_video_list);
+
+var _search_bar = __webpack_require__(275);
+
+var _search_bar2 = _interopRequireDefault(_search_bar);
+
+var _twitch_video_list = __webpack_require__(276);
+
+var _twitch_video_list2 = _interopRequireDefault(_twitch_video_list);
+
+var _twitch_video_detail = __webpack_require__(271);
+
+var _twitch_video_detail2 = _interopRequireDefault(_twitch_video_detail);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /** Combined YouTube and Twitch Search */
+
+var PunchSearch = function (_Component) {
+  _inherits(PunchSearch, _Component);
+
+  function PunchSearch(props) {
+    _classCallCheck(this, PunchSearch);
+
+    var _this = _possibleConstructorReturn(this, (PunchSearch.__proto__ || Object.getPrototypeOf(PunchSearch)).call(this, props));
+
+    _this.state = {
+      selectedVideo: null,
+      selectedStream: null
+    };
+    return _this;
+  }
+
+  _createClass(PunchSearch, [{
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'h1',
+          { className: 'logo' },
+          'Level Up by Dragon Punch!'
+        ),
+        _react2.default.createElement(_search_bar2.default, null),
+        _react2.default.createElement(_youtube_video_detail2.default, { video: this.state.selectedVideo }),
+        _react2.default.createElement(_youtube_video_list2.default, {
+          onVideoSelect: function onVideoSelect(selectedVideo) {
+            return _this2.setState({ selectedVideo: selectedVideo });
+          }
+        }),
+        _react2.default.createElement(_twitch_video_detail2.default, { stream: this.state.selectedStream }),
+        _react2.default.createElement(_twitch_video_list2.default, {
+          onStreamSelect: function onStreamSelect(selectedStream) {
+            return _this2.setState({ selectedStream: selectedStream });
+          }
+        })
+      );
+    }
+  }]);
+
+  return PunchSearch;
+}(_react.Component);
+
+exports.default = PunchSearch;
 
 /***/ })
 /******/ ]);

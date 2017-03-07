@@ -3,7 +3,7 @@ body {
   background: #3B199F;
   font-family: "VT323", sans-serif;
 }
-#logo {
+.logo {
   text-align: center;
   font-size: 80px;
   text-shadow: 2px 2px green;

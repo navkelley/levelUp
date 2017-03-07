@@ -27,19 +27,17 @@ export default class MainLayout extends Component {
   render() {
     return (
       <div className="main-layout">
-        <div id="navbar">
-          <NavContainer />
-        </div>
-        <div className="main">
+        <NavContainer />
+        <div className="social-icons">
           <div id="social">
             <Link to="#" className="twit" title="Twitter"><i className="fa fa-twitter" aria-hidden="true" /></Link>
             <Link to="#" className="fbook" title="Facebook"><i className="fa fa-facebook-official" aria-hidden="true" /></Link>
             <Link to="#" className="gplus" title="Google Plus"><i className="fa fa-google-plus" aria-hidden="true" /></Link>
           </div>
-          <section>
-            {this.props.children}
-          </section>
         </div>
+        <section>
+          {this.props.children}
+        </section>
       </div>
     );
   }

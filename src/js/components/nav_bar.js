@@ -24,18 +24,18 @@ export default class NavContainer extends Component {
 
   navigationLinks() {
     return (
-      <ul>
+      <ul className="nav-menu">
         <li key={1} className="home">
           <Link to="/">Home</Link>
         </li>
         <li key={2} className="only-youtube">
-          <Link to="/search/youtube" className="btn2">YouTube</Link>
+          <Link to="/search/youtube" className="youtube">YouTube</Link>
         </li>
         <li key={3} className="only-twitch">
-          <Link to="/search/twitch" className="btn3">Twitch</Link>
+          <Link to="/search/twitch" className="twitch">Twitch</Link>
         </li>
         <li key={4} className="dragon-punch">
-          <Link to="/search" className="btn3">Dragon Punch!</Link>
+          <Link to="/search" className="dragon-punch">Dragon Punch!</Link>
         </li>
       </ul>
     );
@@ -57,10 +57,12 @@ export default class NavContainer extends Component {
   }
 
   renderNavigation() {
-    if (this.state.windowWidth <= 1080) {
+    if (this.state.windowWidth <= 900) {
       return (
         <div className="mobile-nav">
-          <p onClick={this.handleNavClick.bind(this)}><i className="fa fa-bars" aria-hidden="true" /></p>
+          <p onClick={this.handleNavClick.bind(this)}>
+            <i className="fa fa-bars" aria-hidden="true" />
+          </p>
           {this.renderMobileNav()}
         </div>
       );
@@ -77,7 +79,7 @@ export default class NavContainer extends Component {
   render() {
     return (
       <div className="nav-container">
-        <div className="levelUp">
+        <div className="navbar">
           {this.renderNavigation()}
         </div>
       </div>

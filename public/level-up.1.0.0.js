@@ -18365,16 +18365,49 @@ var _react = __webpack_require__(8);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactRouter = __webpack_require__(241);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Home = function Home() {
   return _react2.default.createElement(
-    "div",
+    'div',
     null,
     _react2.default.createElement(
-      "h1",
-      { className: "logo" },
-      "Level Up"
+      'h1',
+      { className: 'logo' },
+      'Level Up'
+    ),
+    _react2.default.createElement(
+      'div',
+      { className: 'links' },
+      _react2.default.createElement(
+        'button',
+        null,
+        _react2.default.createElement(
+          _reactRouter.Link,
+          { to: '/search/youtube', className: 'btn1 home-links' },
+          'YouTube'
+        )
+      ),
+      _react2.default.createElement(
+        'button',
+        null,
+        _react2.default.createElement(
+          _reactRouter.Link,
+          { to: '/search/twitch', className: 'btn2 home-links' },
+          'Twitch'
+        )
+      ),
+      _react2.default.createElement(
+        'button',
+        null,
+        _react2.default.createElement(
+          _reactRouter.Link,
+          { to: '/search', className: 'btn3 home-links' },
+          'Dragon Punch!'
+        )
+      )
     )
   );
 };
@@ -18446,14 +18479,10 @@ var MainLayout = function (_Component) {
       return _react2.default.createElement(
         'div',
         { className: 'main-layout' },
+        _react2.default.createElement(_nav_bar2.default, null),
         _react2.default.createElement(
           'div',
-          { id: 'navbar' },
-          _react2.default.createElement(_nav_bar2.default, null)
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'main' },
+          { className: 'social-icons' },
           _react2.default.createElement(
             'div',
             { id: 'social' },
@@ -18472,12 +18501,12 @@ var MainLayout = function (_Component) {
               { to: '#', className: 'gplus', title: 'Google Plus' },
               _react2.default.createElement('i', { className: 'fa fa-google-plus', 'aria-hidden': 'true' })
             )
-          ),
-          _react2.default.createElement(
-            'section',
-            null,
-            this.props.children
           )
+        ),
+        _react2.default.createElement(
+          'section',
+          null,
+          this.props.children
         )
       );
     }
@@ -40651,7 +40680,7 @@ var NavContainer = function (_Component) {
     value: function navigationLinks() {
       return _react2.default.createElement(
         'ul',
-        null,
+        { className: 'nav-menu' },
         _react2.default.createElement(
           'li',
           { key: 1, className: 'home' },
@@ -40666,7 +40695,7 @@ var NavContainer = function (_Component) {
           { key: 2, className: 'only-youtube' },
           _react2.default.createElement(
             _reactRouter.Link,
-            { to: '/search/youtube', className: 'btn2' },
+            { to: '/search/youtube', className: 'youtube' },
             'YouTube'
           )
         ),
@@ -40675,7 +40704,7 @@ var NavContainer = function (_Component) {
           { key: 3, className: 'only-twitch' },
           _react2.default.createElement(
             _reactRouter.Link,
-            { to: '/search/twitch', className: 'btn3' },
+            { to: '/search/twitch', className: 'twitch' },
             'Twitch'
           )
         ),
@@ -40684,7 +40713,7 @@ var NavContainer = function (_Component) {
           { key: 4, className: 'dragon-punch' },
           _react2.default.createElement(
             _reactRouter.Link,
-            { to: '/search', className: 'btn3' },
+            { to: '/search', className: 'dragon-punch' },
             'Dragon Punch!'
           )
         )
@@ -40709,7 +40738,7 @@ var NavContainer = function (_Component) {
   }, {
     key: 'renderNavigation',
     value: function renderNavigation() {
-      if (this.state.windowWidth <= 1080) {
+      if (this.state.windowWidth <= 900) {
         return _react2.default.createElement(
           'div',
           { className: 'mobile-nav' },
@@ -40736,7 +40765,7 @@ var NavContainer = function (_Component) {
         { className: 'nav-container' },
         _react2.default.createElement(
           'div',
-          { className: 'levelUp' },
+          { className: 'navbar' },
           this.renderNavigation()
         )
       );

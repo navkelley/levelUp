@@ -26,17 +26,15 @@ export default class MainLayout extends Component {
     return (
       <div className="main-layout">
         <div id="navbar">
-          {!this.state.isNavbarShow ? (
           <div className="wrapper">
-            <nav onClick={() => this.openMobileNav()}>
+            <nav>
               <Link to="/"><i className="fa fa-home fa-2x btn1" aria-hidden="true" /></Link>
               <Link to='/search/youtube'><i className="fa fa-youtube fa-2x btn2" aria-hidden="true" /></Link>
               <Link to='/search/twitch'><i className="fa fa-twitch fa-2x btn3" aria-hidden="true" /></Link>
               <Link to='/search'>Dragon Punch!</Link>
             </nav>
           </div>
-          ) : (
-          <i className="fa fa-bars" aria-hidden="true"></i>)}
+          <i className="fa fa-bars" aria-hidden="true"></i>
         </div>
         <div className="main">
           <div id="social">

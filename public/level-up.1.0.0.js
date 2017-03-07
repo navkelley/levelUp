@@ -18439,22 +18439,18 @@ var MainLayout = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
-
       return _react2.default.createElement(
         'div',
         { className: 'main-layout' },
         _react2.default.createElement(
           'div',
           { id: 'navbar' },
-          !this.state.isNavbarShow ? _react2.default.createElement(
+          _react2.default.createElement(
             'div',
             { className: 'wrapper' },
             _react2.default.createElement(
               'nav',
-              { onClick: function onClick() {
-                  return _this2.openMobileNav();
-                } },
+              null,
               _react2.default.createElement(
                 _reactRouter.Link,
                 { to: '/' },
@@ -18476,7 +18472,8 @@ var MainLayout = function (_Component) {
                 'Dragon Punch!'
               )
             )
-          ) : _react2.default.createElement('i', { className: 'fa fa-bars', 'aria-hidden': 'true' })
+          ),
+          _react2.default.createElement('i', { className: 'fa fa-bars', 'aria-hidden': 'true' })
         ),
         _react2.default.createElement(
           'div',

@@ -7,6 +7,7 @@ import ReduxPromise from 'redux-promise';
 import thunk from 'redux-thunk';
 
 import MainLayout from './components/main_layout';
+import Home from './components/home';
 import reducers from './reducers';
 
 const ISPROD = process.env.NODE_ENV === 'production';
@@ -25,7 +26,7 @@ let routes = (
   <Provider store={store}>
     <Router history={hashHistory}>
       <Route path="/" component={MainLayout} />
-
+        <IndexRoute component={Home} />
     </Router>
   </Provider>
 );

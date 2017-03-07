@@ -1227,6 +1227,10 @@ circular-json@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/circular-json/-/circular-json-0.3.1.tgz#be8b36aefccde8b3ca7aa2d6afc07a37242c0d2d"
 
+classnames@^2.1.2:
+  version "2.2.5"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.5.tgz#fb3801d453467649ef3603c7d61a02bd129bde6d"
+
 clean-css@^3.0.1:
   version "3.4.25"
   resolved "https://registry.yarnpkg.com/clean-css/-/clean-css-3.4.25.tgz#9e9a52d5c1e6bc5123e1b2783fa65fe958946ede"
@@ -3645,6 +3649,12 @@ react-router@^3.0.2:
     invariant "^2.2.1"
     loose-envify "^1.2.0"
     warning "^3.0.0"
+
+react-simple-dropdown@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-simple-dropdown/-/react-simple-dropdown-2.0.0.tgz#685215e77d69133fe490b06b5cb4c16a7eae3968"
+  dependencies:
+    classnames "^2.1.2"
 
 react@^15.4.2:
   version "15.4.2"

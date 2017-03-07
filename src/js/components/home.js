@@ -10,7 +10,6 @@ export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedVideo: null,
       selectedStream: null
     };
   }
@@ -19,11 +18,7 @@ export default class Home extends Component {
     return (
       <div>
         <h1 id="logo">Level Up</h1>
-        <SearchBar />
-        <YouTubeVideoDetail video={this.state.selectedVideo} />
-        <YouTubeVideoList
-          onVideoSelect={selectedVideo => this.setState({ selectedVideo })}
-        />
+
         <TwitchVideoDetail stream={this.state.selectedStream} />
         <TwitchVideoList
           onStreamSelect={selectedStream => this.setState({ selectedStream })}

@@ -9,6 +9,7 @@ import thunk from 'redux-thunk';
 import MainLayout from './components/main_layout';
 import Home from './components/home';
 import reducers from './reducers';
+import YouTubeSearch from './components/youtube/youtube_search';
 
 const ISPROD = process.env.NODE_ENV === 'production';
 
@@ -27,6 +28,9 @@ let routes = (
     <Router history={hashHistory}>
       <Route path="/" component={MainLayout} />
         <IndexRoute component={Home} />
+        <Route path="/search">
+          <Route path="youtube" component={YouTubeSearch} />
+        </Route>
     </Router>
   </Provider>
 );

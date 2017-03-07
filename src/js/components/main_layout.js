@@ -5,6 +5,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { DropDown, DropDownTrigger, DropDownContent } from 'react-simple-dropdown';
 
+import NavContainer from './nav_bar';
+
 //turn to class component with state--use conditional or ?
 export default class MainLayout extends Component {
   constructor() {
@@ -26,15 +28,7 @@ export default class MainLayout extends Component {
     return (
       <div className="main-layout">
         <div id="navbar">
-          <div className="wrapper">
-            <nav>
-              <Link to="/"><i className="fa fa-home fa-2x btn1" aria-hidden="true" /></Link>
-              <Link to='/search/youtube'><i className="fa fa-youtube fa-2x btn2" aria-hidden="true" /></Link>
-              <Link to='/search/twitch'><i className="fa fa-twitch fa-2x btn3" aria-hidden="true" /></Link>
-              <Link to='/search'>Dragon Punch!</Link>
-            </nav>
-          </div>
-          <i className="fa fa-bars" aria-hidden="true"></i>
+          <NavContainer />
         </div>
         <div className="main">
           <div id="social">

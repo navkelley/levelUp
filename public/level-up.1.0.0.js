@@ -18402,6 +18402,10 @@ var _reactRouter = __webpack_require__(241);
 
 var _reactSimpleDropdown = __webpack_require__(593);
 
+var _nav_bar = __webpack_require__(622);
+
+var _nav_bar2 = _interopRequireDefault(_nav_bar);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -18445,35 +18449,7 @@ var MainLayout = function (_Component) {
         _react2.default.createElement(
           'div',
           { id: 'navbar' },
-          _react2.default.createElement(
-            'div',
-            { className: 'wrapper' },
-            _react2.default.createElement(
-              'nav',
-              null,
-              _react2.default.createElement(
-                _reactRouter.Link,
-                { to: '/' },
-                _react2.default.createElement('i', { className: 'fa fa-home fa-2x btn1', 'aria-hidden': 'true' })
-              ),
-              _react2.default.createElement(
-                _reactRouter.Link,
-                { to: '/search/youtube' },
-                _react2.default.createElement('i', { className: 'fa fa-youtube fa-2x btn2', 'aria-hidden': 'true' })
-              ),
-              _react2.default.createElement(
-                _reactRouter.Link,
-                { to: '/search/twitch' },
-                _react2.default.createElement('i', { className: 'fa fa-twitch fa-2x btn3', 'aria-hidden': 'true' })
-              ),
-              _react2.default.createElement(
-                _reactRouter.Link,
-                { to: '/search' },
-                'Dragon Punch!'
-              )
-            )
-          ),
-          _react2.default.createElement('i', { className: 'fa fa-bars', 'aria-hidden': 'true' })
+          _react2.default.createElement(_nav_bar2.default, null)
         ),
         _react2.default.createElement(
           'div',
@@ -40612,6 +40588,165 @@ var PunchSearch = function (_Component) {
 }(_react.Component);
 
 exports.default = PunchSearch;
+
+/***/ }),
+/* 622 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(8);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouter = __webpack_require__(241);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var NavContainer = function (_Component) {
+  _inherits(NavContainer, _Component);
+
+  function NavContainer(props) {
+    _classCallCheck(this, NavContainer);
+
+    var _this = _possibleConstructorReturn(this, (NavContainer.__proto__ || Object.getPrototypeOf(NavContainer)).call(this, props));
+
+    _this.state = {
+      windowWidth: window.innerWidth,
+      mobileNavVisible: false
+    };
+    return _this;
+  }
+
+  _createClass(NavContainer, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      window.addEventListener('resize', this.handleResize.bind(this));
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      window.removeEventListener('resize', this.handleResize.bind(this));
+    }
+  }, {
+    key: 'handleResize',
+    value: function handleResize() {
+      this.setState({ windowWidth: window.innerWidth });
+    }
+  }, {
+    key: 'navigationLinks',
+    value: function navigationLinks() {
+      return _react2.default.createElement(
+        'ul',
+        null,
+        _react2.default.createElement(
+          'li',
+          { key: 1, className: 'home' },
+          _react2.default.createElement(
+            _reactRouter.Link,
+            { to: '/' },
+            'Home'
+          )
+        ),
+        _react2.default.createElement(
+          'li',
+          { key: 2, className: 'only-youtube' },
+          _react2.default.createElement(
+            _reactRouter.Link,
+            { to: '/search/youtube', className: 'btn2' },
+            'YouTube'
+          )
+        ),
+        _react2.default.createElement(
+          'li',
+          { key: 3, className: 'only-twitch' },
+          _react2.default.createElement(
+            _reactRouter.Link,
+            { to: '/search/twitch', className: 'btn3' },
+            'Twitch'
+          )
+        ),
+        _react2.default.createElement(
+          'li',
+          { key: 4, className: 'dragon-punch' },
+          _react2.default.createElement(
+            _reactRouter.Link,
+            { to: '/search', className: 'btn3' },
+            'Dragon Punch!'
+          )
+        )
+      );
+    }
+  }, {
+    key: 'handleNavClick',
+    value: function handleNavClick() {
+      if (!this.state.mobileNavVisible) {
+        this.setState({ mobileNavVisible: true });
+      } else {
+        this.setState({ mobileNavVisible: false });
+      }
+    }
+  }, {
+    key: 'renderMobileNav',
+    value: function renderMobileNav() {
+      if (this.state.mobileNavVisible) {
+        return this.navigationLinks();
+      }
+    }
+  }, {
+    key: 'renderNavigation',
+    value: function renderNavigation() {
+      if (this.state.windowWidth <= 1080) {
+        return _react2.default.createElement(
+          'div',
+          { className: 'mobile-nav' },
+          _react2.default.createElement(
+            'p',
+            { onClick: this.handleNavClick.bind(this) },
+            _react2.default.createElement('i', { className: 'fa fa-bars', 'aria-hidden': 'true' })
+          ),
+          this.renderMobileNav()
+        );
+      } else {
+        return _react2.default.createElement(
+          'div',
+          { key: 7, className: 'nav-menu' },
+          this.navigationLinks()
+        );
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'nav-container' },
+        _react2.default.createElement(
+          'div',
+          { className: 'levelUp' },
+          this.renderNavigation()
+        )
+      );
+    }
+  }]);
+
+  return NavContainer;
+}(_react.Component);
+
+exports.default = NavContainer;
 
 /***/ })
 /******/ ]);

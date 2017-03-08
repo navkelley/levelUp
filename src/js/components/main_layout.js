@@ -3,11 +3,12 @@
   **/
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { Provider } from 'react-redux';
 import { DropDown, DropDownTrigger, DropDownContent } from 'react-simple-dropdown';
 
+import NavContainer from './nav_bar';
+
 //turn to class component with state--use conditional or ?
-class MainLayout extends Component {
+export default class MainLayout extends Component {
   constructor() {
     super();
 
@@ -26,32 +27,18 @@ class MainLayout extends Component {
   render() {
     return (
       <div className="main-layout">
-        <div id="navbar">
-          {!this.state.isNavbarShow ? (
-          <div className="wrapper">
-            <nav onClick={() => this.openMobileNav()}>
-              <Link to="/"><i className="fa fa-home fa-2x btn1" aria-hidden="true" /></Link>
-              <Link to='#'><i className="fa fa-youtube fa-2x btn2" aria-hidden="true" /></Link>
-              <Link to='#'><i className="fa fa-twitch fa-2x btn3" aria-hidden="true" /></Link>
-              <Link to='#'>Punch!</Link>
-            </nav>
-          </div>
-          ) : (
-          <i className="fa fa-bars" aria-hidden="true"></i>)}
-        </div>
-        <div className="main">
+        <NavContainer />
+        <div className="social-icons">
           <div id="social">
             <Link to="#" className="twit" title="Twitter"><i className="fa fa-twitter" aria-hidden="true" /></Link>
             <Link to="#" className="fbook" title="Facebook"><i className="fa fa-facebook-official" aria-hidden="true" /></Link>
             <Link to="#" className="gplus" title="Google Plus"><i className="fa fa-google-plus" aria-hidden="true" /></Link>
           </div>
-          <section>
-            {this.props.children}
-          </section>
         </div>
+        <section>
+          {this.props.children}
+        </section>
       </div>
     );
   }
 }
-
-export default MainLayout;

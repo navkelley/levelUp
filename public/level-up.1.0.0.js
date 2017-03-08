@@ -18852,19 +18852,19 @@ var MainLayout = function (_Component) {
             'div',
             { id: 'social' },
             _react2.default.createElement(
-              _reactRouter.Link,
-              { to: '#', className: 'twit', title: 'Twitter' },
+              'a',
+              { href: '#', className: 'twit', title: 'Twitter' },
               _react2.default.createElement('i', { className: 'fa fa-twitter', 'aria-hidden': 'true' })
             ),
             _react2.default.createElement(
-              _reactRouter.Link,
-              { to: '#', className: 'fbook', title: 'Facebook' },
+              'a',
+              { href: '#', className: 'fbook', title: 'Facebook' },
               _react2.default.createElement('i', { className: 'fa fa-facebook-official', 'aria-hidden': 'true' })
             ),
             _react2.default.createElement(
-              _reactRouter.Link,
-              { to: '#', className: 'gplus', title: 'Google Plus' },
-              _react2.default.createElement('i', { className: 'fa fa-google-plus', 'aria-hidden': 'true' })
+              'a',
+              { href: '#', className: 'github', title: 'GitHub' },
+              _react2.default.createElement('i', { 'class': 'fa fa-github', 'aria-hidden': 'true' })
             )
           )
         ),

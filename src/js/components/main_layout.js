@@ -31,7 +31,7 @@ export default class MainLayout extends Component {
         <div className="social-icons">
           <div id="social">
             <a href="https://twitter.com/navkelley" target="blank" className="twit" title="Twitter"><i className="fa fa-twitter" aria-hidden="true" /></a>
-            <a href="www.linkedin.com/in/nicolevkelley" target="blank" className="linkedIn" title="linkedIn"><i className="fa fa-github" aria-hidden="true" /></a>
+            <a href="www.linkedin.com/in/nicolevkelley" target="blank" className="linkedIn" title="linkedIn"><i className="fa fa-linkedin-square" aria-hidden="true" /></a>
             <a href="https://github.com/navkelley" target="blank" className="github" title="GitHub"><i className="fa fa-github" aria-hidden="true" /></a>
           </div>
         </div>

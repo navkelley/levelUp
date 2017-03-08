@@ -69,7 +69,7 @@ export default class NavContainer extends Component {
     }
     else {
       return (
-        <div key={7} className="nav-menu">
+        <div key={7} className="nav-mobile">
           {this.navigationLinks()}
         </div>
       );

@@ -30,9 +30,9 @@ export default class MainLayout extends Component {
         <NavContainer />
         <div className="social-icons">
           <div id="social">
-            <Link to="#" className="twit" title="Twitter"><i className="fa fa-twitter" aria-hidden="true" /></Link>
-            <Link to="#" className="fbook" title="Facebook"><i className="fa fa-facebook-official" aria-hidden="true" /></Link>
-            <Link to="#" className="gplus" title="Google Plus"><i className="fa fa-google-plus" aria-hidden="true" /></Link>
+            <a href="https://twitter.com/navkelley" target="blank" className="twit" title="Twitter"><i className="fa fa-twitter" aria-hidden="true" /></a>
+            <a href="www.linkedin.com/in/nicolevkelley" target="blank" className="linkedIn" title="linkedIn"><i className="fa fa-github" aria-hidden="true" /></a>
+            <a href="https://github.com/navkelley" target="blank" className="github" title="GitHub"><i className="fa fa-github" aria-hidden="true" /></a>
           </div>
         </div>
         <section>

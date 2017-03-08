@@ -163,6 +163,7 @@ form {
   width: 40px;
   height: 40px;
   white-space: nowrap;
+  color: black;
 }
 /*////////// HEADER //////////*/
 header {
@@ -244,7 +245,6 @@ header {
 section {
   padding: 30px;
   margin-bottom: 20px;
-  background: white;
 }
 /*////////// DETAILS //////////*/
 #details {

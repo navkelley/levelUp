@@ -18853,18 +18853,18 @@ var MainLayout = function (_Component) {
             { id: 'social' },
             _react2.default.createElement(
               'a',
-              { href: '#', className: 'twit', title: 'Twitter' },
+              { href: 'https://twitter.com/navkelley', target: 'blank', className: 'twit', title: 'Twitter' },
               _react2.default.createElement('i', { className: 'fa fa-twitter', 'aria-hidden': 'true' })
             ),
             _react2.default.createElement(
               'a',
-              { href: '#', className: 'fbook', title: 'Facebook' },
-              _react2.default.createElement('i', { className: 'fa fa-facebook-official', 'aria-hidden': 'true' })
+              { href: 'www.linkedin.com/in/nicolevkelley', target: 'blank', className: 'linkedIn', title: 'linkedIn' },
+              _react2.default.createElement('i', { className: 'fa fa-github', 'aria-hidden': 'true' })
             ),
             _react2.default.createElement(
               'a',
-              { href: '#', className: 'github', title: 'GitHub' },
-              _react2.default.createElement('i', { 'class': 'fa fa-github', 'aria-hidden': 'true' })
+              { href: 'https://github.com/navkelley', target: 'blank', className: 'github', title: 'GitHub' },
+              _react2.default.createElement('i', { className: 'fa fa-github', 'aria-hidden': 'true' })
             )
           )
         ),

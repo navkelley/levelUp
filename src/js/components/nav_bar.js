@@ -67,13 +67,11 @@ export default class NavContainer extends Component {
         </div>
       );
     }
-    else {
-      return (
-        <div key={7} className="nav-mobile">
-          {this.navigationLinks()}
-        </div>
-      );
-    }
+    return (
+      <div key={7} className="nav-mobile">
+        {this.navigationLinks()}
+      </div>
+    );
   }
 
   render() {

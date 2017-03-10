@@ -1,4 +1,5 @@
-require("babel-polyfill");
+require('babel-polyfill');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const path = require('path');
 
@@ -9,7 +10,7 @@ const packageData = require('./package.json');
 const filename = [packageData.name, packageData.version, 'js'];
 
 module.exports = {
-	entry: ["babel-polyfill" , './src/js/index.js'],
+	entry: ['babel-polyfill', './src/js/index.js'],
 	output: {
 		path: path.resolve(__dirname, 'public'),
 		filename: filename.join('.'),
@@ -26,17 +27,18 @@ module.exports = {
 				exclude: /(node_modules)/,
 				loader: 'babel-loader', 
 			},
-			{
-				test: /\.(png|jpg)$/,
-				loader: 'url-loader',
-			}
+			{ 
+				test: /\.css$/, 
+				loader: ExtractTextPlugin.extract('style-loader', 'css-loader') 
+			},
 		]
 	},
-	/*plugins: [
+	plugins: [
 		new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production')
-      }
-    }),
-	]*/
+	  'process.env': {
+		NODE_ENV: JSON.stringify('production')
+	  }
+	}),
+	new ExtractTextPlugin('app.css')
+	]
 };

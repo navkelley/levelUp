@@ -17835,6 +17835,10 @@ var _punch_search = __webpack_require__(277);
 
 var _punch_search2 = _interopRequireDefault(_punch_search);
 
+var _PacMan = __webpack_require__(623);
+
+var _PacMan2 = _interopRequireDefault(_PacMan);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ISPROD = process.env.NODE_ENV === 'production';
@@ -18955,7 +18959,7 @@ var NavContainer = function (_Component) {
         { className: 'nav-menu' },
         _react2.default.createElement(
           'li',
-          { key: 1, className: 'home' },
+          { key: 1, className: 'home btn' },
           _react2.default.createElement(
             _reactRouter.Link,
             { to: '/' },
@@ -18964,7 +18968,7 @@ var NavContainer = function (_Component) {
         ),
         _react2.default.createElement(
           'li',
-          { key: 2, className: 'only-youtube' },
+          { key: 2, className: 'only-youtube btn' },
           _react2.default.createElement(
             _reactRouter.Link,
             { to: '/search/youtube', className: 'youtube' },
@@ -18973,7 +18977,7 @@ var NavContainer = function (_Component) {
         ),
         _react2.default.createElement(
           'li',
-          { key: 3, className: 'only-twitch' },
+          { key: 3, className: 'only-twitch btn' },
           _react2.default.createElement(
             _reactRouter.Link,
             { to: '/search/twitch', className: 'twitch' },
@@ -18982,7 +18986,7 @@ var NavContainer = function (_Component) {
         ),
         _react2.default.createElement(
           'li',
-          { key: 4, className: 'dragon-punch' },
+          { key: 4, className: 'dragon-punch btn' },
           _react2.default.createElement(
             _reactRouter.Link,
             { to: '/search', className: 'dragon-punch' },
@@ -40752,6 +40756,12 @@ module.exports = function(module) {
 __webpack_require__(255);
 module.exports = __webpack_require__(254);
 
+
+/***/ }),
+/* 623 */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed: Error: Cannot find module 'loader-utils'\n    at Function.Module._resolveFilename (module.js:470:15)\n    at Function.Module._load (module.js:418:25)\n    at Module.require (module.js:498:17)\n    at require (internal/module.js:20:19)\n    at Object.<anonymous> (/Users/nicolekelley/Desktop/thinkful/levelUp/node_modules/url-loader/index.js:5:19)\n    at Module._compile (module.js:571:32)\n    at Object.Module._extensions..js (module.js:580:10)\n    at Module.load (module.js:488:32)\n    at tryModuleLoad (module.js:447:12)\n    at Function.Module._load (module.js:439:3)\n    at Module.require (module.js:498:17)\n    at require (internal/module.js:20:19)\n    at loadLoader (/Users/nicolekelley/Desktop/thinkful/levelUp/node_modules/loader-runner/lib/loadLoader.js:13:17)\n    at iteratePitchingLoaders (/Users/nicolekelley/Desktop/thinkful/levelUp/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at runLoaders (/Users/nicolekelley/Desktop/thinkful/levelUp/node_modules/loader-runner/lib/LoaderRunner.js:362:2)\n    at NormalModule.doBuild (/Users/nicolekelley/Desktop/thinkful/levelUp/node_modules/webpack/lib/NormalModule.js:129:2)\n    at NormalModule.build (/Users/nicolekelley/Desktop/thinkful/levelUp/node_modules/webpack/lib/NormalModule.js:180:15)\n    at Compilation.buildModule (/Users/nicolekelley/Desktop/thinkful/levelUp/node_modules/webpack/lib/Compilation.js:142:10)\n    at factoryCallback (/Users/nicolekelley/Desktop/thinkful/levelUp/node_modules/webpack/lib/Compilation.js:324:11)\n    at /Users/nicolekelley/Desktop/thinkful/levelUp/node_modules/webpack/lib/NormalModuleFactory.js:242:4\n    at /Users/nicolekelley/Desktop/thinkful/levelUp/node_modules/webpack/lib/NormalModuleFactory.js:93:13\n    at /Users/nicolekelley/Desktop/thinkful/levelUp/node_modules/tapable/lib/Tapable.js:204:11\n    at NormalModuleFactory.params.normalModuleFactory.plugin (/Users/nicolekelley/Desktop/thinkful/levelUp/node_modules/webpack/lib/CompatibilityPlugin.js:52:5)\n    at NormalModuleFactory.applyPluginsAsyncWaterfall (/Users/nicolekelley/Desktop/thinkful/levelUp/node_modules/tapable/lib/Tapable.js:208:13)\n    at onDoneResolving (/Users/nicolekelley/Desktop/thinkful/levelUp/node_modules/webpack/lib/NormalModuleFactory.js:68:11)\n    at onDoneResolving (/Users/nicolekelley/Desktop/thinkful/levelUp/node_modules/webpack/lib/NormalModuleFactory.js:189:6)\n    at _combinedTickCallback (internal/process/next_tick.js:73:7)\n    at process._tickCallback (internal/process/next_tick.js:104:9)");
 
 /***/ })
 /******/ ]);

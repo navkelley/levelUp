@@ -6,7 +6,7 @@ body {
   background: #3D8699;
   font-family: "VT323", sans-serif;
   font-size: 100%;
-  background-image: url('../images/PacMan.jpg');
+  background-image: url('/images/PacMan.jpg');
 }
 
 .logo {
@@ -214,7 +214,6 @@ header {
   left: 0;
   width: 100%;
   z-index: 2;
-  border-bottom: 1px solid #ccc;
   text-align: center;
 }
 
@@ -224,14 +223,30 @@ header {
 
 .navbar li {
   display: inline-block;
-  width: 25%;
-  margin: 0;
-  padding: 10px 0;
+  width: 20%;
+  padding: 10px;
+  
   text-transform: uppercase;
   color: black;
-  text-align: center;
-  border-right: 1px solid #ccc;
   text-decoration: none;
+}
+
+.btn {
+  flex: 1 1 auto;
+  padding: 15px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: black;
+  border-radius: 10px;
+  background-image: linear-gradient(to right, #CC1453 0%, lightgrey 51%, #CC1453 100%);
+  font-size: 20px; 
+  margin-left: 5px; 
+}
+
+.btn:hover {
+  background-position: right center;  
 }
 
 .nav-menu a {
@@ -242,21 +257,6 @@ header {
 #navbar a.selected {
   background: #333;
   color: white;
-}
-
-#navbar nav a:hover {
-  color: white;
-  background: rgb(0,0,0); /* Old browsers */
-  background: -moz-linear-gradient(top,  rgba(0,0,0,1) 0%, rgba(71,71,71,1) 28%, rgba(81,81,81,1) 35%, rgba(71,71,71,1) 72%, rgba(43,43,43,1) 87%, rgba(28,28,28,1) 91%, rgba(0,0,0,1) 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,1)), color-stop(28%,rgba(71,71,71,1)), color-stop(35%,rgba(81,81,81,1)), color-stop(72%,rgba(71,71,71,1)), color-stop(87%,rgba(43,43,43,1)), color-stop(91%,rgba(28,28,28,1)), color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(71,71,71,1) 28%,rgba(81,81,81,1) 35%,rgba(71,71,71,1) 72%,rgba(43,43,43,1) 87%,rgba(28,28,28,1) 91%,rgba(0,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(71,71,71,1) 28%,rgba(81,81,81,1) 35%,rgba(71,71,71,1) 72%,rgba(43,43,43,1) 87%,rgba(28,28,28,1) 91%,rgba(0,0,0,1) 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(71,71,71,1) 28%,rgba(81,81,81,1) 35%,rgba(71,71,71,1) 72%,rgba(43,43,43,1) 87%,rgba(28,28,28,1) 91%,rgba(0,0,0,1) 100%); /* IE10+ */
-  background: linear-gradient(to bottom,  rgba(0,0,0,1) 0%,rgba(71,71,71,1) 28%,rgba(81,81,81,1) 35%,rgba(71,71,71,1) 72%,rgba(43,43,43,1) 87%,rgba(28,28,28,1) 91%,rgba(0,0,0,1) 100%); /* W3C */
-}
-
-#navbar nav a.menu-icon {
-  display: none;
 }
 
 /*////////// LOGO //////////*/

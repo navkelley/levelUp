@@ -4,7 +4,7 @@ body {
   background: #3D8699;
   font-family: "VT323", sans-serif;
   font-size: 100%;
-  background-image: url('../images/PacMan.jpg');
+  background-image: url('/images/PacMan.jpg');
 }
 .logo {
   text-align: center;
@@ -180,7 +180,6 @@ header {
   left: 0;
   width: 100%;
   z-index: 2;
-  border-bottom: 1px solid #ccc;
   text-align: center;
 }
 #navbar nav {
@@ -188,14 +187,27 @@ header {
 }
 .navbar li {
   display: inline-block;
-  width: 25%;
-  margin: 0;
-  padding: 10px 0;
+  width: 20%;
+  padding: 10px;
   text-transform: uppercase;
   color: black;
-  text-align: center;
-  border-right: 1px solid #ccc;
   text-decoration: none;
+}
+.btn {
+  flex: 1 1 auto;
+  padding: 15px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: black;
+  border-radius: 10px;
+  background-image: linear-gradient(to right, #CC1453 0%, lightgrey 51%, #CC1453 100%);
+  font-size: 20px;
+  margin-left: 5px;
+}
+.btn:hover {
+  background-position: right center;
 }
 .nav-menu a {
   color: black;
@@ -204,26 +216,6 @@ header {
 #navbar a.selected {
   background: #333;
   color: white;
-}
-#navbar nav a:hover {
-  color: white;
-  background: #000000;
-  /* Old browsers */
-  background: -moz-linear-gradient(top, #000000 0%, #474747 28%, #515151 35%, #474747 72%, #2b2b2b 87%, #1c1c1c 91%, #000000 100%);
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #000000), color-stop(28%, #474747), color-stop(35%, #515151), color-stop(72%, #474747), color-stop(87%, #2b2b2b), color-stop(91%, #1c1c1c), color-stop(100%, #000000));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #000000 0%, #474747 28%, #515151 35%, #474747 72%, #2b2b2b 87%, #1c1c1c 91%, #000000 100%);
-  /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #000000 0%, #474747 28%, #515151 35%, #474747 72%, #2b2b2b 87%, #1c1c1c 91%, #000000 100%);
-  /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #000000 0%, #474747 28%, #515151 35%, #474747 72%, #2b2b2b 87%, #1c1c1c 91%, #000000 100%);
-  /* IE10+ */
-  background: linear-gradient(to bottom, #000000 0%, #474747 28%, #515151 35%, #474747 72%, #2b2b2b 87%, #1c1c1c 91%, #000000 100%);
-  /* W3C */
-}
-#navbar nav a.menu-icon {
-  display: none;
 }
 /*////////// LOGO //////////*/
 #logo {

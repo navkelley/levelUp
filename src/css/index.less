@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=VT323');
+@import url('https://fonts.googleapis.com/css?family=Vollkorn');
 
 /*////////// GLOBAL //////////*/
 
@@ -22,40 +23,18 @@ li {
   margin-left: 20px;
 }
 
-p, address {
+address {
   font-size: 1em; /* 16px, ?pt, 100%, 1em */
   line-height: 1.5em;
 }
 
-figure {
-  margin: 0 0 10px;
-}
-
-figcaption {
-  font: normal 0.75em/1.5em 'Elsie Swash Caps', cursive;
-  color: #777;
-  text-align: right;
-}
-
-table {
-  margin: 0 0 20px;
-  border-top: 1px solid #ccc;
-  border-left: 1px solid #ccc;
-}
-
-tr:nth-child(even) {
-  background: #efefef;
-}
-
 th, td {
   padding: 10px;
-  border-right: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+  font-family: "Vollkorn", sans-serif; 
 }
 
 th {
-  background: #555;
-  color: white;
+  background-image: linear-gradient(to right, #14A6CC 0%, lightgrey 51%, #14A6CC 100%); 
 }
 
 input {
@@ -72,14 +51,6 @@ input[type="text"] {
   font-size: 17px; 
 }
 
-iframe {
-  border: 0;
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
-  height: 403px;
-}
-
 button {
   font-size: 16px; 
   border-radius: 5px; 
@@ -94,25 +65,22 @@ button:hover {
   border: 1px solid #00FFA7; 
 }
 
-.milk-text {
-  font: bold 2.6em 'Elsie Swash Caps', cursive;
-  color: white;
-  text-shadow: 0 2px 3px #000;
-}
-
-.shadow {
-  box-shadow: 0 3px 10px #333;
-}
-
-.border-right {
-  border-right: 1px dotted #ccc;
-  padding-right: 30px;
-}
-
 .search-bar {
   text-align: center; 
 }
 
+p {
+  font-size: 30px;
+  color: white; 
+  text-align: center; 
+}
+
+.description {
+  font-family: "Vollkorn", sans-serif; 
+  text-align: left; 
+  font-size: 20px; 
+  margin: 5px;  
+}
 
 /*////////// BACKGROUNDS //////////*/
 
@@ -122,11 +90,46 @@ button:hover {
 
 /*/////// MEDIA ////////*/
 
-img, video, audio, iframe, table, form {
+iframe {
+  width: 100%; /* IE */
+  max-width: 100%; /* FF, Safari, Chrome */
+  margin-top: 20px; 
+  height: 700px; 
+  border: 0;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.embed-item {
+  margin-top: 20px;
+
+}
+img {
   width: 100%; /* IE */
   max-width: 100%; /* FF, Safari, Chrome */
 }
 
+table {
+  //width: 50%; 
+  margin: 0 0 20px;
+  border: 2px solid white; 
+}
+
+img:hover {
+  filter: grayscale(100%) blur(2px);
+  cursor: pointer;
+}
+
+#twitch-streams {
+  position: relative; 
+  left: 685px;
+}
+
+#ytVideo-table {
+  position: relative;
+  left: -5px;
+}
 /*////////// FIXES //////////*/
 
 * {
@@ -135,25 +138,7 @@ img, video, audio, iframe, table, form {
   box-sizing: border-box;
 }
 
-.clearfix:after {
-  content: ".";
-  display: block;
-  clear: both;
-  visibility: hidden;
-  height: 0;
-  line-height: 0;
-}
-
-.clear {
-  clear:both;
-}
-
 /*/////// LAYOUT ////////*/
-
-.wrapper {
-  width: 960px;
-  margin: 0 auto;
-}
 
 .col-1 {
   float: left;
@@ -179,15 +164,6 @@ img, video, audio, iframe, table, form {
 
 [class*="col-"] {
   margin-left: 2%;
-}
-
-.first {
-  margin-left: 0%;
-}
-
-.welcome {
-  font-size: 30px;
-  color: white; 
 }
 
 /*/////// SOCIAL ////////*/
@@ -270,30 +246,6 @@ img, video, audio, iframe, table, form {
 section {
   padding: 30px;
   margin-bottom: 20px;
-}
-
-/*////////// DETAILS //////////*/
-
-#details {
-  border-top: 1px solid white;
-}
-
-#details div {
-  height: 221px;
-}
-
-#details a:link, #details a:visited {
-  color: black;
-  text-decoration: none;
-}
-
-#details a:hover {
-  color: black;
-  text-decoration: underline;
-}
-
-#details a:active {
-  color: red;
 }
 
 /*////////// FOOTER //////////*/

@@ -7,8 +7,8 @@ class YouTubeVideoList extends Component {
 
 	render() {
 		return (
-			<div>
-				<table className="ytVideo-table">
+			<div id="ytVideo-table">
+				<table>
 					<thead>
 						<tr>
 							<th>YouTube</th>

@@ -12,12 +12,7 @@ const TwitchVideoDetail = ({ stream }) => {
   return (
     <div className='video-detail col-6'>
       <div className='embed'>
-        <iframe
-          className='embed-item'
-          src={url}
-          height='720'
-          width='1280'
-        />
+        <iframe className='embed-item' src={url} />
       </div>
     </div>
   );

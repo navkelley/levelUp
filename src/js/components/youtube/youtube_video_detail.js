@@ -3,7 +3,7 @@ import React from 'react';
 const YouTubeVideoDetail = ({ video }) => {
 	if (!video) {
 		return (
-			<p>Search YouTube videos by entering a game.</p>
+			<p className="no-search">Search a game then pick a video to play.</p>
 		);
 		
 	}
@@ -17,8 +17,8 @@ const YouTubeVideoDetail = ({ video }) => {
 				<iframe className='embed-item' src={url}></iframe>
 			</div>
 			<div className='details'>
-				<div><strong>Title:</strong> {video.snippet.title}</div>
-				<div><strong>Description:</strong> {video.snippet.description}</div>
+				<div><p className="description"><strong>Title:</strong> {video.snippet.title}</p></div>
+				<div><p className="description"><strong>Description:</strong> {video.snippet.description}</p></div>
 			</div>
 		</div>
 	);

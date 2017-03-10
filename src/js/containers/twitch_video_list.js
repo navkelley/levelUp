@@ -6,8 +6,8 @@ import TwitchVideoListItem from '../components/twitch/twitch_video_list_item';
 class TwitchVideoList extends Component {
   render() {
     return (
-      <div className="twitch-streams">
-        <table className="twitchVideo-table">
+      <div id="twitch-streams">
+        <table>
           <thead>
             <tr>
               <th>Twitch</th>

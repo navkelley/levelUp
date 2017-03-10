@@ -1,16 +1,12 @@
 import React from 'react';
 
 const YouTubeVideoListItem = ({ video, onVideoSelect }) => {
-	const { url } = video.snippet.thumbnails.default;
+	const { url } = video.snippet.thumbnails.high;
 	return (
 		<td onClick={() => onVideoSelect(video)} className='list-group-item'>
 			<div className='youtube-media-row'>
-				<div className='media-left'>
-					<img alt="video" className='media-object' src={url} />
-				</div>
-				<div className='media-body col-3'>
-					<div className='media-heading'>{video.snippet.title}</div>
-				</div>
+				<img alt="video" className='media-object' src={url} />
+				<span className="view">{video.snippet.title}</span>
 			</div>
 		</td>
 	);

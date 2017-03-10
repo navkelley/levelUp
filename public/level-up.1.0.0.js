@@ -11444,12 +11444,7 @@ var TwitchVideoDetail = function TwitchVideoDetail(_ref) {
     _react2.default.createElement(
       'div',
       { className: 'embed' },
-      _react2.default.createElement('iframe', {
-        className: 'embed-item',
-        src: url,
-        height: '720',
-        width: '1280'
-      })
+      _react2.default.createElement('iframe', { className: 'embed-item', src: url })
     )
   );
 };
@@ -11479,8 +11474,8 @@ var YouTubeVideoDetail = function YouTubeVideoDetail(_ref) {
 	if (!video) {
 		return _react2.default.createElement(
 			'p',
-			null,
-			'Search YouTube videos by entering a game.'
+			{ className: 'no-search' },
+			'Search a game then pick a video to play.'
 		);
 	}
 
@@ -11502,23 +11497,31 @@ var YouTubeVideoDetail = function YouTubeVideoDetail(_ref) {
 				'div',
 				null,
 				_react2.default.createElement(
-					'strong',
-					null,
-					'Title:'
-				),
-				' ',
-				video.snippet.title
+					'p',
+					{ className: 'description' },
+					_react2.default.createElement(
+						'strong',
+						null,
+						'Title:'
+					),
+					' ',
+					video.snippet.title
+				)
 			),
 			_react2.default.createElement(
 				'div',
 				null,
 				_react2.default.createElement(
-					'strong',
-					null,
-					'Description:'
-				),
-				' ',
-				video.snippet.description
+					'p',
+					{ className: 'description' },
+					_react2.default.createElement(
+						'strong',
+						null,
+						'Description:'
+					),
+					' ',
+					video.snippet.description
+				)
 			)
 		)
 	);
@@ -11703,10 +11706,10 @@ var TwitchVideoList = function (_Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: 'twitch-streams' },
+        { id: 'twitch-streams' },
         _react2.default.createElement(
           'table',
-          { className: 'twitchVideo-table' },
+          null,
           _react2.default.createElement(
             'thead',
             null,
@@ -11798,10 +11801,10 @@ var YouTubeVideoList = function (_Component) {
 
 			return _react2.default.createElement(
 				'div',
-				null,
+				{ id: 'ytVideo-table' },
 				_react2.default.createElement(
 					'table',
-					{ className: 'ytVideo-table' },
+					null,
 					_react2.default.createElement(
 						'thead',
 						null,
@@ -18874,7 +18877,7 @@ var TwitchSearch = function (_Component) {
 
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'twitch' },
         _react2.default.createElement(
           'h1',
           { className: 'logo' },
@@ -19046,7 +19049,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var YouTubeVideoListItem = function YouTubeVideoListItem(_ref) {
 	var video = _ref.video,
 	    onVideoSelect = _ref.onVideoSelect;
-	var url = video.snippet.thumbnails.default.url;
+	var url = video.snippet.thumbnails.high.url;
 
 	return _react2.default.createElement(
 		'td',
@@ -19056,19 +19059,11 @@ var YouTubeVideoListItem = function YouTubeVideoListItem(_ref) {
 		_react2.default.createElement(
 			'div',
 			{ className: 'youtube-media-row' },
+			_react2.default.createElement('img', { alt: 'video', className: 'media-object', src: url }),
 			_react2.default.createElement(
-				'div',
-				{ className: 'media-left' },
-				_react2.default.createElement('img', { alt: 'video', className: 'media-object', src: url })
-			),
-			_react2.default.createElement(
-				'div',
-				{ className: 'media-body col-3' },
-				_react2.default.createElement(
-					'div',
-					{ className: 'media-heading' },
-					video.snippet.title
-				)
+				'span',
+				{ className: 'view' },
+				video.snippet.title
 			)
 		)
 	);

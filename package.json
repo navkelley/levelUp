@@ -68,7 +68,7 @@
     "style-loader": "^0.13.2",
     "webpack": "^2.2.1",
     "youtube-api-search": "^0.0.5",
-    "extract-text-webpack-plugin": "^2.1.0",
+    "extract-text-webpack-plugin": "^2.1.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",

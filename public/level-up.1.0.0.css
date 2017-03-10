@@ -151,6 +151,9 @@ form {
 .first {
   margin-left: 0%;
 }
+.welcome {
+  font-size: 30px;
+}
 /*/////// SOCIAL ////////*/
 #social {
   position: fixed;

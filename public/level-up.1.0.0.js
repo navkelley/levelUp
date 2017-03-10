@@ -11431,7 +11431,7 @@ var TwitchVideoDetail = function TwitchVideoDetail(_ref) {
     return _react2.default.createElement(
       'p',
       null,
-      'Search Twitch by entering a game.'
+      'Search Twitch by entering a game then click a video to play.'
     );
   }
   var name = stream.channel.name;
@@ -18628,7 +18628,7 @@ var NavContainer = function (_Component) {
     value: function navigationLinks() {
       return _react2.default.createElement(
         'ul',
-        { className: 'nav-menu' },
+        { className: 'nav-menu clearfix:after' },
         _react2.default.createElement(
           'li',
           { key: 1, className: 'home btn' },

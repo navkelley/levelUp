@@ -30,6 +30,9 @@ td {
 th {
   background-image: linear-gradient(to right, #14A6CC 0%, lightgrey 51%, #14A6CC 100%);
 }
+#twitch-streams {
+  left: 10px;
+}
 input {
   display: inline;
   padding: 5px;
@@ -88,6 +91,7 @@ iframe {
 }
 .embed-item {
   margin-top: 20px;
+  margin-bottom: 10px;
 }
 img {
   width: 100%;
@@ -96,6 +100,7 @@ img {
   /* FF, Safari, Chrome */
 }
 table {
+  width: 50%;
   margin: 0 0 20px;
   border: 2px solid white;
 }
@@ -196,7 +201,7 @@ img:hover {
 }
 .nav-menu a {
   color: black;
-  text-decoration: none;
+  border-radius: 10px;
 }
 #navbar a.selected {
   background: #333;

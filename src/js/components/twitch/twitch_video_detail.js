@@ -3,7 +3,7 @@ import React from 'react';
 const TwitchVideoDetail = ({ stream }) => {
   if (!stream) {
     return (
-      <p>Search Twitch by entering a game.</p>
+      <p>Search Twitch by entering a game then click a video to play.</p>
     )
   }
   const { name } = stream.channel;

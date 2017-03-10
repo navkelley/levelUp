@@ -31,10 +31,15 @@ address {
 th, td {
   padding: 10px;
   font-family: "Vollkorn", sans-serif; 
+
 }
 
 th {
   background-image: linear-gradient(to right, #14A6CC 0%, lightgrey 51%, #14A6CC 100%); 
+}
+
+#twitch-streams {
+  left: 10px
 }
 
 input {
@@ -103,7 +108,7 @@ iframe {
 
 .embed-item {
   margin-top: 20px;
-
+  margin-bottom: 10px;
 }
 img {
   width: 100%; /* IE */
@@ -111,7 +116,7 @@ img {
 }
 
 table {
-  //width: 50%; 
+  width: 50%; 
   margin: 0 0 20px;
   border: 2px solid white; 
 }
@@ -232,9 +237,10 @@ img:hover {
 }
 
 .nav-menu a {
-  color: black; 
-  text-decoration: none; 
+  color: black;
+  border-radius: 10px;
 }
+
 
 #navbar a.selected {
   background: #333;
@@ -361,5 +367,14 @@ footer {
   #logo h2 {
     visibility: hidden;
   }
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
 }
 

@@ -24,7 +24,7 @@ export default class NavContainer extends Component {
 
   navigationLinks() {
     return (
-      <ul className="nav-menu">
+      <ul className="nav-menu clearfix:after">
         <li key={1} className="home btn">
           <Link to="/">Home</Link>
         </li>

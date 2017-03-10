@@ -2,7 +2,10 @@ import React from 'react';
 
 const YouTubeVideoDetail = ({ video }) => {
 	if (!video) {
-		return <i className="fa fa-gamepad fa-3x youTube-gamepad" aria-hidden="true"></i>;
+		return (
+			<p>Search YouTube videos by entering a game.</p>
+		);
+		
 	}
 
 	const videoId = video.id.videoId;

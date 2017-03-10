@@ -5,7 +5,6 @@
 body {
   background: #3D8699;
   font-family: "VT323", sans-serif;
-  font-size: 100%;
   background-image: url('/images/PacMan.jpg');
 }
 
@@ -61,25 +60,17 @@ th {
 }
 
 input {
-  display: block;
-  width: 100%;
+  display: inline;
   padding: 5px;
   margin-bottom: 5px;
-  box-shadow: 0 3px 5px #ccc;
+  box-shadow: 0 1px 2px #ccc;
   border: 1px solid #ccc;
+  border-radius: 5px; 
 }
 
-input[type="submit"] {
-  margin-top: 5px;
-  width: 100px;
-  background: black;
-  color: white;
-  border-radius: 25px;
-  border: 0;
-}
-
-input[type="submit"]:hover {
-  background: #555;
+input[type="text"] {
+  width: 90%;
+  border-right: none; 
 }
 
 iframe {
@@ -88,6 +79,14 @@ iframe {
   margin: 0;
   overflow: hidden;
   height: 403px;
+}
+
+button {
+  font-size: 16px; 
+  border-radius: 5px; 
+  margin-top: 7px; 
+  background-color: #FF4036;
+  border: 1px solid #FF4036; 
 }
 
 .milk-text {
@@ -179,15 +178,16 @@ img, video, audio, iframe, table, form {
 
 .welcome {
   font-size: 30px;
+  color: white; 
 }
 
 /*/////// SOCIAL ////////*/
 
 #social {
   position: fixed;
-  top: 163px;
-  right: 20px;
-  width: 40px;
+  top: 20px;
+  right: 10px;
+  width: 20px;
   z-index: 2;
 }
 
@@ -196,18 +196,11 @@ img, video, audio, iframe, table, form {
   width: 40px;
   height: 40px;
   white-space: nowrap;
-  color: black;
+  color: white;
 }
 
 #social a:hover {
   color: #00FFA7;
-}
-
-
-/*////////// HEADER //////////*/
-
-header {
-  margin: 0 0 30px;
 }
 
 /*////////// NAVBAR //////////*/
@@ -261,34 +254,6 @@ header {
 #navbar a.selected {
   background: #333;
   color: white;
-}
-
-/*////////// LOGO //////////*/
-
-#logo {
-  padding: 74px 0 0;
-}
-
-#logo h1 {
-  display: inline-block;
-  width: 45px;
-  height: 45px;
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  margin: 0;
-  background: url(../images/exceptional-logo.png) no-repeat;
-  background-size: 100% 100%;
-}
-
-#logo h2 {
-  display: inline-block;
-  font: 2.5em "Clicker Script", cursive;
-  margin: 0;
-  position: relative;
-  top: -9px;
-  left: 5px;
-  color: #303;
 }
 
 /*////////// MAIN SECTIONS //////////*/

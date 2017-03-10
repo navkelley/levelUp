@@ -6970,6 +6970,7 @@ var SearchBar = function (_Component) {
 					'form',
 					{ id: 'search', onSubmit: this.submitSearch },
 					_react2.default.createElement('input', {
+						type: 'text',
 						placeholder: 'Find videos on your favorite game',
 						value: this.state.term,
 						onChange: this.changeTerm
@@ -11427,23 +11428,27 @@ var TwitchVideoDetail = function TwitchVideoDetail(_ref) {
   var stream = _ref.stream;
 
   if (!stream) {
-    return _react2.default.createElement("i", { className: "fa fa-gamepad fa-3x twitch-gamepad", "aria-hidden": "true" });
+    return _react2.default.createElement(
+      'p',
+      null,
+      'Search Twitch by entering a game.'
+    );
   }
   var name = stream.channel.name;
 
-  var url = "https://player.twitch.tv/?channel=" + name;
+  var url = 'https://player.twitch.tv/?channel=' + name;
 
   return _react2.default.createElement(
-    "div",
-    { className: "video-detail col-6" },
+    'div',
+    { className: 'video-detail col-6' },
     _react2.default.createElement(
-      "div",
-      { className: "embed" },
-      _react2.default.createElement("iframe", {
-        className: "embed-item",
+      'div',
+      { className: 'embed' },
+      _react2.default.createElement('iframe', {
+        className: 'embed-item',
         src: url,
-        height: "720",
-        width: "1280"
+        height: '720',
+        width: '1280'
       })
     )
   );
@@ -11472,43 +11477,47 @@ var YouTubeVideoDetail = function YouTubeVideoDetail(_ref) {
 	var video = _ref.video;
 
 	if (!video) {
-		return _react2.default.createElement("i", { className: "fa fa-gamepad fa-3x youTube-gamepad", "aria-hidden": "true" });
+		return _react2.default.createElement(
+			'p',
+			null,
+			'Search YouTube videos by entering a game.'
+		);
 	}
 
 	var videoId = video.id.videoId;
-	var url = "https://www.youtube.com/embed/" + videoId + "?autoplay=1";
+	var url = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
 
 	return _react2.default.createElement(
-		"div",
-		{ className: "video-detail" },
+		'div',
+		{ className: 'video-detail' },
 		_react2.default.createElement(
-			"div",
-			{ className: "embed" },
-			_react2.default.createElement("iframe", { className: "embed-item", src: url })
+			'div',
+			{ className: 'embed' },
+			_react2.default.createElement('iframe', { className: 'embed-item', src: url })
 		),
 		_react2.default.createElement(
-			"div",
-			{ className: "details" },
+			'div',
+			{ className: 'details' },
 			_react2.default.createElement(
-				"div",
+				'div',
 				null,
 				_react2.default.createElement(
-					"strong",
+					'strong',
 					null,
-					"Title:"
+					'Title:'
 				),
-				" ",
+				' ',
 				video.snippet.title
 			),
 			_react2.default.createElement(
-				"div",
+				'div',
 				null,
 				_react2.default.createElement(
-					"strong",
+					'strong',
 					null,
-					"Description:"
+					'Description:'
 				),
-				" ",
+				' ',
 				video.snippet.description
 			)
 		)
@@ -18443,7 +18452,7 @@ var Home = function Home() {
     ),
     _react2.default.createElement(
       "p",
-      null,
+      { className: "welcome" },
       "You can search for any game that you like to help you learn, strategize and find those komadas! You can preview games as well. To get started choose your route, searching just YouTube, just Twitch, or both (known as the Dragon Punch!), then search for a game."
     )
   );

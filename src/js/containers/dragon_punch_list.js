@@ -9,29 +9,27 @@ class DragonPunchList extends Component {
 		return (
 			<div id='dragon-search'>
 				<table>
-					<thead>
-						<tr>
-							<th>YouTube</th>
-							<th>Twitch</th>
-						</tr>
-					</thead>
 					<tbody>
-						{this.props.videos.map((video) => {
-							return (
-								<YouTubeVideoListItem
-									onVideoSelect={this.props.onVideoSelect}
-									video={video}
-								/>
-							);
-						})}
-						{this.props.streams.map((stream) => {
-							return (
-								<TwitchVideoListItem
-									onStreamSelect={this.props.onStreamSelect}
-									stream={stream}
-								/>
-							);
-						})}
+						<tr>
+							{this.props.videos.map((video) => {
+								return (
+									<YouTubeVideoListItem
+										onVideoSelect={this.props.onVideoSelect}
+										video={video}
+									/>
+								);
+							})}
+						</tr>
+						<tr>
+							{this.props.streams.map((stream) => {
+								return (
+									<TwitchVideoListItem
+										onStreamSelect={this.props.onStreamSelect}
+										stream={stream}
+									/>
+								);
+							})}
+						</tr>
 					</tbody>
 				</table>
 			</div>

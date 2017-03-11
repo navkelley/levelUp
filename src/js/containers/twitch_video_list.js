@@ -8,20 +8,14 @@ class TwitchVideoList extends Component {
 		return (
 			<div id="twitch-streams">
 				<table>
-					<thead>
-						<tr>
-							<th>Twitch</th>
-						</tr>
-					</thead>
 					<tbody>
 						{this.props.streams.map((stream) => {
 							return (
-								<tr key={stream._id}>
-									<TwitchVideoListItem
-										onStreamSelect={this.props.onStreamSelect}
-										stream={stream}
-									/>
-								</tr>
+								<TwitchVideoListItem
+									onStreamSelect={this.props.onStreamSelect}
+									stream={stream}
+									key={stream._id}
+								/>
 							);
 						})}
 					</tbody>

@@ -11711,30 +11711,14 @@ var TwitchVideoList = function (_Component) {
 					'table',
 					null,
 					_react2.default.createElement(
-						'thead',
-						null,
-						_react2.default.createElement(
-							'tr',
-							null,
-							_react2.default.createElement(
-								'th',
-								null,
-								'Twitch'
-							)
-						)
-					),
-					_react2.default.createElement(
 						'tbody',
 						null,
 						this.props.streams.map(function (stream) {
-							return _react2.default.createElement(
-								'tr',
-								{ key: stream._id },
-								_react2.default.createElement(_twitch_video_list_item2.default, {
-									onStreamSelect: _this2.props.onStreamSelect,
-									stream: stream
-								})
-							);
+							return _react2.default.createElement(_twitch_video_list_item2.default, {
+								onStreamSelect: _this2.props.onStreamSelect,
+								stream: stream,
+								key: stream._id
+							});
 						})
 					)
 				)
@@ -11806,30 +11790,14 @@ var YouTubeVideoList = function (_Component) {
 					'table',
 					null,
 					_react2.default.createElement(
-						'thead',
-						null,
-						_react2.default.createElement(
-							'tr',
-							null,
-							_react2.default.createElement(
-								'th',
-								null,
-								'YouTube'
-							)
-						)
-					),
-					_react2.default.createElement(
 						'tbody',
 						null,
 						this.props.videos.map(function (video) {
-							return _react2.default.createElement(
-								'tr',
-								{ key: video.etag },
-								_react2.default.createElement(_youtube_video_list_item2.default, {
-									onVideoSelect: _this2.props.onVideoSelect,
-									video: video
-								})
-							);
+							return _react2.default.createElement(_youtube_video_list_item2.default, {
+								onVideoSelect: _this2.props.onVideoSelect,
+								video: video,
+								key: video.etag
+							});
 						})
 					)
 				)
@@ -18924,19 +18892,15 @@ var TwitchVideoListItem = function TwitchVideoListItem(_ref) {
 
   var preview = stream.preview.medium;
   return _react2.default.createElement(
-    'tr',
-    null,
+    'td',
+    { onClick: function onClick() {
+        return onStreamSelect(stream);
+      }, className: 'list-group-item' },
+    _react2.default.createElement('img', { alt: 'game stream', className: 'media-object', src: preview }),
     _react2.default.createElement(
-      'td',
-      { onClick: function onClick() {
-          return onStreamSelect(stream);
-        }, className: 'list-group-item' },
-      _react2.default.createElement('img', { alt: 'game stream', className: 'media-object', src: preview }),
-      _react2.default.createElement(
-        'span',
-        { className: 'media-heading' },
-        stream.channel.display_name
-      )
+      'span',
+      { className: 'media-heading' },
+      stream.channel.display_name
     )
   );
 };
@@ -19046,22 +19010,18 @@ var YouTubeVideoListItem = function YouTubeVideoListItem(_ref) {
 	var url = video.snippet.thumbnails.high.url;
 
 	return _react2.default.createElement(
-		'tr',
-		null,
+		'td',
+		{ onClick: function onClick() {
+				return onVideoSelect(video);
+			}, className: 'list-group-item' },
 		_react2.default.createElement(
-			'td',
-			{ onClick: function onClick() {
-					return onVideoSelect(video);
-				}, className: 'list-group-item' },
+			'div',
+			{ className: 'youtube-media-row' },
+			_react2.default.createElement('img', { alt: 'video', className: 'media-object', src: url }),
 			_react2.default.createElement(
-				'div',
-				{ className: 'youtube-media-row' },
-				_react2.default.createElement('img', { alt: 'video', className: 'media-object', src: url }),
-				_react2.default.createElement(
-					'span',
-					{ className: 'view' },
-					video.snippet.title
-				)
+				'span',
+				{ className: 'view' },
+				video.snippet.title
 			)
 		)
 	);
@@ -39476,38 +39436,28 @@ var DragonPunchList = function (_Component) {
 					'table',
 					null,
 					_react2.default.createElement(
-						'thead',
+						'tbody',
 						null,
 						_react2.default.createElement(
 							'tr',
 							null,
-							_react2.default.createElement(
-								'th',
-								null,
-								'YouTube'
-							),
-							_react2.default.createElement(
-								'th',
-								null,
-								'Twitch'
-							)
+							this.props.videos.map(function (video) {
+								return _react2.default.createElement(_youtube_video_list_item2.default, {
+									onVideoSelect: _this2.props.onVideoSelect,
+									video: video
+								});
+							})
+						),
+						_react2.default.createElement(
+							'tr',
+							null,
+							this.props.streams.map(function (stream) {
+								return _react2.default.createElement(_twitch_video_list_item2.default, {
+									onStreamSelect: _this2.props.onStreamSelect,
+									stream: stream
+								});
+							})
 						)
-					),
-					_react2.default.createElement(
-						'tbody',
-						null,
-						this.props.videos.map(function (video) {
-							return _react2.default.createElement(_youtube_video_list_item2.default, {
-								onVideoSelect: _this2.props.onVideoSelect,
-								video: video
-							});
-						}),
-						this.props.streams.map(function (stream) {
-							return _react2.default.createElement(_twitch_video_list_item2.default, {
-								onStreamSelect: _this2.props.onStreamSelect,
-								stream: stream
-							});
-						})
 					)
 				)
 			);

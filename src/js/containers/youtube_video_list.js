@@ -9,20 +9,14 @@ class YouTubeVideoList extends Component {
 		return (
 			<div id="ytVideo-table">
 				<table>
-					<thead>
-						<tr>
-							<th>YouTube</th>
-						</tr>
-					</thead>
 					<tbody>
 						{this.props.videos.map((video) => {
 							return (
-								<tr key={video.etag}>
-									<YouTubeVideoListItem
-										onVideoSelect={this.props.onVideoSelect}
-										video={video}
-									/>
-								</tr>
+								<YouTubeVideoListItem
+									onVideoSelect={this.props.onVideoSelect}
+									video={video}
+									key={video.etag}
+								/>
 							);
 						})}
 					</tbody>

@@ -116,16 +116,32 @@ img {
 }
 
 img:hover {
-  filter: grayscale(100%) blur(2px);
+  filter: grayscale(100%) blur(5px);
   cursor: pointer;
 }
 
+.youtube-media-row:hover .view {
+  display: inline; 
+}
+
 td {
-  font-size: 16px; 
+  font-size: 20px; 
   display: inline-block;
   margin-bottom: 8px;
   width: calc(25% - 4px);
   margin-right: 8px;
+}
+
+.view {
+  display: none;
+  position: relative;
+  bottom: 180px;
+  left: 2px;
+  z-index: 1;
+  opacity: 1; 
+  width: 300px;
+  color: #FF4036;
+  text-align: left;
 }
 
 /*////////// FIXES //////////*/

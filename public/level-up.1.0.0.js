@@ -39441,6 +39441,11 @@ var DragonPunchList = function (_Component) {
 						_react2.default.createElement(
 							'tr',
 							null,
+							_react2.default.createElement(
+								'h3',
+								null,
+								'YouTube'
+							),
 							this.props.videos.map(function (video) {
 								return _react2.default.createElement(_youtube_video_list_item2.default, {
 									onVideoSelect: _this2.props.onVideoSelect,
@@ -39451,6 +39456,11 @@ var DragonPunchList = function (_Component) {
 						_react2.default.createElement(
 							'tr',
 							null,
+							_react2.default.createElement(
+								'h3',
+								null,
+								'Twitch'
+							),
 							this.props.streams.map(function (stream) {
 								return _react2.default.createElement(_twitch_video_list_item2.default, {
 									onStreamSelect: _this2.props.onStreamSelect,

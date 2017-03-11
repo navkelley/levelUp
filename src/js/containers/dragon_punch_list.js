@@ -11,6 +11,7 @@ class DragonPunchList extends Component {
 				<table>
 					<tbody>
 						<tr>
+							<h3>YouTube</h3>
 							{this.props.videos.map((video) => {
 								return (
 									<YouTubeVideoListItem
@@ -21,6 +22,7 @@ class DragonPunchList extends Component {
 							})}
 						</tr>
 						<tr>
+							<h3>Twitch</h3>
 							{this.props.streams.map((stream) => {
 								return (
 									<TwitchVideoListItem

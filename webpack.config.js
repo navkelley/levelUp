@@ -28,9 +28,12 @@ module.exports = {
 				exclude: /(node_modules)/,
 				loader: 'babel-loader', 
 			},
-			{ 
+			/*{ 
 				test: /\.css$/, 
-				loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' }) 
+				loader: ExtractTextPlugin.extract({ 
+					fallback: 'style-loader', 
+					use: 'css-loader' 
+				}) 
 			},
 			exports.loadImages = function ({ include, exclude, options } = {}) {
 				return {
@@ -49,7 +52,7 @@ module.exports = {
 						],
 					},
 				};
-			}
+			}*/
 		]
 	},
 	plugins: [
@@ -58,6 +61,6 @@ module.exports = {
 			NODE_ENV: JSON.stringify('production')
 			}
 		}),
-		new ExtractTextPlugin('app.css')
+		//new ExtractTextPlugin('app.css')
 	]
 };

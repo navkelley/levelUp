@@ -7,6 +7,7 @@ import YouTubeVideoList from '../containers/youtube_video_list';
 import SearchBar from '../containers/search_bar';
 import TwitchVideoList from '../containers/twitch_video_list';
 import TwitchVideoDetail from './twitch/twitch_video_detail';
+import DragonPunchList from '../containers/dragon_punch_list';
 
 export default class PunchSearch extends Component {
   constructor(props) {
@@ -22,12 +23,10 @@ export default class PunchSearch extends Component {
       <div>
         <h1 className="logo">Level Up by Dragon Punch!</h1>
         <SearchBar />
-        <YouTubeVideoDetail video={this.state.selectedVideo} />
-        <YouTubeVideoList
-          onVideoSelect={selectedVideo => this.setState({ selectedVideo })}
-        />
         <TwitchVideoDetail stream={this.state.selectedStream} />
-        <TwitchVideoList
+        <YouTubeVideoDetail video={this.state.selectedVideo} />
+        <DragonPunchList 
+          onVideoSelect={selectedVideo => this.setState({ selectedVideo })}
           onStreamSelect={selectedStream => this.setState({ selectedStream })}
         />
       </div>

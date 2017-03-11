@@ -11667,7 +11667,7 @@ var YouTubeApi = exports.YouTubeApi = function () {
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+	value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -11691,65 +11691,65 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var TwitchVideoList = function (_Component) {
-  _inherits(TwitchVideoList, _Component);
+	_inherits(TwitchVideoList, _Component);
 
-  function TwitchVideoList() {
-    _classCallCheck(this, TwitchVideoList);
+	function TwitchVideoList() {
+		_classCallCheck(this, TwitchVideoList);
 
-    return _possibleConstructorReturn(this, (TwitchVideoList.__proto__ || Object.getPrototypeOf(TwitchVideoList)).apply(this, arguments));
-  }
+		return _possibleConstructorReturn(this, (TwitchVideoList.__proto__ || Object.getPrototypeOf(TwitchVideoList)).apply(this, arguments));
+	}
 
-  _createClass(TwitchVideoList, [{
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
+	_createClass(TwitchVideoList, [{
+		key: 'render',
+		value: function render() {
+			var _this2 = this;
 
-      return _react2.default.createElement(
-        'div',
-        { id: 'twitch-streams' },
-        _react2.default.createElement(
-          'table',
-          null,
-          _react2.default.createElement(
-            'thead',
-            null,
-            _react2.default.createElement(
-              'tr',
-              null,
-              _react2.default.createElement(
-                'th',
-                null,
-                'Twitch'
-              )
-            )
-          ),
-          _react2.default.createElement(
-            'tbody',
-            null,
-            this.props.streams.map(function (stream) {
-              return _react2.default.createElement(
-                'tr',
-                { key: stream._id },
-                _react2.default.createElement(_twitch_video_list_item2.default, {
-                  onStreamSelect: _this2.props.onStreamSelect,
-                  stream: stream
-                })
-              );
-            })
-          )
-        )
-      );
-    }
-  }]);
+			return _react2.default.createElement(
+				'div',
+				{ id: 'twitch-streams' },
+				_react2.default.createElement(
+					'table',
+					null,
+					_react2.default.createElement(
+						'thead',
+						null,
+						_react2.default.createElement(
+							'tr',
+							null,
+							_react2.default.createElement(
+								'th',
+								null,
+								'Twitch'
+							)
+						)
+					),
+					_react2.default.createElement(
+						'tbody',
+						null,
+						this.props.streams.map(function (stream) {
+							return _react2.default.createElement(
+								'tr',
+								{ key: stream._id },
+								_react2.default.createElement(_twitch_video_list_item2.default, {
+									onStreamSelect: _this2.props.onStreamSelect,
+									stream: stream
+								})
+							);
+						})
+					)
+				)
+			);
+		}
+	}]);
 
-  return TwitchVideoList;
+	return TwitchVideoList;
 }(_react.Component);
 
 function mapStateToProps(_ref) {
-  var streams = _ref.streams;
+	var streams = _ref.streams;
 
-  //when have key:value that are ident can reduce to just one
-  return { streams: streams };
+	//when have key:value that are ident can reduce to just one
+	return { streams: streams };
 }
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(TwitchVideoList);
@@ -18761,6 +18761,10 @@ var _twitch_video_detail = __webpack_require__(168);
 
 var _twitch_video_detail2 = _interopRequireDefault(_twitch_video_detail);
 
+var _dragon_punch_list = __webpack_require__(611);
+
+var _dragon_punch_list2 = _interopRequireDefault(_dragon_punch_list);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -18798,14 +18802,12 @@ var PunchSearch = function (_Component) {
           'Level Up by Dragon Punch!'
         ),
         _react2.default.createElement(_search_bar2.default, null),
+        _react2.default.createElement(_twitch_video_detail2.default, { stream: this.state.selectedStream }),
         _react2.default.createElement(_youtube_video_detail2.default, { video: this.state.selectedVideo }),
-        _react2.default.createElement(_youtube_video_list2.default, {
+        _react2.default.createElement(_dragon_punch_list2.default, {
           onVideoSelect: function onVideoSelect(selectedVideo) {
             return _this2.setState({ selectedVideo: selectedVideo });
-          }
-        }),
-        _react2.default.createElement(_twitch_video_detail2.default, { stream: this.state.selectedStream }),
-        _react2.default.createElement(_twitch_video_list2.default, {
+          },
           onStreamSelect: function onStreamSelect(selectedStream) {
             return _this2.setState({ selectedStream: selectedStream });
           }
@@ -39421,6 +39423,125 @@ module.exports = function(module) {
 __webpack_require__(252);
 module.exports = __webpack_require__(251);
 
+
+/***/ }),
+/* 611 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(3);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(100);
+
+var _youtube_video_list_item = __webpack_require__(278);
+
+var _youtube_video_list_item2 = _interopRequireDefault(_youtube_video_list_item);
+
+var _twitch_video_list_item = __webpack_require__(276);
+
+var _twitch_video_list_item2 = _interopRequireDefault(_twitch_video_list_item);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var DragonPunchList = function (_Component) {
+	_inherits(DragonPunchList, _Component);
+
+	function DragonPunchList() {
+		_classCallCheck(this, DragonPunchList);
+
+		return _possibleConstructorReturn(this, (DragonPunchList.__proto__ || Object.getPrototypeOf(DragonPunchList)).apply(this, arguments));
+	}
+
+	_createClass(DragonPunchList, [{
+		key: 'render',
+		value: function render() {
+			var _this2 = this;
+
+			return _react2.default.createElement(
+				'div',
+				{ id: 'dragon-search' },
+				_react2.default.createElement(
+					'table',
+					null,
+					_react2.default.createElement(
+						'thead',
+						null,
+						_react2.default.createElement(
+							'tr',
+							null,
+							_react2.default.createElement(
+								'th',
+								null,
+								'YouTube'
+							),
+							_react2.default.createElement(
+								'th',
+								null,
+								'Twitch'
+							)
+						)
+					),
+					_react2.default.createElement(
+						'tbody',
+						null,
+						_react2.default.createElement(
+							'tr',
+							null,
+							_react2.default.createElement(
+								'td',
+								null,
+								this.props.videos.map(function (video) {
+									return _react2.default.createElement(_youtube_video_list_item2.default, {
+										onVideoSelect: _this2.props.onVideoSelect,
+										video: video
+									});
+								})
+							),
+							_react2.default.createElement(
+								'td',
+								null,
+								this.props.streams.map(function (stream) {
+									return _react2.default.createElement(_twitch_video_list_item2.default, {
+										onStreamSelect: _this2.props.onStreamSelect,
+										stream: stream
+									});
+								})
+							)
+						)
+					)
+				)
+			);
+		}
+	}]);
+
+	return DragonPunchList;
+}(_react.Component);
+
+function mapStateToProps(_ref) {
+	var videos = _ref.videos,
+	    streams = _ref.streams;
+
+	//when have key:value that are ident can reduce to just one
+	return { videos: videos, streams: streams };
+}
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(DragonPunchList);
 
 /***/ })
 /******/ ]);

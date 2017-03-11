@@ -11785,7 +11785,7 @@ var YouTubeVideoList = function (_Component) {
 
 			return _react2.default.createElement(
 				'div',
-				{ id: 'ytVideo-table' },
+				{ className: 'wrapper' },
 				_react2.default.createElement(
 					'table',
 					null,

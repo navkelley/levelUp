@@ -220,6 +220,8 @@ td {
   padding: 10px;
   text-transform: uppercase;
   color: black;
+}
+.navbar a {
   text-decoration: none;
 }
 .btn {

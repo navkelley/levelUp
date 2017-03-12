@@ -18604,6 +18604,17 @@ var MainLayout = function (_Component) {
           'section',
           null,
           this.props.children
+        ),
+        _react2.default.createElement(
+          'div',
+          { id: 'devAddress' },
+          _react2.default.createElement(
+            'address',
+            null,
+            _react2.default.createElement('i', { className: 'fa fa-gamepad', 'aria-hidden': 'true' }),
+            ' Designed and built by Nicole V. Kelley ',
+            _react2.default.createElement('i', { className: 'fa fa-gamepad', 'aria-hidden': 'true' })
+          )
         )
       );
     }

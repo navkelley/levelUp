@@ -38,6 +38,9 @@ export default class MainLayout extends Component {
         <section>
           {this.props.children}
         </section>
+        <div id="devAddress">
+          <address><i className="fa fa-gamepad" aria-hidden="true" /> Designed and built by Nicole V. Kelley <i className="fa fa-gamepad" aria-hidden="true" /></address>
+        </div>
       </div>
     );
   }

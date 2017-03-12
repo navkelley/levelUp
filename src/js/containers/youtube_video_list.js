@@ -7,8 +7,8 @@ class YouTubeVideoList extends Component {
 
 	render() {
 		return (
-			<div className="wrapper">
-				<table>
+			<div className="table-wrapper">
+				<table id="youtube">
 					<tbody>
 						{this.props.videos.map((video) => {
 							return (

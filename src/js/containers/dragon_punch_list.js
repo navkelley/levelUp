@@ -7,7 +7,7 @@ import TwitchVideoListItem from '../components/twitch/twitch_video_list_item';
 class DragonPunchList extends Component {
 	render() {
 		return (
-			<div id='dragon-search'>
+			<div className="table-wrapper">
 				<table>
 					<tbody>
 						<tr>

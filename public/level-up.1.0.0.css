@@ -17,14 +17,22 @@ ul {
 li {
   margin-left: 20px;
 }
+h3 {
+  font-size: 30px;
+  text-shadow: 1px 1px #00FFA7;
+}
 address {
-  font-size: 1em;
-  /* 16px, ?pt, 100%, 1em */
+  font-size: 16px;
   line-height: 1.5em;
+  font-family: "Vollkorn", sans-serif;
+}
+#devAddress {
+  width: 25%;
+  position: relative;
+  left: 550px;
 }
 th,
 td {
-  padding: 10px;
   font-family: "Vollkorn", sans-serif;
 }
 th {
@@ -41,7 +49,7 @@ input {
   border-radius: 5px;
 }
 input[type="text"] {
-  width: 90%;
+  width: 50%;
   border-right: none;
   font-size: 17px;
 }
@@ -106,6 +114,22 @@ img:hover {
 .youtube-media-row:hover .view {
   display: inline;
 }
+.twitch-media:hover .view {
+  display: inline;
+}
+#twitch-name-hover {
+  color: purple;
+  bottom: 160px;
+  font-size: 24px;
+}
+.table-wrapper table {
+  position: relative;
+  left: 100px;
+}
+#twitch-streams {
+  position: relative;
+  left: 100px;
+}
 td {
   font-size: 20px;
   display: inline-block;
@@ -123,6 +147,7 @@ td {
   width: 300px;
   color: #FF4036;
   text-align: left;
+  text-shadow: 1px 1px black;
 }
 /*////////// FIXES //////////*/
 * {
@@ -131,9 +156,6 @@ td {
   box-sizing: border-box;
 }
 /*/////// LAYOUT ////////*/
-.wrapper {
-  margin: 0 auto;
-}
 .col-1 {
   float: left;
   width: 32%;
@@ -172,7 +194,7 @@ td {
   position: fixed;
   top: 20px;
   right: 10px;
-  width: 20px;
+  width: 40px;
   z-index: 2;
 }
 #social a {
@@ -203,6 +225,8 @@ td {
   padding: 10px;
   text-transform: uppercase;
   color: black;
+}
+.navbar a {
   text-decoration: none;
 }
 .btn {

@@ -25,7 +25,7 @@ export class YouTubeApi {
 
   async youTubeSearch(term) {
     try {
-      const url = `${this.rootUrl}&q=${term}&r=json`;
+      const url = `${this.rootUrl}&q=${term}&r=json&maxResults=25`;
       const { data } = await axios.get(url);
       return data;
     } catch (e) {

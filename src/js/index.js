@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, hashHistory, Link } from 'react-router';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import ReduxPromise from 'redux-promise';
@@ -12,6 +12,7 @@ import reducers from './reducers';
 import YouTubeSearch from './components/youtube/youtube_search';
 import TwitchSearch from './components/twitch/twitch_search';
 import PunchSearch from './components/punch_search';
+//import '../css/index.less';
 
 const ISPROD = process.env.NODE_ENV === 'production';
 

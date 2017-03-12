@@ -24,17 +24,17 @@ export default class NavContainer extends Component {
 
   navigationLinks() {
     return (
-      <ul className="nav-menu">
-        <li key={1} className="home">
+      <ul className="nav-menu clearfix:after">
+        <li key={1} className="home btn">
           <Link to="/">Home</Link>
         </li>
-        <li key={2} className="only-youtube">
+        <li key={2} className="only-youtube btn">
           <Link to="/search/youtube" className="youtube">YouTube</Link>
         </li>
-        <li key={3} className="only-twitch">
+        <li key={3} className="only-twitch btn">
           <Link to="/search/twitch" className="twitch">Twitch</Link>
         </li>
-        <li key={4} className="dragon-punch">
+        <li key={4} className="dragon-punch btn">
           <Link to="/search" className="dragon-punch">Dragon Punch!</Link>
         </li>
       </ul>

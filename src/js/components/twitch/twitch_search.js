@@ -15,7 +15,7 @@ export default class TwitchSearch extends Component {
 
   render() {
     return (
-      <div>
+      <div className="twitch">
         <h1 className="logo">Level Up By Twitch</h1>
         <SearchBar />
         <TwitchVideoDetail stream={this.state.selectedStream} />

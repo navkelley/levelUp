@@ -1,12 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=VT323');
+@import url('https://fonts.googleapis.com/css?family=Vollkorn');
 
 /*////////// GLOBAL //////////*/
 
 body {
   background: #3D8699;
   font-family: "VT323", sans-serif;
-  font-size: 100%;
-  background-image: url('../images/PacMan.jpg');
 }
 
 .logo {
@@ -24,99 +23,125 @@ li {
   margin-left: 20px;
 }
 
-p, address {
+address {
   font-size: 1em; /* 16px, ?pt, 100%, 1em */
   line-height: 1.5em;
 }
 
-figure {
-  margin: 0 0 10px;
-}
-
-figcaption {
-  font: normal 0.75em/1.5em 'Elsie Swash Caps', cursive;
-  color: #777;
-  text-align: right;
-}
-
-table {
-  margin: 0 0 20px;
-  border-top: 1px solid #ccc;
-  border-left: 1px solid #ccc;
-}
-
-tr:nth-child(even) {
-  background: #efefef;
-}
-
 th, td {
   padding: 10px;
-  border-right: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+  font-family: "Vollkorn", sans-serif; 
+
 }
 
 th {
-  background: #555;
-  color: white;
+  background-image: linear-gradient(to right, #14A6CC 0%, lightgrey 51%, #14A6CC 100%); 
+}
+
+#twitch-streams {
+  left: 10px
 }
 
 input {
-  display: block;
-  width: 100%;
+  display: inline;
   padding: 5px;
-  margin-bottom: 5px;
-  box-shadow: 0 3px 5px #ccc;
+  box-shadow: 0 1px 2px #ccc;
   border: 1px solid #ccc;
+  border-radius: 5px; 
 }
 
-input[type="submit"] {
-  margin-top: 5px;
-  width: 100px;
-  background: black;
-  color: white;
-  border-radius: 25px;
-  border: 0;
+input[type="text"] {
+  width: 90%;
+  border-right: none; 
+  font-size: 17px; 
 }
 
-input[type="submit"]:hover {
-  background: #555;
+button {
+  font-size: 16px; 
+  border-radius: 5px; 
+  margin-top: 7px; 
+  background-color: #FF4036;
+  border: 1px solid #FF4036; 
+  padding: 6px; 
 }
+
+button:hover {
+  background-color: #00FFA7;
+  border: 1px solid #00FFA7; 
+}
+
+.search-bar {
+  text-align: center; 
+}
+
+p {
+  font-size: 30px;
+  color: white; 
+  text-align: center; 
+}
+
+.description {
+  font-family: "Vollkorn", sans-serif; 
+  text-align: left; 
+  font-size: 20px; 
+  margin: 5px;  
+}
+
+/*////////// BACKGROUNDS //////////*/
+
+/*html {
+  background-image: url('../images/PacMan.jpg');
+}
+
+/*/////// MEDIA ////////*/
 
 iframe {
+  width: 100%; /* IE */
+  max-width: 100%; /* FF, Safari, Chrome */
+  margin-top: 20px; 
+  height: 700px; 
   border: 0;
   padding: 0;
   margin: 0;
   overflow: hidden;
-  height: 403px;
 }
 
-.milk-text {
-  font: bold 2.6em 'Elsie Swash Caps', cursive;
-  color: white;
-  text-shadow: 0 2px 3px #000;
+.embed-item {
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
-
-.shadow {
-  box-shadow: 0 3px 10px #333;
-}
-
-.border-right {
-  border-right: 1px dotted #ccc;
-  padding-right: 30px;
-}
-
-
-/*////////// BACKGROUNDS //////////*/
-
-/*.main-layout {
-  background-image: url('../images/PacMan.jpg');
-}*/
-
-/*/////// MEDIA ////////*/
-
-img, video, audio, iframe, table, form {
+img {
   width: 100%; /* IE */
   max-width: 100%; /* FF, Safari, Chrome */
+}
+
+img:hover {
+  filter: grayscale(100%) blur(5px);
+  cursor: pointer;
+}
+
+.youtube-media-row:hover .view {
+  display: inline; 
+}
+
+td {
+  font-size: 20px; 
+  display: inline-block;
+  margin-bottom: 8px;
+  width: calc(25% - 4px);
+  margin-right: 8px;
+}
+
+.view {
+  display: none;
+  position: relative;
+  bottom: 180px;
+  left: 2px;
+  z-index: 1;
+  opacity: 1; 
+  width: 300px;
+  color: #FF4036;
+  text-align: left;
 }
 
 /*////////// FIXES //////////*/
@@ -127,23 +152,9 @@ img, video, audio, iframe, table, form {
   box-sizing: border-box;
 }
 
-.clearfix:after {
-  content: ".";
-  display: block;
-  clear: both;
-  visibility: hidden;
-  height: 0;
-  line-height: 0;
-}
-
-.clear {
-  clear:both;
-}
-
 /*/////// LAYOUT ////////*/
-
 .wrapper {
-  width: 960px;
+  //max-width: 100%;
   margin: 0 auto;
 }
 
@@ -173,17 +184,26 @@ img, video, audio, iframe, table, form {
   margin-left: 2%;
 }
 
-.first {
-  margin-left: 0%;
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
+}
+
+.clear {
+  clear:both;
 }
 
 /*/////// SOCIAL ////////*/
 
 #social {
   position: fixed;
-  top: 163px;
-  right: 20px;
-  width: 40px;
+  top: 20px;
+  right: 10px;
+  width: 20px;
   z-index: 2;
 }
 
@@ -192,18 +212,11 @@ img, video, audio, iframe, table, form {
   width: 40px;
   height: 40px;
   white-space: nowrap;
-  color: black;
+  color: white;
 }
 
 #social a:hover {
   color: #00FFA7;
-}
-
-
-/*////////// HEADER //////////*/
-
-header {
-  margin: 0 0 30px;
 }
 
 /*////////// NAVBAR //////////*/
@@ -214,7 +227,6 @@ header {
   left: 0;
   width: 100%;
   z-index: 2;
-  border-bottom: 1px solid #ccc;
   text-align: center;
 }
 
@@ -224,67 +236,41 @@ header {
 
 .navbar li {
   display: inline-block;
-  width: 25%;
-  margin: 0;
-  padding: 10px 0;
+  width: 20%;
+  padding: 10px;
+  
   text-transform: uppercase;
   color: black;
-  text-align: center;
-  border-right: 1px solid #ccc;
   text-decoration: none;
 }
 
-.nav-menu a {
-  color: black; 
-  text-decoration: none; 
+.btn {
+  flex: 1 1 auto;
+  padding: 15px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: black;
+  border-radius: 10px;
+  background-image: linear-gradient(to right, #CC1453 0%, lightgrey 51%, #CC1453 100%);
+  font-size: 20px; 
+  margin-left: 5px; 
 }
+
+.btn:hover {
+  background-position: right center;  
+}
+
+.nav-menu a {
+  color: black;
+  border-radius: 10px;
+}
+
 
 #navbar a.selected {
   background: #333;
   color: white;
-}
-
-#navbar nav a:hover {
-  color: white;
-  background: rgb(0,0,0); /* Old browsers */
-  background: -moz-linear-gradient(top,  rgba(0,0,0,1) 0%, rgba(71,71,71,1) 28%, rgba(81,81,81,1) 35%, rgba(71,71,71,1) 72%, rgba(43,43,43,1) 87%, rgba(28,28,28,1) 91%, rgba(0,0,0,1) 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,1)), color-stop(28%,rgba(71,71,71,1)), color-stop(35%,rgba(81,81,81,1)), color-stop(72%,rgba(71,71,71,1)), color-stop(87%,rgba(43,43,43,1)), color-stop(91%,rgba(28,28,28,1)), color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(71,71,71,1) 28%,rgba(81,81,81,1) 35%,rgba(71,71,71,1) 72%,rgba(43,43,43,1) 87%,rgba(28,28,28,1) 91%,rgba(0,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(71,71,71,1) 28%,rgba(81,81,81,1) 35%,rgba(71,71,71,1) 72%,rgba(43,43,43,1) 87%,rgba(28,28,28,1) 91%,rgba(0,0,0,1) 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(71,71,71,1) 28%,rgba(81,81,81,1) 35%,rgba(71,71,71,1) 72%,rgba(43,43,43,1) 87%,rgba(28,28,28,1) 91%,rgba(0,0,0,1) 100%); /* IE10+ */
-  background: linear-gradient(to bottom,  rgba(0,0,0,1) 0%,rgba(71,71,71,1) 28%,rgba(81,81,81,1) 35%,rgba(71,71,71,1) 72%,rgba(43,43,43,1) 87%,rgba(28,28,28,1) 91%,rgba(0,0,0,1) 100%); /* W3C */
-}
-
-#navbar nav a.menu-icon {
-  display: none;
-}
-
-/*////////// LOGO //////////*/
-
-#logo {
-  padding: 74px 0 0;
-}
-
-#logo h1 {
-  display: inline-block;
-  width: 45px;
-  height: 45px;
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  margin: 0;
-  background: url(../images/exceptional-logo.png) no-repeat;
-  background-size: 100% 100%;
-}
-
-#logo h2 {
-  display: inline-block;
-  font: 2.5em "Clicker Script", cursive;
-  margin: 0;
-  position: relative;
-  top: -9px;
-  left: 5px;
-  color: #303;
 }
 
 /*////////// MAIN SECTIONS //////////*/
@@ -292,30 +278,6 @@ header {
 section {
   padding: 30px;
   margin-bottom: 20px;
-}
-
-/*////////// DETAILS //////////*/
-
-#details {
-  border-top: 1px solid white;
-}
-
-#details div {
-  height: 221px;
-}
-
-#details a:link, #details a:visited {
-  color: black;
-  text-decoration: none;
-}
-
-#details a:hover {
-  color: black;
-  text-decoration: underline;
-}
-
-#details a:active {
-  color: red;
 }
 
 /*////////// FOOTER //////////*/
@@ -329,6 +291,34 @@ footer {
 }
 
 /*///////// @media queries ////////*/
+@media screen and (max-width: 900px) {
+ td {
+    width: calc(50% - 4px);
+  }
+
+  td:nth-of-type(2n) {
+    margin-right: 2px;
+  }
+
+  td:nth-of-type(4n) {
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  td {
+    width: calc(100% - 2px);
+  }
+
+  td:nth-of-type(2n) {
+    margin-right: 2px;
+  }
+
+  td:nth-of-type(4n) {
+    margin-right: 0;
+  }
+}
+
 @media only screen and (max-width: 1108px) {
 
   .wrapper {
@@ -431,5 +421,14 @@ footer {
   #logo h2 {
     visibility: hidden;
   }
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
 }
 

@@ -29,12 +29,13 @@ class SearchBar extends Component {
 			<div className="search-bar">
 				<form id="search" onSubmit={this.submitSearch}>
 					<input
+						type="text"
 						placeholder="Find videos on your favorite game"
 						value={this.state.term}
 						onChange={this.changeTerm}
 					/>
 					<span className="input-btn">
-						<button type="submit" className="submit-btn">Submit <i className="fa fa-search" aria-hidden="true"></i></button>
+						<button type="submit" className="submit-btn">Submit <i className="fa fa-search" aria-hidden="true" /></button>
 					</span>
 				</form>
 			</div>

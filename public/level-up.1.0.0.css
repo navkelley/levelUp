@@ -1,10 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=VT323');
+@import url('https://fonts.googleapis.com/css?family=Vollkorn');
 /*////////// GLOBAL //////////*/
 body {
   background: #3D8699;
   font-family: "VT323", sans-serif;
-  font-size: 100%;
-  background-image: url('../images/PacMan.jpg');
 }
 .logo {
   text-align: center;
@@ -18,91 +17,112 @@ ul {
 li {
   margin-left: 20px;
 }
-p,
 address {
   font-size: 1em;
   /* 16px, ?pt, 100%, 1em */
   line-height: 1.5em;
 }
-figure {
-  margin: 0 0 10px;
-}
-figcaption {
-  font: normal 0.75em/1.5em 'Elsie Swash Caps', cursive;
-  color: #777;
-  text-align: right;
-}
-table {
-  margin: 0 0 20px;
-  border-top: 1px solid #ccc;
-  border-left: 1px solid #ccc;
-}
-tr:nth-child(even) {
-  background: #efefef;
-}
 th,
 td {
   padding: 10px;
-  border-right: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+  font-family: "Vollkorn", sans-serif;
 }
 th {
-  background: #555;
-  color: white;
+  background-image: linear-gradient(to right, #14A6CC 0%, lightgrey 51%, #14A6CC 100%);
+}
+#twitch-streams {
+  left: 10px;
 }
 input {
-  display: block;
-  width: 100%;
+  display: inline;
   padding: 5px;
-  margin-bottom: 5px;
-  box-shadow: 0 3px 5px #ccc;
+  box-shadow: 0 1px 2px #ccc;
   border: 1px solid #ccc;
+  border-radius: 5px;
 }
-input[type="submit"] {
-  margin-top: 5px;
-  width: 100px;
-  background: black;
+input[type="text"] {
+  width: 90%;
+  border-right: none;
+  font-size: 17px;
+}
+button {
+  font-size: 16px;
+  border-radius: 5px;
+  margin-top: 7px;
+  background-color: #FF4036;
+  border: 1px solid #FF4036;
+  padding: 6px;
+}
+button:hover {
+  background-color: #00FFA7;
+  border: 1px solid #00FFA7;
+}
+.search-bar {
+  text-align: center;
+}
+p {
+  font-size: 30px;
   color: white;
-  border-radius: 25px;
-  border: 0;
+  text-align: center;
 }
-input[type="submit"]:hover {
-  background: #555;
-}
-iframe {
-  border: 0;
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
-  height: 403px;
-}
-.milk-text {
-  font: bold 2.6em 'Elsie Swash Caps', cursive;
-  color: white;
-  text-shadow: 0 2px 3px #000;
-}
-.shadow {
-  box-shadow: 0 3px 10px #333;
-}
-.border-right {
-  border-right: 1px dotted #ccc;
-  padding-right: 30px;
+.description {
+  font-family: "Vollkorn", sans-serif;
+  text-align: left;
+  font-size: 20px;
+  margin: 5px;
 }
 /*////////// BACKGROUNDS //////////*/
-/*.main-layout {
+/*html {
   background-image: url('../images/PacMan.jpg');
-}*/
-/*/////// MEDIA ////////*/
-img,
-video,
-audio,
-iframe,
-table,
-form {
+}
+
+/*/
+iframe {
   width: 100%;
   /* IE */
   max-width: 100%;
   /* FF, Safari, Chrome */
+  margin-top: 20px;
+  height: 700px;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+.embed-item {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+img {
+  width: 100%;
+  /* IE */
+  max-width: 100%;
+  /* FF, Safari, Chrome */
+}
+img:hover {
+  filter: grayscale(100%) blur(5px);
+  cursor: pointer;
+}
+.youtube-media-row:hover .view {
+  display: inline;
+}
+td {
+  font-size: 20px;
+  display: inline-block;
+  margin-bottom: 8px;
+  width: calc(21%);
+  margin-right: 8px;
+}
+.view {
+  display: none;
+  position: relative;
+  bottom: 180px;
+  left: 2px;
+  z-index: 1;
+  opacity: 1;
+  width: 300px;
+  color: #FF4036;
+  text-align: left;
 }
 /*////////// FIXES //////////*/
 * {
@@ -110,20 +130,8 @@ form {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.clearfix:after {
-  content: ".";
-  display: block;
-  clear: both;
-  visibility: hidden;
-  height: 0;
-  line-height: 0;
-}
-.clear {
-  clear: both;
-}
 /*/////// LAYOUT ////////*/
 .wrapper {
-  width: 960px;
   margin: 0 auto;
 }
 .col-1 {
@@ -148,15 +156,23 @@ form {
 [class*="col-"] {
   margin-left: 2%;
 }
-.first {
-  margin-left: 0%;
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
+}
+.clear {
+  clear: both;
 }
 /*/////// SOCIAL ////////*/
 #social {
   position: fixed;
-  top: 163px;
-  right: 20px;
-  width: 40px;
+  top: 20px;
+  right: 10px;
+  width: 20px;
   z-index: 2;
 }
 #social a {
@@ -164,14 +180,10 @@ form {
   width: 40px;
   height: 40px;
   white-space: nowrap;
-  color: black;
+  color: white;
 }
 #social a:hover {
   color: #00FFA7;
-}
-/*////////// HEADER //////////*/
-header {
-  margin: 0 0 30px;
 }
 /*////////// NAVBAR //////////*/
 .nav-container {
@@ -180,7 +192,6 @@ header {
   left: 0;
   width: 100%;
   z-index: 2;
-  border-bottom: 1px solid #ccc;
   text-align: center;
 }
 #navbar nav {
@@ -188,90 +199,40 @@ header {
 }
 .navbar li {
   display: inline-block;
-  width: 25%;
-  margin: 0;
-  padding: 10px 0;
+  width: 20%;
+  padding: 10px;
   text-transform: uppercase;
   color: black;
-  text-align: center;
-  border-right: 1px solid #ccc;
   text-decoration: none;
+}
+.btn {
+  flex: 1 1 auto;
+  padding: 15px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: black;
+  border-radius: 10px;
+  background-image: linear-gradient(to right, #CC1453 0%, lightgrey 51%, #CC1453 100%);
+  font-size: 20px;
+  margin-left: 5px;
+}
+.btn:hover {
+  background-position: right center;
 }
 .nav-menu a {
   color: black;
-  text-decoration: none;
+  border-radius: 10px;
 }
 #navbar a.selected {
   background: #333;
   color: white;
 }
-#navbar nav a:hover {
-  color: white;
-  background: #000000;
-  /* Old browsers */
-  background: -moz-linear-gradient(top, #000000 0%, #474747 28%, #515151 35%, #474747 72%, #2b2b2b 87%, #1c1c1c 91%, #000000 100%);
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #000000), color-stop(28%, #474747), color-stop(35%, #515151), color-stop(72%, #474747), color-stop(87%, #2b2b2b), color-stop(91%, #1c1c1c), color-stop(100%, #000000));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #000000 0%, #474747 28%, #515151 35%, #474747 72%, #2b2b2b 87%, #1c1c1c 91%, #000000 100%);
-  /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #000000 0%, #474747 28%, #515151 35%, #474747 72%, #2b2b2b 87%, #1c1c1c 91%, #000000 100%);
-  /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #000000 0%, #474747 28%, #515151 35%, #474747 72%, #2b2b2b 87%, #1c1c1c 91%, #000000 100%);
-  /* IE10+ */
-  background: linear-gradient(to bottom, #000000 0%, #474747 28%, #515151 35%, #474747 72%, #2b2b2b 87%, #1c1c1c 91%, #000000 100%);
-  /* W3C */
-}
-#navbar nav a.menu-icon {
-  display: none;
-}
-/*////////// LOGO //////////*/
-#logo {
-  padding: 74px 0 0;
-}
-#logo h1 {
-  display: inline-block;
-  width: 45px;
-  height: 45px;
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  margin: 0;
-  background: url(../images/exceptional-logo.png) no-repeat;
-  background-size: 100% 100%;
-}
-#logo h2 {
-  display: inline-block;
-  font: 2.5em "Clicker Script", cursive;
-  margin: 0;
-  position: relative;
-  top: -9px;
-  left: 5px;
-  color: #303;
-}
 /*////////// MAIN SECTIONS //////////*/
 section {
   padding: 30px;
   margin-bottom: 20px;
-}
-/*////////// DETAILS //////////*/
-#details {
-  border-top: 1px solid white;
-}
-#details div {
-  height: 221px;
-}
-#details a:link,
-#details a:visited {
-  color: black;
-  text-decoration: none;
-}
-#details a:hover {
-  color: black;
-  text-decoration: underline;
-}
-#details a:active {
-  color: red;
 }
 /*////////// FOOTER //////////*/
 footer {
@@ -282,6 +243,28 @@ footer {
   border-top: 1px solid;
 }
 /*///////// @media queries ////////*/
+@media screen and (max-width: 900px) {
+  td {
+    width: calc(46%);
+  }
+  td:nth-of-type(2n) {
+    margin-right: 2px;
+  }
+  td:nth-of-type(4n) {
+    margin-right: 0;
+  }
+}
+@media screen and (max-width: 500px) {
+  td {
+    width: calc(98%);
+  }
+  td:nth-of-type(2n) {
+    margin-right: 2px;
+  }
+  td:nth-of-type(4n) {
+    margin-right: 0;
+  }
+}
 @media only screen and (max-width: 1108px) {
   .wrapper {
     width: 90%;
@@ -364,5 +347,13 @@ footer {
   #logo h2 {
     visibility: hidden;
   }
+}
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
 }
 /*# sourceMappingURL=level-up.1.0.0.css.map */

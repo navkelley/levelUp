@@ -7,22 +7,16 @@ class YouTubeVideoList extends Component {
 
 	render() {
 		return (
-			<div>
-				<table className="ytVideo-table">
-					<thead>
-						<tr>
-							<th>YouTube</th>
-						</tr>
-					</thead>
+			<div className="wrapper">
+				<table>
 					<tbody>
 						{this.props.videos.map((video) => {
 							return (
-								<tr key={video.etag}>
-									<YouTubeVideoListItem
-										onVideoSelect={this.props.onVideoSelect}
-										video={video}
-									/>
-								</tr>
+								<YouTubeVideoListItem
+									onVideoSelect={this.props.onVideoSelect}
+									video={video}
+									key={video.etag}
+								/>
 							);
 						})}
 					</tbody>

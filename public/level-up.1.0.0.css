@@ -79,6 +79,10 @@ p {
   font-size: 20px;
   margin: 5px;
 }
+.funFact {
+  text-decoration: none;
+  color: white;
+}
 /*////////// BACKGROUNDS //////////*/
 /*html {
   background-image: url('../images/PacMan.jpg');

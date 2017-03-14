@@ -3,7 +3,8 @@ import React from 'react';
 const YouTubeVideoDetail = ({ video }) => {
 	if (!video) {
 		return (
-			<p className="no-search">Search a game then pick a video to play.</p>
+			<p>Fun Fact: Pac-Man was invented by the designer Toru Iwatani while he was eating pizza. -Courtesy of 
+      		<a className="funFact" target="blank" href="https://www.technotification.com/2015/01/15-interesting-video-game-facts.html"> Technotification</a></p>
 		);
 		
 	}

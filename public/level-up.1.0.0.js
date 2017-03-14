@@ -18697,7 +18697,7 @@ var NavContainer = function (_Component) {
     value: function navigationLinks() {
       return _react2.default.createElement(
         'ul',
-        { className: 'nav-menu clearfix:after' },
+        { className: 'nav-menu' },
         _react2.default.createElement(
           'li',
           { key: 1, className: 'home btn' },
@@ -18761,7 +18761,7 @@ var NavContainer = function (_Component) {
           { className: 'mobile-nav' },
           _react2.default.createElement(
             'p',
-            { onClick: this.handleNavClick.bind(this) },
+            { className: 'mobile-bars', onClick: this.handleNavClick.bind(this) },
             _react2.default.createElement('i', { className: 'fa fa-bars', 'aria-hidden': 'true' })
           ),
           this.renderMobileNav()

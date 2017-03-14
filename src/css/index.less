@@ -309,82 +309,6 @@ footer {
 }
 
 /*///////// @media queries ////////*/
-@media only screen and (max-width: 900px) {
- body {
-    font-size: 85%;
-  }
-
-  #logo h1 {
-    width: 35px;
-    height: 35px;
-  }
-
-  #logo h2 {
-    font-size: 2.2em;
-  }
-
-  #social {
-    top: 72px;
-  }
-
- td {
-    width: calc(50% - 4px);
-  }
-
-  td:nth-of-type(2n) {
-    margin-right: 2px;
-  }
-
-  td:nth-of-type(4n) {
-    margin-right: 0;
-  }
-
-  .navbar li {
-    display: block; 
-  }
-
-  li {
-    width: 100%; 
-  }
-
-  .btn {
-  text-align: center;
-  text-transform: uppercase;
-  transition: 0.5s;
-  color: black;
-  border-radius: 10px;
-  background-image: linear-gradient(to right, #CC1453 0%, lightgrey 51%, #CC1453 100%);
-  font-size: 20px; 
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  td {
-    width: calc(100% - 2px);
-  }
-
-  td:nth-of-type(2n) {
-    margin-right: 2px;
-  }
-
-  td:nth-of-type(4n) {
-    margin-right: 0;
-  }
-
-  #devAddress {
-    position: relative; 
-    left: 15%;
-    width: 90%;
-    font-size: 1em; 
-  }
-
-  .table-wrapper table {
-    position: relative;
-    left: 2px; 
-  }
-}
-
-
 @media only screen and (max-width: 1108px) {
 
   .wrapper {
@@ -419,8 +343,59 @@ footer {
 }
 
 @media only screen and (max-width: 900px) {
+ body {
+    font-size: 85%;
+  }
 
-  body {
+  #social {
+    top: 20px; 
+    right: 10px;
+  }
+
+ td {
+    width: calc(50% - 4px);
+  }
+
+  td:nth-of-type(2n) {
+    margin-right: 2px;
+  }
+
+  td:nth-of-type(4n) {
+    margin-right: 0;
+  }
+
+  .navbar li {
+    display: block; 
+    width: 90%;
+    border-radius: 0;
+  }
+
+  .mobile-nav {
+    width: 95%;
+  }
+  
+  .mobile-bars {
+    position: relative;
+    left: -45%;  
+    margin-left: 15px;  
+  }
+
+  .navbar {
+    float: left;  
+    width: 100%;
+  }
+
+  .btn {
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  color: black;
+  border-radius: 10px;
+  background-image: linear-gradient(to right, #CC1453 0%, lightgrey 51%, #CC1453 100%);
+  font-size: 20px; 
+  }
+
+    body {
     font-size: 85%;
   }
 
@@ -432,11 +407,32 @@ footer {
   #logo h2 {
     font-size: 2.2em;
   }
+}
 
-  #social {
-    top: 72px;
+@media only screen and (max-width: 500px) {
+  td {
+    width: calc(100% - 2px);
   }
 
+  td:nth-of-type(2n) {
+    margin-right: 2px;
+  }
+
+  td:nth-of-type(4n) {
+    margin-right: 0;
+  }
+
+  #devAddress {
+    position: relative; 
+    left: 15%;
+    width: 90%;
+    font-size: 1em; 
+  }
+
+  .table-wrapper table {
+    position: relative;
+    left: 2px; 
+  }
 }
 
 @media only screen and (max-width:800px) {

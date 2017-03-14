@@ -24,7 +24,7 @@ export default class NavContainer extends Component {
 
   navigationLinks() {
     return (
-      <ul className="nav-menu clearfix:after">
+      <ul className="nav-menu">
         <li key={1} className="home btn">
           <Link to="/">Home</Link>
         </li>
@@ -60,7 +60,7 @@ export default class NavContainer extends Component {
     if (this.state.windowWidth <= 900) {
       return (
         <div className="mobile-nav">
-          <p onClick={this.handleNavClick.bind(this)}>
+          <p className="mobile-bars" onClick={this.handleNavClick.bind(this)}>
             <i className="fa fa-bars" aria-hidden="true" />
           </p>
           {this.renderMobileNav()}

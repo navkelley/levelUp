@@ -38,6 +38,9 @@ Now you are ready to go!
 ![screenshot](screenshots/videoDemo.jpg)
 
 ##Development Roadmap
+* Add ability to save videos/streams to account
+* User login/authentication 
+* Change background to match theme
 
 ## Built With
 * [React](https://facebook.github.io/react/) 

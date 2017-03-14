@@ -336,6 +336,15 @@ footer {
   #logo h2 {
     font-size: 2.2em;
   }
+  .table-wrapper table {
+    left: 4%;
+  }
+  #devAddress {
+    left: 33%;
+  }
+  #twitch-streams {
+    left: 4%;
+  }
 }
 @media only screen and (max-width: 500px) {
   td {

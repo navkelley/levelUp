@@ -217,19 +217,6 @@ td {
   margin-left: 2%;
 }
 
-.clearfix:after {
-  content: ".";
-  display: block;
-  clear: both;
-  visibility: hidden;
-  height: 0;
-  line-height: 0;
-}
-
-.clear {
-  clear:both;
-}
-
 /*/////// SOCIAL ////////*/
 
 #social {
@@ -261,10 +248,6 @@ td {
   width: 100%;
   z-index: 2;
   text-align: center;
-}
-
-#navbar nav {
-  border-left: 1px solid #ccc;
 }
 
 .navbar li {
@@ -326,7 +309,24 @@ footer {
 }
 
 /*///////// @media queries ////////*/
-@media screen and (max-width: 900px) {
+@media only screen and (max-width: 900px) {
+ body {
+    font-size: 85%;
+  }
+
+  #logo h1 {
+    width: 35px;
+    height: 35px;
+  }
+
+  #logo h2 {
+    font-size: 2.2em;
+  }
+
+  #social {
+    top: 72px;
+  }
+
  td {
     width: calc(50% - 4px);
   }
@@ -338,9 +338,27 @@ footer {
   td:nth-of-type(4n) {
     margin-right: 0;
   }
+
+  .navbar li {
+    display: block; 
+  }
+
+  li {
+    width: 100%; 
+  }
+
+  .btn {
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  color: black;
+  border-radius: 10px;
+  background-image: linear-gradient(to right, #CC1453 0%, lightgrey 51%, #CC1453 100%);
+  font-size: 20px; 
+  }
 }
 
-@media screen and (max-width: 500px) {
+@media only screen and (max-width: 500px) {
   td {
     width: calc(100% - 2px);
   }
@@ -352,7 +370,20 @@ footer {
   td:nth-of-type(4n) {
     margin-right: 0;
   }
+
+  #devAddress {
+    position: relative; 
+    left: 15%;
+    width: 90%;
+    font-size: 1em; 
+  }
+
+  .table-wrapper table {
+    position: relative;
+    left: 2px; 
+  }
 }
+
 
 @media only screen and (max-width: 1108px) {
 
@@ -363,12 +394,27 @@ footer {
   #social {
     position: absolute;
     top: 82px;
-    right: 4%;
+    right: 8%;
     width: auto;
   }
 
   #social a {
     display: inline-block;
+  }
+
+  #devAddress {
+    width: 75%; 
+    position: relative; 
+    left: 38%;
+  }
+
+  .nav-container { 
+    text-align: left;  
+  }
+
+  .table-wrapper table {
+    position: relative; 
+    left: 8%;
   }
 }
 
@@ -391,11 +437,6 @@ footer {
     top: 72px;
   }
 
-  .col-3 p {
-    -moz-column-count: 2;
-    -webkit-column-count: 2;
-    column-count: 2;
-  }
 }
 
 @media only screen and (max-width:800px) {
@@ -451,19 +492,4 @@ footer {
   }
 }
 
-@media only screen and (max-width: 495px) {
-
-  #logo h2 {
-    visibility: hidden;
-  }
-}
-
-.clearfix:after {
-  content: ".";
-  display: block;
-  clear: both;
-  visibility: hidden;
-  height: 0;
-  line-height: 0;
-}
 

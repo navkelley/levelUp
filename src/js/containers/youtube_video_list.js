@@ -26,6 +26,7 @@ class YouTubeVideoList extends Component {
 	}
 }
 
+//allow video data to be used 
 function mapStateToProps({ videos }) {
   //when have key:value that are ident can reduce to just one
   return { videos };

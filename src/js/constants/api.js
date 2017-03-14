@@ -1,9 +1,12 @@
+/**
+  * constant to make request to twitch and youtube results are "data" (will be renamed)
+  **/
 import axios from 'axios';
 
 export class TwitchApi {
   constructor() {
-    this.client = '457ing4rfzq3kh5y0chj63wvmyylb5';
-    this.rootUrl = 'https://api.twitch.tv/kraken/';
+    this.client = "457ing4rfzq3kh5y0chj63wvmyylb5";
+    this.rootUrl = "https://api.twitch.tv/kraken/";
   }
 
   async twitchSearch(term) {

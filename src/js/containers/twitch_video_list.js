@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import TwitchVideoListItem from '../components/twitch/twitch_video_list_item';
-
+//map out streams to each data cell in table 
 class TwitchVideoList extends Component {
 	render() {
 		return (
@@ -25,6 +25,7 @@ class TwitchVideoList extends Component {
 	}
 }
 
+//allow stream data to be used 
 function mapStateToProps({ streams }) {
 	//when have key:value that are ident can reduce to just one
 	return { streams };

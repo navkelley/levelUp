@@ -1,3 +1,6 @@
+/**
+  * navbar will hold links to other pages as well as create the mobile menu if needed  
+  **/
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
@@ -5,15 +8,16 @@ export default class NavContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      //gathering window inner width to determine if mobile nav should be present 
       windowWidth: window.innerWidth,
       mobileNavVisible: false
     };
   }
-
+//add listeners for resize of window 
   componentDidMount() {
     window.addEventListener('resize', this.handleResize.bind(this));
   }
-
+//take it off once component no longer needed 
   componentWillUnmount() {
     window.removeEventListener('resize', this.handleResize.bind(this));
   }
@@ -55,7 +59,7 @@ export default class NavContainer extends Component {
       return this.navigationLinks();
     }
   }
-
+//render mobile nav if window size certain width
   renderNavigation() {
     if (this.state.windowWidth <= 900) {
       return (

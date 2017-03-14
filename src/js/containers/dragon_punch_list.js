@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import YouTubeVideoListItem from '../components/youtube/youtube_video_list_item';
 import TwitchVideoListItem from '../components/twitch/twitch_video_list_item';
 
+//map out videos to create list
 class DragonPunchList extends Component {
 	render() {
 		return (

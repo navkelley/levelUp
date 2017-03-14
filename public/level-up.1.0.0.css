@@ -31,12 +31,8 @@ address {
   position: relative;
   left: 550px;
 }
-th,
 td {
   font-family: "Vollkorn", sans-serif;
-}
-th {
-  background-image: linear-gradient(to right, #14A6CC 0%, lightgrey 51%, #14A6CC 100%);
 }
 #twitch-streams {
   left: 10px;
@@ -86,12 +82,7 @@ strong {
   text-decoration: none;
   color: white;
 }
-/*////////// BACKGROUNDS //////////*/
-/*html {
-  background-image: url('../images/PacMan.jpg');
-}
-
-/*/
+/*/////// MEDIA ////////*/
 iframe {
   width: 100%;
   /* IE */
@@ -162,29 +153,6 @@ td {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-/*/////// LAYOUT ////////*/
-.col-1 {
-  float: left;
-  width: 32%;
-}
-.col-2 {
-  float: left;
-  width: 66%;
-}
-.col-3 p {
-  -moz-column-rule: 1px dotted #ccc;
-  -webkit-column-rule: 1px dotted #ccc;
-  column-rule: 1px dotted #ccc;
-  -moz-column-gap: 1.5em;
-  -webkit-column-gap: 1.5em;
-  column-gap: 1.5em;
-  -moz-column-count: 3;
-  -webkit-column-count: 3;
-  column-count: 3;
-}
-[class*="col-"] {
-  margin-left: 2%;
-}
 /*/////// SOCIAL ////////*/
 #social {
   position: fixed;
@@ -251,19 +219,8 @@ section {
   padding: 30px;
   margin-bottom: 20px;
 }
-/*////////// FOOTER //////////*/
-footer {
-  text-align: center;
-  font-size: 0.75em;
-  padding: 10px;
-  background: #eee;
-  border-top: 1px solid;
-}
 /*///////// @media queries ////////*/
 @media only screen and (max-width: 1108px) {
-  .wrapper {
-    width: 90%;
-  }
   #social {
     position: absolute;
     top: 82px;

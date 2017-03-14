@@ -9,6 +9,7 @@ export default class TwitchSearch extends Component {
     super(props);
 
     this.state = {
+      //state of embed player
       selectedStream: null
     };
   }

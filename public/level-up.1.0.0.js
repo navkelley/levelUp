@@ -11430,7 +11430,7 @@ var TwitchVideoDetail = function TwitchVideoDetail(_ref) {
   if (!stream) {
     return _react2.default.createElement(
       "p",
-      null,
+      { className: "funFact" },
       "Fun Fact: The highest grossing game of all time is actually World of WarCraft bringing in whopping ten billion dollars over its lifetime. -Courtesy of",
       _react2.default.createElement(
         "a",
@@ -11445,12 +11445,8 @@ var TwitchVideoDetail = function TwitchVideoDetail(_ref) {
 
   return _react2.default.createElement(
     "div",
-    { className: "video-detail col-6" },
-    _react2.default.createElement(
-      "div",
-      { className: "embed" },
-      _react2.default.createElement("iframe", { className: "embed-item", src: url })
-    )
+    { className: "embed" },
+    _react2.default.createElement("iframe", { className: "embed-item", src: url })
   );
 };
 
@@ -11517,7 +11513,7 @@ var YouTubeVideoDetail = function YouTubeVideoDetail(_ref) {
 	if (!video) {
 		return _react2.default.createElement(
 			"p",
-			null,
+			{ className: "funFact" },
 			"Fun Fact: Pac-Man was invented by the designer Toru Iwatani while he was eating pizza. -Courtesy of",
 			_react2.default.createElement(
 				"a",
@@ -11542,34 +11538,26 @@ var YouTubeVideoDetail = function YouTubeVideoDetail(_ref) {
 			"div",
 			{ className: "details" },
 			_react2.default.createElement(
-				"div",
-				null,
+				"p",
+				{ className: "description" },
 				_react2.default.createElement(
-					"p",
-					{ className: "description" },
-					_react2.default.createElement(
-						"strong",
-						null,
-						"Title:"
-					),
-					" ",
-					video.snippet.title
-				)
+					"strong",
+					null,
+					"Title:"
+				),
+				" ",
+				video.snippet.title
 			),
 			_react2.default.createElement(
-				"div",
-				null,
+				"p",
+				{ className: "description" },
 				_react2.default.createElement(
-					"p",
-					{ className: "description" },
-					_react2.default.createElement(
-						"strong",
-						null,
-						"Description:"
-					),
-					" ",
-					video.snippet.description
-				)
+					"strong",
+					null,
+					"Description:"
+				),
+				" ",
+				video.snippet.description
 			)
 		)
 	);

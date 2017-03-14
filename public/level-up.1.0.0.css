@@ -79,6 +79,9 @@ p {
   font-size: 20px;
   margin: 5px;
 }
+strong {
+  color: black;
+}
 .funFact {
   text-decoration: none;
   color: white;
@@ -280,7 +283,36 @@ footer {
   }
   .table-wrapper table {
     position: relative;
+    top: 45%;
     left: 8%;
+  }
+  .embed {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+    margin-bottom: 15px;
+  }
+  #twitch-steams {
+    left: 9%;
+  }
+  iframe {
+    height: 550px;
+  }
+  .funFact p {
+    text-align: left;
+    font-size: 20px;
+  }
+}
+@media only screen and (max-width 1080px) {
+  .details p {
+    padding-top: 150px;
+  }
+}
+@media only screen and (max-width: 880px) {
+  .details {
+    visibility: hidden;
   }
 }
 @media only screen and (max-width: 900px) {
@@ -338,6 +370,9 @@ footer {
   #twitch-streams {
     left: 4%;
   }
+  iframe {
+    height: 450px;
+  }
 }
 @media only screen and (max-width: 500px) {
   td {
@@ -368,6 +403,13 @@ footer {
   }
   #twitch-streams {
     left: -1%;
+    top: 150px;
+  }
+  iframe {
+    height: 300px;
+  }
+  .details {
+    visibility: hidden;
   }
 }
 /*# sourceMappingURL=level-up.1.0.0.css.map */

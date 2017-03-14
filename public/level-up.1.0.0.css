@@ -79,6 +79,13 @@ p {
   font-size: 20px;
   margin: 5px;
 }
+strong {
+  color: black;
+}
+.funFact {
+  text-decoration: none;
+  color: white;
+}
 /*////////// BACKGROUNDS //////////*/
 /*html {
   background-image: url('../images/PacMan.jpg');
@@ -178,17 +185,6 @@ td {
 [class*="col-"] {
   margin-left: 2%;
 }
-.clearfix:after {
-  content: ".";
-  display: block;
-  clear: both;
-  visibility: hidden;
-  height: 0;
-  line-height: 0;
-}
-.clear {
-  clear: both;
-}
 /*/////// SOCIAL ////////*/
 #social {
   position: fixed;
@@ -215,9 +211,6 @@ td {
   width: 100%;
   z-index: 2;
   text-align: center;
-}
-#navbar nav {
-  border-left: 1px solid #ccc;
 }
 .navbar li {
   display: inline-block;
@@ -267,7 +260,69 @@ footer {
   border-top: 1px solid;
 }
 /*///////// @media queries ////////*/
-@media screen and (max-width: 900px) {
+@media only screen and (max-width: 1108px) {
+  .wrapper {
+    width: 90%;
+  }
+  #social {
+    position: absolute;
+    top: 82px;
+    right: 8%;
+    width: auto;
+  }
+  #social a {
+    display: inline-block;
+  }
+  #devAddress {
+    width: 75%;
+    position: relative;
+    left: 38%;
+  }
+  .nav-container {
+    text-align: left;
+  }
+  .table-wrapper table {
+    position: relative;
+    top: 45%;
+    left: 8%;
+  }
+  .embed {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+    margin-bottom: 15px;
+  }
+  #twitch-steams {
+    left: 9%;
+  }
+  iframe {
+    height: 550px;
+  }
+  .funFact p {
+    text-align: left;
+    font-size: 20px;
+  }
+}
+@media only screen and (max-width 1080px) {
+  .details p {
+    padding-top: 150px;
+  }
+}
+@media only screen and (max-width: 880px) {
+  .details {
+    visibility: hidden;
+  }
+}
+@media only screen and (max-width: 900px) {
+  body {
+    font-size: 85%;
+  }
+  #social {
+    top: 20px;
+    right: 10px;
+  }
   td {
     width: calc(46%);
   }
@@ -277,8 +332,49 @@ footer {
   td:nth-of-type(4n) {
     margin-right: 0;
   }
+  .navbar li {
+    display: block;
+    width: 90%;
+    border-radius: 0;
+  }
+  .mobile-nav {
+    width: 100%;
+  }
+  .mobile-bars {
+    position: relative;
+    left: -45%;
+    margin-left: 15px;
+  }
+  .navbar {
+    float: left;
+    width: 100%;
+  }
+  .btn {
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    color: black;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, #CC1453 0%, lightgrey 51%, #CC1453 100%);
+    font-size: 20px;
+  }
+  body {
+    font-size: 85%;
+  }
+  .table-wrapper table {
+    left: 4%;
+  }
+  #devAddress {
+    left: 33%;
+  }
+  #twitch-streams {
+    left: 4%;
+  }
+  iframe {
+    height: 450px;
+  }
 }
-@media screen and (max-width: 500px) {
+@media only screen and (max-width: 500px) {
   td {
     width: calc(98%);
   }
@@ -288,96 +384,32 @@ footer {
   td:nth-of-type(4n) {
     margin-right: 0;
   }
-}
-@media only screen and (max-width: 1108px) {
-  .wrapper {
+  #devAddress {
+    position: relative;
+    left: 18%;
     width: 90%;
+    font-size: 1em;
   }
-  #social {
-    position: absolute;
-    top: 82px;
-    right: 4%;
-    width: auto;
+  .table-wrapper table {
+    position: relative;
+    left: 2px;
   }
-  #social a {
-    display: inline-block;
+  ul {
+    position: relative;
+    right: 15px;
   }
-}
-@media only screen and (max-width: 900px) {
-  body {
-    font-size: 85%;
+  input[type=text] {
+    width: 70%;
   }
-  #logo h1 {
-    width: 35px;
-    height: 35px;
+  #twitch-streams {
+    left: -1%;
+    top: 150px;
   }
-  #logo h2 {
-    font-size: 2.2em;
+  iframe {
+    height: 300px;
   }
-  #social {
-    top: 72px;
-  }
-  .col-3 p {
-    -moz-column-count: 2;
-    -webkit-column-count: 2;
-    column-count: 2;
-  }
-}
-@media only screen and (max-width: 800px) {
-  .navbar li {
-    font-size: 0.9em;
-  }
-}
-@media only screen and (max-width: 750px) {
-  .col-1,
-  .col-2,
-  .col-3 {
-    width: 100%;
-    margin-left: 0;
-    float: none;
-  }
-  .border-right {
-    border: 0;
-  }
-  #details div {
-    height: auto;
-    padding-bottom: 20px;
-  }
-  .col-3 p {
-    -moz-column-count: 1;
-    -webkit-column-count: 1;
-    column-count: 1;
-  }
-}
-@media only screen and (max-width: 700px) {
-  .mobile-nav {
-    display: block;
-    float: left;
-    font-size: 1.5em;
-    padding: 10px 20px;
-    width: auto;
-  }
-  .nav-mobile {
-    display: block;
-  }
-  #logo {
-    padding: 60px 0 0;
-  }
-  #social {
-    top: 60px;
-  }
-}
-@media only screen and (max-width: 495px) {
-  #logo h2 {
+  .details {
     visibility: hidden;
   }
-}
-.clearfix:after {
-  content: ".";
-  display: block;
-  clear: both;
-  visibility: hidden;
-  height: 0;
-  line-height: 0;
 }
 /*# sourceMappingURL=level-up.1.0.0.css.map */

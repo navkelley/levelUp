@@ -11429,23 +11429,24 @@ var TwitchVideoDetail = function TwitchVideoDetail(_ref) {
 
   if (!stream) {
     return _react2.default.createElement(
-      'p',
-      null,
-      'Search Twitch by entering a game then click a video to play.'
+      "p",
+      { className: "funFact" },
+      "Fun Fact: The highest grossing game of all time is actually World of WarCraft bringing in whopping ten billion dollars over its lifetime. -Courtesy of",
+      _react2.default.createElement(
+        "a",
+        { className: "funFact", target: "blank", href: "https://www.technotification.com/2015/01/15-interesting-video-game-facts.html" },
+        " Technotification"
+      )
     );
   }
   var name = stream.channel.name;
 
-  var url = 'https://player.twitch.tv/?channel=' + name;
+  var url = "https://player.twitch.tv/?channel=" + name;
 
   return _react2.default.createElement(
-    'div',
-    { className: 'video-detail col-6' },
-    _react2.default.createElement(
-      'div',
-      { className: 'embed' },
-      _react2.default.createElement('iframe', { className: 'embed-item', src: url })
-    )
+    "div",
+    { className: "embed" },
+    _react2.default.createElement("iframe", { className: "embed-item", src: url })
   );
 };
 
@@ -11511,55 +11512,52 @@ var YouTubeVideoDetail = function YouTubeVideoDetail(_ref) {
 
 	if (!video) {
 		return _react2.default.createElement(
-			'p',
-			{ className: 'no-search' },
-			'Search a game then pick a video to play.'
+			"p",
+			{ className: "funFact" },
+			"Fun Fact: Pac-Man was invented by the designer Toru Iwatani while he was eating pizza. -Courtesy of",
+			_react2.default.createElement(
+				"a",
+				{ className: "funFact", target: "blank", href: "https://www.technotification.com/2015/01/15-interesting-video-game-facts.html" },
+				" Technotification"
+			)
 		);
 	}
 
 	var videoId = video.id.videoId;
-	var url = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
+	var url = "https://www.youtube.com/embed/" + videoId + "?autoplay=1";
 
 	return _react2.default.createElement(
-		'div',
-		{ className: 'video-detail' },
+		"div",
+		{ className: "video-detail" },
 		_react2.default.createElement(
-			'div',
-			{ className: 'embed' },
-			_react2.default.createElement('iframe', { className: 'embed-item', src: url })
+			"div",
+			{ className: "embed" },
+			_react2.default.createElement("iframe", { className: "embed-item", src: url })
 		),
 		_react2.default.createElement(
-			'div',
-			{ className: 'details' },
+			"div",
+			{ className: "details" },
 			_react2.default.createElement(
-				'div',
-				null,
+				"p",
+				{ className: "description" },
 				_react2.default.createElement(
-					'p',
-					{ className: 'description' },
-					_react2.default.createElement(
-						'strong',
-						null,
-						'Title:'
-					),
-					' ',
-					video.snippet.title
-				)
+					"strong",
+					null,
+					"Title:"
+				),
+				" ",
+				video.snippet.title
 			),
 			_react2.default.createElement(
-				'div',
-				null,
+				"p",
+				{ className: "description" },
 				_react2.default.createElement(
-					'p',
-					{ className: 'description' },
-					_react2.default.createElement(
-						'strong',
-						null,
-						'Description:'
-					),
-					' ',
-					video.snippet.description
-				)
+					"strong",
+					null,
+					"Description:"
+				),
+				" ",
+				video.snippet.description
 			)
 		)
 	);
@@ -18504,7 +18502,7 @@ var Home = function Home() {
     _react2.default.createElement(
       "p",
       { className: "welcome" },
-      "You can search for any game that you like to help you learn, strategize and find those komadas! You can preview games as well. To get started choose your route, searching just YouTube, just Twitch, or both (known as the Dragon Punch!), then search for a game."
+      "You can search for any game that you like to help you learn, strategize and find those komadas! You can preview games as well. To get started choose your route, searching just YouTube, just Twitch, or both (known as the Dragon Punch!), then search for a game and click it to play."
     )
   );
 };
@@ -18687,7 +18685,7 @@ var NavContainer = function (_Component) {
     value: function navigationLinks() {
       return _react2.default.createElement(
         'ul',
-        { className: 'nav-menu clearfix:after' },
+        { className: 'nav-menu' },
         _react2.default.createElement(
           'li',
           { key: 1, className: 'home btn' },
@@ -18751,7 +18749,7 @@ var NavContainer = function (_Component) {
           { className: 'mobile-nav' },
           _react2.default.createElement(
             'p',
-            { onClick: this.handleNavClick.bind(this) },
+            { className: 'mobile-bars', onClick: this.handleNavClick.bind(this) },
             _react2.default.createElement('i', { className: 'fa fa-bars', 'aria-hidden': 'true' })
           ),
           this.renderMobileNav()

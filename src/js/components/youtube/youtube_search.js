@@ -7,7 +7,7 @@ import SearchBar from '../../containers/search_bar';
 export default class YouTubeSearch extends Component {
   constructor(props) {
     super(props);
-
+    //state of embed player 
     this.state = {
       selectedVideo: null
     };

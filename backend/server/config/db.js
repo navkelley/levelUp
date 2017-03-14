@@ -5,5 +5,5 @@ export default () => {
   mongoose.connect('mongodb://localhost/levelUp');
   mongoose.connection
     .once('open', () => console.log('Mongodb running'))
-    .on('error', err => console.error(err))
+    .on('error', err => console.error(err));
 };

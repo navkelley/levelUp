@@ -42,7 +42,7 @@ class SearchBar extends Component {
 		);
 	}
 }
-
+//allow actions to put results as props
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({ youTubeSearch, twitchSearch }, dispatch);
 }

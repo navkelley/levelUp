@@ -6992,6 +6992,8 @@ var SearchBar = function (_Component) {
 
 	return SearchBar;
 }(_react.Component);
+//allow actions to put results as props
+
 
 function mapDispatchToProps(dispatch) {
 	return (0, _redux.bindActionCreators)({ youTubeSearch: _youtube.youTubeSearch, twitchSearch: _twitch.twitchSearch }, dispatch);
@@ -11315,6 +11317,7 @@ var TWITCH_SEARCH = exports.TWITCH_SEARCH = 'TWITCH_SEARCH';
 
 var twitchApi = new _api.TwitchApi();
 
+//get data from twitch by keyword breakdown promise for handling 
 var twitchSearch = exports.twitchSearch = function twitchSearch(term) {
   return function () {
     var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(dispatch) {
@@ -11330,14 +11333,14 @@ var twitchSearch = exports.twitchSearch = function twitchSearch(term) {
               data = _context.sent;
               streams = data.streams;
 
-              console.log("twitch data:", streams);
+              //on action type bring back data named streams
 
               return _context.abrupt('return', dispatch({
                 type: TWITCH_SEARCH,
                 payload: streams
               }));
 
-            case 6:
+            case 5:
             case 'end':
               return _context.stop();
           }
@@ -11371,6 +11374,7 @@ var YOUTUBE_SEARCH = exports.YOUTUBE_SEARCH = 'YOUTUBE_SEARCH';
 
 var youtubeApi = new _api.YouTubeApi();
 
+//get data from twitch by keyword breakdown promise for handling 
 var youTubeSearch = exports.youTubeSearch = function youTubeSearch(term) {
   return function () {
     var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(dispatch) {
@@ -11386,14 +11390,14 @@ var youTubeSearch = exports.youTubeSearch = function youTubeSearch(term) {
               data = _context.sent;
               videos = data.items;
 
-              console.log("youtube data:", videos);
+              //on action type bring back data named videos 
 
               return _context.abrupt('return', dispatch({
                 type: YOUTUBE_SEARCH,
                 payload: videos
               }));
 
-            case 6:
+            case 5:
             case 'end':
               return _context.stop();
           }
@@ -11427,6 +11431,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var TwitchVideoDetail = function TwitchVideoDetail(_ref) {
   var stream = _ref.stream;
 
+  //edge case for no selected stream
   if (!stream) {
     return _react2.default.createElement(
       "p",
@@ -11435,10 +11440,11 @@ var TwitchVideoDetail = function TwitchVideoDetail(_ref) {
       _react2.default.createElement(
         "a",
         { className: "funFact", target: "blank", href: "https://www.technotification.com/2015/01/15-interesting-video-game-facts.html" },
-        " Technotification"
+        "Technotification"
       )
     );
   }
+  //in {} makes end property variable as well 
   var name = stream.channel.name;
 
   var url = "https://player.twitch.tv/?channel=" + name;
@@ -11469,20 +11475,21 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//set props as stream: stream, and onStreamSelect: onStreamSelect --shorthand is below
 var TwitchVideoListItem = function TwitchVideoListItem(_ref) {
   var stream = _ref.stream,
       onStreamSelect = _ref.onStreamSelect;
 
   var preview = stream.preview.medium;
   return _react2.default.createElement(
-    'td',
+    "td",
     { onClick: function onClick() {
         return onStreamSelect(stream);
-      }, className: 'list-group-item twitch-media' },
-    _react2.default.createElement('img', { alt: 'game stream', className: 'media-object', src: preview }),
+      }, className: "list-group-item twitch-media" },
+    _react2.default.createElement("img", { alt: "game stream", className: "media-object", src: preview }),
     _react2.default.createElement(
-      'span',
-      { className: 'view', id: 'twitch-name-hover' },
+      "span",
+      { className: "view", id: "twitch-name-hover" },
       stream.channel.display_name
     )
   );
@@ -11498,7 +11505,7 @@ exports.default = TwitchVideoListItem;
 
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+  value: true
 });
 
 var _react = __webpack_require__(3);
@@ -11507,60 +11514,61 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//set props as video: video--shorthand below
 var YouTubeVideoDetail = function YouTubeVideoDetail(_ref) {
-	var video = _ref.video;
+  var video = _ref.video;
 
-	if (!video) {
-		return _react2.default.createElement(
-			"p",
-			{ className: "funFact" },
-			"Fun Fact: Pac-Man was invented by the designer Toru Iwatani while he was eating pizza. -Courtesy of",
-			_react2.default.createElement(
-				"a",
-				{ className: "funFact", target: "blank", href: "https://www.technotification.com/2015/01/15-interesting-video-game-facts.html" },
-				" Technotification"
-			)
-		);
-	}
+  if (!video) {
+    return _react2.default.createElement(
+      "p",
+      { className: "funFact" },
+      "Fun Fact: Pac-Man was invented by the designer Toru Iwatani while he was eating pizza. -Courtesy of",
+      _react2.default.createElement(
+        "a",
+        { className: "funFact", target: "blank", href: "https://www.technotification.com/2015/01/15-interesting-video-game-facts.html" },
+        " Technotification"
+      )
+    );
+  }
 
-	var videoId = video.id.videoId;
-	var url = "https://www.youtube.com/embed/" + videoId + "?autoplay=1";
+  var videoId = video.id.videoId;
+  var url = "https://www.youtube.com/embed/" + videoId + "?autoplay=1";
 
-	return _react2.default.createElement(
-		"div",
-		{ className: "video-detail" },
-		_react2.default.createElement(
-			"div",
-			{ className: "embed" },
-			_react2.default.createElement("iframe", { className: "embed-item", src: url })
-		),
-		_react2.default.createElement(
-			"div",
-			{ className: "details" },
-			_react2.default.createElement(
-				"p",
-				{ className: "description" },
-				_react2.default.createElement(
-					"strong",
-					null,
-					"Title:"
-				),
-				" ",
-				video.snippet.title
-			),
-			_react2.default.createElement(
-				"p",
-				{ className: "description" },
-				_react2.default.createElement(
-					"strong",
-					null,
-					"Description:"
-				),
-				" ",
-				video.snippet.description
-			)
-		)
-	);
+  return _react2.default.createElement(
+    "div",
+    { className: "video-detail" },
+    _react2.default.createElement(
+      "div",
+      { className: "embed" },
+      _react2.default.createElement("iframe", { className: "embed-item", src: url })
+    ),
+    _react2.default.createElement(
+      "div",
+      { className: "details" },
+      _react2.default.createElement(
+        "p",
+        { className: "description" },
+        _react2.default.createElement(
+          "strong",
+          null,
+          "Title:"
+        ),
+        " ",
+        video.snippet.title
+      ),
+      _react2.default.createElement(
+        "p",
+        { className: "description" },
+        _react2.default.createElement(
+          "strong",
+          null,
+          "Description:"
+        ),
+        " ",
+        video.snippet.description
+      )
+    )
+  );
 };
 
 exports.default = YouTubeVideoDetail;
@@ -11582,23 +11590,24 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//set props as video: video, and onVideoSelect: onVideoSelect --shorthand is below
 var YouTubeVideoListItem = function YouTubeVideoListItem(_ref) {
 	var video = _ref.video,
 	    onVideoSelect = _ref.onVideoSelect;
 	var url = video.snippet.thumbnails.high.url;
 
 	return _react2.default.createElement(
-		'td',
+		"td",
 		{ onClick: function onClick() {
 				return onVideoSelect(video);
-			}, className: 'list-group-item' },
+			}, className: "list-group-item" },
 		_react2.default.createElement(
-			'div',
-			{ className: 'youtube-media-row' },
-			_react2.default.createElement('img', { alt: 'video', className: 'media-object', src: url }),
+			"div",
+			{ className: "youtube-media-row" },
+			_react2.default.createElement("img", { alt: "video", className: "media-object", src: url }),
 			_react2.default.createElement(
-				'span',
-				{ className: 'view' },
+				"span",
+				{ className: "view" },
 				video.snippet.title
 			)
 		)
@@ -11619,7 +11628,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.YouTubeApi = exports.TwitchApi = undefined;
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * constant to make request to twitch and youtube results are "data" (will be renamed)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       **/
+
 
 var _axios = __webpack_require__(255);
 
@@ -11635,12 +11647,12 @@ var TwitchApi = exports.TwitchApi = function () {
   function TwitchApi() {
     _classCallCheck(this, TwitchApi);
 
-    this.client = '457ing4rfzq3kh5y0chj63wvmyylb5';
-    this.rootUrl = 'https://api.twitch.tv/kraken/';
+    this.client = "457ing4rfzq3kh5y0chj63wvmyylb5";
+    this.rootUrl = "https://api.twitch.tv/kraken/";
   }
 
   _createClass(TwitchApi, [{
-    key: 'twitchSearch',
+    key: "twitchSearch",
     value: function () {
       var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(term) {
         var url, _ref2, data;
@@ -11650,23 +11662,23 @@ var TwitchApi = exports.TwitchApi = function () {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.prev = 0;
-                url = this.rootUrl + 'streams/?game=' + term + '&client_id=' + this.client + '&live=true';
+                url = this.rootUrl + "streams/?game=" + term + "&client_id=" + this.client + "&live=true";
                 _context.next = 4;
                 return _axios2.default.get(url);
 
               case 4:
                 _ref2 = _context.sent;
                 data = _ref2.data;
-                return _context.abrupt('return', data);
+                return _context.abrupt("return", data);
 
               case 9:
                 _context.prev = 9;
-                _context.t0 = _context['catch'](0);
+                _context.t0 = _context["catch"](0);
 
                 console.log(_context.t0);
 
               case 12:
-              case 'end':
+              case "end":
                 return _context.stop();
             }
           }
@@ -11689,11 +11701,11 @@ var YouTubeApi = exports.YouTubeApi = function () {
     _classCallCheck(this, YouTubeApi);
 
     this.key = 'AIzaSyBiZx8Ti_Bajxu-sAFjYHUr-lS4jwReH-0';
-    this.rootUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&key=' + this.key;
+    this.rootUrl = "https://www.googleapis.com/youtube/v3/search?part=snippet&key=" + this.key;
   }
 
   _createClass(YouTubeApi, [{
-    key: 'youTubeSearch',
+    key: "youTubeSearch",
     value: function () {
       var _ref3 = _asyncToGenerator(regeneratorRuntime.mark(function _callee2(term) {
         var url, _ref4, data;
@@ -11703,23 +11715,23 @@ var YouTubeApi = exports.YouTubeApi = function () {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.prev = 0;
-                url = this.rootUrl + '&q=' + term + '&r=json&maxResults=25';
+                url = this.rootUrl + "&q=" + term + "&r=json&maxResults=25";
                 _context2.next = 4;
                 return _axios2.default.get(url);
 
               case 4:
                 _ref4 = _context2.sent;
                 data = _ref4.data;
-                return _context2.abrupt('return', data);
+                return _context2.abrupt("return", data);
 
               case 9:
                 _context2.prev = 9;
-                _context2.t0 = _context2['catch'](0);
+                _context2.t0 = _context2["catch"](0);
 
                 console.log(_context2.t0);
 
               case 12:
-              case 'end':
+              case "end":
                 return _context2.stop();
             }
           }
@@ -11768,6 +11780,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+//map out streams to each data cell in table 
 var TwitchVideoList = function (_Component) {
 	_inherits(TwitchVideoList, _Component);
 
@@ -11806,6 +11819,9 @@ var TwitchVideoList = function (_Component) {
 
 	return TwitchVideoList;
 }(_react.Component);
+
+//allow stream data to be used 
+
 
 function mapStateToProps(_ref) {
 	var streams = _ref.streams;
@@ -11885,6 +11901,9 @@ var YouTubeVideoList = function (_Component) {
 
 	return YouTubeVideoList;
 }(_react.Component);
+
+//allow video data to be used 
+
 
 function mapStateToProps(_ref) {
 	var videos = _ref.videos;
@@ -17558,12 +17577,10 @@ var _punch_search2 = _interopRequireDefault(_punch_search);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//import '../css/index.less';
-
 var ISPROD = "production" === 'production';
 
 //tool for redux dev
-var ENHANCERS = (0, _redux.compose)((0, _redux.applyMiddleware)(_reduxPromise2.default, _reduxThunk2.default), /*!ISPROD &&*/window.devToolsExtension ? window.devToolsExtension() : function (f) {
+var ENHANCERS = (0, _redux.compose)((0, _redux.applyMiddleware)(_reduxPromise2.default, _reduxThunk2.default), !ISPROD && window.devToolsExtension ? window.devToolsExtension() : function (f) {
   return f;
 });
 
@@ -18526,10 +18543,6 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouter = __webpack_require__(158);
-
-var _reactSimpleDropdown = __webpack_require__(586);
-
 var _nav_bar = __webpack_require__(275);
 
 var _nav_bar2 = _interopRequireDefault(_nav_bar);
@@ -18541,34 +18554,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * comments to go here
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * main-layout will hold navbar, social links, and address 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  **/
 
 
-//turn to class component with state--use conditional or ?
 var MainLayout = function (_Component) {
   _inherits(MainLayout, _Component);
 
   function MainLayout() {
     _classCallCheck(this, MainLayout);
 
-    var _this = _possibleConstructorReturn(this, (MainLayout.__proto__ || Object.getPrototypeOf(MainLayout)).call(this));
-
-    _this.state = {
-      isNavbarShow: false
-    };
-    return _this;
+    return _possibleConstructorReturn(this, (MainLayout.__proto__ || Object.getPrototypeOf(MainLayout)).apply(this, arguments));
   }
-  //first need icon to show
-  //need to toggle state from false to true
 
   _createClass(MainLayout, [{
-    key: 'openMobileNav',
-    value: function openMobileNav() {
-      this.setState({ isNavbarShow: !this.state.isNavbarShow });
-      //add dropdown to bars for mobile menu
-    }
-  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -18648,7 +18647,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * navbar will hold links to other pages as well as create the mobile menu if needed  
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 **/
+
 
 var NavContainer = function (_Component) {
   _inherits(NavContainer, _Component);
@@ -18659,17 +18661,22 @@ var NavContainer = function (_Component) {
     var _this = _possibleConstructorReturn(this, (NavContainer.__proto__ || Object.getPrototypeOf(NavContainer)).call(this, props));
 
     _this.state = {
+      //gathering window inner width to determine if mobile nav should be present 
       windowWidth: window.innerWidth,
       mobileNavVisible: false
     };
     return _this;
   }
+  //add listeners for resize of window 
+
 
   _createClass(NavContainer, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
       window.addEventListener('resize', this.handleResize.bind(this));
     }
+    //take it off once component no longer needed 
+
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
@@ -18740,6 +18747,8 @@ var NavContainer = function (_Component) {
         return this.navigationLinks();
       }
     }
+    //render mobile nav if window size certain width
+
   }, {
     key: 'renderNavigation',
     value: function renderNavigation() {
@@ -18924,6 +18933,7 @@ var TwitchSearch = function (_Component) {
     var _this = _possibleConstructorReturn(this, (TwitchSearch.__proto__ || Object.getPrototypeOf(TwitchSearch)).call(this, props));
 
     _this.state = {
+      //state of embed player
       selectedStream: null
     };
     return _this;
@@ -19001,6 +19011,7 @@ var YouTubeSearch = function (_Component) {
   function YouTubeSearch(props) {
     _classCallCheck(this, YouTubeSearch);
 
+    //state of embed player 
     var _this = _possibleConstructorReturn(this, (YouTubeSearch.__proto__ || Object.getPrototypeOf(YouTubeSearch)).call(this, props));
 
     _this.state = {
@@ -19073,6 +19084,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+//map out videos to create list
 var DragonPunchList = function (_Component) {
 	_inherits(DragonPunchList, _Component);
 
@@ -19158,9 +19170,9 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(101);
 
-var _reducer_youtube = __webpack_require__(282);
+var _reducer_youTube = __webpack_require__(612);
 
-var _reducer_youtube2 = _interopRequireDefault(_reducer_youtube);
+var _reducer_youTube2 = _interopRequireDefault(_reducer_youTube);
 
 var _reducer_twitch = __webpack_require__(281);
 
@@ -19168,8 +19180,9 @@ var _reducer_twitch2 = _interopRequireDefault(_reducer_twitch);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//combo reducers to work state of app
 var rootReducer = (0, _redux.combineReducers)({
-  videos: _reducer_youtube2.default,
+  videos: _reducer_youTube2.default,
   streams: _reducer_twitch2.default
 });
 
@@ -19188,6 +19201,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _twitch = __webpack_require__(166);
 
+//put videos in state as array for access and mapping 
 exports.default = function () {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   var action = arguments[1];
@@ -19202,87 +19216,8 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 282 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _youtube = __webpack_require__(167);
-
-exports.default = function () {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-  var action = arguments[1];
-
-  var data = action.payload;
-  switch (action.type) {
-    case _youtube.YOUTUBE_SEARCH:
-      return data;
-    default:
-      return state;
-  }
-};
-
-/***/ }),
-/* 283 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-  Copyright (c) 2016 Jed Watson.
-  Licensed under the MIT License (MIT), see
-  http://jedwatson.github.io/classnames
-*/
-/* global define */
-
-(function () {
-	'use strict';
-
-	var hasOwn = {}.hasOwnProperty;
-
-	function classNames () {
-		var classes = [];
-
-		for (var i = 0; i < arguments.length; i++) {
-			var arg = arguments[i];
-			if (!arg) continue;
-
-			var argType = typeof arg;
-
-			if (argType === 'string' || argType === 'number') {
-				classes.push(arg);
-			} else if (Array.isArray(arg)) {
-				classes.push(classNames.apply(null, arg));
-			} else if (argType === 'object') {
-				for (var key in arg) {
-					if (hasOwn.call(arg, key) && arg[key]) {
-						classes.push(key);
-					}
-				}
-			}
-		}
-
-		return classes.join(' ');
-	}
-
-	if (typeof module !== 'undefined' && module.exports) {
-		module.exports = classNames;
-	} else if (true) {
-		// register as 'classnames', consistent with npm package name
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
-			return classNames;
-		}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	} else {
-		window.classNames = classNames;
-	}
-}());
-
-
-/***/ }),
+/* 282 */,
+/* 283 */,
 /* 284 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -36069,241 +36004,9 @@ function withRouter(WrappedComponent, options) {
 }
 
 /***/ }),
-/* 586 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.DropdownContent = exports.DropdownTrigger = undefined;
-
-var _react = __webpack_require__(3);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactDom = __webpack_require__(212);
-
-var _classnames = __webpack_require__(283);
-
-var _classnames2 = _interopRequireDefault(_classnames);
-
-var _DropdownTrigger = __webpack_require__(588);
-
-var _DropdownTrigger2 = _interopRequireDefault(_DropdownTrigger);
-
-var _DropdownContent = __webpack_require__(587);
-
-var _DropdownContent2 = _interopRequireDefault(_DropdownContent);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Dropdown = (0, _react.createClass)({
-  displayName: 'Dropdown',
-
-  getInitialState: function getInitialState() {
-    return {
-      active: false
-    };
-  },
-  getDefaultProps: function getDefaultProps() {
-    return {
-      className: ''
-    };
-  },
-  componentDidMount: function componentDidMount() {
-    window.addEventListener('click', this._onWindowClick);
-    window.addEventListener('touchstart', this._onWindowClick);
-  },
-  componentWillUnmount: function componentWillUnmount() {
-    window.removeEventListener('click', this._onWindowClick);
-    window.removeEventListener('touchstart', this._onWindowClick);
-  },
-  render: function render() {
-    var _this = this,
-        _arguments = arguments;
-
-    var _props = this.props;
-    var children = _props.children;
-    var className = _props.className;
-    // create component classes
-
-    var active = this.isActive();
-    var dropdown_classes = (0, _classnames2.default)({
-      dropdown: true,
-      'dropdown--active': active
-    });
-    dropdown_classes += ' ' + className;
-    // stick callback on trigger element
-    var bound_children = _react2.default.Children.map(children, function (child) {
-      if (child.type === _DropdownTrigger2.default) {
-        (function () {
-          var originalOnClick = child.props.onClick;
-          child = (0, _react.cloneElement)(child, {
-            ref: 'trigger',
-            onClick: function onClick(event) {
-              _this._onToggleClick(event);
-              if (originalOnClick) {
-                originalOnClick.apply(child, _arguments);
-              }
-            }
-          });
-        })();
-      }
-      return child;
-    });
-    return _react2.default.createElement(
-      'div',
-      {
-        style: this.props.style,
-        className: dropdown_classes },
-      bound_children
-    );
-  },
-  isActive: function isActive() {
-    return typeof this.props.active === 'boolean' ? this.props.active : this.state.active;
-  },
-  hide: function hide() {
-    this.setState({
-      active: false
-    });
-    if (this.props.onHide) {
-      this.props.onHide();
-    }
-  },
-  show: function show() {
-    this.setState({
-      active: true
-    });
-    if (this.props.onShow) {
-      this.props.onShow();
-    }
-  },
-  _onWindowClick: function _onWindowClick(event) {
-    var dropdown_element = (0, _reactDom.findDOMNode)(this);
-    if (event.target !== dropdown_element && !dropdown_element.contains(event.target) && this.isActive()) {
-      this.hide();
-    }
-  },
-  _onToggleClick: function _onToggleClick(event) {
-    event.preventDefault();
-    if (this.isActive()) {
-      this.hide();
-    } else {
-      this.show();
-    }
-  }
-});
-
-exports.DropdownTrigger = _DropdownTrigger2.default;
-exports.DropdownContent = _DropdownContent2.default;
-exports.default = Dropdown;
-
-/***/ }),
-/* 587 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _react = __webpack_require__(3);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var DropdownContent = (0, _react.createClass)({
-  displayName: 'DropdownContent',
-
-  propTypes: {
-    children: _react.PropTypes.node,
-    className: _react.PropTypes.string
-  },
-
-  getDefaultProps: function getDefaultProps() {
-    return {
-      className: ''
-    };
-  },
-  render: function render() {
-    var _props = this.props;
-    var children = _props.children;
-    var className = _props.className;
-
-    var props = _extends({}, this.props, {
-      className: 'dropdown__content ' + className
-    });
-
-    return _react2.default.createElement(
-      'div',
-      props,
-      children
-    );
-  }
-});
-
-exports.default = DropdownContent;
-
-/***/ }),
-/* 588 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _react = __webpack_require__(3);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var DropdownTrigger = (0, _react.createClass)({
-  displayName: 'DropdownTrigger',
-
-  propTypes: {
-    children: _react.PropTypes.node,
-    className: _react.PropTypes.string
-  },
-
-  getDefaultProps: function getDefaultProps() {
-    return {
-      className: ''
-    };
-  },
-  render: function render() {
-    var _props = this.props;
-    var children = _props.children;
-    var className = _props.className;
-
-    var props = _extends({}, this.props, {
-      className: 'dropdown__trigger ' + className
-    });
-
-    return _react2.default.createElement(
-      'a',
-      props,
-      children
-    );
-  }
-});
-
-exports.default = DropdownTrigger;
-
-/***/ }),
+/* 586 */,
+/* 587 */,
+/* 588 */,
 /* 589 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -39495,6 +39198,33 @@ module.exports = function(module) {
 __webpack_require__(254);
 module.exports = __webpack_require__(253);
 
+
+/***/ }),
+/* 612 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _youtube = __webpack_require__(167);
+
+//put videos in state as array for access and mapping 
+exports.default = function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments[1];
+
+  var data = action.payload;
+  switch (action.type) {
+    case _youtube.YOUTUBE_SEARCH:
+      return data;
+    default:
+      return state;
+  }
+};
 
 /***/ })
 /******/ ]);

@@ -58,4 +58,3 @@ Now you are ready to go!
 * Stephen Grider-For Udemy Course explaining React/Redux and providing an excellent scaffolding example
 * YouTube-For allowing use of their API for developers
 * Twitch-For allowing use of their API for developers
-

@@ -26,20 +26,20 @@ export default app => {
 
 	// Express Validator
 	app.use(expressValidator({
-		errorFormatter: function(param, msg, value) {
+		errorFormatter: function (param, msg, value) {
 				let namespace = param.split('.'),
 				root = namespace.shift(),
 				formParam = root;
 
-			while(namespace.length) {
+			while (namespace.length) {
 				formParam += '[' + namespace.shift() + ']';
 			}
 
 			return {
-				param : formParam,
-				msg   : msg,
-				value : value
+				param: formParam,
+				msg: msg,
+				value: value
 			};
 		}
 	}));
-}
+};

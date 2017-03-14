@@ -12,14 +12,13 @@ import reducers from './reducers';
 import YouTubeSearch from './components/youtube/youtube_search';
 import TwitchSearch from './components/twitch/twitch_search';
 import PunchSearch from './components/punch_search';
-//import '../css/index.less';
 
 const ISPROD = process.env.NODE_ENV === 'production';
 
 //tool for redux dev
 const ENHANCERS = compose(
   applyMiddleware(ReduxPromise, thunk),
-  (/*!ISPROD &&*/ window.devToolsExtension ? window.devToolsExtension() : f => f)
+  (!ISPROD && window.devToolsExtension ? window.devToolsExtension() : f => f)
 );
 
 const store = createStore(

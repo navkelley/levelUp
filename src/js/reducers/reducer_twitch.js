@@ -1,5 +1,6 @@
 import { TWITCH_SEARCH } from '../actions/twitch';
 
+//put videos in state as array for access and mapping 
 export default (state = [], action) => {
   const twitchData = action.payload;
   switch (action.type) {

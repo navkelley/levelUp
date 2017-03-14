@@ -40,13 +40,8 @@ address {
   left: 550px;
 }
 
-th, td {
+td {
   font-family: "Vollkorn", sans-serif; 
-
-}
-
-th {
-  background-image: linear-gradient(to right, #14A6CC 0%, lightgrey 51%, #14A6CC 100%); 
 }
 
 #twitch-streams {
@@ -107,12 +102,6 @@ strong {
   color: white;
 }
 
-/*////////// BACKGROUNDS //////////*/
-
-/*html {
-  background-image: url('../images/PacMan.jpg');
-}
-
 /*/////// MEDIA ////////*/
 
 iframe {
@@ -130,6 +119,7 @@ iframe {
   margin-top: 20px;
   margin-bottom: 10px;
 }
+
 img {
   width: 100%; /* IE */
   max-width: 100%; /* FF, Safari, Chrome */
@@ -191,34 +181,6 @@ td {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-}
-
-/*/////// LAYOUT ////////*/
-
-.col-1 {
-  float: left;
-  width: 32%;
-}
-
-.col-2 {
-  float: left;
-  width: 66%;
-}
-
-.col-3 p {
-  -moz-column-rule: 1px dotted #ccc;
-  -webkit-column-rule: 1px dotted #ccc;
-  column-rule: 1px dotted #ccc;
-  -moz-column-gap: 1.5em;
-  -webkit-column-gap: 1.5em;
-  column-gap: 1.5em;
-  -moz-column-count: 3;
-  -webkit-column-count: 3;
-  column-count: 3;
-}
-
-[class*="col-"] {
-  margin-left: 2%;
 }
 
 /*/////// SOCIAL ////////*/
@@ -302,22 +264,8 @@ section {
   margin-bottom: 20px;
 }
 
-/*////////// FOOTER //////////*/
-
-footer {
-  text-align: center;
-  font-size: 0.75em;
-  padding: 10px;
-  background: #eee;
-  border-top: 1px solid;
-}
-
 /*///////// @media queries ////////*/
 @media only screen and (max-width: 1108px) {
-
-  .wrapper {
-    width: 90%;
-  }
 
   #social {
     position: absolute;
@@ -381,7 +329,7 @@ footer {
 }
 
 @media only screen and (max-width: 900px) {
- body {
+  body {
     font-size: 85%;
   }
 
@@ -424,13 +372,13 @@ footer {
   }
 
   .btn {
-  text-align: center;
-  text-transform: uppercase;
-  transition: 0.5s;
-  color: black;
-  border-radius: 10px;
-  background-image: linear-gradient(to right, #CC1453 0%, lightgrey 51%, #CC1453 100%);
-  font-size: 20px; 
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    color: black;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, #CC1453 0%, lightgrey 51%, #CC1453 100%);
+    font-size: 20px; 
   }
 
   body {

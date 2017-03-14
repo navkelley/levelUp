@@ -6,9 +6,9 @@ import session from 'express-session';
 import flash from 'connect-flash';
 import expressValidator from 'express-validator';
 
-const ROUTER = express.Router();
-
 import User from './user';
+
+const ROUTER = express.Router();
 
 //middleware that is specific to this router
 const timeLog = ROUTER.use((req, res, next) => {
@@ -25,7 +25,7 @@ ROUTER.get('/', ensureAuthenticated, (req, res) => {
 });
 
 function ensureAuthenticated(req, res, next) {
-  if(req.isAuthenticated()){
+  if (req.isAuthenticated()) {
     return next();
   } else {
     res.redirect(401, '/');
@@ -48,7 +48,7 @@ ROUTER.post('/register', (req, res) => {
 
   let errors = req.validationErrors();
 
-  if(errors) {
+  if (errors) {
     res.json(errors);
   } else {
     let newUser = new User({

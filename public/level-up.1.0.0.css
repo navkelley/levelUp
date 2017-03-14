@@ -329,13 +329,6 @@ footer {
   body {
     font-size: 85%;
   }
-  #logo h1 {
-    width: 35px;
-    height: 35px;
-  }
-  #logo h2 {
-    font-size: 2.2em;
-  }
   .table-wrapper table {
     left: 4%;
   }
@@ -358,7 +351,7 @@ footer {
   }
   #devAddress {
     position: relative;
-    left: 15%;
+    left: 18%;
     width: 90%;
     font-size: 1em;
   }
@@ -366,49 +359,15 @@ footer {
     position: relative;
     left: 2px;
   }
-}
-@media only screen and (max-width: 800px) {
-  .navbar li {
-    font-size: 0.9em;
+  ul {
+    position: relative;
+    right: 15px;
   }
-}
-@media only screen and (max-width: 750px) {
-  .col-1,
-  .col-2,
-  .col-3 {
-    width: 100%;
-    margin-left: 0;
-    float: none;
+  input[type=text] {
+    width: 70%;
   }
-  .border-right {
-    border: 0;
-  }
-  #details div {
-    height: auto;
-    padding-bottom: 20px;
-  }
-  .col-3 p {
-    -moz-column-count: 1;
-    -webkit-column-count: 1;
-    column-count: 1;
-  }
-}
-@media only screen and (max-width: 700px) {
-  .mobile-nav {
-    display: block;
-    float: left;
-    font-size: 1.5em;
-    padding: 10px 20px;
-    width: auto;
-  }
-  .nav-mobile {
-    display: block;
-  }
-  #logo {
-    padding: 60px 0 0;
-  }
-  #social {
-    top: 60px;
+  #twitch-streams {
+    left: -1%;
   }
 }
 /*# sourceMappingURL=level-up.1.0.0.css.map */

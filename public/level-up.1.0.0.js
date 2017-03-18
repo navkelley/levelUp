@@ -18492,27 +18492,44 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Home = function Home() {
   return _react2.default.createElement(
-    "div",
-    { className: "welcome" },
+    "section",
+    { className: "home" },
     _react2.default.createElement(
-      "p",
+      "header",
       null,
-      "Designed for all levels of gamers."
+      _react2.default.createElement(
+        "span",
+        { className: "logo-container" },
+        _react2.default.createElement(
+          "h1",
+          { className: "logo" },
+          "Level Up"
+        )
+      )
     ),
     _react2.default.createElement(
-      "p",
-      null,
-      "Search for any game."
-    ),
-    _react2.default.createElement(
-      "p",
-      null,
-      "Learn, strategize and find those Komadas! Or preview your next game."
-    ),
-    _react2.default.createElement(
-      "p",
-      null,
-      "Choose your course, search just YouTube, just Twitch, or by Dragon Punch! (Twitch & YouTube), select a video to play."
+      "div",
+      { className: "welcome" },
+      _react2.default.createElement(
+        "p",
+        null,
+        "Designed for all levels of gamers."
+      ),
+      _react2.default.createElement(
+        "p",
+        null,
+        "Search for any game."
+      ),
+      _react2.default.createElement(
+        "p",
+        null,
+        "Learn, strategize and find those Komadas! Or preview your next game."
+      ),
+      _react2.default.createElement(
+        "p",
+        null,
+        "Choose your course, search just YouTube, just Twitch, or by Dragon Punch! (Twitch & YouTube), select a video to play."
+      )
     )
   );
 };
@@ -18584,42 +18601,29 @@ var MainLayout = function (_Component) {
       return _react2.default.createElement(
         'div',
         { className: 'main-layout' },
+        _react2.default.createElement(_nav_bar2.default, null),
         _react2.default.createElement(
-          'header',
-          null,
-          _react2.default.createElement(_nav_bar2.default, null),
+          'div',
+          { id: 'social' },
           _react2.default.createElement(
-            'div',
-            { id: 'social' },
-            _react2.default.createElement(
-              'a',
-              { href: 'https://twitter.com/navkelley', target: 'blank', className: 'twit', title: 'Twitter' },
-              _react2.default.createElement('i', { className: 'fa fa-twitter fa-2x', 'aria-hidden': 'true' })
-            ),
-            _react2.default.createElement(
-              'a',
-              { href: 'www.linkedin.com/in/nicolevkelley', target: 'blank', className: 'linkedIn', title: 'LinkedIn' },
-              _react2.default.createElement('i', { className: 'fa fa-linkedin-square fa-2x', 'aria-hidden': 'true' })
-            ),
-            _react2.default.createElement(
-              'a',
-              { href: 'https://github.com/navkelley', target: 'blank', className: 'github', title: 'GitHub' },
-              _react2.default.createElement('i', { className: 'fa fa-github fa-2x', 'aria-hidden': 'true' })
-            )
+            'a',
+            { href: 'https://twitter.com/navkelley', target: 'blank', className: 'twit', title: 'Twitter' },
+            _react2.default.createElement('i', { className: 'fa fa-twitter fa-2x', 'aria-hidden': 'true' })
           ),
           _react2.default.createElement(
-            'span',
-            { className: 'logo-container' },
-            _react2.default.createElement(
-              'h1',
-              { className: 'logo' },
-              'Level Up'
-            )
+            'a',
+            { href: 'www.linkedin.com/in/nicolevkelley', target: 'blank', className: 'linkedIn', title: 'LinkedIn' },
+            _react2.default.createElement('i', { className: 'fa fa-linkedin-square fa-2x', 'aria-hidden': 'true' })
+          ),
+          _react2.default.createElement(
+            'a',
+            { href: 'https://github.com/navkelley', target: 'blank', className: 'github', title: 'GitHub' },
+            _react2.default.createElement('i', { className: 'fa fa-github fa-2x', 'aria-hidden': 'true' })
           )
         ),
         _react2.default.createElement(
           'section',
-          null,
+          { className: 'body-wrapper' },
           this.props.children
         ),
         _react2.default.createElement(

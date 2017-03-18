@@ -89,6 +89,8 @@ strong {
 }
 .welcome {
   font-family: "Exo", sans-serif;
+  position: relative;
+  bottom: 3em;
 }
 /*////////// Layouts ///////////*/
 .home {

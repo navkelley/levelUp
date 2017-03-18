@@ -98,8 +98,6 @@ header {
   background-image: url("http://i.imgur.com/Q7Hf336.jpg");
   height: 32em;
   background-size: cover;
-  position: relative;
-  top: -2em;
 }
 .light-fade {
   background: #efefef;

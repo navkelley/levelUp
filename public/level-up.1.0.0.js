@@ -18567,8 +18567,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
@@ -18579,72 +18577,51 @@ var _nav_bar2 = _interopRequireDefault(_nav_bar);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * main-layout will hold navbar, social links, and address 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 **/
-
-
-var MainLayout = function (_Component) {
-  _inherits(MainLayout, _Component);
-
-  function MainLayout() {
-    _classCallCheck(this, MainLayout);
-
-    return _possibleConstructorReturn(this, (MainLayout.__proto__ || Object.getPrototypeOf(MainLayout)).apply(this, arguments));
-  }
-
-  _createClass(MainLayout, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { className: 'main-layout' },
-        _react2.default.createElement(_nav_bar2.default, null),
-        _react2.default.createElement(
-          'div',
-          { id: 'social' },
-          _react2.default.createElement(
-            'a',
-            { href: 'https://twitter.com/navkelley', target: 'blank', className: 'twit', title: 'Twitter' },
-            _react2.default.createElement('i', { className: 'fa fa-twitter fa-2x', 'aria-hidden': 'true' })
-          ),
-          _react2.default.createElement(
-            'a',
-            { href: 'www.linkedin.com/in/nicolevkelley', target: 'blank', className: 'linkedIn', title: 'LinkedIn' },
-            _react2.default.createElement('i', { className: 'fa fa-linkedin-square fa-2x', 'aria-hidden': 'true' })
-          ),
-          _react2.default.createElement(
-            'a',
-            { href: 'https://github.com/navkelley', target: 'blank', className: 'github', title: 'GitHub' },
-            _react2.default.createElement('i', { className: 'fa fa-github fa-2x', 'aria-hidden': 'true' })
-          )
-        ),
-        _react2.default.createElement(
-          'section',
-          { className: 'body-wrapper' },
-          this.props.children
-        ),
-        _react2.default.createElement(
-          'div',
-          { id: 'devAddress' },
-          _react2.default.createElement(
-            'address',
-            null,
-            _react2.default.createElement('i', { className: 'fa fa-gamepad', 'aria-hidden': 'true' }),
-            ' Designed and built by Nicole V. Kelley ',
-            _react2.default.createElement('i', { className: 'fa fa-gamepad', 'aria-hidden': 'true' })
-          )
-        )
-      );
-    }
-  }]);
-
-  return MainLayout;
-}(_react.Component);
+/**
+  * main-layout will hold navbar, social links, and address 
+  **/
+var MainLayout = function MainLayout(props) {
+  return _react2.default.createElement(
+    'div',
+    { className: 'main-layout' },
+    _react2.default.createElement(_nav_bar2.default, null),
+    _react2.default.createElement(
+      'div',
+      { id: 'social' },
+      _react2.default.createElement(
+        'a',
+        { href: 'https://twitter.com/navkelley', target: 'blank', className: 'twit', title: 'Twitter' },
+        _react2.default.createElement('i', { className: 'fa fa-twitter fa-2x', 'aria-hidden': 'true' })
+      ),
+      _react2.default.createElement(
+        'a',
+        { href: 'www.linkedin.com/in/nicolevkelley', target: 'blank', className: 'linkedIn', title: 'LinkedIn' },
+        _react2.default.createElement('i', { className: 'fa fa-linkedin-square fa-2x', 'aria-hidden': 'true' })
+      ),
+      _react2.default.createElement(
+        'a',
+        { href: 'https://github.com/navkelley', target: 'blank', className: 'github', title: 'GitHub' },
+        _react2.default.createElement('i', { className: 'fa fa-github fa-2x', 'aria-hidden': 'true' })
+      )
+    ),
+    _react2.default.createElement(
+      'section',
+      { className: 'body-wrapper' },
+      props.children
+    ),
+    _react2.default.createElement(
+      'div',
+      { id: 'devAddress' },
+      _react2.default.createElement(
+        'address',
+        null,
+        _react2.default.createElement('i', { className: 'fa fa-gamepad', 'aria-hidden': 'true' }),
+        ' Designed and built by Nicole V. Kelley ',
+        _react2.default.createElement('i', { className: 'fa fa-gamepad', 'aria-hidden': 'true' })
+      )
+    )
+  );
+};
 
 exports.default = MainLayout;
 

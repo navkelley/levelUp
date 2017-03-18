@@ -11604,8 +11604,8 @@ var YouTubeVideoListItem = function YouTubeVideoListItem(_ref) {
 			{ className: 'youtube-media-row' },
 			_react2.default.createElement('img', { alt: 'video', className: 'media-object', src: url }),
 			_react2.default.createElement(
-				'span',
-				{ className: 'view' },
+				'p',
+				null,
 				truncateText(video.snippet.title)
 			)
 		)
@@ -18707,22 +18707,22 @@ var NavContainer = function (_Component) {
         { className: 'nav-menu clearfix:after' },
         _react2.default.createElement(
           _reactRouter.Link,
-          { to: '/', className: 'btn' },
+          { to: '/' },
           'Home'
         ),
         _react2.default.createElement(
           _reactRouter.Link,
-          { to: '/search/youtube', className: 'btn' },
+          { to: '/search/youtube' },
           'YouTube'
         ),
         _react2.default.createElement(
           _reactRouter.Link,
-          { to: '/search/twitch', className: 'btn' },
+          { to: '/search/twitch' },
           'Twitch'
         ),
         _react2.default.createElement(
           _reactRouter.Link,
-          { to: '/search', className: 'btn' },
+          { to: '/search' },
           'Dragon Punch!'
         )
       );
@@ -19019,7 +19019,7 @@ var YouTubeSearch = function (_Component) {
         _react2.default.createElement(
           'h1',
           { className: 'logo' },
-          'Level Up By YouTube'
+          'Chosen Path: YouTube'
         ),
         _react2.default.createElement(_search_bar2.default, null),
         _react2.default.createElement(_youtube_video_detail2.default, { video: this.state.selectedVideo }),

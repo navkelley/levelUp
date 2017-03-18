@@ -13,7 +13,7 @@ const YouTubeVideoListItem = ({ video, onVideoSelect }) => {
 		<td onClick={() => onVideoSelect(video)} className='list-group-item'>
 			<div className='youtube-media-row'>
 				<img alt="video" className='media-object' src={url} />
-				<span className="view">{truncateText(video.snippet.title)}</span>
+				<p>{truncateText(video.snippet.title)}</p>
 			</div>
 		</td>
 	);

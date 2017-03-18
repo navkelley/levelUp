@@ -25,10 +25,10 @@ export default class NavContainer extends Component {
   navigationLinks() {
     return (
       <nav className="nav-menu clearfix:after">
-        <Link to="/" className="btn">Home</Link>
-        <Link to="/search/youtube" className="btn">YouTube</Link>
-        <Link to="/search/twitch" className="btn">Twitch</Link>
-        <Link to="/search" className="btn">Dragon Punch!</Link>
+        <Link to="/">Home</Link>
+        <Link to="/search/youtube">YouTube</Link>
+        <Link to="/search/twitch">Twitch</Link>
+        <Link to="/search">Dragon Punch!</Link>
       </nav>
     );
   }

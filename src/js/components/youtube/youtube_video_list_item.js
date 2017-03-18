@@ -2,12 +2,12 @@ import React from 'react';
 
 //set props as video: video, and onVideoSelect: onVideoSelect --shorthand is below
 
-function truncateText(text) {
+const truncateText = (text) => {
 	if (text.length < 25) {
 		return text; 
 	}
 	return text.substring(0, 25) + '...';
-}
+};
 
 const YouTubeVideoListItem = ({ video, onVideoSelect }) => {
 	const { url } = video.snippet.thumbnails.high;

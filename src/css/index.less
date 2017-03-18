@@ -32,7 +32,8 @@ h3 {
 address {
   font-size: 16px;
   line-height: 1.5em; 
-  font-family: "Exo", sans-serif; 
+  font-family: "Exo", sans-serif;
+  margin-bottom: .5em; 
 }
 
 #devAddress {
@@ -97,6 +98,7 @@ p {
 
 .submit-btn {
   cursor: pointer;
+  font-family: "Exo", sans-serif; 
 }
 
 strong {
@@ -109,6 +111,8 @@ strong {
 
 .welcome {
   font-family: "Exo", sans-serif;
+  position: relative;
+  bottom: 3em; 
 }
 
 /*////////// Layouts ///////////*/
@@ -116,16 +120,18 @@ strong {
 .home {
   padding: 0;
   margin: 0; 
-  
 }
 
 /*////////// BACKGROUNDS //////////*/
-header{
+.home-img {
     background-image: url("http://i.imgur.com/Q7Hf336.jpg");
-    height: 32em;
-    background-size: cover;
-    position: relative;
-    top: -2em;
+}
+
+.header-img {
+  height: 32em;
+  background-size: cover;
+  position: relative;
+  bottom: 4.6em;
 }
 
 .light-fade {
@@ -143,6 +149,10 @@ header{
 	/* IE10+ */
 	background: linear-gradient(to bottom, #efefef 0%, #ffffff 24%, #ffffff 68%, #dddddd 100%);
 	/* W3C */
+}
+
+.ryu-punch {
+  background-image: url("http://i.imgur.com/lnZpsTe.jpg");
 }
 
 /*/////// MEDIA ////////*/
@@ -176,6 +186,7 @@ img:hover {
 .table-wrapper table {
   position: relative;
   left: 100px; 
+  margin-bottom: 1em;
 }
 
 #twitch-streams {
@@ -210,19 +221,15 @@ td {
 /*/////// SOCIAL ////////*/
 
 #social {
-  position: fixed;
-  top: 80px;
-  right: 10px;
-  width: 40px;
-  z-index: 2;
+  position: relative;
+  left: 5.8em;
 }
 
 #social a {
-  display: block;
-  width: 40px;
-  height: 40px;
-  white-space: nowrap;
-  color: white;
+  display: inline;
+  color: black;
+  margin-bottom: 1em;
+  margin-right: 1em;
 }
 
 #social a:hover {
@@ -264,13 +271,6 @@ td {
   background: -o-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(71,71,71,1) 28%,rgba(81,81,81,1) 35%,rgba(71,71,71,1) 72%,rgba(43,43,43,1) 87%,rgba(28,28,28,1) 91%,rgba(0,0,0,1) 100%); /* Opera 11.10+ */
   background: -ms-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(71,71,71,1) 28%,rgba(81,81,81,1) 35%,rgba(71,71,71,1) 72%,rgba(43,43,43,1) 87%,rgba(28,28,28,1) 91%,rgba(0,0,0,1) 100%); /* IE10+ */
   background: linear-gradient(to bottom,  rgba(0,0,0,1) 0%,rgba(71,71,71,1) 28%,rgba(81,81,81,1) 35%,rgba(71,71,71,1) 72%,rgba(43,43,43,1) 87%,rgba(28,28,28,1) 91%,rgba(0,0,0,1) 100%); /* W3C */
-}
-
-/*////////// MAIN SECTIONS //////////*/
-
-section {
-  padding: 30px;
-  margin-bottom: 20px;
 }
 
 /*///////// @media queries ////////*/
@@ -443,6 +443,8 @@ section {
 
   input[type=text] {
     width: 70%; 
+    font-family: "Exo", sans-serif;
+    height: 100%;
   }
 
   #twitch-streams {

@@ -27,12 +27,17 @@ export default class MainLayout extends Component {
   render() {
     return (
       <div className="main-layout">
-        <NavContainer />
+        <header>
+          <NavContainer />
           <div id="social">
             <a href="https://twitter.com/navkelley" target="blank" className="twit" title="Twitter"><i className="fa fa-twitter fa-2x" aria-hidden="true" /></a>
             <a href="www.linkedin.com/in/nicolevkelley" target="blank" className="linkedIn" title="LinkedIn"><i className="fa fa-linkedin-square fa-2x" aria-hidden="true" /></a>
             <a href="https://github.com/navkelley" target="blank" className="github" title="GitHub"><i className="fa fa-github fa-2x" aria-hidden="true" /></a>
           </div>
+          <span className="logo-container">
+            <h1 className="logo">Level Up</h1>
+          </span>
+        </header>
         <section>
           {this.props.children}
         </section>

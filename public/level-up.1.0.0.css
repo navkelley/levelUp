@@ -1,210 +1,176 @@
 @import url('https://fonts.googleapis.com/css?family=VT323');
 @import url('https://fonts.googleapis.com/css?family=Vollkorn');
-
 /*////////// GLOBAL //////////*/
-
 body {
   font-family: "VT323", sans-serif;
-  margin: 0; 
+  margin: 0;
 }
-
 .logo-container {
   position: relative;
   top: 5em;
 }
-
 .logo {
   text-align: center;
   font-size: 8em;
-  width: 100%; 
+  width: 100%;
   color: #00FFA7;
 }
-
 li {
   margin-left: 20px;
 }
-
 h3 {
   font-size: 30px;
   text-shadow: 1px 1px #00FFA7;
 }
-
 address {
   font-size: 16px;
-  line-height: 1.5em; 
-  font-family: "Vollkorn", sans-serif; 
+  line-height: 1.5em;
+  font-family: "Vollkorn", sans-serif;
 }
-
 #devAddress {
-  width: 25%; 
-  position: relative; 
+  width: 25%;
+  position: relative;
   left: 550px;
 }
-
-th, td {
-  font-family: "Vollkorn", sans-serif; 
-
+th,
+td {
+  font-family: "Vollkorn", sans-serif;
 }
-
 th {
-  background-image: linear-gradient(to right, #14A6CC 0%, lightgrey 51%, #14A6CC 100%); 
+  background-image: linear-gradient(to right, #14A6CC 0%, lightgrey 51%, #14A6CC 100%);
 }
-
 #twitch-streams {
-  left: 10px
+  left: 10px;
 }
-
 input {
   display: inline;
   padding: 5px;
   box-shadow: 0 1px 2px #ccc;
   border: 1px solid #ccc;
-  border-radius: 5px; 
+  border-radius: 5px;
 }
-
 input[type="text"] {
   width: 50%;
-  border-right: none; 
-  font-size: 17px; 
+  border-right: none;
+  font-size: 17px;
 }
-
 button {
-  font-size: 16px; 
-  border-radius: 5px; 
-  margin-top: 7px; 
+  font-size: 16px;
+  border-radius: 5px;
+  margin-top: 7px;
   background-color: #FF4036;
-  border: 1px solid #FF4036; 
-  padding: 6px; 
+  border: 1px solid #FF4036;
+  padding: 6px;
 }
-
 button:hover {
   background-color: #00FFA7;
-  border: 1px solid #00FFA7; 
+  border: 1px solid #00FFA7;
 }
-
 .search-bar {
-  text-align: center; 
+  text-align: center;
 }
-
 p {
-  font-size: 30px; 
-  text-align: center; 
+  font-size: 30px;
+  text-align: center;
 }
-
 .description {
-  font-family: "Vollkorn", sans-serif; 
-  text-align: left; 
-  font-size: 20px; 
-  margin: 5px;  
+  font-family: "Vollkorn", sans-serif;
+  text-align: left;
+  font-size: 20px;
+  margin: 5px;
 }
-
-
 .submit-btn {
   cursor: pointer;
 }
-
 strong {
-  color: black; 
+  color: black;
 }
-
 .funFact {
-  text-decoration: none; 
+  text-decoration: none;
   color: white;
 }
-
 /*////////// BACKGROUNDS //////////*/
-header{
-    background-image: url("http://i.imgur.com/Q7Hf336.jpg");
-    height: 32em;
-    background-size: cover;
-    position: relative;
-    top: -1.5em;
+header {
+  background-image: url("http://i.imgur.com/Q7Hf336.jpg");
+  height: 32em;
+  background-size: cover;
+  position: relative;
+  top: -1.5em;
 }
-
 /*/////// MEDIA ////////*/
-
 iframe {
-  width: 100%; /* IE */
-  max-width: 100%; /* FF, Safari, Chrome */
-  margin-top: 20px; 
-  height: 700px; 
+  width: 100%;
+  /* IE */
+  max-width: 100%;
+  /* FF, Safari, Chrome */
+  margin-top: 20px;
+  height: 700px;
   border: 0;
   padding: 0;
   margin: 0;
   overflow: hidden;
 }
-
 .embed-item {
   margin-top: 20px;
   margin-bottom: 10px;
 }
 img {
-  width: 100%; /* IE */
-  max-width: 100%; /* FF, Safari, Chrome */
+  width: 100%;
+  /* IE */
+  max-width: 100%;
+  /* FF, Safari, Chrome */
 }
-
 img:hover {
   filter: grayscale(100%) blur(5px);
   cursor: pointer;
 }
-
 #twitch-name-hover {
-  color: purple; 
+  color: purple;
   bottom: 160px;
-  font-size: 24px; 
+  font-size: 24px;
 }
-
 .table-wrapper table {
   position: relative;
-  left: 100px; 
+  left: 100px;
 }
-
 #twitch-streams {
   position: relative;
-  left: 100px; 
+  left: 100px;
 }
-
 td {
-  font-size: 20px; 
+  font-size: 20px;
   display: inline-block;
   margin-bottom: 8px;
-  width: calc(25% - 4px);
+  width: calc(21%);
   margin-right: 8px;
 }
-
 .view {
   display: none;
   position: relative;
   bottom: 180px;
   left: 2px;
   z-index: 1;
-  opacity: 1; 
+  opacity: 1;
   width: 300px;
   color: #FF4036;
   text-align: left;
   text-shadow: 1px 1px black;
 }
-
 /*////////// FIXES //////////*/
-
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-
 /*/////// LAYOUT ////////*/
-
 .col-1 {
   float: left;
   width: 32%;
 }
-
 .col-2 {
   float: left;
   width: 66%;
 }
-
 .col-3 p {
   -moz-column-rule: 1px dotted #ccc;
   -webkit-column-rule: 1px dotted #ccc;
@@ -216,13 +182,10 @@ td {
   -webkit-column-count: 3;
   column-count: 3;
 }
-
 [class*="col-"] {
   margin-left: 2%;
 }
-
 /*/////// SOCIAL ////////*/
-
 #social {
   position: fixed;
   top: 80px;
@@ -230,7 +193,6 @@ td {
   width: 40px;
   z-index: 2;
 }
-
 #social a {
   display: block;
   width: 40px;
@@ -238,35 +200,38 @@ td {
   white-space: nowrap;
   color: white;
 }
-
 #social a:hover {
   color: #00FFA7;
 }
-
 /*////////// NAVBAR //////////*/
-
 .nav-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 4.25em; 
+  height: 4.25em;
   z-index: 2;
   text-align: center;
-  background: #efefef; /* Old browsers */
-  background: -moz-linear-gradient(top,  #efefef 0%, #ffffff 24%, #ffffff 68%, #dddddd 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#efefef), color-stop(24%,#ffffff), color-stop(68%,#ffffff), color-stop(100%,#dddddd)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  #efefef 0%,#ffffff 24%,#ffffff 68%,#dddddd 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  #efefef 0%,#ffffff 24%,#ffffff 68%,#dddddd 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  #efefef 0%,#ffffff 24%,#ffffff 68%,#dddddd 100%); /* IE10+ */
-  background: linear-gradient(to bottom,  #efefef 0%,#ffffff 24%,#ffffff 68%,#dddddd 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efefef', endColorstr='#dddddd',GradientType=0 ); /* IE6-9 */
+  background: #efefef;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #efefef 0%, #ffffff 24%, #ffffff 68%, #dddddd 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #efefef), color-stop(24%, #ffffff), color-stop(68%, #ffffff), color-stop(100%, #dddddd));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #efefef 0%, #ffffff 24%, #ffffff 68%, #dddddd 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #efefef 0%, #ffffff 24%, #ffffff 68%, #dddddd 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #efefef 0%, #ffffff 24%, #ffffff 68%, #dddddd 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #efefef 0%, #ffffff 24%, #ffffff 68%, #dddddd 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#efefef', endColorstr='#dddddd', GradientType=0);
+  /* IE6-9 */
 }
-
 .navbar nav {
   border-left: 1px solid #ccc;
 }
-
 .navbar nav a {
   display: inline-block;
   width: 25%;
@@ -279,7 +244,6 @@ td {
   text-decoration: none;
   font-family: "Vollkorn", sans-serif;
 }
-
 .btn {
   flex: 1 1 auto;
   padding: 15px;
@@ -289,23 +253,18 @@ td {
   background-size: 200% auto;
   color: black;
   background-image: linear-gradient(to right, #CC1453 0%, lightgrey 51%, #CC1453 100%);
-  font-size: 20px; 
-  margin-left: 5px; 
+  font-size: 20px;
+  margin-left: 5px;
 }
-
 .btn:hover {
-  background-position: right center;  
+  background-position: right center;
 }
-
 /*////////// MAIN SECTIONS //////////*/
-
 section {
   padding: 30px;
   margin-bottom: 20px;
 }
-
 /*////////// FOOTER //////////*/
-
 footer {
   text-align: center;
   font-size: 0.75em;
@@ -313,196 +272,157 @@ footer {
   background: #eee;
   border-top: 1px solid;
 }
-
 /*///////// @media queries ////////*/
 @media only screen and (max-width: 1108px) {
-
   .wrapper {
     width: 90%;
   }
-
   #social {
     position: absolute;
     top: 82px;
     right: 8%;
     width: auto;
   }
-
   #social a {
     display: inline-block;
   }
-
   #devAddress {
-    width: 75%; 
-    position: relative; 
+    width: 75%;
+    position: relative;
     left: 38%;
   }
-
-  .nav-container { 
-    text-align: left;  
+  .nav-container {
+    text-align: left;
   }
-
   .table-wrapper table {
-    position: relative; 
+    position: relative;
     top: 45%;
     left: 8%;
   }
-
-   .embed {
+  .embed {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
+    padding-bottom: 56.25%;
+    /* 16:9 */
     padding-top: 25px;
     height: 0;
-    margin-bottom: 15px; 
+    margin-bottom: 15px;
   }
-
   #twitch-steams {
     left: 9%;
   }
-
   iframe {
     height: 550px;
   }
-
   .funFact p {
-    text-align: left; 
-    font-size: 20px; 
+    text-align: left;
+    font-size: 20px;
   }
 }
-
 @media only screen and (max-width 1080px) {
   .details p {
-    padding-top: 150px;  
+    padding-top: 150px;
   }
 }
-
 @media only screen and (max-width: 880px) {
   .details {
     visibility: hidden;
   }
 }
-
 @media only screen and (max-width: 900px) {
- body {
-    font-size: 85%;
-  }
-
-  #social {
-    top: 20px; 
-    right: 10px;
-  }
-
- td {
-    width: calc(50% - 4px);
-  }
-
-  td:nth-of-type(2n) {
-    margin-right: 2px;
-  }
-
-  td:nth-of-type(4n) {
-    margin-right: 0;
-  }
-
-  .navbar li {
-    display: block; 
-    width: 90%;
-    border-radius: 0;
-  }
-
-  .mobile-nav {
-    width: 100%;
-  }
-  
-  .mobile-bars {
-    position: relative;
-    left: -45%;  
-    margin-left: 15px;  
-  }
-
-  .navbar {
-    float: left;  
-    width: 100%;
-  }
-
-  .btn {
-  text-align: center;
-  text-transform: uppercase;
-  transition: 0.5s;
-  color: black;
-  border-radius: 10px;
-  background-image: linear-gradient(to right, #CC1453 0%, lightgrey 51%, #CC1453 100%);
-  font-size: 20px; 
-  }
-
   body {
     font-size: 85%;
   }
-  
-  .table-wrapper table {
-    left: 4%; 
+  #social {
+    top: 20px;
+    right: 10px;
   }
-
+  td {
+    width: calc(46%);
+  }
+  td:nth-of-type(2n) {
+    margin-right: 2px;
+  }
+  td:nth-of-type(4n) {
+    margin-right: 0;
+  }
+  .navbar li {
+    display: block;
+    width: 90%;
+    border-radius: 0;
+  }
+  .mobile-nav {
+    width: 100%;
+  }
+  .mobile-bars {
+    position: relative;
+    left: -45%;
+    margin-left: 15px;
+  }
+  .navbar {
+    float: left;
+    width: 100%;
+  }
+  .btn {
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    color: black;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, #CC1453 0%, lightgrey 51%, #CC1453 100%);
+    font-size: 20px;
+  }
+  body {
+    font-size: 85%;
+  }
+  .table-wrapper table {
+    left: 4%;
+  }
   #devAddress {
     left: 33%;
   }
-
   #twitch-streams {
-    left: 4%; 
+    left: 4%;
   }
-
   iframe {
     height: 450px;
   }
 }
-
 @media only screen and (max-width: 500px) {
   td {
-    width: calc(100% - 2px);
+    width: calc(98%);
   }
-
   td:nth-of-type(2n) {
     margin-right: 2px;
   }
-
   td:nth-of-type(4n) {
     margin-right: 0;
   }
-
   #devAddress {
-    position: relative; 
+    position: relative;
     left: 18%;
     width: 90%;
-    font-size: 1em; 
+    font-size: 1em;
   }
-
   .table-wrapper table {
     position: relative;
-    left: 2px; 
+    left: 2px;
   }
-
   ul {
-    position: relative; 
-    right: 15px; 
+    position: relative;
+    right: 15px;
   }
-
   input[type=text] {
-    width: 70%; 
+    width: 70%;
   }
-
   #twitch-streams {
-    left: -1%; 
-    top: 150px; 
+    left: -1%;
+    top: 150px;
   }
-
   iframe {
     height: 300px;
   }
-
   .details {
-    visibility: hidden; 
+    visibility: hidden;
   }
 }
-
-
-
+/*# sourceMappingURL=level-up.1.0.0.css.map */

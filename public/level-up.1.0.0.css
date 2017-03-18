@@ -98,8 +98,10 @@ strong {
   margin: 0;
 }
 /*////////// BACKGROUNDS //////////*/
-header {
+.home-img {
   background-image: url("http://i.imgur.com/Q7Hf336.jpg");
+}
+.header-img {
   height: 32em;
   background-size: cover;
   position: relative;
@@ -120,6 +122,9 @@ header {
   /* IE10+ */
   background: linear-gradient(to bottom, #efefef 0%, #ffffff 24%, #ffffff 68%, #dddddd 100%);
   /* W3C */
+}
+.ryu-punch {
+  background-image: url("http://i.imgur.com/lnZpsTe.jpg");
 }
 /*/////// MEDIA ////////*/
 iframe {

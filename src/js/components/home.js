@@ -3,7 +3,7 @@ import React from 'react';
 const Home = () => {
   return (
     <section className="home">
-      <header>
+      <header className="home-img header-img">
         <span className="logo-container">
           <h1 className="logo">Level Up</h1>
         </span>

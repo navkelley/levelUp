@@ -18506,7 +18506,7 @@ var Home = function Home() {
     { className: "home" },
     _react2.default.createElement(
       "header",
-      null,
+      { className: "home-img header-img" },
       _react2.default.createElement(
         "span",
         { className: "logo-container" },
@@ -18576,7 +18576,7 @@ var MainLayout = function MainLayout(props) {
     { className: 'main-layout' },
     _react2.default.createElement(_nav_bar2.default, null),
     _react2.default.createElement(
-      'section',
+      'div',
       { id: 'layout' },
       props.children
     ),
@@ -18833,14 +18833,18 @@ var PunchSearch = function (_Component) {
       var _this2 = this;
 
       return _react2.default.createElement(
-        'div',
-        null,
+        'section',
+        { className: 'dragon-punch' },
         _react2.default.createElement(
-          'h1',
-          { className: 'logo' },
-          'Chosen Path: Dragon Punch!'
+          'header',
+          { className: 'ryu-punch header-img' },
+          _react2.default.createElement(
+            'h1',
+            { className: 'logo' },
+            'Chosen Path: Dragon Punch!'
+          ),
+          _react2.default.createElement(_search_bar2.default, null)
         ),
-        _react2.default.createElement(_search_bar2.default, null),
         _react2.default.createElement(_twitch_video_detail2.default, { stream: this.state.selectedStream }),
         _react2.default.createElement(_youtube_video_detail2.default, { video: this.state.selectedVideo }),
         _react2.default.createElement(_dragon_punch_list2.default, {

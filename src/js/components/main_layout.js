@@ -9,9 +9,9 @@ const MainLayout = (props) => {
   return (
     <div className="main-layout">
       <NavContainer />
-      <section id="layout">
+      <div id="layout">
         {props.children}
-      </section>
+      </div>
       <div id="devAddress">
         <address><i className="fa fa-gamepad" aria-hidden="true" /> Designed and built by Nicole V. Kelley <i className="fa fa-gamepad" aria-hidden="true" /></address>
         <div id="social">

@@ -1,18 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=VT323');
-@import url('https://fonts.googleapis.com/css?family=Vollkorn');
+@import url('https://fonts.googleapis.com/css?family=Exo');
 /*////////// GLOBAL //////////*/
 body {
-  background: #3D8699;
   font-family: "VT323", sans-serif;
+  margin: 0;
+}
+.logo-container {
+  position: relative;
+  top: 5em;
 }
 .logo {
   text-align: center;
-  font-size: 80px;
-  text-shadow: 2px 2px #FF4036;
+  font-size: 8em;
   width: 100%;
-}
-ul {
-  margin-bottom: 10px;
+  color: #00FFA7;
 }
 li {
   margin-left: 20px;
@@ -24,15 +25,16 @@ h3 {
 address {
   font-size: 16px;
   line-height: 1.5em;
-  font-family: "Vollkorn", sans-serif;
+  font-family: "Exo", sans-serif;
 }
 #devAddress {
   width: 25%;
   position: relative;
   left: 550px;
 }
+th,
 td {
-  font-family: "Vollkorn", sans-serif;
+  font-family: "Exo", sans-serif;
 }
 #twitch-streams {
   left: 10px;
@@ -66,21 +68,54 @@ button:hover {
 }
 p {
   font-size: 30px;
-  color: white;
   text-align: center;
 }
 .description {
-  font-family: "Vollkorn", sans-serif;
+  font-family: "Exo", sans-serif;
   text-align: left;
   font-size: 20px;
   margin: 5px;
+}
+.submit-btn {
+  cursor: pointer;
 }
 strong {
   color: black;
 }
 .funFact {
   text-decoration: none;
-  color: white;
+}
+.welcome {
+  font-family: "Exo", sans-serif;
+}
+/*////////// Layouts ///////////*/
+.home {
+  padding: 0;
+  margin: 0;
+}
+/*////////// BACKGROUNDS //////////*/
+header {
+  background-image: url("http://i.imgur.com/Q7Hf336.jpg");
+  height: 32em;
+  background-size: cover;
+  position: relative;
+  top: -2em;
+}
+.light-fade {
+  background: #efefef;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #efefef 0%, #ffffff 24%, #ffffff 68%, #dddddd 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #efefef), color-stop(24%, #ffffff), color-stop(68%, #ffffff), color-stop(100%, #dddddd));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #efefef 0%, #ffffff 24%, #ffffff 68%, #dddddd 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #efefef 0%, #ffffff 24%, #ffffff 68%, #dddddd 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #efefef 0%, #ffffff 24%, #ffffff 68%, #dddddd 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #efefef 0%, #ffffff 24%, #ffffff 68%, #dddddd 100%);
+  /* W3C */
 }
 /*/////// MEDIA ////////*/
 iframe {
@@ -106,19 +141,8 @@ img {
   /* FF, Safari, Chrome */
 }
 img:hover {
-  filter: grayscale(100%) blur(5px);
+  filter: grayscale(100%) blur(2px);
   cursor: pointer;
-}
-.youtube-media-row:hover .view {
-  display: inline;
-}
-.twitch-media:hover .view {
-  display: inline;
-}
-#twitch-name-hover {
-  color: purple;
-  bottom: 160px;
-  font-size: 24px;
 }
 .table-wrapper table {
   position: relative;
@@ -129,23 +153,17 @@ img:hover {
   left: 100px;
 }
 td {
-  font-size: 20px;
   display: inline-block;
   margin-bottom: 8px;
   width: calc(21%);
   margin-right: 8px;
 }
-.view {
-  display: none;
-  position: relative;
-  bottom: 180px;
-  left: 2px;
-  z-index: 1;
-  opacity: 1;
-  width: 300px;
-  color: #FF4036;
-  text-align: left;
-  text-shadow: 1px 1px black;
+.youtube-media-row p {
+  font-size: .9em;
+}
+.list-group-item {
+  border: 1px solid #d3d3d3;
+  box-shadow: 0 2px 2px #ccc;
 }
 /*////////// FIXES //////////*/
 * {
@@ -156,7 +174,7 @@ td {
 /*/////// SOCIAL ////////*/
 #social {
   position: fixed;
-  top: 20px;
+  top: 80px;
   right: 10px;
   width: 40px;
   z-index: 2;
@@ -175,44 +193,40 @@ td {
 .nav-container {
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
   z-index: 2;
-  text-align: center;
 }
-.navbar li {
+.navbar nav {
+  border-left: 1px solid #ccc;
+}
+.navbar nav a {
   display: inline-block;
-  width: 20%;
-  padding: 10px;
+  width: 25%;
+  margin: 0;
+  padding: 1em;
   text-transform: uppercase;
   color: black;
-}
-.navbar a {
-  text-decoration: none;
-}
-.btn {
-  flex: 1 1 auto;
-  padding: 15px;
   text-align: center;
-  text-transform: uppercase;
-  transition: 0.5s;
-  background-size: 200% auto;
-  color: black;
-  border-radius: 10px;
-  background-image: linear-gradient(to right, #CC1453 0%, lightgrey 51%, #CC1453 100%);
-  font-size: 20px;
-  margin-left: 5px;
+  border-right: 1px solid #ccc;
+  text-decoration: none;
+  font-family: "Exo", sans-serif;
 }
-.btn:hover {
-  background-position: right center;
-}
-.nav-menu a {
-  color: black;
-  border-radius: 10px;
-}
-#navbar a.selected {
-  background: #333;
+.navbar nav a:hover {
   color: white;
+  background: #000000;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #000000 0%, #474747 28%, #515151 35%, #474747 72%, #2b2b2b 87%, #1c1c1c 91%, #000000 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #000000), color-stop(28%, #474747), color-stop(35%, #515151), color-stop(72%, #474747), color-stop(87%, #2b2b2b), color-stop(91%, #1c1c1c), color-stop(100%, #000000));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #000000 0%, #474747 28%, #515151 35%, #474747 72%, #2b2b2b 87%, #1c1c1c 91%, #000000 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #000000 0%, #474747 28%, #515151 35%, #474747 72%, #2b2b2b 87%, #1c1c1c 91%, #000000 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #000000 0%, #474747 28%, #515151 35%, #474747 72%, #2b2b2b 87%, #1c1c1c 91%, #000000 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #000000 0%, #474747 28%, #515151 35%, #474747 72%, #2b2b2b 87%, #1c1c1c 91%, #000000 100%);
+  /* W3C */
 }
 /*////////// MAIN SECTIONS //////////*/
 section {

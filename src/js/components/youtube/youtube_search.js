@@ -16,7 +16,7 @@ export default class YouTubeSearch extends Component {
   render() {
     return (
       <div>
-        <h1 className="logo">Level Up By YouTube</h1>
+        <h1 className="logo">Chosen Path: YouTube</h1>
         <SearchBar />
         <YouTubeVideoDetail video={this.state.selectedVideo} />
         <YouTubeVideoList

@@ -5,8 +5,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 
 export default class NavContainer extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       //gathering window inner width to determine if mobile nav should be present 
       windowWidth: window.innerWidth,
@@ -28,20 +28,12 @@ export default class NavContainer extends Component {
 
   navigationLinks() {
     return (
-      <ul className="nav-menu">
-        <li key={1} className="home btn">
-          <Link to="/">Home</Link>
-        </li>
-        <li key={2} className="only-youtube btn">
-          <Link to="/search/youtube" className="youtube">YouTube</Link>
-        </li>
-        <li key={3} className="only-twitch btn">
-          <Link to="/search/twitch" className="twitch">Twitch</Link>
-        </li>
-        <li key={4} className="dragon-punch btn">
-          <Link to="/search" className="dragon-punch">Dragon Punch!</Link>
-        </li>
-      </ul>
+      <nav className="nav-menu clearfix:after">
+        <Link to="/">Home</Link>
+        <Link to="/search/youtube">YouTube</Link>
+        <Link to="/search/twitch">Twitch</Link>
+        <Link to="/search">Dragon Punch!</Link>
+      </nav>
     );
   }
 
@@ -72,7 +64,7 @@ export default class NavContainer extends Component {
       );
     }
     return (
-      <div key={7} className="nav-mobile">
+      <div className="navbar">
         {this.navigationLinks()}
       </div>
     );
@@ -80,10 +72,8 @@ export default class NavContainer extends Component {
 
   render() {
     return (
-      <div className="nav-container">
-        <div className="navbar">
-          {this.renderNavigation()}
-        </div>
+      <div className="nav-container light-fade">
+        {this.renderNavigation()}
       </div>
     );
   }

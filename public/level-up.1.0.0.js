@@ -11591,24 +11591,32 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //set props as video: video, and onVideoSelect: onVideoSelect --shorthand is below
+
+function truncateText(text) {
+	if (text.length < 25) {
+		return text;
+	}
+	return text.substring(0, 25) + '...';
+}
+
 var YouTubeVideoListItem = function YouTubeVideoListItem(_ref) {
 	var video = _ref.video,
 	    onVideoSelect = _ref.onVideoSelect;
 	var url = video.snippet.thumbnails.high.url;
 
 	return _react2.default.createElement(
-		"td",
+		'td',
 		{ onClick: function onClick() {
 				return onVideoSelect(video);
-			}, className: "list-group-item" },
+			}, className: 'list-group-item' },
 		_react2.default.createElement(
-			"div",
-			{ className: "youtube-media-row" },
-			_react2.default.createElement("img", { alt: "video", className: "media-object", src: url }),
+			'div',
+			{ className: 'youtube-media-row' },
+			_react2.default.createElement('img', { alt: 'video', className: 'media-object', src: url }),
 			_react2.default.createElement(
-				"span",
-				{ className: "view" },
-				video.snippet.title
+				'p',
+				null,
+				truncateText(video.snippet.title)
 			)
 		)
 	);
@@ -18504,22 +18512,44 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Home = function Home() {
   return _react2.default.createElement(
-    "div",
-    null,
+    "section",
+    { className: "home" },
     _react2.default.createElement(
-      "h1",
-      { className: "logo" },
-      "Level Up"
+      "header",
+      null,
+      _react2.default.createElement(
+        "span",
+        { className: "logo-container" },
+        _react2.default.createElement(
+          "h1",
+          { className: "logo" },
+          "Level Up"
+        )
+      )
     ),
     _react2.default.createElement(
-      "p",
+      "div",
       { className: "welcome" },
-      "Welcome to Level Up! Level Up is designed for all levels of gamers alike."
-    ),
-    _react2.default.createElement(
-      "p",
-      { className: "welcome" },
-      "You can search for any game that you like to help you learn, strategize and find those komadas! You can preview games as well. To get started choose your route, searching just YouTube, just Twitch, or both (known as the Dragon Punch!), then search for a game and click it to play."
+      _react2.default.createElement(
+        "p",
+        null,
+        "Designed for all levels of gamers."
+      ),
+      _react2.default.createElement(
+        "p",
+        null,
+        "Search for any game."
+      ),
+      _react2.default.createElement(
+        "p",
+        null,
+        "Learn, strategize and find those Komadas! Or preview your next game."
+      ),
+      _react2.default.createElement(
+        "p",
+        null,
+        "Choose your course, search just YouTube, just Twitch, or by Dragon Punch! (Twitch & YouTube), select a video to play."
+      )
     )
   );
 };
@@ -18576,30 +18606,26 @@ var MainLayout = function (_Component) {
         _react2.default.createElement(_nav_bar2.default, null),
         _react2.default.createElement(
           'div',
-          { className: 'social-icons' },
+          { id: 'social' },
           _react2.default.createElement(
-            'div',
-            { id: 'social' },
-            _react2.default.createElement(
-              'a',
-              { href: 'https://twitter.com/navkelley', target: 'blank', className: 'twit', title: 'Twitter' },
-              _react2.default.createElement('i', { className: 'fa fa-twitter fa-2x', 'aria-hidden': 'true' })
-            ),
-            _react2.default.createElement(
-              'a',
-              { href: 'www.linkedin.com/in/nicolevkelley', target: 'blank', className: 'linkedIn', title: 'LinkedIn' },
-              _react2.default.createElement('i', { className: 'fa fa-linkedin-square fa-2x', 'aria-hidden': 'true' })
-            ),
-            _react2.default.createElement(
-              'a',
-              { href: 'https://github.com/navkelley', target: 'blank', className: 'github', title: 'GitHub' },
-              _react2.default.createElement('i', { className: 'fa fa-github fa-2x', 'aria-hidden': 'true' })
-            )
+            'a',
+            { href: 'https://twitter.com/navkelley', target: 'blank', className: 'twit', title: 'Twitter' },
+            _react2.default.createElement('i', { className: 'fa fa-twitter fa-2x', 'aria-hidden': 'true' })
+          ),
+          _react2.default.createElement(
+            'a',
+            { href: 'www.linkedin.com/in/nicolevkelley', target: 'blank', className: 'linkedIn', title: 'LinkedIn' },
+            _react2.default.createElement('i', { className: 'fa fa-linkedin-square fa-2x', 'aria-hidden': 'true' })
+          ),
+          _react2.default.createElement(
+            'a',
+            { href: 'https://github.com/navkelley', target: 'blank', className: 'github', title: 'GitHub' },
+            _react2.default.createElement('i', { className: 'fa fa-github fa-2x', 'aria-hidden': 'true' })
           )
         ),
         _react2.default.createElement(
           'section',
-          null,
+          { className: 'body-wrapper' },
           this.props.children
         ),
         _react2.default.createElement(
@@ -18655,10 +18681,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var NavContainer = function (_Component) {
   _inherits(NavContainer, _Component);
 
-  function NavContainer(props) {
+  function NavContainer() {
     _classCallCheck(this, NavContainer);
 
-    var _this = _possibleConstructorReturn(this, (NavContainer.__proto__ || Object.getPrototypeOf(NavContainer)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (NavContainer.__proto__ || Object.getPrototypeOf(NavContainer)).call(this));
 
     _this.state = {
       //gathering window inner width to determine if mobile nav should be present 
@@ -18691,43 +18717,27 @@ var NavContainer = function (_Component) {
     key: 'navigationLinks',
     value: function navigationLinks() {
       return _react2.default.createElement(
-        'ul',
-        { className: 'nav-menu' },
+        'nav',
+        { className: 'nav-menu clearfix:after' },
         _react2.default.createElement(
-          'li',
-          { key: 1, className: 'home btn' },
-          _react2.default.createElement(
-            _reactRouter.Link,
-            { to: '/' },
-            'Home'
-          )
+          _reactRouter.Link,
+          { to: '/' },
+          'Home'
         ),
         _react2.default.createElement(
-          'li',
-          { key: 2, className: 'only-youtube btn' },
-          _react2.default.createElement(
-            _reactRouter.Link,
-            { to: '/search/youtube', className: 'youtube' },
-            'YouTube'
-          )
+          _reactRouter.Link,
+          { to: '/search/youtube' },
+          'YouTube'
         ),
         _react2.default.createElement(
-          'li',
-          { key: 3, className: 'only-twitch btn' },
-          _react2.default.createElement(
-            _reactRouter.Link,
-            { to: '/search/twitch', className: 'twitch' },
-            'Twitch'
-          )
+          _reactRouter.Link,
+          { to: '/search/twitch' },
+          'Twitch'
         ),
         _react2.default.createElement(
-          'li',
-          { key: 4, className: 'dragon-punch btn' },
-          _react2.default.createElement(
-            _reactRouter.Link,
-            { to: '/search', className: 'dragon-punch' },
-            'Dragon Punch!'
-          )
+          _reactRouter.Link,
+          { to: '/search' },
+          'Dragon Punch!'
         )
       );
     }
@@ -18766,7 +18776,7 @@ var NavContainer = function (_Component) {
       }
       return _react2.default.createElement(
         'div',
-        { key: 7, className: 'nav-mobile' },
+        { className: 'navbar' },
         this.navigationLinks()
       );
     }
@@ -18775,12 +18785,8 @@ var NavContainer = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'nav-container' },
-        _react2.default.createElement(
-          'div',
-          { className: 'navbar' },
-          this.renderNavigation()
-        )
+        { className: 'nav-container light-fade' },
+        this.renderNavigation()
       );
     }
   }]);
@@ -18950,7 +18956,7 @@ var TwitchSearch = function (_Component) {
         _react2.default.createElement(
           'h1',
           { className: 'logo' },
-          'Level Up By Twitch'
+          'Chosen Path: Twitch'
         ),
         _react2.default.createElement(_search_bar2.default, null),
         _react2.default.createElement(_twitch_video_detail2.default, { stream: this.state.selectedStream }),
@@ -19031,7 +19037,7 @@ var YouTubeSearch = function (_Component) {
         _react2.default.createElement(
           'h1',
           { className: 'logo' },
-          'Level Up By YouTube'
+          'Chosen Path: YouTube'
         ),
         _react2.default.createElement(_search_bar2.default, null),
         _react2.default.createElement(_youtube_video_detail2.default, { video: this.state.selectedVideo }),

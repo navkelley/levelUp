@@ -28,31 +28,16 @@ module.exports = {
 				exclude: /(node_modules)/,
 				loader: 'babel-loader', 
 			},
-			/*{ 
-				test: /\.css$/, 
-				loader: ExtractTextPlugin.extract({ 
-					fallback: 'style-loader', 
-					use: 'css-loader' 
-				}) 
-			},
-			exports.loadImages = function ({ include, exclude, options } = {}) {
-				return {
-					module: {
-						rules: [
-							{
-								test: /\.(png|jpg|svg)$/,
-								include,
-								exclude,
-
-								use: {
-									loader: 'url-loader',
-									options,
-								},
-							},
-						],
-					},
-				};
-			}*/
+				{
+				test: /\.(jpe?g|png|gif|svg)$/,
+				loader: [
+				{
+					loader: 'url-loader',
+					options: { limit: 40000 }
+				},
+				'image-webpack-loader' // first one append
+				]
+			}
 		]
 	},
 	plugins: [

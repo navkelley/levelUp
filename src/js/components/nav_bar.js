@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 
 export default class NavContainer extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       windowWidth: window.innerWidth,
       mobileNavVisible: false
@@ -25,18 +25,18 @@ export default class NavContainer extends Component {
   navigationLinks() {
     return (
       <ul className="nav-menu clearfix:after">
-        <li key={1} className="home btn">
-          <Link to="/">Home</Link>
-        </li>
-        <li key={2} className="only-youtube btn">
-          <Link to="/search/youtube" className="youtube">YouTube</Link>
-        </li>
-        <li key={3} className="only-twitch btn">
-          <Link to="/search/twitch" className="twitch">Twitch</Link>
-        </li>
-        <li key={4} className="dragon-punch btn">
-          <Link to="/search" className="dragon-punch">Dragon Punch!</Link>
-        </li>
+        <Link to="/">
+          <li className="home btn">Home</li>
+        </Link>
+        <Link to="/search/youtube" className="youtube">
+          <li className="only-youtube btn">YouTube</li>
+        </Link>
+        <Link to="/search/twitch" className="twitch">
+          <li className="only-twitch btn">Twitch</li>
+        </Link>
+        <Link to="/search" className="dragon-punch">
+          <li className="dragon-punch btn">Dragon Punch!</li>
+        </Link>
       </ul>
     );
   }

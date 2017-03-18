@@ -11584,6 +11584,13 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function truncateText(text) {
+	if (text.length < 25) {
+		return text;
+	}
+	return text.substring(0, 25) + "...";
+}
+
 var YouTubeVideoListItem = function YouTubeVideoListItem(_ref) {
 	var video = _ref.video,
 	    onVideoSelect = _ref.onVideoSelect;
@@ -11601,7 +11608,7 @@ var YouTubeVideoListItem = function YouTubeVideoListItem(_ref) {
 			_react2.default.createElement(
 				'span',
 				{ className: 'view' },
-				video.snippet.title
+				truncateText(video.snippet.title)
 			)
 		)
 	);
@@ -17560,8 +17567,6 @@ var _punch_search2 = _interopRequireDefault(_punch_search);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//import '../css/index.less';
-
 var ISPROD = "production" === 'production';
 
 //tool for redux dev
@@ -18655,10 +18660,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var NavContainer = function (_Component) {
   _inherits(NavContainer, _Component);
 
-  function NavContainer(props) {
+  function NavContainer() {
     _classCallCheck(this, NavContainer);
 
-    var _this = _possibleConstructorReturn(this, (NavContainer.__proto__ || Object.getPrototypeOf(NavContainer)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (NavContainer.__proto__ || Object.getPrototypeOf(NavContainer)).call(this));
 
     _this.state = {
       windowWidth: window.innerWidth,
@@ -18689,38 +18694,38 @@ var NavContainer = function (_Component) {
         'ul',
         { className: 'nav-menu clearfix:after' },
         _react2.default.createElement(
-          'li',
-          { key: 1, className: 'home btn' },
+          _reactRouter.Link,
+          { to: '/' },
           _react2.default.createElement(
-            _reactRouter.Link,
-            { to: '/' },
+            'li',
+            { className: 'home btn' },
             'Home'
           )
         ),
         _react2.default.createElement(
-          'li',
-          { key: 2, className: 'only-youtube btn' },
+          _reactRouter.Link,
+          { to: '/search/youtube', className: 'youtube' },
           _react2.default.createElement(
-            _reactRouter.Link,
-            { to: '/search/youtube', className: 'youtube' },
+            'li',
+            { className: 'only-youtube btn' },
             'YouTube'
           )
         ),
         _react2.default.createElement(
-          'li',
-          { key: 3, className: 'only-twitch btn' },
+          _reactRouter.Link,
+          { to: '/search/twitch', className: 'twitch' },
           _react2.default.createElement(
-            _reactRouter.Link,
-            { to: '/search/twitch', className: 'twitch' },
+            'li',
+            { className: 'only-twitch btn' },
             'Twitch'
           )
         ),
         _react2.default.createElement(
-          'li',
-          { key: 4, className: 'dragon-punch btn' },
+          _reactRouter.Link,
+          { to: '/search', className: 'dragon-punch' },
           _react2.default.createElement(
-            _reactRouter.Link,
-            { to: '/search', className: 'dragon-punch' },
+            'li',
+            { className: 'dragon-punch btn' },
             'Dragon Punch!'
           )
         )

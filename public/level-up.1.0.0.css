@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Vollkorn');
 /*////////// GLOBAL //////////*/
 body {
-  background: #3D8699;
+  background-image: url("http://img08.deviantart.net/b896/i/2012/098/a/2/8bit_pacman_wallpaper_by_dakirby309-d4vg1rw.jpg");
   font-family: "VT323", sans-serif;
 }
 .logo {
@@ -10,6 +10,7 @@ body {
   font-size: 80px;
   text-shadow: 2px 2px #FF4036;
   width: 100%;
+  color: white;
 }
 ul {
   margin-bottom: 10px;
@@ -79,6 +80,9 @@ p {
   font-size: 20px;
   margin: 5px;
 }
+.submit-btn {
+  cursor: pointer;
+}
 /*////////// BACKGROUNDS //////////*/
 /*html {
   background-image: url('../images/PacMan.jpg');
@@ -110,12 +114,6 @@ img {
 img:hover {
   filter: grayscale(100%) blur(5px);
   cursor: pointer;
-}
-.youtube-media-row:hover .view {
-  display: inline;
-}
-.twitch-media:hover .view {
-  display: inline;
 }
 #twitch-name-hover {
   color: purple;

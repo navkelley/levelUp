@@ -51,6 +51,7 @@
     "express": "^4.14.1",
     "express-session": "^1.15.1",
     "express-validator": "^3.1.2",
+    "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.10.1",
     "loader-utils": "^1.0.3",
     "mongoose": "^4.8.5",
@@ -66,14 +67,14 @@
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.2.0",
     "style-loader": "^0.13.2",
+    "url-loader": "^0.5.8",
     "webpack": "^2.2.1",
-    "youtube-api-search": "^0.0.5",
-    "extract-text-webpack-plugin": "^2.1.0",
-    "url-loader": "^0.5.8"
+    "youtube-api-search": "^0.0.5"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "chokidar-cli": "^1.2.0",
+    "image-webpack-loader": "^3.2.0",
     "less": "^2.7.2",
     "less-plugin-clean-css": "^1.5.1",
     "mocha": "^3.2.0",

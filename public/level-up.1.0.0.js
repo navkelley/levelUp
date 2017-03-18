@@ -18939,7 +18939,7 @@ var TwitchSearch = function (_Component) {
         _react2.default.createElement(
           'h1',
           { className: 'logo' },
-          'Level Up By Twitch'
+          'Chosen Path: Twitch'
         ),
         _react2.default.createElement(_search_bar2.default, null),
         _react2.default.createElement(_twitch_video_detail2.default, { stream: this.state.selectedStream }),

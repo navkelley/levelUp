@@ -11429,23 +11429,24 @@ var TwitchVideoDetail = function TwitchVideoDetail(_ref) {
 
   if (!stream) {
     return _react2.default.createElement(
-      'p',
-      null,
-      'Search Twitch by entering a game then click a video to play.'
+      "p",
+      { className: "funFact" },
+      "Fun Fact: The highest grossing game of all time is actually World of WarCraft bringing in whopping ten billion dollars over its lifetime. -Courtesy of",
+      _react2.default.createElement(
+        "a",
+        { className: "funFact", target: "blank", href: "https://www.technotification.com/2015/01/15-interesting-video-game-facts.html" },
+        " Technotification"
+      )
     );
   }
   var name = stream.channel.name;
 
-  var url = 'https://player.twitch.tv/?channel=' + name;
+  var url = "https://player.twitch.tv/?channel=" + name;
 
   return _react2.default.createElement(
-    'div',
-    { className: 'video-detail col-6' },
-    _react2.default.createElement(
-      'div',
-      { className: 'embed' },
-      _react2.default.createElement('iframe', { className: 'embed-item', src: url })
-    )
+    "div",
+    { className: "embed" },
+    _react2.default.createElement("iframe", { className: "embed-item", src: url })
   );
 };
 
@@ -11511,55 +11512,52 @@ var YouTubeVideoDetail = function YouTubeVideoDetail(_ref) {
 
 	if (!video) {
 		return _react2.default.createElement(
-			'p',
-			{ className: 'no-search' },
-			'Search a game then pick a video to play.'
+			"p",
+			{ className: "funFact" },
+			"Fun Fact: Pac-Man was invented by the designer Toru Iwatani while he was eating pizza. -Courtesy of",
+			_react2.default.createElement(
+				"a",
+				{ className: "funFact", target: "blank", href: "https://www.technotification.com/2015/01/15-interesting-video-game-facts.html" },
+				" Technotification"
+			)
 		);
 	}
 
 	var videoId = video.id.videoId;
-	var url = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
+	var url = "https://www.youtube.com/embed/" + videoId + "?autoplay=1";
 
 	return _react2.default.createElement(
-		'div',
-		{ className: 'video-detail' },
+		"div",
+		{ className: "video-detail" },
 		_react2.default.createElement(
-			'div',
-			{ className: 'embed' },
-			_react2.default.createElement('iframe', { className: 'embed-item', src: url })
+			"div",
+			{ className: "embed" },
+			_react2.default.createElement("iframe", { className: "embed-item", src: url })
 		),
 		_react2.default.createElement(
-			'div',
-			{ className: 'details' },
+			"div",
+			{ className: "details" },
 			_react2.default.createElement(
-				'div',
-				null,
+				"p",
+				{ className: "description" },
 				_react2.default.createElement(
-					'p',
-					{ className: 'description' },
-					_react2.default.createElement(
-						'strong',
-						null,
-						'Title:'
-					),
-					' ',
-					video.snippet.title
-				)
+					"strong",
+					null,
+					"Title:"
+				),
+				" ",
+				video.snippet.title
 			),
 			_react2.default.createElement(
-				'div',
-				null,
+				"p",
+				{ className: "description" },
 				_react2.default.createElement(
-					'p',
-					{ className: 'description' },
-					_react2.default.createElement(
-						'strong',
-						null,
-						'Description:'
-					),
-					' ',
-					video.snippet.description
-				)
+					"strong",
+					null,
+					"Description:"
+				),
+				" ",
+				video.snippet.description
 			)
 		)
 	);
@@ -18509,7 +18507,7 @@ var Home = function Home() {
     _react2.default.createElement(
       "p",
       { className: "welcome" },
-      "You can search for any game that you like to help you learn, strategize and find those komadas! You can preview games as well. To get started choose your route, searching just YouTube, just Twitch, or both (known as the Dragon Punch!), then search for a game."
+      "You can search for any game that you like to help you learn, strategize and find those komadas! You can preview games as well. To get started choose your route, searching just YouTube, just Twitch, or both (known as the Dragon Punch!), then search for a game and click it to play."
     )
   );
 };
@@ -18628,141 +18626,10 @@ exports.default = MainLayout;
 
 /***/ }),
 /* 275 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(3);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRouter = __webpack_require__(158);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var NavContainer = function (_Component) {
-  _inherits(NavContainer, _Component);
-
-  function NavContainer() {
-    _classCallCheck(this, NavContainer);
-
-    var _this = _possibleConstructorReturn(this, (NavContainer.__proto__ || Object.getPrototypeOf(NavContainer)).call(this));
-
-    _this.state = {
-      windowWidth: window.innerWidth,
-      mobileNavVisible: false
-    };
-    return _this;
-  }
-
-  _createClass(NavContainer, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      window.addEventListener('resize', this.handleResize.bind(this));
-    }
-  }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      window.removeEventListener('resize', this.handleResize.bind(this));
-    }
-  }, {
-    key: 'handleResize',
-    value: function handleResize() {
-      this.setState({ windowWidth: window.innerWidth });
-    }
-  }, {
-    key: 'navigationLinks',
-    value: function navigationLinks() {
-      return _react2.default.createElement(
-        'nav',
-        { className: 'nav-menu clearfix:after' },
-        _react2.default.createElement(
-          _reactRouter.Link,
-          { to: '/', className: 'btn' },
-          'Home'
-        ),
-        _react2.default.createElement(
-          _reactRouter.Link,
-          { to: '/search/youtube', className: 'btn' },
-          'YouTube'
-        ),
-        _react2.default.createElement(
-          _reactRouter.Link,
-          { to: '/search/twitch', className: 'btn' },
-          'Twitch'
-        ),
-        _react2.default.createElement(
-          _reactRouter.Link,
-          { to: '/search', className: 'btn' },
-          'Dragon Punch!'
-        )
-      );
-    }
-  }, {
-    key: 'handleNavClick',
-    value: function handleNavClick() {
-      if (!this.state.mobileNavVisible) {
-        this.setState({ mobileNavVisible: true });
-      } else {
-        this.setState({ mobileNavVisible: false });
-      }
-    }
-  }, {
-    key: 'renderMobileNav',
-    value: function renderMobileNav() {
-      if (this.state.mobileNavVisible) {
-        return this.navigationLinks();
-      }
-    }
-  }, {
-    key: 'renderNavigation',
-    value: function renderNavigation() {
-      if (this.state.windowWidth <= 900) {
-        return _react2.default.createElement(
-          'div',
-          { className: 'mobile-nav' },
-          _react2.default.createElement(
-            'p',
-            { onClick: this.handleNavClick.bind(this) },
-            _react2.default.createElement('i', { className: 'fa fa-bars', 'aria-hidden': 'true' })
-          ),
-          this.renderMobileNav()
-        );
-      }
-      return _react2.default.createElement(
-        'div',
-        { className: 'navbar' },
-        this.navigationLinks()
-      );
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { className: 'nav-container light-fade' },
-        this.renderNavigation()
-      );
-    }
-  }]);
-
-  return NavContainer;
-}(_react.Component);
-
-exports.default = NavContainer;
+throw new Error("Module build failed: SyntaxError: Unexpected token (27:1)\n\n\u001b[0m \u001b[90m 25 | \u001b[39m  navigationLinks() {\n \u001b[90m 26 | \u001b[39m    \u001b[36mreturn\u001b[39m (\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 27 | \u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\n \u001b[90m    | \u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 28 | \u001b[39m      \u001b[33m<\u001b[39m\u001b[33mnav\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"nav-menu clearfix:after\"\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 29 | \u001b[39m        \u001b[33m<\u001b[39m\u001b[33mLink\u001b[39m to\u001b[33m=\u001b[39m\u001b[32m\"/\"\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"btn\"\u001b[39m\u001b[33m>\u001b[39m\u001b[33mHome\u001b[39m\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mLink\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 30 | \u001b[39m        \u001b[33m<\u001b[39m\u001b[33mLink\u001b[39m to\u001b[33m=\u001b[39m\u001b[32m\"/search/youtube\"\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"btn\"\u001b[39m\u001b[33m>\u001b[39m\u001b[33mYouTube\u001b[39m\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mLink\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n");
 
 /***/ }),
 /* 276 */

@@ -21,7 +21,7 @@ export default class PunchSearch extends Component {
   render() {
     return (
       <div>
-        <h1 className="logo">Level Up by Dragon Punch!</h1>
+        <h1 className="logo">Chosen Path: Dragon Punch!</h1>
         <SearchBar />
         <TwitchVideoDetail stream={this.state.selectedStream} />
         <YouTubeVideoDetail video={this.state.selectedVideo} />

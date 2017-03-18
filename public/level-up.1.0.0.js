@@ -6967,17 +6967,17 @@ var SearchBar = function (_Component) {
 				'div',
 				{ className: 'search-bar' },
 				_react2.default.createElement(
-					'form',
-					{ id: 'search', onSubmit: this.submitSearch },
-					_react2.default.createElement('input', {
-						type: 'text',
-						placeholder: 'Find videos on your favorite game',
-						value: this.state.term,
-						onChange: this.changeTerm
-					}),
+					'span',
+					{ className: 'input-btn' },
 					_react2.default.createElement(
-						'span',
-						{ className: 'input-btn' },
+						'form',
+						{ id: 'search', onSubmit: this.submitSearch },
+						_react2.default.createElement('input', {
+							type: 'text',
+							placeholder: 'Find videos on your favorite game',
+							value: this.state.term,
+							onChange: this.changeTerm
+						}),
 						_react2.default.createElement(
 							'button',
 							{ type: 'submit', className: 'submit-btn' },
@@ -11592,12 +11592,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 //set props as video: video, and onVideoSelect: onVideoSelect --shorthand is below
 
-function truncateText(text) {
+var truncateText = function truncateText(text) {
 	if (text.length < 25) {
 		return text;
 	}
 	return text.substring(0, 25) + '...';
-}
+};
 
 var YouTubeVideoListItem = function YouTubeVideoListItem(_ref) {
 	var video = _ref.video,
@@ -18586,27 +18586,8 @@ var MainLayout = function MainLayout(props) {
     { className: 'main-layout' },
     _react2.default.createElement(_nav_bar2.default, null),
     _react2.default.createElement(
-      'div',
-      { id: 'social' },
-      _react2.default.createElement(
-        'a',
-        { href: 'https://twitter.com/navkelley', target: 'blank', className: 'twit', title: 'Twitter' },
-        _react2.default.createElement('i', { className: 'fa fa-twitter fa-2x', 'aria-hidden': 'true' })
-      ),
-      _react2.default.createElement(
-        'a',
-        { href: 'www.linkedin.com/in/nicolevkelley', target: 'blank', className: 'linkedIn', title: 'LinkedIn' },
-        _react2.default.createElement('i', { className: 'fa fa-linkedin-square fa-2x', 'aria-hidden': 'true' })
-      ),
-      _react2.default.createElement(
-        'a',
-        { href: 'https://github.com/navkelley', target: 'blank', className: 'github', title: 'GitHub' },
-        _react2.default.createElement('i', { className: 'fa fa-github fa-2x', 'aria-hidden': 'true' })
-      )
-    ),
-    _react2.default.createElement(
       'section',
-      { className: 'body-wrapper' },
+      { id: 'layout' },
       props.children
     ),
     _react2.default.createElement(
@@ -18618,6 +18599,25 @@ var MainLayout = function MainLayout(props) {
         _react2.default.createElement('i', { className: 'fa fa-gamepad', 'aria-hidden': 'true' }),
         ' Designed and built by Nicole V. Kelley ',
         _react2.default.createElement('i', { className: 'fa fa-gamepad', 'aria-hidden': 'true' })
+      ),
+      _react2.default.createElement(
+        'div',
+        { id: 'social' },
+        _react2.default.createElement(
+          'a',
+          { href: 'https://twitter.com/navkelley', target: 'blank', className: 'twit', title: 'Twitter' },
+          _react2.default.createElement('i', { className: 'fa fa-twitter fa-2x', 'aria-hidden': 'true' })
+        ),
+        _react2.default.createElement(
+          'a',
+          { href: 'www.linkedin.com/in/nicolevkelley', target: 'blank', className: 'linkedIn', title: 'LinkedIn' },
+          _react2.default.createElement('i', { className: 'fa fa-linkedin-square fa-2x', 'aria-hidden': 'true' })
+        ),
+        _react2.default.createElement(
+          'a',
+          { href: 'https://github.com/navkelley', target: 'blank', className: 'github', title: 'GitHub' },
+          _react2.default.createElement('i', { className: 'fa fa-github fa-2x', 'aria-hidden': 'true' })
+        )
       )
     )
   );
@@ -18848,7 +18848,7 @@ var PunchSearch = function (_Component) {
         _react2.default.createElement(
           'h1',
           { className: 'logo' },
-          'Level Up by Dragon Punch!'
+          'Chosen Path: Dragon Punch!'
         ),
         _react2.default.createElement(_search_bar2.default, null),
         _react2.default.createElement(_twitch_video_detail2.default, { stream: this.state.selectedStream }),

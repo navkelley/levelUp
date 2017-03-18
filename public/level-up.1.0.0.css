@@ -26,6 +26,7 @@ address {
   font-size: 16px;
   line-height: 1.5em;
   font-family: "Exo", sans-serif;
+  margin-bottom: .5em;
 }
 #devAddress {
   width: 25%;
@@ -78,6 +79,7 @@ p {
 }
 .submit-btn {
   cursor: pointer;
+  font-family: "Exo", sans-serif;
 }
 strong {
   color: black;
@@ -98,6 +100,8 @@ header {
   background-image: url("http://i.imgur.com/Q7Hf336.jpg");
   height: 32em;
   background-size: cover;
+  position: relative;
+  bottom: 4.6em;
 }
 .light-fade {
   background: #efefef;
@@ -145,6 +149,7 @@ img:hover {
 .table-wrapper table {
   position: relative;
   left: 100px;
+  margin-bottom: 1em;
 }
 #twitch-streams {
   position: relative;
@@ -171,18 +176,14 @@ td {
 }
 /*/////// SOCIAL ////////*/
 #social {
-  position: fixed;
-  top: 80px;
-  right: 10px;
-  width: 40px;
-  z-index: 2;
+  position: relative;
+  left: 5.8em;
 }
 #social a {
-  display: block;
-  width: 40px;
-  height: 40px;
-  white-space: nowrap;
-  color: white;
+  display: inline;
+  color: black;
+  margin-bottom: 1em;
+  margin-right: 1em;
 }
 #social a:hover {
   color: #00FFA7;
@@ -225,11 +226,6 @@ td {
   /* IE10+ */
   background: linear-gradient(to bottom, #000000 0%, #474747 28%, #515151 35%, #474747 72%, #2b2b2b 87%, #1c1c1c 91%, #000000 100%);
   /* W3C */
-}
-/*////////// MAIN SECTIONS //////////*/
-section {
-  padding: 30px;
-  margin-bottom: 20px;
 }
 /*///////// @media queries ////////*/
 @media only screen and (max-width: 1108px) {
@@ -369,6 +365,8 @@ section {
   }
   input[type=text] {
     width: 70%;
+    font-family: "Exo", sans-serif;
+    height: 100%;
   }
   #twitch-streams {
     left: -1%;

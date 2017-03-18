@@ -16,10 +16,6 @@ body {
   color: white; 
 }
 
-ul {
-  margin-bottom: 10px;
-}
-
 li {
   margin-left: 20px;
 }
@@ -105,9 +101,6 @@ p {
 
 /*////////// BACKGROUNDS //////////*/
 
-/*html {
-  background-image: url('../images/PacMan.jpg');
-}
 
 /*/////// MEDIA ////////*/
 
@@ -226,7 +219,7 @@ td {
 
 #social {
   position: fixed;
-  top: 20px;
+  top: 80px;
   right: 10px;
   width: 40px;
   z-index: 2;
@@ -251,23 +244,32 @@ td {
   top: 0;
   left: 0;
   width: 100%;
+  height: 4em; 
   z-index: 2;
   text-align: center;
+  background: #efefef; /* Old browsers */
+  background: -moz-linear-gradient(top,  #efefef 0%, #ffffff 24%, #ffffff 68%, #dddddd 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#efefef), color-stop(24%,#ffffff), color-stop(68%,#ffffff), color-stop(100%,#dddddd)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #efefef 0%,#ffffff 24%,#ffffff 68%,#dddddd 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #efefef 0%,#ffffff 24%,#ffffff 68%,#dddddd 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #efefef 0%,#ffffff 24%,#ffffff 68%,#dddddd 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #efefef 0%,#ffffff 24%,#ffffff 68%,#dddddd 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efefef', endColorstr='#dddddd',GradientType=0 ); /* IE6-9 */
 }
 
-#navbar nav {
+.navbar nav {
   border-left: 1px solid #ccc;
 }
 
-.navbar li {
+.navbar nav a {
   display: inline-block;
   width: 20%;
-  padding: 10px;
+  margin: 0;
+  padding: 22px 0;
   text-transform: uppercase;
   color: black;
-}
-
-.navbar a {
+  text-align: center;
+  border-right: 1px solid #ccc;
   text-decoration: none;
 }
 
@@ -279,7 +281,6 @@ td {
   transition: 0.5s;
   background-size: 200% auto;
   color: black;
-  border-radius: 10px;
   background-image: linear-gradient(to right, #CC1453 0%, lightgrey 51%, #CC1453 100%);
   font-size: 20px; 
   margin-left: 5px; 
@@ -287,17 +288,6 @@ td {
 
 .btn:hover {
   background-position: right center;  
-}
-
-.nav-menu a {
-  color: black;
-  border-radius: 10px;
-}
-
-
-#navbar a.selected {
-  background: #333;
-  color: white;
 }
 
 /*////////// MAIN SECTIONS //////////*/

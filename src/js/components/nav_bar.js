@@ -24,20 +24,12 @@ export default class NavContainer extends Component {
 
   navigationLinks() {
     return (
-      <ul className="nav-menu clearfix:after">
-        <Link to="/">
-          <li className="home btn">Home</li>
-        </Link>
-        <Link to="/search/youtube" className="youtube">
-          <li className="only-youtube btn">YouTube</li>
-        </Link>
-        <Link to="/search/twitch" className="twitch">
-          <li className="only-twitch btn">Twitch</li>
-        </Link>
-        <Link to="/search" className="dragon-punch">
-          <li className="dragon-punch btn">Dragon Punch!</li>
-        </Link>
-      </ul>
+      <nav className="nav-menu clearfix:after">
+        <Link to="/" className="btn">Home</Link>
+        <Link to="/search/youtube" className="btn">YouTube</Link>
+        <Link to="/search/twitch" className="btn">Twitch</Link>
+        <Link to="/search" className="btn">Dragon Punch!</Link>
+      </nav>
     );
   }
 
@@ -68,7 +60,7 @@ export default class NavContainer extends Component {
       );
     }
     return (
-      <div key={7} className="nav-mobile">
+      <div className="navbar">
         {this.navigationLinks()}
       </div>
     );
@@ -76,10 +68,8 @@ export default class NavContainer extends Component {
 
   render() {
     return (
-      <div className="nav-container">
-        <div className="navbar">
-          {this.renderNavigation()}
-        </div>
+      <div className="nav-container light-fade">
+        {this.renderNavigation()}
       </div>
     );
   }

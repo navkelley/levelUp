@@ -19130,7 +19130,7 @@ var DragonPunchList = function (_Component) {
           this.renderResultsTable()
         );
       } else {
-        return _react2.default.createElement('p', { id: 'placeholder' });
+        return _react2.default.createElement('p', { className: 'placeholder' });
       }
     }
   }]);

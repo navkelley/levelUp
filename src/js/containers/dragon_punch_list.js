@@ -45,7 +45,7 @@ class DragonPunchList extends Component {
         </div>
       );
     } else {
-      return (<p id="placeholder"></p>);
+      return (<p className="placeholder"></p>);
     }
 	};
 }

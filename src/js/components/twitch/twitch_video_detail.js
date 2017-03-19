@@ -5,9 +5,9 @@ const TwitchVideoDetail = ({ stream }) => {
   if (!stream) {
     return (
       <p className="funFact">Fun Fact: The highest grossing game of all time is actually World of WarCraft bringing in whopping ten billion 
-        dollars over its lifetime. -Courtesy of 
+        dollars over its lifetime.
         <a className="funFact" target="blank" href="https://www.technotification.com/2015/01/15-interesting-video-game-facts.html"> 
-          Technotification
+          -Technotification
         </a>
       </p>
     );

@@ -11347,11 +11347,11 @@ var TwitchVideoDetail = function TwitchVideoDetail(_ref) {
     return _react2.default.createElement(
       "p",
       { className: "funFact" },
-      "Fun Fact: The highest grossing game of all time is actually World of WarCraft bringing in whopping ten billion dollars over its lifetime. -Courtesy of",
+      "Fun Fact: The highest grossing game of all time is actually World of WarCraft bringing in whopping ten billion dollars over its lifetime.",
       _react2.default.createElement(
         "a",
         { className: "funFact", target: "blank", href: "https://www.technotification.com/2015/01/15-interesting-video-game-facts.html" },
-        "Technotification"
+        "-Technotification"
       )
     );
   }
@@ -11386,6 +11386,13 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var truncateText = function truncateText(text) {
+  if (text.length < 12) {
+    return text;
+  }
+  return text.substring(0, 12) + '...';
+};
+
 //set props as stream: stream, and onStreamSelect: onStreamSelect --shorthand is below
 var TwitchVideoListItem = function TwitchVideoListItem(_ref) {
   var stream = _ref.stream,
@@ -11393,15 +11400,16 @@ var TwitchVideoListItem = function TwitchVideoListItem(_ref) {
 
   var preview = stream.preview.medium;
   return _react2.default.createElement(
-    "td",
+    'td',
     { onClick: function onClick() {
         return onStreamSelect(stream);
-      }, className: "list-group-item twitch-media" },
-    _react2.default.createElement("img", { alt: "game stream", className: "media-object", src: preview }),
+      }, className: 'list-group-item twitch-media' },
+    _react2.default.createElement('img', { alt: 'game stream', className: 'media-object', src: preview }),
     _react2.default.createElement(
-      "span",
-      { className: "view", id: "twitch-name-hover" },
-      stream.channel.display_name
+      'p',
+      null,
+      'Streamer:',
+      truncateText(stream.channel.display_name)
     )
   );
 };
@@ -11433,11 +11441,11 @@ var YouTubeVideoDetail = function YouTubeVideoDetail(_ref) {
     return _react2.default.createElement(
       "p",
       { className: "funFact" },
-      "Fun Fact: Pac-Man was invented by the designer Toru Iwatani while he was eating pizza. -Courtesy of",
+      "Fun Fact: Pac-Man was invented by the designer Toru Iwatani while he was eating pizza.",
       _react2.default.createElement(
         "a",
         { className: "funFact", target: "blank", href: "https://www.technotification.com/2015/01/15-interesting-video-game-facts.html" },
-        " Technotification"
+        "-Technotification"
       )
     );
   }
@@ -11504,10 +11512,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //set props as video: video, and onVideoSelect: onVideoSelect --shorthand is below
 
 var truncateText = function truncateText(text) {
-	if (text.length < 25) {
+	if (text.length < 15) {
 		return text;
 	}
-	return text.substring(0, 25) + '...';
+	return text.substring(0, 15) + '...';
 };
 
 var YouTubeVideoListItem = function YouTubeVideoListItem(_ref) {
@@ -11676,7 +11684,7 @@ var YouTubeApi = exports.YouTubeApi = function () {
 
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -11701,52 +11709,61 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 //map out streams to each data cell in table 
 var TwitchVideoList = function (_Component) {
-	_inherits(TwitchVideoList, _Component);
+  _inherits(TwitchVideoList, _Component);
 
-	function TwitchVideoList() {
-		_classCallCheck(this, TwitchVideoList);
+  function TwitchVideoList() {
+    _classCallCheck(this, TwitchVideoList);
 
-		return _possibleConstructorReturn(this, (TwitchVideoList.__proto__ || Object.getPrototypeOf(TwitchVideoList)).apply(this, arguments));
-	}
+    return _possibleConstructorReturn(this, (TwitchVideoList.__proto__ || Object.getPrototypeOf(TwitchVideoList)).apply(this, arguments));
+  }
 
-	_createClass(TwitchVideoList, [{
-		key: 'render',
-		value: function render() {
-			var _this2 = this;
+  _createClass(TwitchVideoList, [{
+    key: 'renderResultsTable',
+    value: function renderResultsTable() {
+      var _this2 = this;
 
-			return _react2.default.createElement(
-				'div',
-				{ className: 'table-wrapper' },
-				_react2.default.createElement(
-					'table',
-					{ id: 'twitch-streams' },
-					_react2.default.createElement(
-						'tbody',
-						null,
-						this.props.streams.map(function (stream) {
-							return _react2.default.createElement(_twitch_video_list_item2.default, {
-								onStreamSelect: _this2.props.onStreamSelect,
-								stream: stream,
-								key: stream._id
-							});
-						})
-					)
-				)
-			);
-		}
-	}]);
+      return _react2.default.createElement(
+        'table',
+        { id: 'twitch-streams' },
+        _react2.default.createElement(
+          'tbody',
+          null,
+          this.props.streams.data.map(function (stream) {
+            return _react2.default.createElement(_twitch_video_list_item2.default, {
+              onStreamSelect: _this2.props.onStreamSelect,
+              stream: stream,
+              key: stream._id
+            });
+          })
+        )
+      );
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      if (this.props.streams.isFetched) {
+        return _react2.default.createElement(
+          'div',
+          { className: 'table-wrapper' },
+          this.renderResultsTable()
+        );
+      } else {
+        return _react2.default.createElement('p', { className: 'placeholder' });
+      }
+    }
+  }]);
 
-	return TwitchVideoList;
+  return TwitchVideoList;
 }(_react.Component);
 
 //allow stream data to be used 
 
 
 function mapStateToProps(_ref) {
-	var streams = _ref.streams;
+  var streams = _ref.streams;
 
-	//when have key:value that are ident can reduce to just one
-	return { streams: streams };
+  //when have key:value that are ident can reduce to just one
+  return { streams: streams };
 }
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(TwitchVideoList);
@@ -11792,29 +11809,38 @@ var YouTubeVideoList = function (_Component) {
 	}
 
 	_createClass(YouTubeVideoList, [{
-		key: 'render',
-		value: function render() {
+		key: 'renderResultsTable',
+		value: function renderResultsTable() {
 			var _this2 = this;
 
 			return _react2.default.createElement(
-				'div',
-				{ className: 'table-wrapper' },
+				'table',
+				{ id: 'youtube' },
 				_react2.default.createElement(
-					'table',
-					{ id: 'youtube' },
-					_react2.default.createElement(
-						'tbody',
-						null,
-						this.props.videos.map(function (video) {
-							return _react2.default.createElement(_youtube_video_list_item2.default, {
-								onVideoSelect: _this2.props.onVideoSelect,
-								video: video,
-								key: video.etag
-							});
-						})
-					)
+					'tbody',
+					null,
+					this.props.videos.data.map(function (video) {
+						return _react2.default.createElement(_youtube_video_list_item2.default, {
+							onVideoSelect: _this2.props.onVideoSelect,
+							video: video,
+							key: video.etag
+						});
+					})
 				)
 			);
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			if (this.props.videos.isFetched) {
+				return _react2.default.createElement(
+					'div',
+					{ className: 'table-wrapper' },
+					this.renderResultsTable()
+				);
+			} else {
+				return _react2.default.createElement('p', { className: 'placeholder' });
+			}
 		}
 	}]);
 
@@ -17578,7 +17604,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var ISPROD = "production" === 'production';
 
 //tool for redux dev
-var ENHANCERS = (0, _redux.compose)((0, _redux.applyMiddleware)(_reduxPromise2.default, _reduxThunk2.default), !ISPROD && window.devToolsExtension ? window.devToolsExtension() : function (f) {
+var ENHANCERS = (0, _redux.compose)((0, _redux.applyMiddleware)(_reduxPromise2.default, _reduxThunk2.default), /*!ISPROD &&*/window.devToolsExtension ? window.devToolsExtension() : function (f) {
   return f;
 });
 
@@ -18498,47 +18524,57 @@ var _react = __webpack_require__(5);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _sign_up = __webpack_require__(608);
+
+var _sign_up2 = _interopRequireDefault(_sign_up);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Home = function Home() {
   return _react2.default.createElement(
-    "section",
-    { className: "home" },
+    'section',
+    { className: 'home' },
     _react2.default.createElement(
-      "header",
-      { className: "home-img header-img" },
-      _react2.default.createElement(
-        "span",
-        { className: "logo-container" },
-        _react2.default.createElement(
-          "h1",
-          { className: "logo" },
-          "Level Up"
-        )
-      )
+      'header',
+      { className: 'home-img header-img' },
+      _react2.default.createElement('img', { id: 'app-logo', src: 'http://i.imgur.com/jspyWnl.png?1', alt: 'Level Up Logo' })
     ),
     _react2.default.createElement(
-      "div",
-      { className: "welcome" },
+      'div',
+      { className: 'welcome' },
       _react2.default.createElement(
-        "p",
-        null,
-        "Designed for all levels of gamers."
+        'div',
+        { className: 'info-card-1 clearfix' },
+        _react2.default.createElement(
+          'div',
+          { className: 'col-1 info-text' },
+          _react2.default.createElement(
+            'p',
+            { id: 'for-all' },
+            'Designed for all levels of gamers. Learn, strategize and find those Kodama\'s! Or preview your next game.'
+          ),
+          _react2.default.createElement(
+            'p',
+            { id: 'choose-path' },
+            'Choose your path: search just YouTube, just Twitch, or by Dragon Punch! (both).'
+          )
+        ),
+        _react2.default.createElement('img', { id: 'kodama', className: 'col-1', src: 'http://i.imgur.com/6V5PqZ1.png', alt: 'Nioh Game Kodama' })
       ),
       _react2.default.createElement(
-        "p",
-        null,
-        "Search for any game."
-      ),
-      _react2.default.createElement(
-        "p",
-        null,
-        "Learn, strategize and find those Komadas! Or preview your next game."
-      ),
-      _react2.default.createElement(
-        "p",
-        null,
-        "Choose your course, search just YouTube, just Twitch, or by Dragon Punch! (Twitch & YouTube), select a video to play."
+        'div',
+        { className: 'sign-up', id: 'temp-disable' },
+        _react2.default.createElement(
+          'div',
+          { id: 'hover-content' },
+          'Coming Soon...'
+        ),
+        _react2.default.createElement(
+          'p',
+          { id: 'signup-guest' },
+          'Sign up to save your favorite videos or streamer channel to watch at a later time or browse now as a guest!'
+        ),
+        _react2.default.createElement(_sign_up2.default, null)
       )
     )
   );
@@ -18567,9 +18603,8 @@ var _nav_bar2 = _interopRequireDefault(_nav_bar);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
-  * main-layout will hold navbar, social links, and address 
-  **/
+//main-layout will hold navbar, social links, and address 
+
 var MainLayout = function MainLayout(props) {
   return _react2.default.createElement(
     'div',
@@ -18582,31 +18617,35 @@ var MainLayout = function MainLayout(props) {
     ),
     _react2.default.createElement(
       'div',
-      { id: 'devAddress' },
+      { className: 'footer-wrapper light-fade' },
       _react2.default.createElement(
-        'address',
+        'footer',
         null,
-        _react2.default.createElement('i', { className: 'fa fa-gamepad', 'aria-hidden': 'true' }),
-        ' Designed and built by Nicole V. Kelley ',
-        _react2.default.createElement('i', { className: 'fa fa-gamepad', 'aria-hidden': 'true' })
-      ),
-      _react2.default.createElement(
-        'div',
-        { id: 'social' },
         _react2.default.createElement(
-          'a',
-          { href: 'https://twitter.com/navkelley', target: 'blank', className: 'twit', title: 'Twitter' },
-          _react2.default.createElement('i', { className: 'fa fa-twitter fa-2x', 'aria-hidden': 'true' })
+          'address',
+          { className: 'devAddress' },
+          _react2.default.createElement('i', { className: 'fa fa-gamepad', 'aria-hidden': 'true' }),
+          ' Designed and built by Nicole V. Kelley ',
+          _react2.default.createElement('i', { className: 'fa fa-gamepad', 'aria-hidden': 'true' })
         ),
         _react2.default.createElement(
-          'a',
-          { href: 'www.linkedin.com/in/nicolevkelley', target: 'blank', className: 'linkedIn', title: 'LinkedIn' },
-          _react2.default.createElement('i', { className: 'fa fa-linkedin-square fa-2x', 'aria-hidden': 'true' })
-        ),
-        _react2.default.createElement(
-          'a',
-          { href: 'https://github.com/navkelley', target: 'blank', className: 'github', title: 'GitHub' },
-          _react2.default.createElement('i', { className: 'fa fa-github fa-2x', 'aria-hidden': 'true' })
+          'div',
+          { id: 'social' },
+          _react2.default.createElement(
+            'a',
+            { href: 'https://twitter.com/navkelley', target: 'blank', className: 'twit', title: 'Twitter' },
+            _react2.default.createElement('i', { className: 'fa fa-twitter fa-2x', 'aria-hidden': 'true' })
+          ),
+          _react2.default.createElement(
+            'a',
+            { href: 'https://www.linkedin.com/in/nicolevkelley', target: 'blank', className: 'linkedIn', title: 'LinkedIn' },
+            _react2.default.createElement('i', { className: 'fa fa-linkedin-square fa-2x', 'aria-hidden': 'true' })
+          ),
+          _react2.default.createElement(
+            'a',
+            { href: 'https://github.com/navkelley', target: 'blank', className: 'github', title: 'GitHub' },
+            _react2.default.createElement('i', { className: 'fa fa-github fa-2x', 'aria-hidden': 'true' })
+          )
         )
       )
     )
@@ -18835,16 +18874,13 @@ var PunchSearch = function (_Component) {
       return _react2.default.createElement(
         'section',
         { className: 'dragon-punch' },
+        _react2.default.createElement('header', { className: 'ryu-punch header-img' }),
         _react2.default.createElement(
-          'header',
-          { className: 'ryu-punch header-img' },
-          _react2.default.createElement(
-            'h1',
-            { className: 'logo' },
-            'Chosen Path: Dragon Punch!'
-          ),
-          _react2.default.createElement(_search_bar2.default, null)
+          'h1',
+          { className: 'logo' },
+          'Chosen Path: Dragon Punch!'
         ),
+        _react2.default.createElement(_search_bar2.default, null),
         _react2.default.createElement(_twitch_video_detail2.default, { stream: this.state.selectedStream }),
         _react2.default.createElement(_youtube_video_detail2.default, { video: this.state.selectedVideo }),
         _react2.default.createElement(_dragon_punch_list2.default, {
@@ -18922,8 +18958,9 @@ var TwitchSearch = function (_Component) {
       var _this2 = this;
 
       return _react2.default.createElement(
-        'div',
+        'section',
         { className: 'twitch' },
+        _react2.default.createElement('header', { className: 'nioh header-img' }),
         _react2.default.createElement(
           'h1',
           { className: 'logo' },
@@ -19003,8 +19040,9 @@ var YouTubeSearch = function (_Component) {
       var _this2 = this;
 
       return _react2.default.createElement(
-        'div',
+        'section',
         null,
+        _react2.default.createElement('header', { className: 'aCreed header-img' }),
         _react2.default.createElement(
           'h1',
           { className: 'logo' },
@@ -19034,7 +19072,7 @@ exports.default = YouTubeSearch;
 
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -19063,73 +19101,82 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 //map out videos to create list
 var DragonPunchList = function (_Component) {
-	_inherits(DragonPunchList, _Component);
+  _inherits(DragonPunchList, _Component);
 
-	function DragonPunchList() {
-		_classCallCheck(this, DragonPunchList);
+  function DragonPunchList() {
+    _classCallCheck(this, DragonPunchList);
 
-		return _possibleConstructorReturn(this, (DragonPunchList.__proto__ || Object.getPrototypeOf(DragonPunchList)).apply(this, arguments));
-	}
+    return _possibleConstructorReturn(this, (DragonPunchList.__proto__ || Object.getPrototypeOf(DragonPunchList)).apply(this, arguments));
+  }
 
-	_createClass(DragonPunchList, [{
-		key: 'render',
-		value: function render() {
-			var _this2 = this;
+  _createClass(DragonPunchList, [{
+    key: 'renderResultsTable',
+    value: function renderResultsTable() {
+      var _this2 = this;
 
-			return _react2.default.createElement(
-				'div',
-				{ className: 'table-wrapper' },
-				_react2.default.createElement(
-					'table',
-					null,
-					_react2.default.createElement(
-						'tbody',
-						null,
-						_react2.default.createElement(
-							'tr',
-							null,
-							_react2.default.createElement(
-								'h3',
-								null,
-								'YouTube'
-							),
-							this.props.videos.map(function (video) {
-								return _react2.default.createElement(_youtube_video_list_item2.default, {
-									onVideoSelect: _this2.props.onVideoSelect,
-									video: video
-								});
-							})
-						),
-						_react2.default.createElement(
-							'tr',
-							null,
-							_react2.default.createElement(
-								'h3',
-								null,
-								'Twitch'
-							),
-							this.props.streams.map(function (stream) {
-								return _react2.default.createElement(_twitch_video_list_item2.default, {
-									onStreamSelect: _this2.props.onStreamSelect,
-									stream: stream
-								});
-							})
-						)
-					)
-				)
-			);
-		}
-	}]);
+      return _react2.default.createElement(
+        'table',
+        null,
+        _react2.default.createElement(
+          'tbody',
+          null,
+          _react2.default.createElement(
+            'tr',
+            null,
+            _react2.default.createElement(
+              'h3',
+              { className: 'table-title' },
+              'YouTube'
+            ),
+            this.props.videos.data.map(function (video) {
+              return _react2.default.createElement(_youtube_video_list_item2.default, {
+                onVideoSelect: _this2.props.onVideoSelect,
+                video: video
+              });
+            })
+          ),
+          _react2.default.createElement(
+            'tr',
+            null,
+            _react2.default.createElement(
+              'h3',
+              { className: 'table-title' },
+              'Twitch'
+            ),
+            this.props.streams.data.map(function (stream) {
+              return _react2.default.createElement(_twitch_video_list_item2.default, {
+                onStreamSelect: _this2.props.onStreamSelect,
+                stream: stream
+              });
+            })
+          )
+        )
+      );
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      if (this.props.videos.isFetched && this.props.streams.isFetched) {
+        return _react2.default.createElement(
+          'div',
+          { className: 'table-wrapper' },
+          this.renderResultsTable()
+        );
+      } else {
+        return _react2.default.createElement('p', { className: 'placeholder' });
+      }
+    }
+  }]);
 
-	return DragonPunchList;
+  return DragonPunchList;
 }(_react.Component);
 
 function mapStateToProps(_ref) {
-	var videos = _ref.videos,
-	    streams = _ref.streams;
+  var videos = _ref.videos,
+      streams = _ref.streams;
 
-	//when have key:value that are ident can reduce to just one
-	return { videos: videos, streams: streams };
+  //when have key:value that are ident can reduce to just one
+  return { videos: videos, streams: streams };
 }
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(DragonPunchList);
@@ -19186,7 +19233,7 @@ exports.default = function () {
   var twitchData = action.payload;
   switch (action.type) {
     case _twitch.TWITCH_SEARCH:
-      return twitchData;
+      return { data: twitchData, isFetched: true };
     default:
       return state;
   }
@@ -19210,10 +19257,10 @@ exports.default = function () {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   var action = arguments[1];
 
-  var data = action.payload;
+  var youTubeData = action.payload;
   switch (action.type) {
     case _youtube.YOUTUBE_SEARCH:
-      return data;
+      return { data: youTubeData, isFetched: true };
     default:
       return state;
   }
@@ -39207,6 +39254,88 @@ module.exports = function(module) {
 __webpack_require__(253);
 module.exports = __webpack_require__(252);
 
+
+/***/ }),
+/* 608 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(5);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var SignUp = function (_Component) {
+  _inherits(SignUp, _Component);
+
+  function SignUp() {
+    _classCallCheck(this, SignUp);
+
+    return _possibleConstructorReturn(this, (SignUp.__proto__ || Object.getPrototypeOf(SignUp)).apply(this, arguments));
+  }
+
+  _createClass(SignUp, [{
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "form",
+        { id: "sign-up" },
+        _react2.default.createElement(
+          "div",
+          { className: "sign-up-group" },
+          _react2.default.createElement("label", { "for": "username" }),
+          _react2.default.createElement("input", { type: "text", placeholder: "Username", id: "username" })
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "sign-up-group" },
+          _react2.default.createElement("label", { "for": "email" }),
+          _react2.default.createElement("input", { type: "email", placeholder: "Email Address", id: "userEmail" })
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "sign-up-group" },
+          _react2.default.createElement("label", { "for": "password" }),
+          _react2.default.createElement("input", { type: "password", id: "password", placeholder: "Password" })
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "sign-up-group" },
+          _react2.default.createElement("label", { "for": "verifyPassword" }),
+          _react2.default.createElement("input", { type: "password", id: "verifyPassword", placeholder: "Verify Password" })
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "sign-up-group" },
+          _react2.default.createElement(
+            "button",
+            { type: "submit", id: "signup-btn" },
+            "Sign Up"
+          )
+        )
+      );
+    }
+  }]);
+
+  return SignUp;
+}(_react.Component);
+
+exports.default = SignUp;
 
 /***/ })
 /******/ ]);

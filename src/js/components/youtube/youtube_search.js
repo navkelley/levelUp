@@ -15,14 +15,15 @@ export default class YouTubeSearch extends Component {
 
   render() {
     return (
-      <div>
+      <section>
+        <header className="aCreed header-img"></header>
         <h1 className="logo">Chosen Path: YouTube</h1>
         <SearchBar />
         <YouTubeVideoDetail video={this.state.selectedVideo} />
         <YouTubeVideoList
             onVideoSelect={selectedVideo => this.setState({ selectedVideo })}
         />
-      </div>
+      </section>
     );
   }
 }

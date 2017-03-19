@@ -1,23 +1,19 @@
-@import url('https://fonts.googleapis.com/css?family=VT323');
 @import url('https://fonts.googleapis.com/css?family=Exo');
 
 /*////////// GLOBAL //////////*/
-
-body {
-  font-family: "VT323", sans-serif;
-  margin: 0; 
+* {
+  font-family: "Exo", sans-serif;
 }
-
-.logo-container {
-  position: relative;
-  top: 5em;
+body {
+  margin: 0; 
 }
 
 .logo {
   text-align: center;
-  font-size: 8em;
+  font-size: 4em;
   width: 100%; 
-  color: #00FFA7;
+  margin-bottom: .3em;
+  color: #7F201B;
 }
 
 li {
@@ -25,26 +21,16 @@ li {
 }
 
 h3 {
-  font-size: 30px;
-  text-shadow: 1px 1px #00FFA7;
+  font-size: 2em;
 }
 
 address {
   font-size: 16px;
   line-height: 1.5em; 
-  font-family: "Exo", sans-serif;
   margin-bottom: .5em; 
-}
-
-#devAddress {
-  width: 25%; 
-  position: relative; 
-  left: 550px;
-}
-
-th, td {
-  font-family: "Exo", sans-serif; 
-
+  width: 35%;
+  /*centers content in div*/ 
+  margin: 0 auto; 
 }
 
 #twitch-streams {
@@ -54,7 +40,7 @@ th, td {
 input {
   display: inline;
   padding: 5px;
-  box-shadow: 0 1px 2px #ccc;
+  box-shadow: 0 3px 3px #ccc;
   border: 1px solid #ccc;
   border-radius: 5px; 
 }
@@ -66,17 +52,31 @@ input[type="text"] {
 }
 
 button {
-  font-size: 16px; 
+  font-size: 1em; 
+  color: white;
   border-radius: 5px; 
   margin-top: 7px; 
-  background-color: #FF4036;
-  border: 1px solid #FF4036; 
+  background-color: lighten(#FF4036, 3%);
+  border: 1px solid darken(#FF4036, 4%); 
   padding: 6px; 
+  box-shadow: 0 2px 0 darken(#FF4036, 5%), 2px 4px 6px darken(#FF4036, 2%);
+  font-weight: 900;
+  letter-spacing: 1px;
 }
 
 button:hover {
-  background-color: #00FFA7;
-  border: 1px solid #00FFA7; 
+  background: darken(#FF4036, 1.5%);
+  border: 1px solid #FF4036;
+  box-shadow: 1px 1px 2px #FF4036;
+  color: lighten(#FF4036, 18%); 
+  text-decoration: none;
+  text-shadow: -1px -1px 0 darken(#FF4036, 9.5%);
+  transition: all 250ms linear;
+}
+
+#signup-btn {
+  width: 22em;
+  font-size: 1.25em;
 }
 
 .search-bar {
@@ -84,12 +84,15 @@ button:hover {
 }
 
 p {
-  font-size: 30px; 
+  font-size: 1.4em; 
   text-align: center; 
 }
 
+.placeholder {
+  display: none;
+}
+
 .description {
-  font-family: "Exo", sans-serif; 
   text-align: left; 
   font-size: 20px; 
   margin: 5px;  
@@ -98,40 +101,109 @@ p {
 
 .submit-btn {
   cursor: pointer;
-  font-family: "Exo", sans-serif; 
 }
 
 strong {
   color: black; 
 }
 
+.funFact a {
+  text-decoration: none;
+  left: 0;
+  color: black;
+}
+
 .funFact {
-  text-decoration: none; 
+  font-size: 1.1em;
+  max-width: 90%;
+  padding-left: 1em;
 }
 
 .welcome {
-  font-family: "Exo", sans-serif;
   position: relative;
-  bottom: 3em; 
+  top: 3em; 
+  margin: 2%;
+}
+
+#signup-guest {
+  padding-top: 1.5em;
+  margin: 0 2%;
 }
 
 /*////////// Layouts ///////////*/
+
+#temp-disable:hover > #hover-content {
+  display: block;
+  background-color: grey;
+}
+
+#hover-content {
+  display: none;
+}
 
 .home {
   padding: 0;
   margin: 0; 
 }
 
-/*////////// BACKGROUNDS //////////*/
-.home-img {
-    background-image: url("http://i.imgur.com/Q7Hf336.jpg");
+.footer-wrapper {
+  position: fixed;
+  bottom: 0; 
+  width: 100%;
 }
+
+.main-layout {
+  padding-bottom: 3.75em;
+}
+
+.col-1 {
+  float: left;
+  width: 48%;
+}
+
+[class*="col-"] {
+  margin-left: 2%;
+
+}
+
+.info-card-1, .sign-up {
+  box-shadow:  0 4px 8px 0 #ccc, 0 6px 20px 0 #ccc;
+  margin: 2%;
+}
+
+#for-all, #choose-path {
+  text-align: left; 
+}
+
+.sign-up {
+  background-color: lighten(#BF3028, 40%); 
+  text-align: center;
+  min-height: 32em;
+}
+
+.sign-up input {
+  width: 22em;
+  border: 2px solid darken(#ccc, 20%);
+  border-left: none;
+  border-top: none;
+  border-right: none; 
+  padding: 2px 0;
+  font-size: 1.25em;
+  background-color: transparent;
+  box-shadow: none;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  text-align: center;
+  border-radius: 0;
+}
+
+/*////////// BACKGROUNDS //////////*/
 
 .header-img {
   height: 32em;
   background-size: cover;
   position: relative;
-  bottom: 4.6em;
+  top: 3.3em;
 }
 
 .light-fade {
@@ -151,8 +223,20 @@ strong {
 	/* W3C */
 }
 
+.home-img {
+    background-image: url("http://i.imgur.com/sVfxcFu.jpg");
+}
+
 .ryu-punch {
-  background-image: url("http://i.imgur.com/lnZpsTe.jpg");
+  background-image: url("http://i.imgur.com/lnZpsTe.jpg?1");
+}
+
+.aCreed {
+  background-image: url("http://i.imgur.com/gURoEL7.jpg");
+}
+
+.nioh {
+  background-image: url("http://i.imgur.com/KnlLxMy.jpg");
 }
 
 /*/////// MEDIA ////////*/
@@ -178,7 +262,12 @@ img {
   max-width: 100%; /* FF, Safari, Chrome */
 }
 
-img:hover {
+.youtube-media-row img {
+  max-width: 12.25em;
+  max-height: 9.18em;
+}
+
+.media-object:hover {
   filter: grayscale(100%) blur(2px);
   cursor: pointer;
 }
@@ -201,13 +290,27 @@ td {
   margin-right: 8px;
 }
 
-.youtube-media-row p {
+.youtube-media-row p, .twitch-media p {
   font-size: .9em;
 }
 
 .list-group-item {
   border: 1px solid #d3d3d3;
   box-shadow: 0 2px 2px #ccc;
+  max-width: 12.5em;
+  max-height: 12.35em;
+}
+
+#app-logo {
+  position: relative;
+  bottom: 4em;
+}
+
+#kodama {
+  height: 15em;
+  width: 17em;
+  position: relative;
+  left: 3em;
 }
 
 /*////////// FIXES //////////*/
@@ -218,11 +321,20 @@ td {
   box-sizing: border-box;
 }
 
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
+}
+
 /*/////// SOCIAL ////////*/
 
 #social {
-  position: relative;
-  left: 5.8em;
+  position: relative; 
+  text-align: center; 
 }
 
 #social a {
@@ -233,7 +345,7 @@ td {
 }
 
 #social a:hover {
-  color: #00FFA7;
+  color: #7F201B;
 }
 
 /*////////// NAVBAR //////////*/
@@ -259,7 +371,6 @@ td {
   text-align: center;
   border-right: 1px solid #ccc;
   text-decoration: none;
-  font-family: "Exo", sans-serif;
 }
 
 .navbar nav a:hover {
@@ -274,60 +385,15 @@ td {
 }
 
 /*///////// @media queries ////////*/
-@media only screen and (max-width: 1108px) {
-
-  #social {
-    position: absolute;
-    top: 82px;
-    right: 8%;
-    width: auto;
+@media only screen and (min-width: 960px) {
+  #app {
+    max-width: 60em;
+    width: 100%;
+    margin: 0 auto;
   }
 
-  #social a {
-    display: inline-block;
-  }
-
-  #devAddress {
-    width: 75%; 
-    position: relative; 
-    left: 38%;
-  }
-
-  .nav-container { 
-    text-align: left;  
-  }
-
-  .table-wrapper table {
-    position: relative; 
-    top: 45%;
-    left: 8%;
-  }
-
-   .embed {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
-    padding-top: 25px;
-    height: 0;
-    margin-bottom: 15px; 
-  }
-
-  #twitch-steams {
-    left: 9%;
-  }
-
-  iframe {
-    height: 550px;
-  }
-
-  .funFact p {
-    text-align: left; 
-    font-size: 20px; 
-  }
-}
-
-@media only screen and (max-width 1080px) {
-  .details p {
-    padding-top: 150px;  
+  .nav-container, .footer-wrapper {
+    max-width: 60em;
   }
 }
 
@@ -443,7 +509,6 @@ td {
 
   input[type=text] {
     width: 70%; 
-    font-family: "Exo", sans-serif;
     height: 100%;
   }
 

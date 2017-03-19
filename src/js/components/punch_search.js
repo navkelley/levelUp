@@ -21,10 +21,9 @@ export default class PunchSearch extends Component {
   render() {
     return (
       <section className="dragon-punch">
-        <header className="ryu-punch header-img">
-          <h1 className="logo">Chosen Path: Dragon Punch!</h1>
-          <SearchBar />
-        </header>
+        <header className="ryu-punch header-img"></header>
+        <h1 className="logo">Chosen Path: Dragon Punch!</h1>
+        <SearchBar />
         <TwitchVideoDetail stream={this.state.selectedStream} />
         <YouTubeVideoDetail video={this.state.selectedVideo} />
         <DragonPunchList 

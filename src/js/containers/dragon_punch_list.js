@@ -6,17 +6,9 @@ import TwitchVideoListItem from '../components/twitch/twitch_video_list_item';
 
 //map out videos to create list
 class DragonPunchList extends Component {
-	
-	hideTitle = () => {
-		if (this.props.videos && this.props.streams === []) {
-			console.log("this works");
-		}
-	}
-
 	render() {
 		return (
 			<div className="table-wrapper">
-			{this.hideTitle()}
 				<table>
 					<tbody>
 						<tr>

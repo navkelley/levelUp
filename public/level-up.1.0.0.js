@@ -19071,21 +19071,9 @@ var DragonPunchList = function (_Component) {
 	_inherits(DragonPunchList, _Component);
 
 	function DragonPunchList() {
-		var _ref;
-
-		var _temp, _this, _ret;
-
 		_classCallCheck(this, DragonPunchList);
 
-		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-			args[_key] = arguments[_key];
-		}
-
-		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = DragonPunchList.__proto__ || Object.getPrototypeOf(DragonPunchList)).call.apply(_ref, [this].concat(args))), _this), _this.hideTitle = function () {
-			if (_this.props.videos && _this.props.streams === []) {
-				console.log("this works");
-			}
-		}, _temp), _possibleConstructorReturn(_this, _ret);
+		return _possibleConstructorReturn(this, (DragonPunchList.__proto__ || Object.getPrototypeOf(DragonPunchList)).apply(this, arguments));
 	}
 
 	_createClass(DragonPunchList, [{
@@ -19096,7 +19084,6 @@ var DragonPunchList = function (_Component) {
 			return _react2.default.createElement(
 				'div',
 				{ className: 'table-wrapper' },
-				this.hideTitle(),
 				_react2.default.createElement(
 					'table',
 					null,
@@ -19142,9 +19129,9 @@ var DragonPunchList = function (_Component) {
 	return DragonPunchList;
 }(_react.Component);
 
-function mapStateToProps(_ref2) {
-	var videos = _ref2.videos,
-	    streams = _ref2.streams;
+function mapStateToProps(_ref) {
+	var videos = _ref.videos,
+	    streams = _ref.streams;
 
 	//when have key:value that are ident can reduce to just one
 	return { videos: videos, streams: streams };

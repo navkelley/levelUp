@@ -27,11 +27,8 @@ address {
   line-height: 1.5em;
   font-family: "Exo", sans-serif;
   margin-bottom: .5em;
-}
-#devAddress {
-  width: 25%;
-  position: relative;
-  left: 550px;
+  width: 35%;
+  margin: 0 auto;
 }
 th,
 td {
@@ -184,7 +181,7 @@ td {
 /*/////// SOCIAL ////////*/
 #social {
   position: relative;
-  left: 5.8em;
+  text-align: center;
 }
 #social a {
   display: inline;
@@ -235,53 +232,6 @@ td {
   /* W3C */
 }
 /*///////// @media queries ////////*/
-@media only screen and (max-width: 1108px) {
-  #social {
-    position: absolute;
-    top: 82px;
-    right: 8%;
-    width: auto;
-  }
-  #social a {
-    display: inline-block;
-  }
-  #devAddress {
-    width: 75%;
-    position: relative;
-    left: 38%;
-  }
-  .nav-container {
-    text-align: left;
-  }
-  .table-wrapper table {
-    position: relative;
-    top: 45%;
-    left: 8%;
-  }
-  .embed {
-    position: relative;
-    padding-bottom: 56.25%;
-    /* 16:9 */
-    padding-top: 25px;
-    height: 0;
-    margin-bottom: 15px;
-  }
-  #twitch-steams {
-    left: 9%;
-  }
-  iframe {
-    height: 550px;
-  }
-  .funFact p {
-    text-align: left;
-    font-size: 20px;
-  }
-}
-@media only screen and (max-width 1080px) {
-  .details p {
-    padding-top: 150px;
-  }
-}
 @media only screen and (max-width: 880px) {
   .details {
     visibility: hidden;

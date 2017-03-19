@@ -9,11 +9,13 @@ const Home = () => {
         </span>
       </header>
       <div className="welcome">
-        <p>Designed for all levels of gamers.</p>
-        <p>Search for any game.</p>
-        <p>Learn, strategize and find those Komadas! Or preview your next game.</p>
-        <p>Choose your course, search just YouTube,
-          just Twitch, or by Dragon Punch! (Twitch & YouTube), select a video to play.</p>
+        <p id="for-all">Designed for all levels of gamers.</p>
+        <p id="game-search">Search for any game.</p>
+        <p id="learn-preview">Learn, strategize and find those Kodama's! Or preview your next game.</p>
+        <p id="choose-path">Choose your path, search just YouTube,
+          just Twitch, or by Dragon Punch! (Twitch & YouTube).</p>
+          <p id="signup-guest">Sign up to save your favorite videos or streamer channel to watch at a later time
+          or browse now as a guest!</p>
       </div>
     </section>
   );

@@ -18522,23 +18522,28 @@ var Home = function Home() {
       { className: "welcome" },
       _react2.default.createElement(
         "p",
-        null,
+        { id: "for-all" },
         "Designed for all levels of gamers."
       ),
       _react2.default.createElement(
         "p",
-        null,
+        { id: "game-search" },
         "Search for any game."
       ),
       _react2.default.createElement(
         "p",
-        null,
-        "Learn, strategize and find those Komadas! Or preview your next game."
+        { id: "learn-preview" },
+        "Learn, strategize and find those Kodama's! Or preview your next game."
       ),
       _react2.default.createElement(
         "p",
-        null,
-        "Choose your course, search just YouTube, just Twitch, or by Dragon Punch! (Twitch & YouTube), select a video to play."
+        { id: "choose-path" },
+        "Choose your path, search just YouTube, just Twitch, or by Dragon Punch! (Twitch & YouTube)."
+      ),
+      _react2.default.createElement(
+        "p",
+        { id: "signup-guest" },
+        "Sign up to save your favorite videos or streamer channel to watch at a later time or browse now as a guest!"
       )
     )
   );
@@ -18567,9 +18572,8 @@ var _nav_bar2 = _interopRequireDefault(_nav_bar);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
-  * main-layout will hold navbar, social links, and address 
-  **/
+//main-layout will hold navbar, social links, and address 
+
 var MainLayout = function MainLayout(props) {
   return _react2.default.createElement(
     'div',
@@ -18582,31 +18586,35 @@ var MainLayout = function MainLayout(props) {
     ),
     _react2.default.createElement(
       'div',
-      { id: 'devAddress' },
+      { className: 'footer-wrapper light-fade' },
       _react2.default.createElement(
-        'address',
+        'footer',
         null,
-        _react2.default.createElement('i', { className: 'fa fa-gamepad', 'aria-hidden': 'true' }),
-        ' Designed and built by Nicole V. Kelley ',
-        _react2.default.createElement('i', { className: 'fa fa-gamepad', 'aria-hidden': 'true' })
-      ),
-      _react2.default.createElement(
-        'div',
-        { id: 'social' },
         _react2.default.createElement(
-          'a',
-          { href: 'https://twitter.com/navkelley', target: 'blank', className: 'twit', title: 'Twitter' },
-          _react2.default.createElement('i', { className: 'fa fa-twitter fa-2x', 'aria-hidden': 'true' })
+          'address',
+          { className: 'devAddress' },
+          _react2.default.createElement('i', { className: 'fa fa-gamepad', 'aria-hidden': 'true' }),
+          ' Designed and built by Nicole V. Kelley ',
+          _react2.default.createElement('i', { className: 'fa fa-gamepad', 'aria-hidden': 'true' })
         ),
         _react2.default.createElement(
-          'a',
-          { href: 'www.linkedin.com/in/nicolevkelley', target: 'blank', className: 'linkedIn', title: 'LinkedIn' },
-          _react2.default.createElement('i', { className: 'fa fa-linkedin-square fa-2x', 'aria-hidden': 'true' })
-        ),
-        _react2.default.createElement(
-          'a',
-          { href: 'https://github.com/navkelley', target: 'blank', className: 'github', title: 'GitHub' },
-          _react2.default.createElement('i', { className: 'fa fa-github fa-2x', 'aria-hidden': 'true' })
+          'div',
+          { id: 'social' },
+          _react2.default.createElement(
+            'a',
+            { href: 'https://twitter.com/navkelley', target: 'blank', className: 'twit', title: 'Twitter' },
+            _react2.default.createElement('i', { className: 'fa fa-twitter fa-2x', 'aria-hidden': 'true' })
+          ),
+          _react2.default.createElement(
+            'a',
+            { href: 'https://www.linkedin.com/in/nicolevkelley', target: 'blank', className: 'linkedIn', title: 'LinkedIn' },
+            _react2.default.createElement('i', { className: 'fa fa-linkedin-square fa-2x', 'aria-hidden': 'true' })
+          ),
+          _react2.default.createElement(
+            'a',
+            { href: 'https://github.com/navkelley', target: 'blank', className: 'github', title: 'GitHub' },
+            _react2.default.createElement('i', { className: 'fa fa-github fa-2x', 'aria-hidden': 'true' })
+          )
         )
       )
     )

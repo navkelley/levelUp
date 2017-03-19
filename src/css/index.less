@@ -52,7 +52,7 @@ input[type="text"] {
 }
 
 button {
-  font-size: 16px; 
+  font-size: 1em; 
   color: white;
   border-radius: 5px; 
   margin-top: 7px; 
@@ -116,7 +116,8 @@ strong {
 
 .welcome {
   position: relative;
-  bottom: 3em; 
+  top: 3em; 
+  margin: 2%;
 }
 
 /*////////// Layouts ///////////*/
@@ -136,11 +137,17 @@ strong {
   padding-bottom: 3.75em;
 }
 
-/*////////// BACKGROUNDS //////////*/
-
-.home-img {
-    background-image: linear-gradient(to right, #7F201B 0%, #BF3028 51%, #7F201B 100%);
+.col-1 {
+  float: left;
+  width: 48%;
 }
+
+[class*="col-"] {
+  margin-left: 2%;
+
+}
+
+/*////////// BACKGROUNDS //////////*/
 
 .header-img {
   height: 32em;
@@ -164,6 +171,10 @@ strong {
 	/* IE10+ */
 	background: linear-gradient(to bottom, #efefef 0%, #ffffff 24%, #ffffff 68%, #dddddd 100%);
 	/* W3C */
+}
+
+.home-img {
+    background-image: url("http://i.imgur.com/sVfxcFu.jpg");
 }
 
 .ryu-punch {
@@ -240,10 +251,10 @@ td {
   max-height: 12.35em;
 }
 
-#app-logo:hover {
-  /*disable hover on logo*/
-  opacity: 1.0;
-  box-shadow: none;
+#app-logo {
+  position: relative;
+  left: 9.35em;
+  max-width: 75%;
 }
 
 /*////////// FIXES //////////*/

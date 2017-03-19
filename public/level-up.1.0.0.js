@@ -18533,34 +18533,29 @@ var Home = function Home() {
     _react2.default.createElement(
       "header",
       { className: "home-img header-img" },
-      _react2.default.createElement("img", { id: "app-logo", src: 'http://i.imgur.com/jspyWnl.png', alt: "Level Up Logo" })
+      _react2.default.createElement("img", { id: "app-logo", src: 'http://i.imgur.com/jspyWnl.png?1', alt: "Level Up Logo" })
     ),
     _react2.default.createElement(
       "div",
       { className: "welcome" },
       _react2.default.createElement(
         "p",
-        { id: "for-all" },
+        { id: "for-all", className: "col-1" },
         "Designed for all levels of gamers."
       ),
       _react2.default.createElement(
         "p",
-        { id: "game-search" },
-        "Search for any game."
-      ),
-      _react2.default.createElement(
-        "p",
-        { id: "learn-preview" },
+        { id: "learn-preview", className: "col-1" },
         "Learn, strategize and find those Kodama's! Or preview your next game."
       ),
       _react2.default.createElement(
         "p",
-        { id: "choose-path" },
-        "Choose your path, search just YouTube, just Twitch, or by Dragon Punch! (Twitch & YouTube)."
+        { id: "choose-path", className: "col-1" },
+        "Choose your path, search just YouTube, just Twitch, or by Dragon Punch! (both)."
       ),
       _react2.default.createElement(
         "p",
-        { id: "signup-guest" },
+        { id: "signup-guest", className: "col-1" },
         "Sign up to save your favorite videos or streamer channel to watch at a later time or browse now as a guest!"
       )
     )

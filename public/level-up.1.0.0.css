@@ -11,16 +11,15 @@ body {
 }
 .logo {
   text-align: center;
-  font-size: 8em;
+  font-size: 4em;
   width: 100%;
-  color: #00FFA7;
+  margin-bottom: .3em;
 }
 li {
   margin-left: 20px;
 }
 h3 {
-  font-size: 30px;
-  text-shadow: 1px 1px #00FFA7;
+  font-size: 2em;
 }
 address {
   font-size: 16px;
@@ -66,7 +65,7 @@ button:hover {
   text-align: center;
 }
 p {
-  font-size: 30px;
+  font-size: 2em;
   text-align: center;
 }
 .description {
@@ -111,7 +110,7 @@ strong {
   height: 32em;
   background-size: cover;
   position: relative;
-  bottom: 4.6em;
+  top: 3.3em;
 }
 .light-fade {
   background: #efefef;
@@ -130,7 +129,7 @@ strong {
   /* W3C */
 }
 .ryu-punch {
-  background-image: url("http://i.imgur.com/lnZpsTe.jpg");
+  background-image: url("http://i.imgur.com/lnZpsTe.jpg?1");
 }
 /*/////// MEDIA ////////*/
 iframe {
@@ -241,6 +240,17 @@ td {
   /* W3C */
 }
 /*///////// @media queries ////////*/
+@media only screen and (min-width: 960px) {
+  #app {
+    max-width: 60em;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .nav-container,
+  .footer-wrapper {
+    max-width: 60em;
+  }
+}
 @media only screen and (max-width: 880px) {
   .details {
     visibility: hidden;

@@ -11347,7 +11347,7 @@ var TwitchVideoDetail = function TwitchVideoDetail(_ref) {
     return _react2.default.createElement(
       "p",
       { className: "funFact" },
-      "Fun Fact: The highest grossing game of all time is actually World of WarCraft bringing in whopping ten billion dollars over its lifetime. -Courtesy of",
+      "Fun Fact: The highest grossing game of all time is actually World of WarCraft bringing in whopping ten billion dollars over its lifetime. -",
       _react2.default.createElement(
         "a",
         { className: "funFact", target: "blank", href: "https://www.technotification.com/2015/01/15-interesting-video-game-facts.html" },
@@ -11433,11 +11433,11 @@ var YouTubeVideoDetail = function YouTubeVideoDetail(_ref) {
     return _react2.default.createElement(
       "p",
       { className: "funFact" },
-      "Fun Fact: Pac-Man was invented by the designer Toru Iwatani while he was eating pizza. -Courtesy of",
+      "Fun Fact: Pac-Man was invented by the designer Toru Iwatani while he was eating pizza. -",
       _react2.default.createElement(
         "a",
         { className: "funFact", target: "blank", href: "https://www.technotification.com/2015/01/15-interesting-video-game-facts.html" },
-        " Technotification"
+        "Technotification"
       )
     );
   }
@@ -18843,16 +18843,13 @@ var PunchSearch = function (_Component) {
       return _react2.default.createElement(
         'section',
         { className: 'dragon-punch' },
+        _react2.default.createElement('header', { className: 'ryu-punch header-img' }),
         _react2.default.createElement(
-          'header',
-          { className: 'ryu-punch header-img' },
-          _react2.default.createElement(
-            'h1',
-            { className: 'logo' },
-            'Chosen Path: Dragon Punch!'
-          ),
-          _react2.default.createElement(_search_bar2.default, null)
+          'h1',
+          { className: 'logo' },
+          'Chosen Path: Dragon Punch!'
         ),
+        _react2.default.createElement(_search_bar2.default, null),
         _react2.default.createElement(_twitch_video_detail2.default, { stream: this.state.selectedStream }),
         _react2.default.createElement(_youtube_video_detail2.default, { video: this.state.selectedVideo }),
         _react2.default.createElement(_dragon_punch_list2.default, {

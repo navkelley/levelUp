@@ -4,9 +4,7 @@ const Home = () => {
   return (
     <section className="home">
       <header className="home-img header-img">
-        <span className="logo-container">
-          <h1 className="logo">Level Up</h1>
-        </span>
+        
       </header>
       <div className="welcome">
         <p id="for-all">Designed for all levels of gamers.</p>

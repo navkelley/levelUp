@@ -18530,19 +18530,7 @@ var Home = function Home() {
   return _react2.default.createElement(
     "section",
     { className: "home" },
-    _react2.default.createElement(
-      "header",
-      { className: "home-img header-img" },
-      _react2.default.createElement(
-        "span",
-        { className: "logo-container" },
-        _react2.default.createElement(
-          "h1",
-          { className: "logo" },
-          "Level Up"
-        )
-      )
-    ),
+    _react2.default.createElement("header", { className: "home-img header-img" }),
     _react2.default.createElement(
       "div",
       { className: "welcome" },

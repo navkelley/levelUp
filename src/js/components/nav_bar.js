@@ -53,7 +53,7 @@ export default class NavContainer extends Component {
   }
 //render mobile nav if window size certain width
   renderNavigation() {
-    if (this.state.windowWidth <= 900) {
+    if (this.state.windowWidth <= 770) {
       return (
         <div className="mobile-nav">
           <p className="mobile-bars" onClick={this.handleNavClick.bind(this)}>

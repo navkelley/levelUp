@@ -18768,7 +18768,7 @@ var NavContainer = function (_Component) {
   }, {
     key: 'renderNavigation',
     value: function renderNavigation() {
-      if (this.state.windowWidth <= 900) {
+      if (this.state.windowWidth <= 770) {
         return _react2.default.createElement(
           'div',
           { className: 'mobile-nav' },

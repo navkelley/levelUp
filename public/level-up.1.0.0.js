@@ -18545,7 +18545,7 @@ var Home = function Home() {
     _react2.default.createElement(
       'header',
       { className: 'home-img header-img' },
-      _react2.default.createElement('img', { id: 'app-logo', src: 'http://i.imgur.com/jspyWnl.png?1', alt: 'Level Up Logo' })
+      _react2.default.createElement('img', { id: 'app-logo', src: 'http://i.imgur.com/jspyWnl.png?2', alt: 'Level Up Logo' })
     ),
     _react2.default.createElement(
       'div',

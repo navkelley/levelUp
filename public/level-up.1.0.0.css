@@ -169,9 +169,10 @@ strong {
 /*////////// BACKGROUNDS //////////*/
 .header-img {
   height: 32em;
-  background-size: cover;
+  background-size: 100%;
   position: relative;
   top: 3.3em;
+  background-repeat: no-repeat;
 }
 .light-fade {
   background: #efefef;
@@ -259,7 +260,9 @@ td {
 }
 #app-logo {
   position: relative;
-  bottom: 4em;
+  top: 6em;
+  left: 5.5em;
+  max-width: 85%;
 }
 #kodama {
   height: 15em;
@@ -343,6 +346,16 @@ td {
   .nav-container,
   .footer-wrapper {
     max-width: 60em;
+  }
+}
+@media only screen and (max-width: 896px) {
+  max-width: 100%
+  width: auto;
+}
+@media only screen and (max-width: 830px) {
+  #app-logo {
+    bottom: 2.5em;
+    left: .5em;
   }
 }
 /*# sourceMappingURL=level-up.1.0.0.css.map */

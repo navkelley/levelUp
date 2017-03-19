@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <section className="home">
       <header className="home-img header-img">
-        <img id="app-logo" src={'http://i.imgur.com/jspyWnl.png?1'} alt="Level Up Logo" />
+        <img id="app-logo" src={'http://i.imgur.com/jspyWnl.png?2'} alt="Level Up Logo" />
       </header>
       <div className="welcome">
         <div className="info-card-1 clearfix">

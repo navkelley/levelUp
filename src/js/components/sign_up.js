@@ -5,23 +5,23 @@ export default class SignUp extends Component {
     return (
       <form id="sign-up">
         <div className="sign-up-group">
-          <label for="username">Username</label>
-          <input type="text" placeholder="nicolek234" id="username" />
+          <label for="username" />
+          <input type="text" placeholder="Username" id="username" />
         </div>
         <div className="sign-up-group">
-          <label for="email">Email</label>
-          <input type="email" placeholder="bobtest@levelup.com" id="userEmail" />
+          <label for="email" />
+          <input type="email" placeholder="Email Address" id="userEmail" />
         </div>
         <div className="sign-up-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" />
+          <label for="password" />
+          <input type="password" id="password" placeholder="Password" />
         </div>
         <div className="sign-up-group">
-          <label for="verifyPassword">Verify Password</label>
-          <input type="password" id="verifyPassword" />
+          <label for="verifyPassword" />
+          <input type="password" id="verifyPassword" placeholder="Verify Password" />
         </div>
         <div className="sign-up-group">
-          <button type="submit" id="submitSignup">Sign Up</button>
+          <button type="submit" id="submit-Signup">Sign Up</button>
         </div>
       </form>
     );

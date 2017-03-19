@@ -131,6 +131,23 @@ strong {
 }
 .sign-up {
   background-color: #f2c4c1;
+  text-align: center;
+  min-height: 32em;
+}
+.sign-up input {
+  width: 22em;
+  border: 2px solid #999999;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  padding: 2px 0;
+  font-size: 1.25em;
+  background-color: transparent;
+  box-shadow: none;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  text-align: center;
+  border-radius: 0;
 }
 /*////////// BACKGROUNDS //////////*/
 .header-img {

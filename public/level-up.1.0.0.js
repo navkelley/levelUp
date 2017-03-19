@@ -39293,49 +39293,33 @@ var SignUp = function (_Component) {
         _react2.default.createElement(
           "div",
           { className: "sign-up-group" },
-          _react2.default.createElement(
-            "label",
-            { "for": "username" },
-            "Username"
-          ),
-          _react2.default.createElement("input", { type: "text", placeholder: "nicolek234", id: "username" })
+          _react2.default.createElement("label", { "for": "username" }),
+          _react2.default.createElement("input", { type: "text", placeholder: "Username", id: "username" })
         ),
         _react2.default.createElement(
           "div",
           { className: "sign-up-group" },
-          _react2.default.createElement(
-            "label",
-            { "for": "email" },
-            "Email"
-          ),
-          _react2.default.createElement("input", { type: "email", placeholder: "bobtest@levelup.com", id: "userEmail" })
+          _react2.default.createElement("label", { "for": "email" }),
+          _react2.default.createElement("input", { type: "email", placeholder: "Email Address", id: "userEmail" })
         ),
         _react2.default.createElement(
           "div",
           { className: "sign-up-group" },
-          _react2.default.createElement(
-            "label",
-            { "for": "password" },
-            "Password"
-          ),
-          _react2.default.createElement("input", { type: "password", id: "password" })
+          _react2.default.createElement("label", { "for": "password" }),
+          _react2.default.createElement("input", { type: "password", id: "password", placeholder: "Password" })
         ),
         _react2.default.createElement(
           "div",
           { className: "sign-up-group" },
-          _react2.default.createElement(
-            "label",
-            { "for": "verifyPassword" },
-            "Verify Password"
-          ),
-          _react2.default.createElement("input", { type: "password", id: "verifyPassword" })
+          _react2.default.createElement("label", { "for": "verifyPassword" }),
+          _react2.default.createElement("input", { type: "password", id: "verifyPassword", placeholder: "Verify Password" })
         ),
         _react2.default.createElement(
           "div",
           { className: "sign-up-group" },
           _react2.default.createElement(
             "button",
-            { type: "submit", id: "submitSignup" },
+            { type: "submit", id: "submit-Signup" },
             "Sign Up"
           )
         )

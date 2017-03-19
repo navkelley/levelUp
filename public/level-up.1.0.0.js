@@ -18563,7 +18563,12 @@ var Home = function Home() {
       ),
       _react2.default.createElement(
         'div',
-        { className: 'sign-up' },
+        { className: 'sign-up', id: 'temp-disable' },
+        _react2.default.createElement(
+          'div',
+          { id: 'hover-content' },
+          'Coming Soon...'
+        ),
         _react2.default.createElement(
           'p',
           { id: 'signup-guest' },

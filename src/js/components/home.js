@@ -18,7 +18,8 @@ const Home = () => {
             </div>
           <img id="kodama" className="col-1" src={'http://i.imgur.com/6V5PqZ1.png'} alt="Nioh Game Kodama" />
         </div>
-        <div className="sign-up">
+        <div className="sign-up" id="temp-disable">
+          <div id="hover-content">Coming Soon...</div>
           <p id="signup-guest">Sign up to save your favorite videos or streamer channel to watch at a later time
             or browse now as a guest!</p>
           <SignUp />

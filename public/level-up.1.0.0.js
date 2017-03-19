@@ -39319,7 +39319,7 @@ var SignUp = function (_Component) {
           { className: "sign-up-group" },
           _react2.default.createElement(
             "button",
-            { type: "submit", id: "submit-Signup" },
+            { type: "submit", id: "signup-btn" },
             "Sign Up"
           )
         )

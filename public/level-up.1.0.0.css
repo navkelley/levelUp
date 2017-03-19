@@ -63,6 +63,10 @@ button:hover {
   text-shadow: -1px -1px 0 #ff1206;
   transition: all 250ms linear;
 }
+#signup-btn {
+  width: 22em;
+  font-size: 1.25em;
+}
 .search-bar {
   text-align: center;
 }
@@ -99,6 +103,10 @@ strong {
   position: relative;
   top: 3em;
   margin: 2%;
+}
+#signup-guest {
+  padding-top: 1.5em;
+  margin: 0 2%;
 }
 /*////////// Layouts ///////////*/
 .home {

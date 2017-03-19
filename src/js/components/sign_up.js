@@ -21,7 +21,7 @@ export default class SignUp extends Component {
           <input type="password" id="verifyPassword" placeholder="Verify Password" />
         </div>
         <div className="sign-up-group">
-          <button type="submit" id="submit-Signup">Sign Up</button>
+          <button type="submit" id="signup-btn">Sign Up</button>
         </div>
       </form>
     );

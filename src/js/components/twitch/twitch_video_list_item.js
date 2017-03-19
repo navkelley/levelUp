@@ -1,10 +1,10 @@
 import React from 'react';
 
 const truncateText = (text) => {
-	if (text.length < 15) {
+	if (text.length < 12) {
 		return text; 
 	}
-	return text.substring(0, 15) + '...';
+	return text.substring(0, 12) + '...';
 };
 
 //set props as stream: stream, and onStreamSelect: onStreamSelect --shorthand is below

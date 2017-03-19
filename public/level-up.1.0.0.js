@@ -11387,10 +11387,10 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var truncateText = function truncateText(text) {
-  if (text.length < 15) {
+  if (text.length < 12) {
     return text;
   }
-  return text.substring(0, 15) + '...';
+  return text.substring(0, 12) + '...';
 };
 
 //set props as stream: stream, and onStreamSelect: onStreamSelect --shorthand is below
@@ -18953,8 +18953,9 @@ var TwitchSearch = function (_Component) {
       var _this2 = this;
 
       return _react2.default.createElement(
-        'div',
+        'section',
         { className: 'twitch' },
+        _react2.default.createElement('header', { className: 'nioh header-img' }),
         _react2.default.createElement(
           'h1',
           { className: 'logo' },

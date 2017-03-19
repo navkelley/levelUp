@@ -6,13 +6,21 @@ import TwitchVideoListItem from '../components/twitch/twitch_video_list_item';
 
 //map out videos to create list
 class DragonPunchList extends Component {
+	
+	hideTitle = () => {
+		if (this.props.videos && this.props.streams === []) {
+			console.log("this works");
+		}
+	}
+
 	render() {
 		return (
 			<div className="table-wrapper">
+			{this.hideTitle()}
 				<table>
 					<tbody>
 						<tr>
-							<h3>YouTube</h3>
+							<h3 className="table-title">YouTube</h3>
 							{this.props.videos.map((video) => {
 								return (
 									<YouTubeVideoListItem
@@ -23,7 +31,7 @@ class DragonPunchList extends Component {
 							})}
 						</tr>
 						<tr>
-							<h3>Twitch</h3>
+							<h3 className="table-title">Twitch</h3>
 							{this.props.streams.map((stream) => {
 								return (
 									<TwitchVideoListItem

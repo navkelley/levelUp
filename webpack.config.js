@@ -46,6 +46,5 @@ module.exports = {
 			NODE_ENV: JSON.stringify('production')
 			}
 		}),
-		//new ExtractTextPlugin('app.css')
 	]
 };

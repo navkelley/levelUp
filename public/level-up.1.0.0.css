@@ -51,15 +51,24 @@ input[type="text"] {
 }
 button {
   font-size: 16px;
+  color: white;
   border-radius: 5px;
   margin-top: 7px;
-  background-color: #FF4036;
-  border: 1px solid #FF4036;
+  background-color: #ff4f45;
+  border: 1px solid #ff2d22;
   padding: 6px;
+  box-shadow: 0 2px 0 #ff281c, 2px 4px 6px #ff362c;
+  font-weight: 900;
+  letter-spacing: 1px;
 }
 button:hover {
-  background-color: #00FFA7;
-  border: 1px solid #00FFA7;
+  background: #ff392e;
+  border: 1px solid #FF4036;
+  box-shadow: 1px 1px 2px #FF4036;
+  color: #ff9792;
+  text-decoration: none;
+  text-shadow: -1px -1px 0 #ff1206;
+  transition: all 250ms linear;
 }
 .search-bar {
   text-align: center;

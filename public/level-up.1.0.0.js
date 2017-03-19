@@ -17578,7 +17578,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var ISPROD = "production" === 'production';
 
 //tool for redux dev
-var ENHANCERS = (0, _redux.compose)((0, _redux.applyMiddleware)(_reduxPromise2.default, _reduxThunk2.default), !ISPROD && window.devToolsExtension ? window.devToolsExtension() : function (f) {
+var ENHANCERS = (0, _redux.compose)((0, _redux.applyMiddleware)(_reduxPromise2.default, _reduxThunk2.default), /*!ISPROD &&*/window.devToolsExtension ? window.devToolsExtension() : function (f) {
   return f;
 });
 
@@ -19071,9 +19071,21 @@ var DragonPunchList = function (_Component) {
 	_inherits(DragonPunchList, _Component);
 
 	function DragonPunchList() {
+		var _ref;
+
+		var _temp, _this, _ret;
+
 		_classCallCheck(this, DragonPunchList);
 
-		return _possibleConstructorReturn(this, (DragonPunchList.__proto__ || Object.getPrototypeOf(DragonPunchList)).apply(this, arguments));
+		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+			args[_key] = arguments[_key];
+		}
+
+		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = DragonPunchList.__proto__ || Object.getPrototypeOf(DragonPunchList)).call.apply(_ref, [this].concat(args))), _this), _this.hideTitle = function () {
+			if (_this.props.videos && _this.props.streams === []) {
+				console.log("this works");
+			}
+		}, _temp), _possibleConstructorReturn(_this, _ret);
 	}
 
 	_createClass(DragonPunchList, [{
@@ -19084,6 +19096,7 @@ var DragonPunchList = function (_Component) {
 			return _react2.default.createElement(
 				'div',
 				{ className: 'table-wrapper' },
+				this.hideTitle(),
 				_react2.default.createElement(
 					'table',
 					null,
@@ -19095,7 +19108,7 @@ var DragonPunchList = function (_Component) {
 							null,
 							_react2.default.createElement(
 								'h3',
-								null,
+								{ className: 'table-title' },
 								'YouTube'
 							),
 							this.props.videos.map(function (video) {
@@ -19110,7 +19123,7 @@ var DragonPunchList = function (_Component) {
 							null,
 							_react2.default.createElement(
 								'h3',
-								null,
+								{ className: 'table-title' },
 								'Twitch'
 							),
 							this.props.streams.map(function (stream) {
@@ -19129,9 +19142,9 @@ var DragonPunchList = function (_Component) {
 	return DragonPunchList;
 }(_react.Component);
 
-function mapStateToProps(_ref) {
-	var videos = _ref.videos,
-	    streams = _ref.streams;
+function mapStateToProps(_ref2) {
+	var videos = _ref2.videos,
+	    streams = _ref2.streams;
 
 	//when have key:value that are ident can reduce to just one
 	return { videos: videos, streams: streams };

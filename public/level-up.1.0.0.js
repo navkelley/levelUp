@@ -18539,24 +18539,32 @@ var Home = function Home() {
       "div",
       { className: "welcome" },
       _react2.default.createElement(
-        "p",
-        { id: "for-all", className: "col-1" },
-        "Designed for all levels of gamers."
+        "div",
+        { className: "info-card-1 clearfix" },
+        _react2.default.createElement(
+          "div",
+          { className: "col-1 info-text" },
+          _react2.default.createElement(
+            "p",
+            { id: "for-all" },
+            "Designed for all levels of gamers. Learn, strategize and find those Kodama's! Or preview your next game."
+          ),
+          _react2.default.createElement(
+            "p",
+            { id: "choose-path" },
+            "Choose your path: search just YouTube, just Twitch, or by Dragon Punch! (both)."
+          )
+        ),
+        _react2.default.createElement("img", { id: "kodama", className: "col-1", src: 'http://i.imgur.com/6V5PqZ1.png', alt: "Nioh Game Kodama" })
       ),
       _react2.default.createElement(
-        "p",
-        { id: "learn-preview", className: "col-1" },
-        "Learn, strategize and find those Kodama's! Or preview your next game."
-      ),
-      _react2.default.createElement(
-        "p",
-        { id: "choose-path", className: "col-1" },
-        "Choose your path, search just YouTube, just Twitch, or by Dragon Punch! (both)."
-      ),
-      _react2.default.createElement(
-        "p",
-        { id: "signup-guest", className: "col-1" },
-        "Sign up to save your favorite videos or streamer channel to watch at a later time or browse now as a guest!"
+        "div",
+        { className: "sign-up" },
+        _react2.default.createElement(
+          "p",
+          { id: "signup-guest" },
+          "Sign up to save your favorite videos or streamer channel to watch at a later time or browse now as a guest!"
+        )
       )
     )
   );

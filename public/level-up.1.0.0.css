@@ -119,6 +119,18 @@ strong {
 [class*="col-"] {
   margin-left: 2%;
 }
+.info-card-1,
+.sign-up {
+  box-shadow: 0 4px 8px 0 #ccc, 0 6px 20px 0 #ccc;
+  margin: 2%;
+}
+#for-all,
+#choose-path {
+  text-align: left;
+}
+.sign-up {
+  background-color: #f2c4c1;
+}
 /*////////// BACKGROUNDS //////////*/
 .header-img {
   height: 32em;
@@ -212,14 +224,27 @@ td {
 }
 #app-logo {
   position: relative;
-  left: 9.35em;
-  max-width: 75%;
+  bottom: 4em;
+}
+#kodama {
+  height: 15em;
+  width: 17em;
+  position: relative;
+  left: 3em;
 }
 /*////////// FIXES //////////*/
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
 }
 /*/////// SOCIAL ////////*/
 #social {

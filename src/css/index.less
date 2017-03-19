@@ -112,11 +112,13 @@ strong {
   left: 0;
   color: black;
 }
+.funFact p {
+  font-size: 1em;
+}
 
 .funFact {
-  font-size: 1.1em;
-  max-width: 90%;
-  padding-left: 1em;
+  max-width: 80%;
+  margin: 0 9%;
 }
 
 .welcome {
@@ -396,135 +398,4 @@ td {
     max-width: 60em;
   }
 }
-
-@media only screen and (max-width: 880px) {
-  .details {
-    visibility: hidden;
-  }
-}
-
-@media only screen and (max-width: 900px) {
-  body {
-    font-size: 85%;
-  }
-
-  #social {
-    top: 20px; 
-    right: 10px;
-  }
-
- td {
-    width: calc(50% - 4px);
-  }
-
-  td:nth-of-type(2n) {
-    margin-right: 2px;
-  }
-
-  td:nth-of-type(4n) {
-    margin-right: 0;
-  }
-
-  .navbar li {
-    display: block; 
-    width: 90%;
-    border-radius: 0;
-  }
-
-  .mobile-nav {
-    width: 100%;
-  }
-  
-  .mobile-bars {
-    position: relative;
-    left: -45%;  
-    margin-left: 15px;  
-  }
-
-  .navbar {
-    float: left;  
-    width: 100%;
-  }
-
-  .btn {
-    text-align: center;
-    text-transform: uppercase;
-    transition: 0.5s;
-    color: black;
-    border-radius: 10px;
-    background-image: linear-gradient(to right, #CC1453 0%, lightgrey 51%, #CC1453 100%);
-    font-size: 20px; 
-  }
-
-  body {
-    font-size: 85%;
-  }
-  
-  .table-wrapper table {
-    left: 4%; 
-  }
-
-  #devAddress {
-    left: 33%;
-  }
-
-  #twitch-streams {
-    left: 4%; 
-  }
-
-  iframe {
-    height: 450px;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  td {
-    width: calc(100% - 2px);
-  }
-
-  td:nth-of-type(2n) {
-    margin-right: 2px;
-  }
-
-  td:nth-of-type(4n) {
-    margin-right: 0;
-  }
-
-  #devAddress {
-    position: relative; 
-    left: 18%;
-    width: 90%;
-    font-size: 1em; 
-  }
-
-  .table-wrapper table {
-    position: relative;
-    left: 2px; 
-  }
-
-  ul {
-    position: relative; 
-    right: 15px; 
-  }
-
-  input[type=text] {
-    width: 70%; 
-    height: 100%;
-  }
-
-  #twitch-streams {
-    left: -1%; 
-    top: 150px; 
-  }
-
-  iframe {
-    height: 300px;
-  }
-
-  .details {
-    visibility: hidden; 
-  }
-}
-
-
 

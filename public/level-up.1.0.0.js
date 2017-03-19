@@ -18632,9 +18632,7 @@ var MainLayout = function MainLayout(props) {
         _react2.default.createElement(
           'address',
           { className: 'devAddress' },
-          _react2.default.createElement('i', { className: 'fa fa-gamepad', 'aria-hidden': 'true' }),
-          ' Designed and built by Nicole V. Kelley ',
-          _react2.default.createElement('i', { className: 'fa fa-gamepad', 'aria-hidden': 'true' })
+          'Designed and built by Nicole V. Kelley'
         ),
         _react2.default.createElement(
           'div',
@@ -18970,7 +18968,7 @@ var SignUp = function (_Component) {
           "div",
           { className: "sign-up-group" },
           _react2.default.createElement("label", { "for": "verifyPassword" }),
-          _react2.default.createElement("input", { type: "password", id: "verifyPassword", placeholder: "Verify Password" })
+          _react2.default.createElement("input", { type: "password", id: "verifyPassword", placeholder: "Re-type Password" })
         ),
         _react2.default.createElement(
           "div",

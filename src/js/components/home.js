@@ -1,5 +1,7 @@
 import React from 'react';
 
+import SignUp from './sign_up';
+
 const Home = () => {
   return (
     <section className="home">
@@ -19,6 +21,7 @@ const Home = () => {
         <div className="sign-up">
           <p id="signup-guest">Sign up to save your favorite videos or streamer channel to watch at a later time
             or browse now as a guest!</p>
+          <SignUp />
         </div>
       </div>
     </section>

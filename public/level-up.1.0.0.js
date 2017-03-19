@@ -18524,47 +18524,52 @@ var _react = __webpack_require__(5);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _sign_up = __webpack_require__(608);
+
+var _sign_up2 = _interopRequireDefault(_sign_up);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Home = function Home() {
   return _react2.default.createElement(
-    "section",
-    { className: "home" },
+    'section',
+    { className: 'home' },
     _react2.default.createElement(
-      "header",
-      { className: "home-img header-img" },
-      _react2.default.createElement("img", { id: "app-logo", src: 'http://i.imgur.com/jspyWnl.png?1', alt: "Level Up Logo" })
+      'header',
+      { className: 'home-img header-img' },
+      _react2.default.createElement('img', { id: 'app-logo', src: 'http://i.imgur.com/jspyWnl.png?1', alt: 'Level Up Logo' })
     ),
     _react2.default.createElement(
-      "div",
-      { className: "welcome" },
+      'div',
+      { className: 'welcome' },
       _react2.default.createElement(
-        "div",
-        { className: "info-card-1 clearfix" },
+        'div',
+        { className: 'info-card-1 clearfix' },
         _react2.default.createElement(
-          "div",
-          { className: "col-1 info-text" },
+          'div',
+          { className: 'col-1 info-text' },
           _react2.default.createElement(
-            "p",
-            { id: "for-all" },
-            "Designed for all levels of gamers. Learn, strategize and find those Kodama's! Or preview your next game."
+            'p',
+            { id: 'for-all' },
+            'Designed for all levels of gamers. Learn, strategize and find those Kodama\'s! Or preview your next game.'
           ),
           _react2.default.createElement(
-            "p",
-            { id: "choose-path" },
-            "Choose your path: search just YouTube, just Twitch, or by Dragon Punch! (both)."
+            'p',
+            { id: 'choose-path' },
+            'Choose your path: search just YouTube, just Twitch, or by Dragon Punch! (both).'
           )
         ),
-        _react2.default.createElement("img", { id: "kodama", className: "col-1", src: 'http://i.imgur.com/6V5PqZ1.png', alt: "Nioh Game Kodama" })
+        _react2.default.createElement('img', { id: 'kodama', className: 'col-1', src: 'http://i.imgur.com/6V5PqZ1.png', alt: 'Nioh Game Kodama' })
       ),
       _react2.default.createElement(
-        "div",
-        { className: "sign-up" },
+        'div',
+        { className: 'sign-up' },
         _react2.default.createElement(
-          "p",
-          { id: "signup-guest" },
-          "Sign up to save your favorite videos or streamer channel to watch at a later time or browse now as a guest!"
-        )
+          'p',
+          { id: 'signup-guest' },
+          'Sign up to save your favorite videos or streamer channel to watch at a later time or browse now as a guest!'
+        ),
+        _react2.default.createElement(_sign_up2.default, null)
       )
     )
   );
@@ -39244,6 +39249,104 @@ module.exports = function(module) {
 __webpack_require__(253);
 module.exports = __webpack_require__(252);
 
+
+/***/ }),
+/* 608 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(5);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var SignUp = function (_Component) {
+  _inherits(SignUp, _Component);
+
+  function SignUp() {
+    _classCallCheck(this, SignUp);
+
+    return _possibleConstructorReturn(this, (SignUp.__proto__ || Object.getPrototypeOf(SignUp)).apply(this, arguments));
+  }
+
+  _createClass(SignUp, [{
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "form",
+        { id: "sign-up" },
+        _react2.default.createElement(
+          "div",
+          { className: "sign-up-group" },
+          _react2.default.createElement(
+            "label",
+            { "for": "username" },
+            "Username"
+          ),
+          _react2.default.createElement("input", { type: "text", placeholder: "nicolek234", id: "username" })
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "sign-up-group" },
+          _react2.default.createElement(
+            "label",
+            { "for": "email" },
+            "Email"
+          ),
+          _react2.default.createElement("input", { type: "email", placeholder: "bobtest@levelup.com", id: "userEmail" })
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "sign-up-group" },
+          _react2.default.createElement(
+            "label",
+            { "for": "password" },
+            "Password"
+          ),
+          _react2.default.createElement("input", { type: "password", id: "password" })
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "sign-up-group" },
+          _react2.default.createElement(
+            "label",
+            { "for": "verifyPassword" },
+            "Verify Password"
+          ),
+          _react2.default.createElement("input", { type: "password", id: "verifyPassword" })
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "sign-up-group" },
+          _react2.default.createElement(
+            "button",
+            { type: "submit", id: "submitSignup" },
+            "Sign Up"
+          )
+        )
+      );
+    }
+  }]);
+
+  return SignUp;
+}(_react.Component);
+
+exports.default = SignUp;
 
 /***/ })
 /******/ ]);

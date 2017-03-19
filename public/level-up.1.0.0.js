@@ -19039,7 +19039,7 @@ exports.default = YouTubeSearch;
 
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -19068,73 +19068,82 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 //map out videos to create list
 var DragonPunchList = function (_Component) {
-	_inherits(DragonPunchList, _Component);
+  _inherits(DragonPunchList, _Component);
 
-	function DragonPunchList() {
-		_classCallCheck(this, DragonPunchList);
+  function DragonPunchList() {
+    _classCallCheck(this, DragonPunchList);
 
-		return _possibleConstructorReturn(this, (DragonPunchList.__proto__ || Object.getPrototypeOf(DragonPunchList)).apply(this, arguments));
-	}
+    return _possibleConstructorReturn(this, (DragonPunchList.__proto__ || Object.getPrototypeOf(DragonPunchList)).apply(this, arguments));
+  }
 
-	_createClass(DragonPunchList, [{
-		key: 'render',
-		value: function render() {
-			var _this2 = this;
+  _createClass(DragonPunchList, [{
+    key: 'renderResultsTable',
+    value: function renderResultsTable() {
+      var _this2 = this;
 
-			return _react2.default.createElement(
-				'div',
-				{ className: 'table-wrapper' },
-				_react2.default.createElement(
-					'table',
-					null,
-					_react2.default.createElement(
-						'tbody',
-						null,
-						_react2.default.createElement(
-							'tr',
-							null,
-							_react2.default.createElement(
-								'h3',
-								{ className: 'table-title' },
-								'YouTube'
-							),
-							this.props.videos.map(function (video) {
-								return _react2.default.createElement(_youtube_video_list_item2.default, {
-									onVideoSelect: _this2.props.onVideoSelect,
-									video: video
-								});
-							})
-						),
-						_react2.default.createElement(
-							'tr',
-							null,
-							_react2.default.createElement(
-								'h3',
-								{ className: 'table-title' },
-								'Twitch'
-							),
-							this.props.streams.map(function (stream) {
-								return _react2.default.createElement(_twitch_video_list_item2.default, {
-									onStreamSelect: _this2.props.onStreamSelect,
-									stream: stream
-								});
-							})
-						)
-					)
-				)
-			);
-		}
-	}]);
+      return _react2.default.createElement(
+        'table',
+        null,
+        _react2.default.createElement(
+          'tbody',
+          null,
+          _react2.default.createElement(
+            'tr',
+            null,
+            _react2.default.createElement(
+              'h3',
+              { className: 'table-title' },
+              'YouTube'
+            ),
+            this.props.videos.data.map(function (video) {
+              return _react2.default.createElement(_youtube_video_list_item2.default, {
+                onVideoSelect: _this2.props.onVideoSelect,
+                video: video
+              });
+            })
+          ),
+          _react2.default.createElement(
+            'tr',
+            null,
+            _react2.default.createElement(
+              'h3',
+              { className: 'table-title' },
+              'Twitch'
+            ),
+            this.props.streams.data.map(function (stream) {
+              return _react2.default.createElement(_twitch_video_list_item2.default, {
+                onStreamSelect: _this2.props.onStreamSelect,
+                stream: stream
+              });
+            })
+          )
+        )
+      );
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      if (this.props.videos.isFetched && this.props.streams.isFetched) {
+        return _react2.default.createElement(
+          'div',
+          { className: 'table-wrapper' },
+          this.renderResultsTable()
+        );
+      } else {
+        return _react2.default.createElement('p', { id: 'placeholder' });
+      }
+    }
+  }]);
 
-	return DragonPunchList;
+  return DragonPunchList;
 }(_react.Component);
 
 function mapStateToProps(_ref) {
-	var videos = _ref.videos,
-	    streams = _ref.streams;
+  var videos = _ref.videos,
+      streams = _ref.streams;
 
-	//when have key:value that are ident can reduce to just one
-	return { videos: videos, streams: streams };
+  //when have key:value that are ident can reduce to just one
+  return { videos: videos, streams: streams };
 }
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(DragonPunchList);
@@ -19191,7 +19200,7 @@ exports.default = function () {
   var twitchData = action.payload;
   switch (action.type) {
     case _twitch.TWITCH_SEARCH:
-      return twitchData;
+      return { data: twitchData, isFetched: true };
     default:
       return state;
   }
@@ -19215,10 +19224,10 @@ exports.default = function () {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   var action = arguments[1];
 
-  var data = action.payload;
+  var youTubeData = action.payload;
   switch (action.type) {
     case _youtube.YOUTUBE_SEARCH:
-      return data;
+      return { data: youTubeData, isFetched: true };
     default:
       return state;
   }

@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=VT323');
 @import url('https://fonts.googleapis.com/css?family=Exo');
 /*////////// GLOBAL //////////*/
+* {
+  font-family: "Exo", sans-serif;
+}
 body {
-  font-family: "VT323", sans-serif;
   margin: 0;
 }
 .logo-container {
@@ -14,6 +15,7 @@ body {
   font-size: 4em;
   width: 100%;
   margin-bottom: .3em;
+  color: #7F201B;
 }
 li {
   margin-left: 20px;
@@ -24,15 +26,10 @@ h3 {
 address {
   font-size: 16px;
   line-height: 1.5em;
-  font-family: "Exo", sans-serif;
   margin-bottom: .5em;
   width: 35%;
   /*centers content in div*/
   margin: 0 auto;
-}
-th,
-td {
-  font-family: "Exo", sans-serif;
 }
 #twitch-streams {
   left: 10px;
@@ -74,27 +71,27 @@ button:hover {
   text-align: center;
 }
 p {
-  font-size: 2em;
+  font-size: 1.4em;
   text-align: center;
 }
+#placeholder {
+  display: none;
+}
 .description {
-  font-family: "Exo", sans-serif;
   text-align: left;
   font-size: 20px;
   margin: 5px;
 }
 .submit-btn {
   cursor: pointer;
-  font-family: "Exo", sans-serif;
 }
 strong {
   color: black;
 }
-.funFact {
+.funFact a {
   text-decoration: none;
 }
 .welcome {
-  font-family: "Exo", sans-serif;
   position: relative;
   bottom: 3em;
 }
@@ -112,9 +109,9 @@ strong {
   padding-bottom: 3.75em;
 }
 /*////////// BACKGROUNDS //////////*/
-.home-img {
-  background-image: url("http://i.imgur.com/Q7Hf336.jpg");
-}
+/*.home-img {
+    background-image: url("http://i.imgur.com/Q7Hf336.jpg");
+}*/
 .header-img {
   height: 32em;
   background-size: cover;
@@ -229,7 +226,6 @@ td {
   text-align: center;
   border-right: 1px solid #ccc;
   text-decoration: none;
-  font-family: "Exo", sans-serif;
 }
 .navbar nav a:hover {
   color: white;
@@ -350,7 +346,6 @@ td {
   }
   input[type=text] {
     width: 70%;
-    font-family: "Exo", sans-serif;
     height: 100%;
   }
   #twitch-streams {

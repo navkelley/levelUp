@@ -6,38 +6,48 @@ import TwitchVideoListItem from '../components/twitch/twitch_video_list_item';
 
 //map out videos to create list
 class DragonPunchList extends Component {
-	render() {
+	
+  renderResultsTable() {
 		return (
-			<div className="table-wrapper">
-				<table>
-					<tbody>
-						<tr>
-							<h3 className="table-title">YouTube</h3>
-							{this.props.videos.map((video) => {
-								return (
-									<YouTubeVideoListItem
-										onVideoSelect={this.props.onVideoSelect}
-										video={video}
-									/>
-								);
-							})}
-						</tr>
-						<tr>
-							<h3 className="table-title">Twitch</h3>
-							{this.props.streams.map((stream) => {
-								return (
-									<TwitchVideoListItem
-										onStreamSelect={this.props.onStreamSelect}
-										stream={stream}
-									/>
-								);
-							})}
-						</tr>
-					</tbody>
-				</table>
-			</div>
+      <table>
+        <tbody>
+          <tr>
+            <h3 className="table-title">YouTube</h3>
+            {this.props.videos.data.map((video) => {
+              return (
+                <YouTubeVideoListItem
+                  onVideoSelect={this.props.onVideoSelect}
+                  video={video}
+                />
+              );
+            })}
+          </tr>
+          <tr>
+            <h3 className="table-title">Twitch</h3>
+            {this.props.streams.data.map((stream) => {
+              return (
+                <TwitchVideoListItem
+                  onStreamSelect={this.props.onStreamSelect}
+                  stream={stream}
+                />
+              );
+            })}
+          </tr>
+        </tbody>
+      </table>
 		);
 	}
+	render() {
+    if (this.props.videos.isFetched && this.props.streams.isFetched) {
+      return (
+        <div className="table-wrapper">
+          {this.renderResultsTable()}
+        </div>
+      );
+    } else {
+      return (<p id="placeholder"></p>);
+    }
+	};
 }
 
 function mapStateToProps({ videos, streams }) {

@@ -6,7 +6,6 @@ import TwitchVideoListItem from '../components/twitch/twitch_video_list_item';
 
 //map out videos to create list
 class DragonPunchList extends Component {
-	
   renderResultsTable() {
 		return (
       <table>

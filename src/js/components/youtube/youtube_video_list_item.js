@@ -3,10 +3,10 @@ import React from 'react';
 //set props as video: video, and onVideoSelect: onVideoSelect --shorthand is below
 
 const truncateText = (text) => {
-	if (text.length < 25) {
+	if (text.length < 15) {
 		return text; 
 	}
-	return text.substring(0, 25) + '...';
+	return text.substring(0, 15) + '...';
 };
 
 const YouTubeVideoListItem = ({ video, onVideoSelect }) => {

@@ -11386,6 +11386,13 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var truncateText = function truncateText(text) {
+  if (text.length < 15) {
+    return text;
+  }
+  return text.substring(0, 15) + '...';
+};
+
 //set props as stream: stream, and onStreamSelect: onStreamSelect --shorthand is below
 var TwitchVideoListItem = function TwitchVideoListItem(_ref) {
   var stream = _ref.stream,
@@ -11393,15 +11400,16 @@ var TwitchVideoListItem = function TwitchVideoListItem(_ref) {
 
   var preview = stream.preview.medium;
   return _react2.default.createElement(
-    "td",
+    'td',
     { onClick: function onClick() {
         return onStreamSelect(stream);
-      }, className: "list-group-item twitch-media" },
-    _react2.default.createElement("img", { alt: "game stream", className: "media-object", src: preview }),
+      }, className: 'list-group-item twitch-media' },
+    _react2.default.createElement('img', { alt: 'game stream', className: 'media-object', src: preview }),
     _react2.default.createElement(
-      "span",
-      { className: "view", id: "twitch-name-hover" },
-      stream.channel.display_name
+      'p',
+      null,
+      'Streamer:',
+      truncateText(stream.channel.display_name)
     )
   );
 };
@@ -11504,10 +11512,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //set props as video: video, and onVideoSelect: onVideoSelect --shorthand is below
 
 var truncateText = function truncateText(text) {
-	if (text.length < 25) {
+	if (text.length < 15) {
 		return text;
 	}
-	return text.substring(0, 25) + '...';
+	return text.substring(0, 15) + '...';
 };
 
 var YouTubeVideoListItem = function YouTubeVideoListItem(_ref) {
@@ -11676,7 +11684,7 @@ var YouTubeApi = exports.YouTubeApi = function () {
 
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -11701,52 +11709,61 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 //map out streams to each data cell in table 
 var TwitchVideoList = function (_Component) {
-	_inherits(TwitchVideoList, _Component);
+  _inherits(TwitchVideoList, _Component);
 
-	function TwitchVideoList() {
-		_classCallCheck(this, TwitchVideoList);
+  function TwitchVideoList() {
+    _classCallCheck(this, TwitchVideoList);
 
-		return _possibleConstructorReturn(this, (TwitchVideoList.__proto__ || Object.getPrototypeOf(TwitchVideoList)).apply(this, arguments));
-	}
+    return _possibleConstructorReturn(this, (TwitchVideoList.__proto__ || Object.getPrototypeOf(TwitchVideoList)).apply(this, arguments));
+  }
 
-	_createClass(TwitchVideoList, [{
-		key: 'render',
-		value: function render() {
-			var _this2 = this;
+  _createClass(TwitchVideoList, [{
+    key: 'renderResultsTable',
+    value: function renderResultsTable() {
+      var _this2 = this;
 
-			return _react2.default.createElement(
-				'div',
-				{ className: 'table-wrapper' },
-				_react2.default.createElement(
-					'table',
-					{ id: 'twitch-streams' },
-					_react2.default.createElement(
-						'tbody',
-						null,
-						this.props.streams.map(function (stream) {
-							return _react2.default.createElement(_twitch_video_list_item2.default, {
-								onStreamSelect: _this2.props.onStreamSelect,
-								stream: stream,
-								key: stream._id
-							});
-						})
-					)
-				)
-			);
-		}
-	}]);
+      return _react2.default.createElement(
+        'table',
+        { id: 'twitch-streams' },
+        _react2.default.createElement(
+          'tbody',
+          null,
+          this.props.streams.data.map(function (stream) {
+            return _react2.default.createElement(_twitch_video_list_item2.default, {
+              onStreamSelect: _this2.props.onStreamSelect,
+              stream: stream,
+              key: stream._id
+            });
+          })
+        )
+      );
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      if (this.props.streams.isFetched) {
+        return _react2.default.createElement(
+          'div',
+          { className: 'table-wrapper' },
+          this.renderResultsTable()
+        );
+      } else {
+        return _react2.default.createElement('p', { className: 'placeholder' });
+      }
+    }
+  }]);
 
-	return TwitchVideoList;
+  return TwitchVideoList;
 }(_react.Component);
 
 //allow stream data to be used 
 
 
 function mapStateToProps(_ref) {
-	var streams = _ref.streams;
+  var streams = _ref.streams;
 
-	//when have key:value that are ident can reduce to just one
-	return { streams: streams };
+  //when have key:value that are ident can reduce to just one
+  return { streams: streams };
 }
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(TwitchVideoList);
@@ -11792,29 +11809,38 @@ var YouTubeVideoList = function (_Component) {
 	}
 
 	_createClass(YouTubeVideoList, [{
-		key: 'render',
-		value: function render() {
+		key: 'renderResultsTable',
+		value: function renderResultsTable() {
 			var _this2 = this;
 
 			return _react2.default.createElement(
-				'div',
-				{ className: 'table-wrapper' },
+				'table',
+				{ id: 'youtube' },
 				_react2.default.createElement(
-					'table',
-					{ id: 'youtube' },
-					_react2.default.createElement(
-						'tbody',
-						null,
-						this.props.videos.map(function (video) {
-							return _react2.default.createElement(_youtube_video_list_item2.default, {
-								onVideoSelect: _this2.props.onVideoSelect,
-								video: video,
-								key: video.etag
-							});
-						})
-					)
+					'tbody',
+					null,
+					this.props.videos.data.map(function (video) {
+						return _react2.default.createElement(_youtube_video_list_item2.default, {
+							onVideoSelect: _this2.props.onVideoSelect,
+							video: video,
+							key: video.etag
+						});
+					})
 				)
 			);
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			if (this.props.videos.isFetched) {
+				return _react2.default.createElement(
+					'div',
+					{ className: 'table-wrapper' },
+					this.renderResultsTable()
+				);
+			} else {
+				return _react2.default.createElement('p', { className: 'placeholder' });
+			}
 		}
 	}]);
 
@@ -19008,8 +19034,9 @@ var YouTubeSearch = function (_Component) {
       var _this2 = this;
 
       return _react2.default.createElement(
-        'div',
+        'section',
         null,
+        _react2.default.createElement('header', { className: 'aCreed header-img' }),
         _react2.default.createElement(
           'h1',
           { className: 'logo' },

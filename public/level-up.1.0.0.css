@@ -137,6 +137,9 @@ strong {
 .ryu-punch {
   background-image: url("http://i.imgur.com/lnZpsTe.jpg?1");
 }
+.aCreed {
+  background-image: url("http://i.imgur.com/gURoEL7.jpg");
+}
 /*/////// MEDIA ////////*/
 iframe {
   width: 100%;
@@ -179,7 +182,8 @@ td {
   width: calc(21%);
   margin-right: 8px;
 }
-.youtube-media-row p {
+.youtube-media-row p,
+.twitch-media p {
   font-size: .9em;
 }
 .list-group-item {

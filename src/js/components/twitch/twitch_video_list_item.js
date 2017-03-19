@@ -1,12 +1,19 @@
 import React from 'react';
 
+const truncateText = (text) => {
+	if (text.length < 15) {
+		return text; 
+	}
+	return text.substring(0, 15) + '...';
+};
+
 //set props as stream: stream, and onStreamSelect: onStreamSelect --shorthand is below
 const TwitchVideoListItem = ({ stream, onStreamSelect }) => {
   const preview = stream.preview.medium;
   return (
     <td onClick={() => onStreamSelect(stream)} className="list-group-item twitch-media">
       <img alt="game stream" className="media-object" src={preview} />
-      <span className="view" id="twitch-name-hover">{stream.channel.display_name}</span>
+      <p>Streamer:{truncateText(stream.channel.display_name)}</p>
     </td>
   );
 };

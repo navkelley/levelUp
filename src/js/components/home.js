@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <section className="home">
       <header className="home-img header-img">
-        
+        <img id="app-logo" src={'http://i.imgur.com/jspyWnl.png'} alt="Level Up Logo" />
       </header>
       <div className="welcome">
         <p id="for-all">Designed for all levels of gamers.</p>

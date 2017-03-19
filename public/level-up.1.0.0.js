@@ -18530,7 +18530,11 @@ var Home = function Home() {
   return _react2.default.createElement(
     "section",
     { className: "home" },
-    _react2.default.createElement("header", { className: "home-img header-img" }),
+    _react2.default.createElement(
+      "header",
+      { className: "home-img header-img" },
+      _react2.default.createElement("img", { id: "app-logo", src: 'http://i.imgur.com/jspyWnl.png', alt: "Level Up Logo" })
+    ),
     _react2.default.createElement(
       "div",
       { className: "welcome" },

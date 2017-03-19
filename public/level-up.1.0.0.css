@@ -169,7 +169,11 @@ img {
   max-width: 100%;
   /* FF, Safari, Chrome */
 }
-img:hover {
+.youtube-media-row img {
+  max-width: 12.25em;
+  max-height: 9.18em;
+}
+.media-object:hover {
   filter: grayscale(100%) blur(2px);
   cursor: pointer;
 }
@@ -196,7 +200,12 @@ td {
   border: 1px solid #d3d3d3;
   box-shadow: 0 2px 2px #ccc;
   max-width: 12.5em;
-  max-height: 10.35em;
+  max-height: 12.35em;
+}
+#app-logo:hover {
+  /*disable hover on logo*/
+  opacity: 1.0;
+  box-shadow: none;
 }
 /*////////// FIXES //////////*/
 * {

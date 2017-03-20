@@ -34,9 +34,7 @@ Now you are ready to go!
 
 ## Screenshots
 ![screenshot](screenshots/LU-home.jpeg)
-
 ![screenshot](screenshots/search.jpeg)
-
 ![screenshot](screenshots/video-demo.jpeg)
 
 ## Development Roadmap

@@ -3,11 +3,13 @@ import React from 'react';
 const YouTubeVideoDetail = ({ video }) => {
   if (!video) {
     return (
-      <p className="funFact">Fun Fact: Pac-Man was invented by the designer Toru 
-        Iwatani while he was eating pizza. 
-        <a className="funFact" target="blank" href="https://www.technotification.com/2015/01/15-interesting-video-game-facts.html">
-        -Technotification</a>
-      </p>
+      <div className="funFact">
+        <p>Fun Fact: Pac-Man was invented by the designer Toru 
+          Iwatani while he was eating pizza. 
+          <a target="blank" href="https://www.technotification.com/2015/01/15-interesting-video-game-facts.html">
+            -Technotification</a>
+        </p>
+      </div>
     );  
   }
 

@@ -11,7 +11,7 @@ export class TwitchApi {
 
   async twitchSearch(term) {
     try {
-      const url = `${this.rootUrl}streams/?game=${term}&client_id=${this.client}&live=true`;
+      const url = `${this.rootUrl}streams/?game=${term}&client_id=${this.client}&live=true&limit=24`;
       const { data } = await axios.get(url);
       return data;
     } catch (e) {
@@ -28,7 +28,7 @@ export class YouTubeApi {
 
   async youTubeSearch(term) {
     try {
-      const url = `${this.rootUrl}&q=${term}&r=json&maxResults=25`;
+      const url = `${this.rootUrl}&q=${term}&r=json&maxResults=24`;
       const { data } = await axios.get(url);
       return data;
     } catch (e) {

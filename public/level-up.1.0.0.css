@@ -20,12 +20,13 @@ h3 {
   font-size: 2em;
 }
 address {
-  font-size: 16px;
+  font-size: 1em;
   line-height: 1.5em;
   margin-bottom: .5em;
   width: 35%;
   /*centers content in div*/
   margin: 0 auto;
+  text-align: center;
 }
 #twitch-streams {
   left: 10px;
@@ -79,24 +80,26 @@ p {
 }
 .description {
   text-align: left;
-  font-size: 20px;
-  margin: 5px;
+  font-size: 1.2em;
+  margin: 1em;
 }
 .submit-btn {
   cursor: pointer;
 }
 strong {
-  color: black;
+  color: #7F201B;
 }
 .funFact a {
   text-decoration: none;
   left: 0;
   color: black;
 }
+.funFact p {
+  font-size: 1em;
+}
 .funFact {
-  font-size: 1.1em;
-  max-width: 90%;
-  padding-left: 1em;
+  max-width: 80%;
+  margin: 0 9%;
 }
 .welcome {
   position: relative;
@@ -166,9 +169,10 @@ strong {
 /*////////// BACKGROUNDS //////////*/
 .header-img {
   height: 32em;
-  background-size: cover;
+  background-size: 100%;
   position: relative;
   top: 3.3em;
+  background-repeat: no-repeat;
 }
 .light-fade {
   background: #efefef;
@@ -215,7 +219,8 @@ iframe {
   margin-top: 20px;
   margin-bottom: 10px;
 }
-img {
+img,
+table {
   width: 100%;
   /* IE */
   max-width: 100%;
@@ -230,13 +235,7 @@ img {
   cursor: pointer;
 }
 .table-wrapper table {
-  position: relative;
-  left: 100px;
   margin-bottom: 1em;
-}
-#twitch-streams {
-  position: relative;
-  left: 100px;
 }
 td {
   display: inline-block;
@@ -256,13 +255,18 @@ td {
 }
 #app-logo {
   position: relative;
-  bottom: 4em;
+  top: 6em;
+  left: 5.5em;
+  max-width: 85%;
 }
 #kodama {
   height: 15em;
   width: 17em;
   position: relative;
   left: 3em;
+}
+tbody {
+  text-align: center;
 }
 /*////////// FIXES //////////*/
 * {
@@ -290,7 +294,7 @@ td {
   margin-right: 1em;
 }
 #social a:hover {
-  color: #7F201B;
+  color: #FF4036;
 }
 /*////////// NAVBAR //////////*/
 .nav-container {
@@ -342,59 +346,27 @@ td {
     max-width: 60em;
   }
 }
-@media only screen and (max-width: 880px) {
-  .details {
-    visibility: hidden;
-  }
-}
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 925px) {
   body {
     font-size: 85%;
   }
-  #social {
-    top: 20px;
-    right: 10px;
+}
+@media only screen and (max-width: 840px) {
+  .header-img {
+    height: 30em;
   }
-  td {
-    width: calc(46%);
+}
+@media only screen and (max-width: 798px) {
+  .header-img {
+    height: 27em;
   }
-  td:nth-of-type(2n) {
-    margin-right: 2px;
-  }
-  td:nth-of-type(4n) {
-    margin-right: 0;
-  }
-  .navbar li {
+}
+@media only screen and (max-width: 770) {
+  nav a {
     display: block;
-    width: 90%;
-    border-radius: 0;
   }
   .mobile-nav {
     width: 100%;
-  }
-  .mobile-bars {
-    position: relative;
-    left: -45%;
-    margin-left: 15px;
-  }
-  .navbar {
-    float: left;
-    width: 100%;
-  }
-  .btn {
-    text-align: center;
-    text-transform: uppercase;
-    transition: 0.5s;
-    color: black;
-    border-radius: 10px;
-    background-image: linear-gradient(to right, #CC1453 0%, lightgrey 51%, #CC1453 100%);
-    font-size: 20px;
-  }
-  body {
-    font-size: 85%;
-  }
-  .table-wrapper table {
-    left: 4%;
   }
   #devAddress {
     left: 33%;

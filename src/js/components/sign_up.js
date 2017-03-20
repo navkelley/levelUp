@@ -18,7 +18,7 @@ export default class SignUp extends Component {
         </div>
         <div className="sign-up-group">
           <label for="verifyPassword" />
-          <input type="password" id="verifyPassword" placeholder="Verify Password" />
+          <input type="password" id="verifyPassword" placeholder="Re-type Password" />
         </div>
         <div className="sign-up-group">
           <button type="submit" id="signup-btn">Sign Up</button>

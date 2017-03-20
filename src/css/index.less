@@ -261,7 +261,7 @@ iframe {
   margin-bottom: 10px;
 }
 
-img {
+img, table {
   width: 100%; /* IE */
   max-width: 100%; /* FF, Safari, Chrome */
 }
@@ -276,15 +276,8 @@ img {
   cursor: pointer;
 }
 
-.table-wrapper table {
-  position: relative;
-  left: 100px; 
+.table-wrapper table { 
   margin-bottom: 1em;
-}
-
-#twitch-streams {
-  position: relative;
-  left: 100px; 
 }
 
 td {
@@ -317,6 +310,10 @@ td {
   width: 17em;
   position: relative;
   left: 3em;
+}
+
+tbody {
+  text-align: center;
 }
 
 /*////////// FIXES //////////*/
@@ -402,17 +399,90 @@ td {
     max-width: 60em;
   }
 }
-
-@media only screen and (max-width: 896px) {
-  max-width:100%
-  width: auto;
+@media only screen and (max-width: 925px) {
+  body {
+    font-size: 85%;
+  }
 }
-
-@media only screen and (max-width: 830px) {
-
-  #app-logo {
-    bottom: 2.5em;
-    left: .5em;
+@media only screen and (max-width: 840px) {
+  .header-img {
+    height: 30em;
+  }
+}
+@media only screen and (max-width: 798px) {
+  .header-img {
+    height: 27em; 
   }
 }
 
+@media only screen and (max-width: 770) {
+
+  nav a {
+    display: block;
+  }
+
+  .mobile-nav {
+    width: 100%;
+  }
+
+  #devAddress {
+    left: 33%;
+  }
+
+  #twitch-streams {
+    left: 4%; 
+  }
+
+  iframe {
+    height: 450px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  td {
+    width: calc(100% - 2px);
+  }
+
+  td:nth-of-type(2n) {
+    margin-right: 2px;
+  }
+
+  td:nth-of-type(4n) {
+    margin-right: 0;
+  }
+
+  #devAddress {
+    position: relative; 
+    left: 18%;
+    width: 90%;
+    font-size: 1em; 
+  }
+
+  .table-wrapper table {
+    position: relative;
+    left: 2px; 
+  }
+
+  ul {
+    position: relative; 
+    right: 15px; 
+  }
+
+  input[type=text] {
+    width: 70%; 
+    height: 100%;
+  }
+
+  #twitch-streams {
+    left: -1%; 
+    top: 150px; 
+  }
+
+  iframe {
+    height: 300px;
+  }
+
+  .details {
+    visibility: hidden; 
+  }
+}

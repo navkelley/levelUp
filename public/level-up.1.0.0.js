@@ -11597,7 +11597,7 @@ var TwitchApi = exports.TwitchApi = function () {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.prev = 0;
-                url = this.rootUrl + "streams/?game=" + term + "&client_id=" + this.client + "&live=true";
+                url = this.rootUrl + "streams/?game=" + term + "&client_id=" + this.client + "&live=true&limit=24";
                 _context.next = 4;
                 return _axios2.default.get(url);
 
@@ -11650,7 +11650,7 @@ var YouTubeApi = exports.YouTubeApi = function () {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.prev = 0;
-                url = this.rootUrl + "&q=" + term + "&r=json&maxResults=25";
+                url = this.rootUrl + "&q=" + term + "&r=json&maxResults=24";
                 _context2.next = 4;
                 return _axios2.default.get(url);
 
@@ -18733,22 +18733,22 @@ var NavContainer = function (_Component) {
         { className: 'nav-menu clearfix:after' },
         _react2.default.createElement(
           _reactRouter.Link,
-          { to: '/' },
+          { to: '/', className: 'nav-link' },
           'Home'
         ),
         _react2.default.createElement(
           _reactRouter.Link,
-          { to: '/search/youtube' },
+          { to: '/search/youtube', className: 'nav-link' },
           'YouTube'
         ),
         _react2.default.createElement(
           _reactRouter.Link,
-          { to: '/search/twitch' },
+          { to: '/search/twitch', className: 'nav-link' },
           'Twitch'
         ),
         _react2.default.createElement(
           _reactRouter.Link,
-          { to: '/search' },
+          { to: '/search', className: 'nav-link' },
           'Dragon Punch!'
         )
       );
@@ -18781,7 +18781,7 @@ var NavContainer = function (_Component) {
           _react2.default.createElement(
             'p',
             { className: 'mobile-bars', onClick: this.handleNavClick.bind(this) },
-            _react2.default.createElement('i', { className: 'fa fa-bars', 'aria-hidden': 'true' })
+            _react2.default.createElement('i', { className: 'fa fa-bars', id: 'hamburger', 'aria-hidden': 'true' })
           ),
           this.renderMobileNav()
         );
@@ -19204,13 +19204,13 @@ var DragonPunchList = function (_Component) {
 
       return _react2.default.createElement(
         'table',
-        null,
+        { id: 'dragon' },
         _react2.default.createElement(
           'tbody',
           null,
           _react2.default.createElement(
             'tr',
-            null,
+            { id: 'youtube-row' },
             _react2.default.createElement(
               'h3',
               { className: 'table-title' },
@@ -19225,7 +19225,7 @@ var DragonPunchList = function (_Component) {
           ),
           _react2.default.createElement(
             'tr',
-            null,
+            { id: 'twitch-row' },
             _react2.default.createElement(
               'h3',
               { className: 'table-title' },

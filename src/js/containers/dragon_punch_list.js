@@ -8,9 +8,9 @@ import TwitchVideoListItem from '../components/twitch/twitch_video_list_item';
 class DragonPunchList extends Component {
   renderResultsTable() {
 		return (
-      <table>
+      <table id="dragon">
         <tbody>
-          <tr>
+          <tr id="youtube-row">
             <h3 className="table-title">YouTube</h3>
             {this.props.videos.data.map((video) => {
               return (
@@ -21,7 +21,7 @@ class DragonPunchList extends Component {
               );
             })}
           </tr>
-          <tr>
+          <tr id="twitch-row">
             <h3 className="table-title">Twitch</h3>
             {this.props.streams.data.map((stream) => {
               return (

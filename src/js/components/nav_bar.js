@@ -29,10 +29,10 @@ export default class NavContainer extends Component {
   navigationLinks() {
     return (
       <nav className="nav-menu clearfix:after">
-        <Link to="/">Home</Link>
-        <Link to="/search/youtube">YouTube</Link>
-        <Link to="/search/twitch">Twitch</Link>
-        <Link to="/search">Dragon Punch!</Link>
+        <Link to="/" className="nav-link">Home</Link>
+        <Link to="/search/youtube" className="nav-link">YouTube</Link>
+        <Link to="/search/twitch" className="nav-link">Twitch</Link>
+        <Link to="/search" className="nav-link">Dragon Punch!</Link>
       </nav>
     );
   }
@@ -57,7 +57,7 @@ export default class NavContainer extends Component {
       return (
         <div className="mobile-nav">
           <p className="mobile-bars" onClick={this.handleNavClick.bind(this)}>
-            <i className="fa fa-bars" aria-hidden="true" />
+            <i className="fa fa-bars" id="hamburger" aria-hidden="true" />
           </p>
           {this.renderMobileNav()}
         </div>

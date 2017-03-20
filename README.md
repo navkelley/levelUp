@@ -33,9 +33,9 @@ yarn start
 Now you are ready to go! 
 
 ##Screenshots
-![screenshot](screenshots/LUHome.jpg)
-![screenshot](screenshots/streamDemo.jpg)
-![screenshot](screenshots/videoDemo.jpg)
+![screenshot](screenshots/LU-home.jpg)
+![screenshot](screenshots/search.jpg)
+![screenshot](screenshots/video-demo.jpg)
 
 ##Development Roadmap
 * Add ability to save videos/streams to account

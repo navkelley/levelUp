@@ -32,12 +32,14 @@ yarn start
 ```
 Now you are ready to go! 
 
-##Screenshots
+## Screenshots
 ![screenshot](screenshots/LU-home.jpeg)
+
 ![screenshot](screenshots/search.jpeg)
+
 ![screenshot](screenshots/video-demo.jpeg)
 
-##Development Roadmap
+## Development Roadmap
 * Add ability to save videos/streams to account
 * User login/authentication 
 * Change background to match theme

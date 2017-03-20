@@ -1,9 +1,9 @@
-#Welcome to Level Up! [![Build Status](https://travis-ci.org/navkelley/levelUp.svg?branch=master)](https://travis-ci.org/navkelley/levelUp)
+###Welcome to Level Up! [![Build Status](https://travis-ci.org/navkelley/levelUp.svg?branch=master)](https://travis-ci.org/navkelley/levelUp)
 
 Level Up exists because I love gaming. Unfortunately, I am horrible at it! I am the type of person who will drive the ball the wrong way (Rocket League) or run around with no idea where I'm supposed to go! I then search for videos to help me or use twitch to see how others are doing. It's cumbersome to have many sites up with different videos playing, and if you forget which tab is playing you could have competing sound, so Level Up was created to assist all gaming enthusiasts. 
 
 Level Up demonstrates the use of frontend frameworks such as React and Redux to transform data from YouTube and Twitch. The user has the ability to search just one platform or both simultaneously (known as the Dragon Punch)!
-Users have the ability to play videos or streams directly within the app to provide a convience feature that is to be desired by gaming enthusiasts. You can try the demo [here!](https://vast-basin-69035.herokuapp.com/#/)   
+Users have the ability to play videos or streams directly within the app to provide a convience feature that is to be desired by gaming enthusiasts. You can try the demo [here!](https://level-up-gamer.herokuapp.com/#/)   
 
 ## Getting Started
 
@@ -33,9 +33,9 @@ yarn start
 Now you are ready to go! 
 
 ##Screenshots
-![screenshot](screenshots/LUHome.jpg)
-![screenshot](screenshots/streamDemo.jpg)
-![screenshot](screenshots/videoDemo.jpg)
+![screenshot](screenshots/LU-home.jpg)
+![screenshot](screenshots/search.jpg)
+![screenshot](screenshots/video-demo.jpg)
 
 ##Development Roadmap
 * Add ability to save videos/streams to account

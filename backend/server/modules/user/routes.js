@@ -33,14 +33,16 @@ function ensureAuthenticated(req, res, next) {
 }
 
 ROUTER.post('/register', (req, res) => {
-  let name = req.body.name;
+  console.log(req.body);
   let email = req.body.email;
   let username = req.body.username;
   let password = req.body.password;
   let verifypassword = req.body.verifypassword;
 
   //validation
-  req.checkBody('name', 'Name is required').notEmpty();
+  if (!email) {
+    return res.status(400).json({ error: "Email is required"});
+  }
   req.checkBody('email', 'Email is required').notEmpty();
   req.checkBody('email', 'Email is not valid').isEmail();
   req.checkBody('username', 'Username is required').notEmpty();
@@ -52,14 +54,13 @@ ROUTER.post('/register', (req, res) => {
     res.json(errors);
   } else {
     let newUser = new User({
-      name: name,
       email: email,
       username: username,
       password: password
     });
     User.createUser(newUser, (err, user) => {
       if(err) throw err;
-        res.json(user);
+        res.status(400).json(user);
     });
   }
 });

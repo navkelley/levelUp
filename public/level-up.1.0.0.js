@@ -18923,6 +18923,10 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _axios = __webpack_require__(254);
+
+var _axios2 = _interopRequireDefault(_axios);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -18937,46 +18941,80 @@ var SignUp = function (_Component) {
   function SignUp() {
     _classCallCheck(this, SignUp);
 
-    return _possibleConstructorReturn(this, (SignUp.__proto__ || Object.getPrototypeOf(SignUp)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (SignUp.__proto__ || Object.getPrototypeOf(SignUp)).call(this));
+
+    _this.state = {
+      username: ''
+    };
+    _this.onFormSubmit = _this.onFormSubmit.bind(_this);
+    _this.usernameChange = _this.usernameChange.bind(_this);
+    _this.emailChange = _this.emailChange.bind(_this);
+    return _this;
   }
 
   _createClass(SignUp, [{
-    key: "render",
+    key: 'onFormSubmit',
+    value: function onFormSubmit(e) {
+      e.preventDefault();
+      if (this.state.username.length === 0) {
+        return alert("username is required");
+      }
+      _axios2.default.post("/api/register", {
+        username: this.state.username
+      }).then(function (res) {
+        return console.log(res);
+      }).catch(function (err) {
+        return console.log(err.response.status);
+      });
+    }
+  }, {
+    key: 'usernameChange',
+    value: function usernameChange(e) {
+      this.setState({ username: e.target.value });
+    }
+  }, {
+    key: 'emailChange',
+    value: function emailChange(e) {
+      this.setState({ email: e.target.value });
+      //email validation 
+    }
+  }, {
+    key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        "form",
-        { id: "sign-up" },
+        'form',
+        { id: 'sign-up', onSubmit: this.onFormSubmit },
         _react2.default.createElement(
-          "div",
-          { className: "sign-up-group" },
-          _react2.default.createElement("label", { "for": "username" }),
-          _react2.default.createElement("input", { type: "text", placeholder: "Username", id: "username" })
+          'div',
+          { className: 'sign-up-group' },
+          _react2.default.createElement('label', { 'for': 'username' }),
+          _react2.default.createElement('input', { type: 'text', placeholder: 'Username', id: 'username', onChange: this.usernameChange })
         ),
         _react2.default.createElement(
-          "div",
-          { className: "sign-up-group" },
-          _react2.default.createElement("label", { "for": "email" }),
-          _react2.default.createElement("input", { type: "email", placeholder: "Email Address", id: "userEmail" })
+          'div',
+          { className: 'sign-up-group' },
+          _react2.default.createElement('label', { 'for': 'email' }),
+          _react2.default.createElement('input', { type: 'email', placeholder: 'Email Address', id: 'userEmail', onChange: this.emailChange })
         ),
         _react2.default.createElement(
-          "div",
-          { className: "sign-up-group" },
-          _react2.default.createElement("label", { "for": "password" }),
-          _react2.default.createElement("input", { type: "password", id: "password", placeholder: "Password" })
+          'div',
+          { className: 'sign-up-group' },
+          _react2.default.createElement('label', { 'for': 'password' }),
+          _react2.default.createElement('input', { type: 'password', id: 'password', placeholder: 'Password' })
         ),
         _react2.default.createElement(
-          "div",
-          { className: "sign-up-group" },
-          _react2.default.createElement("label", { "for": "verifyPassword" }),
-          _react2.default.createElement("input", { type: "password", id: "verifyPassword", placeholder: "Re-type Password" })
+          'div',
+          { className: 'sign-up-group' },
+          _react2.default.createElement('label', { 'for': 'verifyPassword' }),
+          _react2.default.createElement('input', { type: 'password', id: 'verifyPassword', placeholder: 'Re-type Password' })
         ),
         _react2.default.createElement(
-          "div",
-          { className: "sign-up-group" },
+          'div',
+          { className: 'sign-up-group' },
           _react2.default.createElement(
-            "button",
-            { type: "submit", id: "signup-btn" },
-            "Sign Up"
+            'button',
+            { type: 'submit', id: 'signup-btn' },
+            'Sign Up'
           )
         )
       );

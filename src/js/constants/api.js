@@ -1,6 +1,5 @@
-/**
-  * constant to make request to twitch and youtube results are "data" (will be renamed)
-  **/
+//constant to make request to twitch and youtube results are "data" (will be renamed in reducers)
+
 import axios from 'axios';
 
 export class TwitchApi {

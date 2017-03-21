@@ -11569,10 +11569,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.YouTubeApi = exports.TwitchApi = undefined;
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * constant to make request to twitch and youtube results are "data" (will be renamed)
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       **/
-
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); //constant to make request to twitch and youtube results are "data" (will be renamed in reducers)
 
 var _axios = __webpack_require__(160);
 
@@ -19257,7 +19254,7 @@ var SignUp = function (_Component) {
     key: 'emailChange',
     value: function emailChange(e) {
       this.setState({ email: e.target.value });
-      //email validation 
+      //find way to add email validation 
     }
   }, {
     key: 'render',

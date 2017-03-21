@@ -31,7 +31,7 @@ export default class SignUp extends Component {
 
   emailChange(e) {
     this.setState({ email: e.target.value });
-    //email validation 
+    //find way to add email validation 
   }
 
   render() {

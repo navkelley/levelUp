@@ -41,7 +41,7 @@ ROUTER.post('/register', (req, res) => {
 
   //validation
   if (!email) {
-    return res.status(400).json({ error: "Email is required"});
+    return res.status(400).json({ error: 'Email is required'});
   }
   req.checkBody('email', 'Email is required').notEmpty();
   req.checkBody('email', 'Email is not valid').isEmail();
@@ -66,11 +66,11 @@ ROUTER.post('/register', (req, res) => {
 });
 
 passport.use(new LocalStrategy(
-  function(username, password, done) {
+  function (username, password, done) {
     User.getUserByUsername(username, (err, user) => {
-      if(err) throw err;
-      if(!user){
-        return done(null, false, {message: 'Unknown User'});
+      if (err) throw err;
+      if (!user) {
+        return done(null, false, { message: 'Unknown User' });
       }
       User.comparePassword(password, user.password, (err, isMatch) => {
         if(err) throw err;

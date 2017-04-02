@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { isEmail } from 'validator';
 
-import { UsernameError, PasswordError, TryAgain } from '../components/Errors';
+import ErrorMessage from '../components/Errors';
 
 export default class SignUp extends Component {
   constructor() {
@@ -13,6 +14,7 @@ export default class SignUp extends Component {
       password: '',
       showUsernameError: false,
       showPasswordError: false,
+      showEmailError: false,
       disabled: true
     };
     this.onFormSubmit = this.onFormSubmit.bind(this);
@@ -39,16 +41,17 @@ export default class SignUp extends Component {
   usernameChange(e) {
     this.setState({ username: e.target.value });
     if (this.state.username.length < 4) {
-      this.setState({ showUsernameError: true });
-      return this.state.showUsernameError;
+      return this.setState({ showUsernameError: true }); 
     }
-    this.setState({ showUsernameError: false });
-    return this.state.showUsernameError;
+    return this.setState({ showUsernameError: false });
   }
 
   emailChange(e) {
     this.setState({ email: e.target.value });
-    //find way to add email validation 
+    if (!isEmail(this.state.email)) {
+      return this.setState({ showEmailError: true });
+    } 
+    return this.setState({ showEmailError: false });
   }
 
   passwordChange(e) {
@@ -76,7 +79,8 @@ export default class SignUp extends Component {
             onChange={this.usernameChange} 
             required 
           />
-          { this.state.showUsernameError ? <UsernameError /> : null }
+          { this.state.showUsernameError ? 
+            <ErrorMessage message="Sorry, we could not create an account, please try again." /> : null }
         </div>
         <div className="sign-up-group">
           <label htmlFor="email" />
@@ -97,7 +101,7 @@ export default class SignUp extends Component {
             onChange={this.passwordChange} 
             required 
           />
-          { this.state.showPasswordError ? <PasswordError /> : null }
+          { this.state.showPasswordError ? <ErrorMessage message='Passwords do not match' /> : null }
         </div>
         <div className="sign-up-group">
           <label htmlFor="verifyPassword" />
@@ -108,12 +112,12 @@ export default class SignUp extends Component {
             onChange={this.verifyPassword}
             required 
           />
-          { this.state.showPasswordError ? <PasswordError /> : null }
+          { this.state.showPasswordError ? <ErrorMessage message="Passwords do not match" /> : null }
         </div>
         <div className="sign-up-group">
           <button 
             type="submit" id="signup-btn" 
-            disabled={this.state.disabled === true}>Sign Up</button>
+            disabled={true}>Sign Up</button>
         </div>
       </form>
     );

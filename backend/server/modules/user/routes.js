@@ -2,7 +2,7 @@ import path from 'path';
 import express from 'express';
 import passport from 'passport';
 import LocalStrategy from 'passport-local';
-
+import { isEmail } from "validator";
 import User from './user';
 
 const ROUTER = express.Router();
@@ -33,9 +33,10 @@ ROUTER.post('/register', (req, res) => {
   const { email, username, password } = req.body;
 
   //validation
-  if (req.body.email.length === 0) { return res.status(400).json({ error: 'Email is required' }); }  
-  else if (req.body.username.length === 0) { return res.status(400).json({ error: 'Username is required' }); }
-  else if (req.body.password.length === 0) { return res.status(400).json({ error: 'A password is required' }); }
+  if (email.length === 0) { return res.status(400).json({ error: 'Email is required' }); }  
+  else if (!isEmail(email)) { return res.status(400).json({ message: 'Email is not valid.' }); }
+  else if (username.length === 0) { return res.status(400).json({ error: 'Username is required' }); }
+  else if (password.length === 0) { return res.status(400).json({ error: 'A password is required' }); }
 
   User.findOne({ email })
     .then(auth => {

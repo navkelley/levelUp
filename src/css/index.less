@@ -41,7 +41,7 @@ address {
 input {
   display: inline;
   padding: 5px;
-  box-shadow: 0 3px 3px #ccc;
+  box-shadow: 0 2px 0 darken(#ccc, 5%), 2px 4px 6px darken(#ccc, 2%);
   border: 1px solid #ccc;
   border-radius: 5px; 
 }
@@ -73,6 +73,16 @@ button:hover {
   text-decoration: none;
   text-shadow: -1px -1px 0 darken(#FF4036, 9.5%);
   transition: all 250ms linear;
+}
+ 
+.search-bar button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.search-bar input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 #signup-btn {

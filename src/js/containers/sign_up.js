@@ -38,19 +38,19 @@ export default class SignUp extends Component {
     return (
       <form id="sign-up" onSubmit={this.onFormSubmit}>
         <div className="sign-up-group">
-          <label for="username" />
+          <label htmlFor="username" />
           <input type="text" placeholder="Username" id="username" onChange={this.usernameChange} />
         </div>
         <div className="sign-up-group">
-          <label for="email" />
+          <label htmlFor="email" />
           <input type="email" placeholder="Email Address" id="userEmail" onChange={this.emailChange} />
         </div>
         <div className="sign-up-group">
-          <label for="password" />
+          <label htmlFor="password" />
           <input type="password" id="password" placeholder="Password" />
         </div>
         <div className="sign-up-group">
-          <label for="verifyPassword" />
+          <label htmlFor="verifyPassword" />
           <input type="password" id="verifyPassword" placeholder="Re-type Password" />
         </div>
         <div className="sign-up-group">

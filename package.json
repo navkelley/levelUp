@@ -74,6 +74,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chokidar-cli": "^1.2.0",
+    "concurrently": "^3.4.0",
     "image-webpack-loader": "^3.2.0",
     "less": "^2.7.2",
     "less-plugin-clean-css": "^1.5.1",

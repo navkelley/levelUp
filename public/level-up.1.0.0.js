@@ -19265,25 +19265,25 @@ var SignUp = function (_Component) {
         _react2.default.createElement(
           'div',
           { className: 'sign-up-group' },
-          _react2.default.createElement('label', { 'for': 'username' }),
+          _react2.default.createElement('label', { htmlFor: 'username' }),
           _react2.default.createElement('input', { type: 'text', placeholder: 'Username', id: 'username', onChange: this.usernameChange })
         ),
         _react2.default.createElement(
           'div',
           { className: 'sign-up-group' },
-          _react2.default.createElement('label', { 'for': 'email' }),
+          _react2.default.createElement('label', { htmlFor: 'email' }),
           _react2.default.createElement('input', { type: 'email', placeholder: 'Email Address', id: 'userEmail', onChange: this.emailChange })
         ),
         _react2.default.createElement(
           'div',
           { className: 'sign-up-group' },
-          _react2.default.createElement('label', { 'for': 'password' }),
+          _react2.default.createElement('label', { htmlFor: 'password' }),
           _react2.default.createElement('input', { type: 'password', id: 'password', placeholder: 'Password' })
         ),
         _react2.default.createElement(
           'div',
           { className: 'sign-up-group' },
-          _react2.default.createElement('label', { 'for': 'verifyPassword' }),
+          _react2.default.createElement('label', { htmlFor: 'verifyPassword' }),
           _react2.default.createElement('input', { type: 'password', id: 'verifyPassword', placeholder: 'Re-type Password' })
         ),
         _react2.default.createElement(

@@ -118,13 +118,6 @@ strong {
   margin: 0 2%;
 }
 /*////////// Layouts ///////////*/
-#temp-disable:hover > #hover-content {
-  display: block;
-  background-color: grey;
-}
-#hover-content {
-  display: none;
-}
 .home {
   padding: 0;
   margin: 0;
@@ -172,6 +165,11 @@ strong {
   margin-top: 1em;
   text-align: center;
   border-radius: 0;
+  outline: none;
+}
+#sign-up-form span {
+  color: red;
+  display: block;
 }
 /*////////// BACKGROUNDS //////////*/
 .header-img {
@@ -297,11 +295,10 @@ tbody {
 #social a {
   display: inline;
   color: black;
-  margin-bottom: 1em;
   margin-right: 1em;
 }
 #social a:hover {
-  color: #FF4036;
+  color: #94251f;
 }
 /*////////// NAVBAR //////////*/
 .nav-container {

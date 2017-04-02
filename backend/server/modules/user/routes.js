@@ -16,7 +16,7 @@ const timeLog = ROUTER.use((req, res, next) => {
   next();
 });
 
-ROUTER.get('/', (req,res) => {
+ROUTER.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
@@ -27,58 +27,57 @@ ROUTER.get('/', ensureAuthenticated, (req, res) => {
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
-  } else {
-    res.redirect(401, '/');
   }
+  res.redirect(401, '/');
 }
 
 ROUTER.post('/register', (req, res) => {
   console.log(req.body);
-  let email = req.body.email;
-  let username = req.body.username;
-  let password = req.body.password;
-  let verifypassword = req.body.verifypassword;
+  const email = req.body.email;
+  const username = req.body.username;
+  const password = req.body.password;
 
   //validation
   if (!email) {
-    return res.status(400).json({ error: 'Email is required'});
+    return res.status(400).json({ error: 'Email is required' });
   }
-  req.checkBody('email', 'Email is required').notEmpty();
-  req.checkBody('email', 'Email is not valid').isEmail();
-  req.checkBody('username', 'Username is required').notEmpty();
-  req.checkBody('password', 'Password is required').notEmpty();
+  if (!username) {
+    return res.status(400).json({ error: 'Username is required' });
+  }
+  if (!password) {
+    return res.status(400).json({ error: 'A password is required' });
+  }
 
-  let errors = req.validationErrors();
+  const errors = req.validationErrors();
 
   if (errors) {
     res.json(errors);
   } else {
-    let newUser = new User({
-      email: email,
-      username: username,
-      password: password
+    const newUser = new User({
+      email,
+      username,
+      password
     });
     User.createUser(newUser, (err, user) => {
-      if(err) throw err;
+      if (err) throw err;
         res.status(400).json(user);
     });
   }
 });
 
 passport.use(new LocalStrategy(
-  function (username, password, done) {
+  (username, password, done) => {
     User.getUserByUsername(username, (err, user) => {
       if (err) throw err;
       if (!user) {
         return done(null, false, { message: 'Unknown User' });
       }
       User.comparePassword(password, user.password, (err, isMatch) => {
-        if(err) throw err;
-        if(isMatch) {
+        if (err) throw err;
+        if (isMatch) {
           return done(null, user);
-        } else {
-          return done( null, false, {message: 'Invalid password'});
         }
+        return done(null, false, { message: 'Invalid password' });  
       });
     });
   }));
@@ -94,8 +93,8 @@ passport.use(new LocalStrategy(
   });
 
 ROUTER.post('/login',
-  passport.authenticate('local', {successRedirect:'/', failureRedirect:'/', failureFlash: true}),
-  function(req, res) {
+  passport.authenticate('local', { successRedirect: '/', failureRedirect: '/', failureFlash: true }),
+  (req, res) => {
 });
 
 ROUTER.post('/getUserId', (req, res) => {

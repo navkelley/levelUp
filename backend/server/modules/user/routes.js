@@ -1,9 +1,7 @@
 import path from 'path';
 import express from 'express';
 import passport from 'passport';
-import LocalStrategy, { Strategy } from 'passport-local';
-import session from 'express-session';
-import flash from 'connect-flash';
+import LocalStrategy from 'passport-local';
 
 import User from './user';
 
@@ -32,39 +30,42 @@ function ensureAuthenticated(req, res, next) {
 
 ROUTER.post('/register', (req, res) => {
   console.log(req.body);
-  const email = req.body.email;
-  const username = req.body.username;
-  const password = req.body.password;
+  const { email, username, password } = req.body;
 
   //validation
-  if (req.body.email === '') {
-    return res.status(400).json({ error: 'Email is required' });
-  }
-  if (req.body.username === '') {
-    return res.status(400).json({ error: 'Username is required' });
-  }
-  if (req.body.password === '') {
-    return res.status(400).json({ error: 'A password is required' });
-  }
-  else {
+  if (req.body.email.length === 0) { return res.status(400).json({ error: 'Email is required' }); }  
+  else if (req.body.username.length === 0) { return res.status(400).json({ error: 'Username is required' }); }
+  else if (req.body.password.length === 0) { return res.status(400).json({ error: 'A password is required' }); }
+
+  User.findOne({ email })
+    .then(auth => {
+      if (auth) { return res.status(422).json({ error: 'Email already in use.' }); }
+    });
     const newUser = new User({
       email,
-      username,
-      password
+      password, 
+      username 
     });
-    User.createUser(newUser, (err, user) => {
-      if (err) throw err;
-        res.status(400).json(user);
-    });
+
+    newUser.save()
+      .then(user => {
+        return res.status(201).json({
+          message: 'Registration Successful',
+          user
+        });
+      })
+      .catch(err => {
+        return res.status(422).json({ message: err });
+      });
   }
-});
+);
 
 passport.use(new LocalStrategy(
   (username, password, done) => {
     User.getUserByUsername(username, (err, user) => {
       if (err) throw err;
       if (!user) {
-        return done(null, false, { message: 'Unknown User' });
+        return done(null, false, { error: 'Could not find this user' });
       }
       User.comparePassword(password, user.password, (err, isMatch) => {
         if (err) throw err;

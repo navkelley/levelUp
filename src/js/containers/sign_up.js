@@ -27,13 +27,13 @@ export default class SignUp extends Component {
     if (this.state.showPasswordError === true) {
       return this.state.showPasswordError;
     }
-    axios.post('/api/register', JSON.stringify({
+    axios.post('/api/register', {
       username: this.state.username,
       email: this.state.email,
       password: this.state.password
-    }))
+    })
     .then(res => console.log(res))
-    .catch(res => console.error(res));
+    .catch(err => console.log(err.response.status));
   }
 
   usernameChange(e) {

@@ -4,7 +4,6 @@ import passport from 'passport';
 import LocalStrategy, { Strategy } from 'passport-local';
 import session from 'express-session';
 import flash from 'connect-flash';
-import expressValidator from 'express-validator';
 
 import User from './user';
 
@@ -38,21 +37,16 @@ ROUTER.post('/register', (req, res) => {
   const password = req.body.password;
 
   //validation
-  if (!email) {
+  if (req.body.email === '') {
     return res.status(400).json({ error: 'Email is required' });
   }
-  if (!username) {
+  if (req.body.username === '') {
     return res.status(400).json({ error: 'Username is required' });
   }
-  if (!password) {
+  if (req.body.password === '') {
     return res.status(400).json({ error: 'A password is required' });
   }
-
-  const errors = req.validationErrors();
-
-  if (errors) {
-    res.json(errors);
-  } else {
+  else {
     const newUser = new User({
       email,
       username,

@@ -5,7 +5,6 @@ import flash from 'connect-flash';
 import session from 'express-session';
 import passport from 'passport';
 import LocalStrategy, { Strategy } from 'passport-local';
-import expressValidator from 'express-validator';
 
 export default app => {
 	app.use(bodyParser.json());
@@ -24,22 +23,4 @@ export default app => {
 	app.use(passport.initialize());
 	app.use(passport.session());
 
-	// Express Validator
-	app.use(expressValidator({
-		errorFormatter: function (param, msg, value) {
-				let namespace = param.split('.'),
-				root = namespace.shift(),
-				formParam = root;
-
-			while (namespace.length) {
-				formParam += '[' + namespace.shift() + ']';
-			}
-
-			return {
-				param: formParam,
-				msg: msg,
-				value: value
-			};
-		}
-	}));
 };

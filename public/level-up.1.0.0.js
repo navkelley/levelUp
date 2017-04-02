@@ -19240,14 +19240,14 @@ var SignUp = function (_Component) {
       if (this.state.showPasswordError === true) {
         return this.state.showPasswordError;
       }
-      _axios2.default.post('/api/register', {
+      _axios2.default.post('/api/register', JSON.stringify({
         username: this.state.username,
         email: this.state.email,
         password: this.state.password
-      }).then(function (res) {
+      })).then(function (res) {
         return console.log(res);
-      }).catch(function (err) {
-        return console.log(err.response.status);
+      }).catch(function (res) {
+        return console.error(res);
       });
     }
   }, {

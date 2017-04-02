@@ -35,7 +35,7 @@ class SearchBar extends Component {
 							value={this.state.term}
 							onChange={this.changeTerm}
 						/>
-						<button type="submit" className="submit-btn">Submit <i className="fa fa-search" aria-hidden="true" /></button>
+						<button type="submit" className="submit-btn"><i className="fa fa-search" aria-hidden="true" /></button>
 					</form>
 				</span>
 			</div>

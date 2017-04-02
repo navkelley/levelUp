@@ -6981,7 +6981,6 @@ var SearchBar = function (_Component) {
 						_react2.default.createElement(
 							'button',
 							{ type: 'submit', className: 'submit-btn' },
-							'Submit ',
 							_react2.default.createElement('i', { className: 'fa fa-search', 'aria-hidden': 'true' })
 						)
 					)

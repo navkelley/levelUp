@@ -48,20 +48,19 @@ button {
   color: white;
   border-radius: 5px;
   margin-top: 7px;
-  background-color: #ff4f45;
-  border: 1px solid #ff2d22;
+  background-color: #a92b24;
+  border: 1px solid #7F201B;
   padding: 6px;
-  box-shadow: 0 2px 0 #ff281c, 2px 4px 6px #ff362c;
-  font-weight: 900;
+  box-shadow: 0 2px 0 #771e19, 2px 4px 6px #6e1c17;
   letter-spacing: 1px;
+  outline: none;
 }
 button:hover {
-  background: #ff392e;
-  border: 1px solid #FF4036;
-  box-shadow: 1px 1px 2px #FF4036;
-  color: #ff9792;
+  background: #791e1a;
+  border: 1px solid #7F201B;
+  box-shadow: 1px 1px 2px #7F201B;
   text-decoration: none;
-  text-shadow: -1px -1px 0 #ff1206;
+  text-shadow: -1px -1px 0 #571613;
   transition: all 250ms linear;
 }
 .search-bar button {

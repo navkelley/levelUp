@@ -344,12 +344,10 @@ tbody {
 /*///////// @media queries ////////*/
 @media only screen and (min-width: 960px) {
   #app {
-    max-width: 60em;
     width: 100%;
     margin: 0 auto;
   }
-  .nav-container,
-  .footer-wrapper {
+  #layout {
     max-width: 60em;
   }
 }

@@ -60,7 +60,7 @@ ROUTER.post('/register', (req, res) => {
         if (err.code === 11000) {
           error = 'Duplicate email, please provide another one.';
         }
-        return res.status(422).json({ message: error || err });
+        return res.status(422).json({ success: false, message: error || err });
       });
   }
 );

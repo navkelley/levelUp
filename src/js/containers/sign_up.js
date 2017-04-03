@@ -80,7 +80,7 @@ export default class SignUp extends Component {
             required 
           />
           { this.state.showUsernameError ? 
-            <ErrorMessage message="Sorry, we could not create an account, please try again." /> : null }
+            <ErrorMessage message="Username is too short!" /> : null }
         </div>
         <div className="sign-up-group">
           <label htmlFor="email" />

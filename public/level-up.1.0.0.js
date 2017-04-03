@@ -17585,10 +17585,6 @@ var _reduxThunk = __webpack_require__(599);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-var _reactReduxToastr = __webpack_require__(691);
-
-var _reactReduxToastr2 = _interopRequireDefault(_reactReduxToastr);
-
 var _main_layout = __webpack_require__(274);
 
 var _main_layout2 = _interopRequireDefault(_main_layout);
@@ -17630,7 +17626,6 @@ var routes = _react2.default.createElement(
   _react2.default.createElement(
     _reactRouter.Router,
     { history: _reactRouter.hashHistory },
-    _react2.default.createElement(_reactReduxToastr2.default, { position: 'bottom-center', transitionIn: 'fadeIn', transitionOut: 'fadeOut' }),
     _react2.default.createElement(
       _reactRouter.Route,
       { path: '/', component: _main_layout2.default },
@@ -18626,9 +18621,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
+
+var _reactNotifyToast = __webpack_require__(851);
+
+var _reactNotifyToast2 = _interopRequireDefault(_reactNotifyToast);
 
 var _nav_bar = __webpack_require__(275);
 
@@ -18636,52 +18637,73 @@ var _nav_bar2 = _interopRequireDefault(_nav_bar);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//main-layout will hold navbar, social links, and address 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var MainLayout = function MainLayout(props) {
-  return _react2.default.createElement(
-    'div',
-    { className: 'main-layout' },
-    _react2.default.createElement(_nav_bar2.default, null),
-    _react2.default.createElement(
-      'div',
-      { id: 'layout' },
-      props.children
-    ),
-    _react2.default.createElement(
-      'div',
-      { className: 'footer-wrapper light-fade' },
-      _react2.default.createElement(
-        'footer',
-        null,
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } //main-layout will hold navbar, social links, and address 
+
+
+var MainLayout = function (_Component) {
+  _inherits(MainLayout, _Component);
+
+  function MainLayout(props) {
+    _classCallCheck(this, MainLayout);
+
+    return _possibleConstructorReturn(this, (MainLayout.__proto__ || Object.getPrototypeOf(MainLayout)).call(this, props));
+  }
+
+  _createClass(MainLayout, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'main-layout' },
+        _react2.default.createElement(_nav_bar2.default, null),
+        _react2.default.createElement(_reactNotifyToast2.default, null),
         _react2.default.createElement(
-          'address',
-          { className: 'devAddress' },
-          'Designed and built by Nicole V. Kelley'
+          'div',
+          { id: 'layout' },
+          this.props.children
         ),
         _react2.default.createElement(
           'div',
-          { id: 'social' },
+          { className: 'footer-wrapper light-fade' },
           _react2.default.createElement(
-            'a',
-            { href: 'https://twitter.com/navkelley', target: 'blank', className: 'twit', title: 'Twitter' },
-            _react2.default.createElement('i', { className: 'fa fa-twitter fa-2x', 'aria-hidden': 'true' })
-          ),
-          _react2.default.createElement(
-            'a',
-            { href: 'https://www.linkedin.com/in/nicolevkelley', target: 'blank', className: 'linkedIn', title: 'LinkedIn' },
-            _react2.default.createElement('i', { className: 'fa fa-linkedin-square fa-2x', 'aria-hidden': 'true' })
-          ),
-          _react2.default.createElement(
-            'a',
-            { href: 'https://github.com/navkelley', target: 'blank', className: 'github', title: 'GitHub' },
-            _react2.default.createElement('i', { className: 'fa fa-github fa-2x', 'aria-hidden': 'true' })
+            'footer',
+            null,
+            _react2.default.createElement(
+              'address',
+              { className: 'devAddress' },
+              'Designed and built by Nicole V. Kelley'
+            ),
+            _react2.default.createElement(
+              'div',
+              { id: 'social' },
+              _react2.default.createElement(
+                'a',
+                { href: 'https://twitter.com/navkelley', target: 'blank', className: 'twit', title: 'Twitter' },
+                _react2.default.createElement('i', { className: 'fa fa-twitter fa-2x', 'aria-hidden': 'true' })
+              ),
+              _react2.default.createElement(
+                'a',
+                { href: 'https://www.linkedin.com/in/nicolevkelley', target: 'blank', className: 'linkedIn', title: 'LinkedIn' },
+                _react2.default.createElement('i', { className: 'fa fa-linkedin-square fa-2x', 'aria-hidden': 'true' })
+              ),
+              _react2.default.createElement(
+                'a',
+                { href: 'https://github.com/navkelley', target: 'blank', className: 'github', title: 'GitHub' },
+                _react2.default.createElement('i', { className: 'fa fa-github fa-2x', 'aria-hidden': 'true' })
+              )
+            )
           )
         )
-      )
-    )
-  );
-};
+      );
+    }
+  }]);
+
+  return MainLayout;
+}(_react.Component);
 
 exports.default = MainLayout;
 
@@ -19233,9 +19255,9 @@ var _axios = __webpack_require__(160);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _reactReduxToastr = __webpack_require__(691);
-
 var _validator = __webpack_require__(627);
+
+var _reactNotifyToast = __webpack_require__(851);
 
 var _Errors = __webpack_require__(272);
 
@@ -19281,19 +19303,17 @@ var SignUp = function (_Component) {
       if (this.state.showPasswordError === true) {
         return this.state.showPasswordError;
       }
-      _axios2.default.post('/api/register', {
+      return _axios2.default.post('/api/register', {
         username: this.state.username,
         email: this.state.email,
         password: this.state.password
       }).then(function (res) {
         console.log(res.data.user._id);
-        _reactReduxToastr.toastr.success('Registration Successful!', 'You can now save videos and streams.');
+        _reactNotifyToast.notify.show('Registration Successful! You can now save videos or streams!', 'success', 5000);
       }).catch(function (err) {
-        return console.log(err.message);
+        _reactNotifyToast.notify.show('Oops! ' + err.response.data.error + ' Please use a different one.', 'error', 5000);
       });
     }
-    //toastr.error('Error:', err.res)
-
   }, {
     key: 'usernameChange',
     value: function usernameChange(e) {
@@ -19331,67 +19351,71 @@ var SignUp = function (_Component) {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        'form',
-        { id: 'sign-up-form', onSubmit: this.onFormSubmit },
+        'div',
+        null,
         _react2.default.createElement(
-          'div',
-          { className: 'sign-up-group' },
-          _react2.default.createElement('label', { htmlFor: 'username' }),
-          _react2.default.createElement('input', {
-            type: 'text',
-            placeholder: 'Username',
-            id: 'username',
-            onChange: this.usernameChange,
-            required: true
-          }),
-          this.state.showUsernameError ? _react2.default.createElement(_Errors2.default, { message: 'Username is too short!' }) : null
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'sign-up-group' },
-          _react2.default.createElement('label', { htmlFor: 'email' }),
-          _react2.default.createElement('input', {
-            type: 'email',
-            placeholder: 'Email Address',
-            id: 'userEmail',
-            onChange: this.emailChange,
-            required: true
-          })
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'sign-up-group' },
-          _react2.default.createElement('label', { htmlFor: 'password' }),
-          _react2.default.createElement('input', {
-            type: 'password',
-            id: 'password',
-            placeholder: 'Password',
-            onChange: this.passwordChange,
-            required: true
-          }),
-          this.state.showPasswordError ? _react2.default.createElement(_Errors2.default, { message: 'Passwords do not match' }) : null
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'sign-up-group' },
-          _react2.default.createElement('label', { htmlFor: 'verifyPassword' }),
-          _react2.default.createElement('input', {
-            type: 'password',
-            id: 'verifyPassword',
-            placeholder: 'Re-type Password',
-            onChange: this.verifyPassword,
-            required: true
-          }),
-          this.state.showPasswordError ? _react2.default.createElement(_Errors2.default, { message: 'Passwords do not match' }) : null
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'sign-up-group' },
+          'form',
+          { id: 'sign-up-form', onSubmit: this.onFormSubmit },
           _react2.default.createElement(
-            'button',
-            {
-              type: 'submit', id: 'signup-btn', disabled: this.state.disabled },
-            'Sign Up'
+            'div',
+            { className: 'sign-up-group' },
+            _react2.default.createElement('label', { htmlFor: 'username' }),
+            _react2.default.createElement('input', {
+              type: 'text',
+              placeholder: 'Username',
+              id: 'username',
+              onChange: this.usernameChange,
+              required: true
+            }),
+            this.state.showUsernameError ? _react2.default.createElement(_Errors2.default, { message: 'Username is too short!' }) : null
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'sign-up-group' },
+            _react2.default.createElement('label', { htmlFor: 'email' }),
+            _react2.default.createElement('input', {
+              type: 'email',
+              placeholder: 'Email Address',
+              id: 'userEmail',
+              onChange: this.emailChange,
+              required: true
+            })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'sign-up-group' },
+            _react2.default.createElement('label', { htmlFor: 'password' }),
+            _react2.default.createElement('input', {
+              type: 'password',
+              id: 'password',
+              placeholder: 'Password',
+              onChange: this.passwordChange,
+              required: true
+            }),
+            this.state.showPasswordError ? _react2.default.createElement(_Errors2.default, { message: 'Passwords do not match' }) : null
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'sign-up-group' },
+            _react2.default.createElement('label', { htmlFor: 'verifyPassword' }),
+            _react2.default.createElement('input', {
+              type: 'password',
+              id: 'verifyPassword',
+              placeholder: 'Re-type Password',
+              onChange: this.verifyPassword,
+              required: true
+            }),
+            this.state.showPasswordError ? _react2.default.createElement(_Errors2.default, { message: 'Passwords do not match' }) : null
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'sign-up-group' },
+            _react2.default.createElement(
+              'button',
+              {
+                type: 'submit', id: 'signup-btn', disabled: this.state.disabled },
+              'Sign Up'
+            )
           )
         )
       );
@@ -42231,1985 +42255,597 @@ function whitelist(str, chars) {
 module.exports = exports['default'];
 
 /***/ }),
-/* 675 */
+/* 675 */,
+/* 676 */,
+/* 677 */,
+/* 678 */,
+/* 679 */,
+/* 680 */,
+/* 681 */,
+/* 682 */,
+/* 683 */,
+/* 684 */,
+/* 685 */,
+/* 686 */,
+/* 687 */,
+/* 688 */,
+/* 689 */,
+/* 690 */,
+/* 691 */,
+/* 692 */,
+/* 693 */,
+/* 694 */,
+/* 695 */,
+/* 696 */,
+/* 697 */,
+/* 698 */,
+/* 699 */,
+/* 700 */,
+/* 701 */,
+/* 702 */,
+/* 703 */,
+/* 704 */,
+/* 705 */,
+/* 706 */,
+/* 707 */,
+/* 708 */,
+/* 709 */,
+/* 710 */,
+/* 711 */,
+/* 712 */,
+/* 713 */,
+/* 714 */,
+/* 715 */,
+/* 716 */,
+/* 717 */,
+/* 718 */,
+/* 719 */,
+/* 720 */,
+/* 721 */,
+/* 722 */,
+/* 723 */,
+/* 724 */,
+/* 725 */,
+/* 726 */,
+/* 727 */,
+/* 728 */,
+/* 729 */,
+/* 730 */,
+/* 731 */,
+/* 732 */,
+/* 733 */,
+/* 734 */,
+/* 735 */,
+/* 736 */,
+/* 737 */,
+/* 738 */,
+/* 739 */,
+/* 740 */,
+/* 741 */,
+/* 742 */,
+/* 743 */,
+/* 744 */,
+/* 745 */,
+/* 746 */,
+/* 747 */,
+/* 748 */,
+/* 749 */,
+/* 750 */,
+/* 751 */,
+/* 752 */,
+/* 753 */,
+/* 754 */,
+/* 755 */,
+/* 756 */,
+/* 757 */,
+/* 758 */,
+/* 759 */,
+/* 760 */,
+/* 761 */,
+/* 762 */,
+/* 763 */,
+/* 764 */,
+/* 765 */,
+/* 766 */,
+/* 767 */,
+/* 768 */,
+/* 769 */,
+/* 770 */,
+/* 771 */,
+/* 772 */,
+/* 773 */,
+/* 774 */,
+/* 775 */,
+/* 776 */,
+/* 777 */,
+/* 778 */,
+/* 779 */,
+/* 780 */,
+/* 781 */,
+/* 782 */,
+/* 783 */,
+/* 784 */,
+/* 785 */,
+/* 786 */,
+/* 787 */,
+/* 788 */,
+/* 789 */,
+/* 790 */,
+/* 791 */,
+/* 792 */,
+/* 793 */,
+/* 794 */,
+/* 795 */,
+/* 796 */,
+/* 797 */,
+/* 798 */,
+/* 799 */,
+/* 800 */,
+/* 801 */,
+/* 802 */,
+/* 803 */,
+/* 804 */,
+/* 805 */,
+/* 806 */,
+/* 807 */,
+/* 808 */,
+/* 809 */,
+/* 810 */,
+/* 811 */,
+/* 812 */,
+/* 813 */,
+/* 814 */,
+/* 815 */,
+/* 816 */,
+/* 817 */,
+/* 818 */,
+/* 819 */,
+/* 820 */,
+/* 821 */,
+/* 822 */,
+/* 823 */,
+/* 824 */,
+/* 825 */,
+/* 826 */,
+/* 827 */,
+/* 828 */,
+/* 829 */,
+/* 830 */,
+/* 831 */,
+/* 832 */,
+/* 833 */,
+/* 834 */,
+/* 835 */,
+/* 836 */,
+/* 837 */,
+/* 838 */,
+/* 839 */,
+/* 840 */,
+/* 841 */,
+/* 842 */,
+/* 843 */,
+/* 844 */,
+/* 845 */,
+/* 846 */,
+/* 847 */,
+/* 848 */,
+/* 849 */,
+/* 850 */,
+/* 851 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+	value: true
 });
+exports.notify = undefined;
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-exports.createReducer = createReducer;
-exports.keyCode = keyCode;
-exports.mapToToastrMessage = mapToToastrMessage;
-exports.guid = guid;
-exports.onCSSTransitionEnd = onCSSTransitionEnd;
-exports.preventDuplication = preventDuplication;
-exports.updateConfig = updateConfig;
-exports._bind = _bind;
+var _react = __webpack_require__(3);
 
-var _ReactTransitionEvents = __webpack_require__(692);
+var _react2 = _interopRequireDefault(_react);
 
-var _ReactTransitionEvents2 = _interopRequireDefault(_ReactTransitionEvents);
+var _reactDom = __webpack_require__(497);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _objectAssign = __webpack_require__(852);
+
+var _objectAssign2 = _interopRequireDefault(_objectAssign);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function createReducer(initialState, fnMap) {
-  return function () {
-    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-    var _ref = arguments[1];
-    var type = _ref.type,
-        payload = _ref.payload;
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-    var handle = fnMap[type];
-    return handle ? handle(state, payload) : state;
-  };
-}
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function isString(obj) {
-  if (typeof obj == 'string') {
-    return true;
-  }
-  return false;
-}
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-function keyCode(e) {
-  return e.which ? e.which : e.keyCode;
-}
+var notificationWrapperId = 'notification-wrapper';
+var defaultTimeout = 5000; // ms
+var animationDuration = 300; // ms
 
-function mapToToastrMessage(type, array) {
-  var obj = {};
-  obj.type = type;
+/* Colors */
+var colorWhite = 'white';
+var colorError = '#E85742';
+var colorSuccess = '#55CA92';
+var colorWarning = '#F5E273';
+var textColorWarning = '#333333';
 
-  obj.options = array.filter(function (item) {
-    return (typeof item === 'undefined' ? 'undefined' : _typeof(item)) == 'object';
-  })[0] || {};
+/* React Notification Component */
 
-  if (!obj.options.hasOwnProperty('removeOnHover')) {
-    obj.options.removeOnHover = true;
-    if (type === 'message') {
-      obj.options.removeOnHover = false;
-    }
-  }
+var Toast = function (_React$Component) {
+	_inherits(Toast, _React$Component);
 
-  if (!obj.options.hasOwnProperty('showCloseButton')) {
-    obj.options.showCloseButton = true;
-  }
+	function Toast() {
+		var _ref;
 
-  if (type === 'message' && !obj.options.hasOwnProperty('timeOut')) {
-    obj.options.timeOut = 0;
-  }
+		var _temp, _this, _ret;
 
-  if (isString(array[0]) && isString(array[1])) {
-    obj.title = array[0];
-    obj.message = array[1];
-  } else if (isString(array[0]) && !isString(array[1])) {
-    obj.title = array[0];
-  } else {
-    obj.message = array[0];
-  }
+		_classCallCheck(this, Toast);
 
-  return obj;
-}
-
-function guid() {
-  var r = function r() {
-    return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
-  };
-  return r() + r() + r() + '-' + r() + '_' + r() + '-' + r() + '_' + r() + r() + r();
-}
-
-function onCSSTransitionEnd(node, callback) {
-  var runOnce = function runOnce(e) {
-    // stopPropagation is not working in IE11 and Edge, the transitionend from the Button.js is waiting
-    // on the confirm animation to end first and not the Button.js
-    e.stopPropagation();
-    callback && callback(e);
-    _ReactTransitionEvents2.default.removeEndEventListener(node, runOnce);
-  };
-  _ReactTransitionEvents2.default.addEndEventListener(node, runOnce);
-}
-
-function preventDuplication(currentData, newObjec) {
-  var hasDuplication = false;
-  currentData.forEach(function (item) {
-    // Because the toastr has a unic id we will check by the title and message.
-    if (item.title === newObjec.title && item.message === newObjec.message && item.type === newObjec.type) {
-      hasDuplication = true;
-    }
-  });
-  return hasDuplication;
-}
-
-function updateConfig(config, obj) {
-  Object.keys(config).forEach(function (key) {
-    if (obj.hasOwnProperty(key)) {
-      config[key] = obj[key];
-    }
-  });
-}
-
-function _bind(strinOrAray, scope) {
-  var array = strinOrAray;
-  if (!Array.isArray(strinOrAray)) {
-    array = strinOrAray.split(' ');
-  }
-  return array.map(function (item) {
-    return scope[item] = scope[item].bind(scope);
-  });
-}
-
-/***/ }),
-/* 676 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-  Copyright (c) 2016 Jed Watson.
-  Licensed under the MIT License (MIT), see
-  http://jedwatson.github.io/classnames
-*/
-/* global define */
-
-(function () {
-	'use strict';
-
-	var hasOwn = {}.hasOwnProperty;
-
-	function classNames () {
-		var classes = [];
-
-		for (var i = 0; i < arguments.length; i++) {
-			var arg = arguments[i];
-			if (!arg) continue;
-
-			var argType = typeof arg;
-
-			if (argType === 'string' || argType === 'number') {
-				classes.push(arg);
-			} else if (Array.isArray(arg)) {
-				classes.push(classNames.apply(null, arg));
-			} else if (argType === 'object') {
-				for (var key in arg) {
-					if (hasOwn.call(arg, key) && arg[key]) {
-						classes.push(key);
-					}
-				}
-			}
+		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+			args[_key] = arguments[_key];
 		}
 
-		return classes.join(' ');
+		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Toast.__proto__ || Object.getPrototypeOf(Toast)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+			styleParent: null
+		}, _temp), _possibleConstructorReturn(_this, _ret);
 	}
 
-	if (typeof module !== 'undefined' && module.exports) {
-		module.exports = classNames;
-	} else if (true) {
-		// register as 'classnames', consistent with npm package name
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
-			return classNames;
-		}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	} else {
-		window.classNames = classNames;
-	}
-}());
-
-
-/***/ }),
-/* 677 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var toastr = {
-  newestOnTop: true,
-  preventDuplicates: true
-};
-
-exports.default = toastr;
-
-/***/ }),
-/* 678 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- * @typechecks
- */
-
-var invariant = __webpack_require__(1);
-
-/**
- * The CSSCore module specifies the API (and implements most of the methods)
- * that should be used when dealing with the display of elements (via their
- * CSS classes and visibility on screen. It is an API focused on mutating the
- * display and not reading it as no logical state should be encoded in the
- * display of elements.
- */
-
-/* Slow implementation for browsers that don't natively support .matches() */
-function matchesSelector_SLOW(element, selector) {
-  var root = element;
-  while (root.parentNode) {
-    root = root.parentNode;
-  }
-
-  var all = root.querySelectorAll(selector);
-  return Array.prototype.indexOf.call(all, element) !== -1;
-}
-
-var CSSCore = {
-
-  /**
-   * Adds the class passed in to the element if it doesn't already have it.
-   *
-   * @param {DOMElement} element the element to set the class on
-   * @param {string} className the CSS className
-   * @return {DOMElement} the element passed in
-   */
-  addClass: function addClass(element, className) {
-    !!/\s/.test(className) ?  false ? invariant(false, 'CSSCore.addClass takes only a single class name. "%s" contains ' + 'multiple classes.', className) : invariant(false) : void 0;
-
-    if (className) {
-      if (element.classList) {
-        element.classList.add(className);
-      } else if (!CSSCore.hasClass(element, className)) {
-        element.className = element.className + ' ' + className;
-      }
-    }
-    return element;
-  },
-
-  /**
-   * Removes the class passed in from the element
-   *
-   * @param {DOMElement} element the element to set the class on
-   * @param {string} className the CSS className
-   * @return {DOMElement} the element passed in
-   */
-  removeClass: function removeClass(element, className) {
-    !!/\s/.test(className) ?  false ? invariant(false, 'CSSCore.removeClass takes only a single class name. "%s" contains ' + 'multiple classes.', className) : invariant(false) : void 0;
-
-    if (className) {
-      if (element.classList) {
-        element.classList.remove(className);
-      } else if (CSSCore.hasClass(element, className)) {
-        element.className = element.className.replace(new RegExp('(^|\\s)' + className + '(?:\\s|$)', 'g'), '$1').replace(/\s+/g, ' ') // multiple spaces to one
-        .replace(/^\s*|\s*$/g, ''); // trim the ends
-      }
-    }
-    return element;
-  },
-
-  /**
-   * Helper to add or remove a class from an element based on a condition.
-   *
-   * @param {DOMElement} element the element to set the class on
-   * @param {string} className the CSS className
-   * @param {*} bool condition to whether to add or remove the class
-   * @return {DOMElement} the element passed in
-   */
-  conditionClass: function conditionClass(element, className, bool) {
-    return (bool ? CSSCore.addClass : CSSCore.removeClass)(element, className);
-  },
-
-  /**
-   * Tests whether the element has the class specified.
-   *
-   * @param {DOMNode|DOMWindow} element the element to check the class on
-   * @param {string} className the CSS className
-   * @return {boolean} true if the element has the class, false if not
-   */
-  hasClass: function hasClass(element, className) {
-    !!/\s/.test(className) ?  false ? invariant(false, 'CSS.hasClass takes only a single class name.') : invariant(false) : void 0;
-    if (element.classList) {
-      return !!className && element.classList.contains(className);
-    }
-    return (' ' + element.className + ' ').indexOf(' ' + className + ' ') > -1;
-  },
-
-  /**
-   * Tests whether the element matches the selector specified
-   *
-   * @param {DOMNode|DOMWindow} element the element that we are querying
-   * @param {string} selector the CSS selector
-   * @return {boolean} true if the element matches the selector, false if not
-   */
-  matchesSelector: function matchesSelector(element, selector) {
-    var matchesImpl = element.matches || element.webkitMatchesSelector || element.mozMatchesSelector || element.msMatchesSelector || function (s) {
-      return matchesSelector_SLOW(element, s);
-    };
-    return matchesImpl.call(element, selector);
-  }
-
-};
-
-module.exports = CSSCore;
-
-/***/ }),
-/* 679 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.removeByType = exports.hideConfirm = exports.showConfirm = exports.remove = exports.clean = undefined;
-exports.add = add;
-
-var _constants = __webpack_require__(680);
-
-var _utils = __webpack_require__(675);
-
-var _reducer = __webpack_require__(681);
-
-var _config = __webpack_require__(677);
-
-var _config2 = _interopRequireDefault(_config);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function add(toastr) {
-  if (_config2.default.preventDuplicates && (0, _utils.preventDuplication)(_reducer.toastrsCache, toastr)) {
-    return {
-      type: _constants.ADD_TOASTR,
-      payload: {
-        ignoreToastr: true
-      }
-    };
-  }
-  return {
-    type: _constants.ADD_TOASTR,
-    payload: toastr
-  };
-}
-
-var clean = exports.clean = function clean() {
-  return {
-    type: _constants.CLEAN_TOASTR
-  };
-};
-
-var remove = exports.remove = function remove(params) {
-  return {
-    type: _constants.REMOVE_TOASTR,
-    payload: params
-  };
-};
-
-var showConfirm = exports.showConfirm = function showConfirm(obj) {
-  return {
-    type: _constants.SHOW_CONFIRM,
-    payload: obj
-  };
-};
-
-var hideConfirm = exports.hideConfirm = function hideConfirm() {
-  return { type: _constants.HIDE_CONFIRM };
-};
-
-var removeByType = exports.removeByType = function removeByType(payload) {
-  return {
-    type: _constants.REMOVE_BY_TYPE,
-    payload: payload
-  };
-};
-
-/***/ }),
-/* 680 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var ADD_TOASTR = exports.ADD_TOASTR = '@ReduxToastr/toastr/ADD';
-var REMOVE_TOASTR = exports.REMOVE_TOASTR = '@ReduxToastr/toastr/REMOVE';
-var CLEAN_TOASTR = exports.CLEAN_TOASTR = '@ReduxToastr/toastr/CLEAN';
-var SHOW_CONFIRM = exports.SHOW_CONFIRM = '@ReduxToastr/confirm/SHOW';
-var HIDE_CONFIRM = exports.HIDE_CONFIRM = '@ReduxToastr/confirm/HIDE';
-var REMOVE_BY_TYPE = exports.REMOVE_BY_TYPE = '@ReduxToastr/toastr/REMOVE_BY_TYPE';
-
-/***/ }),
-/* 681 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.toastrsCache = undefined;
-
-var _createReducer;
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _utils = __webpack_require__(675);
-
-var _config = __webpack_require__(677);
-
-var _config2 = _interopRequireDefault(_config);
-
-var _constants = __webpack_require__(680);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
-// We will cache data so we can check for duplicated before fire the add action.
-var toastrsCache = exports.toastrsCache = [];
-
-var initialState = {
-  toastrs: [],
-  confirm: null
-};
-
-exports.default = (0, _utils.createReducer)(initialState, (_createReducer = {}, _defineProperty(_createReducer, _constants.ADD_TOASTR, function (state, _ref) {
-  var id = _ref.id,
-      type = _ref.type,
-      title = _ref.title,
-      message = _ref.message,
-      options = _ref.options,
-      ignoreToastr = _ref.ignoreToastr;
-
-  if (ignoreToastr) {
-    return state;
-  }
-
-  var newToastr = {
-    id: id || (0, _utils.guid)(),
-    type: type,
-    title: title,
-    message: message,
-    options: options
-  };
-
-  var newState = {};
-  if (!_config2.default.newestOnTop) {
-    newState = _extends({}, state, {
-      toastrs: [].concat(_toConsumableArray(state.toastrs), [newToastr])
-    });
-  } else {
-    newState = _extends({}, state, {
-      toastrs: [newToastr].concat(_toConsumableArray(state.toastrs))
-    });
-  }
-  exports.toastrsCache = toastrsCache = newState.toastrs;
-  return newState;
-}), _defineProperty(_createReducer, _constants.REMOVE_TOASTR, function (state, id) {
-  var newState = _extends({}, state, {
-    toastrs: state.toastrs.filter(function (toastr) {
-      return toastr.id !== id;
-    })
-  });
-
-  exports.toastrsCache = toastrsCache = newState.toastrs;
-  return newState;
-}), _defineProperty(_createReducer, _constants.REMOVE_BY_TYPE, function (state, type) {
-  var newState = _extends({}, state, {
-    toastrs: state.toastrs.filter(function (toastr) {
-      return toastr.type !== type;
-    })
-  });
-
-  exports.toastrsCache = toastrsCache = newState.toastrs;
-  return newState;
-}), _defineProperty(_createReducer, _constants.CLEAN_TOASTR, function (state) {
-  exports.toastrsCache = toastrsCache = [];
-  return _extends({}, state, {
-    toastrs: []
-  });
-}), _defineProperty(_createReducer, _constants.SHOW_CONFIRM, function (state, _ref2) {
-  var id = _ref2.id,
-      message = _ref2.message,
-      options = _ref2.options;
-
-  return _extends({}, state, {
-    confirm: {
-      id: id || (0, _utils.guid)(),
-      show: true,
-      message: message,
-      options: options || {}
-    }
-  });
-}), _defineProperty(_createReducer, _constants.HIDE_CONFIRM, function (state) {
-  return _extends({}, state, {
-    confirm: null
-  });
-}), _createReducer));
-
-/***/ }),
-/* 682 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.toastrEmitter = exports.EE = undefined;
-
-var _utils = __webpack_require__(675);
-
-var _eventemitter = __webpack_require__(683);
-
-var _eventemitter2 = _interopRequireDefault(_eventemitter);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var emitter = new _eventemitter2.default();
-
-var addToToastr = function addToToastr(type, array) {
-  return emitter.emit('add/toastr', (0, _utils.mapToToastrMessage)(type, array));
-};
-
-var actions = {};
-['light', 'message', 'info', 'success', 'warning', 'error'].forEach(function (item) {
-  actions[item] = function () {
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return addToToastr(item, args);
-  };
-});
-
-actions.clean = function () {
-  return emitter.emit('clean/toastr');
-};
-
-/**
- * @params: can be a ID or a object that with a property type: 'success'
- * and by passing this we will remove all toastr with that type.
- */
-actions.removeByType = function (type) {
-  return emitter.emit('removeByType/toastr', type);
-};
-
-actions.confirm = function () {
-  emitter.emit('toastr/confirm', {
-    message: arguments.length <= 0 ? undefined : arguments[0],
-    options: (arguments.length <= 1 ? undefined : arguments[1]) || {}
-  });
-};
-
-var EE = exports.EE = emitter;
-var toastrEmitter = exports.toastrEmitter = actions;
-
-/***/ }),
-/* 683 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var has = Object.prototype.hasOwnProperty;
-
-//
-// We store our EE objects in a plain object whose properties are event names.
-// If `Object.create(null)` is not supported we prefix the event names with a
-// `~` to make sure that the built-in object properties are not overridden or
-// used as an attack vector.
-// We also assume that `Object.create(null)` is available when the event name
-// is an ES6 Symbol.
-//
-var prefix = typeof Object.create !== 'function' ? '~' : false;
-
-/**
- * Representation of a single EventEmitter function.
- *
- * @param {Function} fn Event handler to be called.
- * @param {Mixed} context Context for function execution.
- * @param {Boolean} [once=false] Only emit once
- * @api private
- */
-function EE(fn, context, once) {
-  this.fn = fn;
-  this.context = context;
-  this.once = once || false;
-}
-
-/**
- * Minimal EventEmitter interface that is molded against the Node.js
- * EventEmitter interface.
- *
- * @constructor
- * @api public
- */
-function EventEmitter() { /* Nothing to set */ }
-
-/**
- * Hold the assigned EventEmitters by name.
- *
- * @type {Object}
- * @private
- */
-EventEmitter.prototype._events = undefined;
-
-/**
- * Return an array listing the events for which the emitter has registered
- * listeners.
- *
- * @returns {Array}
- * @api public
- */
-EventEmitter.prototype.eventNames = function eventNames() {
-  var events = this._events
-    , names = []
-    , name;
-
-  if (!events) return names;
-
-  for (name in events) {
-    if (has.call(events, name)) names.push(prefix ? name.slice(1) : name);
-  }
-
-  if (Object.getOwnPropertySymbols) {
-    return names.concat(Object.getOwnPropertySymbols(events));
-  }
-
-  return names;
-};
-
-/**
- * Return a list of assigned event listeners.
- *
- * @param {String} event The events that should be listed.
- * @param {Boolean} exists We only need to know if there are listeners.
- * @returns {Array|Boolean}
- * @api public
- */
-EventEmitter.prototype.listeners = function listeners(event, exists) {
-  var evt = prefix ? prefix + event : event
-    , available = this._events && this._events[evt];
-
-  if (exists) return !!available;
-  if (!available) return [];
-  if (available.fn) return [available.fn];
-
-  for (var i = 0, l = available.length, ee = new Array(l); i < l; i++) {
-    ee[i] = available[i].fn;
-  }
-
-  return ee;
-};
-
-/**
- * Emit an event to all registered event listeners.
- *
- * @param {String} event The name of the event.
- * @returns {Boolean} Indication if we've emitted an event.
- * @api public
- */
-EventEmitter.prototype.emit = function emit(event, a1, a2, a3, a4, a5) {
-  var evt = prefix ? prefix + event : event;
-
-  if (!this._events || !this._events[evt]) return false;
-
-  var listeners = this._events[evt]
-    , len = arguments.length
-    , args
-    , i;
-
-  if ('function' === typeof listeners.fn) {
-    if (listeners.once) this.removeListener(event, listeners.fn, undefined, true);
-
-    switch (len) {
-      case 1: return listeners.fn.call(listeners.context), true;
-      case 2: return listeners.fn.call(listeners.context, a1), true;
-      case 3: return listeners.fn.call(listeners.context, a1, a2), true;
-      case 4: return listeners.fn.call(listeners.context, a1, a2, a3), true;
-      case 5: return listeners.fn.call(listeners.context, a1, a2, a3, a4), true;
-      case 6: return listeners.fn.call(listeners.context, a1, a2, a3, a4, a5), true;
-    }
-
-    for (i = 1, args = new Array(len -1); i < len; i++) {
-      args[i - 1] = arguments[i];
-    }
-
-    listeners.fn.apply(listeners.context, args);
-  } else {
-    var length = listeners.length
-      , j;
-
-    for (i = 0; i < length; i++) {
-      if (listeners[i].once) this.removeListener(event, listeners[i].fn, undefined, true);
-
-      switch (len) {
-        case 1: listeners[i].fn.call(listeners[i].context); break;
-        case 2: listeners[i].fn.call(listeners[i].context, a1); break;
-        case 3: listeners[i].fn.call(listeners[i].context, a1, a2); break;
-        default:
-          if (!args) for (j = 1, args = new Array(len -1); j < len; j++) {
-            args[j - 1] = arguments[j];
-          }
-
-          listeners[i].fn.apply(listeners[i].context, args);
-      }
-    }
-  }
-
-  return true;
-};
-
-/**
- * Register a new EventListener for the given event.
- *
- * @param {String} event Name of the event.
- * @param {Function} fn Callback function.
- * @param {Mixed} [context=this] The context of the function.
- * @api public
- */
-EventEmitter.prototype.on = function on(event, fn, context) {
-  var listener = new EE(fn, context || this)
-    , evt = prefix ? prefix + event : event;
-
-  if (!this._events) this._events = prefix ? {} : Object.create(null);
-  if (!this._events[evt]) this._events[evt] = listener;
-  else {
-    if (!this._events[evt].fn) this._events[evt].push(listener);
-    else this._events[evt] = [
-      this._events[evt], listener
-    ];
-  }
-
-  return this;
-};
-
-/**
- * Add an EventListener that's only called once.
- *
- * @param {String} event Name of the event.
- * @param {Function} fn Callback function.
- * @param {Mixed} [context=this] The context of the function.
- * @api public
- */
-EventEmitter.prototype.once = function once(event, fn, context) {
-  var listener = new EE(fn, context || this, true)
-    , evt = prefix ? prefix + event : event;
-
-  if (!this._events) this._events = prefix ? {} : Object.create(null);
-  if (!this._events[evt]) this._events[evt] = listener;
-  else {
-    if (!this._events[evt].fn) this._events[evt].push(listener);
-    else this._events[evt] = [
-      this._events[evt], listener
-    ];
-  }
-
-  return this;
-};
-
-/**
- * Remove event listeners.
- *
- * @param {String} event The event we want to remove.
- * @param {Function} fn The listener that we need to find.
- * @param {Mixed} context Only remove listeners matching this context.
- * @param {Boolean} once Only remove once listeners.
- * @api public
- */
-EventEmitter.prototype.removeListener = function removeListener(event, fn, context, once) {
-  var evt = prefix ? prefix + event : event;
-
-  if (!this._events || !this._events[evt]) return this;
-
-  var listeners = this._events[evt]
-    , events = [];
-
-  if (fn) {
-    if (listeners.fn) {
-      if (
-           listeners.fn !== fn
-        || (once && !listeners.once)
-        || (context && listeners.context !== context)
-      ) {
-        events.push(listeners);
-      }
-    } else {
-      for (var i = 0, length = listeners.length; i < length; i++) {
-        if (
-             listeners[i].fn !== fn
-          || (once && !listeners[i].once)
-          || (context && listeners[i].context !== context)
-        ) {
-          events.push(listeners[i]);
-        }
-      }
-    }
-  }
-
-  //
-  // Reset the array, or remove it completely if we have no more listeners.
-  //
-  if (events.length) {
-    this._events[evt] = events.length === 1 ? events[0] : events;
-  } else {
-    delete this._events[evt];
-  }
-
-  return this;
-};
-
-/**
- * Remove all listeners or only the listeners for the specified event.
- *
- * @param {String} event The event want to remove all listeners for.
- * @api public
- */
-EventEmitter.prototype.removeAllListeners = function removeAllListeners(event) {
-  if (!this._events) return this;
-
-  if (event) delete this._events[prefix ? prefix + event : event];
-  else this._events = prefix ? {} : Object.create(null);
-
-  return this;
-};
-
-//
-// Alias methods names because people roll like that.
-//
-EventEmitter.prototype.off = EventEmitter.prototype.removeListener;
-EventEmitter.prototype.addListener = EventEmitter.prototype.on;
-
-//
-// This function doesn't apply anymore.
-//
-EventEmitter.prototype.setMaxListeners = function setMaxListeners() {
-  return this;
-};
-
-//
-// Expose the prefix.
-//
-EventEmitter.prefixed = prefix;
-
-//
-// Expose the module.
-//
-if (true) {
-  module.exports = EventEmitter;
-}
-
-
-/***/ }),
-/* 684 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(3);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Button = function Button(props) {
-  return _react2.default.createElement(
-    'button',
-    { type: 'button', onClick: function onClick() {
-        return props.onClick();
-      }, className: props.className },
-    _react2.default.createElement(
-      'p',
-      null,
-      props.children
-    )
-  );
-};
-
-Button.displayName = 'ReduxConfirmButton';
-
-exports.default = Button;
-
-/***/ }),
-/* 685 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(3);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _classnames = __webpack_require__(676);
-
-var _classnames2 = _interopRequireDefault(_classnames);
-
-var _icons = __webpack_require__(690);
-
-var _icons2 = _interopRequireDefault(_icons);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
-
-var Icon = function (_React$Component) {
-  _inherits(Icon, _React$Component);
-
-  function Icon() {
-    _classCallCheck(this, Icon);
-
-    return _possibleConstructorReturn(this, _React$Component.apply(this, arguments));
-  }
-
-  Icon.prototype.render = function render() {
-    var size = this.props.size;
-
-    var styles = {
-      width: size,
-      height: size
-    };
-
-    return _react2.default.createElement(
-      'svg',
-      {
-        className: (0, _classnames2.default)(this.props.className, 'toastr-icon'),
-        xmlns: 'http://www.w3.org/2000/svg',
-        preserveAspectRatio: 'xMidYMid meet',
-        viewBox: '0 0 ' + this.props.size + ' ' + this.props.size,
-        style: styles
-      },
-      (0, _icons2.default)(this.props.name)
-    );
-  };
-
-  return Icon;
+	_createClass(Toast, [{
+		key: 'getStyles',
+		value: function getStyles() {
+			var styles = {};
+
+			var containerStyle = {
+				position: 'fixed',
+				width: '50%',
+				margin: '0 auto',
+				right: '0px',
+				top: '-100px',
+				left: '0px',
+				textAlign: 'center',
+				zIndex: '999',
+				pointerEvents: 'none',
+				transition: 'all ' + animationDuration + 'ms ease',
+				transform: 'translateY(0px)',
+				// Vendor Prefixes
+				msTransition: 'all ' + animationDuration + 'ms ease',
+				msTransform: 'translateY(0px)',
+				WebkitTransition: 'all ' + animationDuration + 'ms ease',
+				WebkitTransform: 'translateY(0px)',
+				OTransition: 'all ' + animationDuration + 'ms ease',
+				OTransform: 'translateY(0px)',
+				MozTransition: 'all ' + animationDuration + 'ms ease',
+				MozTransform: 'translateY(0px)'
+			};
+
+			var contentStyle = {
+				cursor: 'pointer',
+				display: 'inline',
+				width: 'auto',
+				borderRadius: '0 0 4px 4px',
+				backgroundColor: 'white',
+				padding: '10px 30px',
+				pointerEvents: 'all'
+			};
+
+			/* If type is set, merge toast action styles with base */
+			switch (this.props.type) {
+				case 'success':
+					var successStyle = {
+						backgroundColor: colorSuccess,
+						color: colorWhite
+					};
+					styles.content = (0, _objectAssign2.default)({}, contentStyle, successStyle);
+					break;
+
+				case 'error':
+					var errorStyle = {
+						backgroundColor: colorError,
+						color: colorWhite
+					};
+					styles.content = (0, _objectAssign2.default)({}, contentStyle, errorStyle);
+					break;
+
+				case 'warning':
+					var warningStyle = {
+						backgroundColor: colorWarning,
+						color: textColorWarning
+					};
+					styles.content = (0, _objectAssign2.default)({}, contentStyle, warningStyle);
+					break;
+
+				case 'custom':
+					var customStyle = {
+						backgroundColor: this.props.color.background,
+						color: this.props.color.text
+					};
+					styles.content = (0, _objectAssign2.default)({}, contentStyle, customStyle);
+					break;
+
+				default:
+					styles.content = (0, _objectAssign2.default)({}, contentStyle);
+					break;
+			}
+
+			styles.container = containerStyle;
+
+			return styles;
+		}
+	}, {
+		key: 'getVisibleState',
+		value: function getVisibleState(context) {
+			var base = this.getStyles().container;
+
+			// Show
+			var stylesShow = {
+				transform: 'translateY(108px)',
+				msTransform: 'translateY(108px)',
+				WebkitTransform: 'translateY(108px)',
+				OTransform: 'translateY(108px)',
+				MozTransform: 'translateY(108px)'
+			};
+
+			setTimeout(function () {
+				context.updateStyle(base, stylesShow);
+			}, 100); // wait 100ms after the component is called to animate toast.
+
+			if (this.props.timeout === -1) {
+				return;
+			}
+
+			// Hide after timeout
+			var stylesHide = {
+				transform: 'translateY(-108px)',
+				msTransform: 'translateY(-108px)',
+				WebkitTransform: 'translateY(-108px)',
+				OTransform: 'translateY(-108px)',
+				MozTransform: 'translateY(-108px)'
+			};
+
+			setTimeout(function () {
+				context.updateStyle(base, stylesHide);
+			}, this.props.timeout);
+		}
+	}, {
+		key: 'updateStyle',
+		value: function updateStyle(base, update) {
+			this.setState({ styleParent: (0, _objectAssign2.default)({}, base, update) });
+		}
+	}, {
+		key: 'getBaseStyle',
+		value: function getBaseStyle() {
+			this.setState({ styleParent: this.getStyles().container });
+		}
+	}, {
+		key: 'componentDidMount',
+		value: function componentDidMount() {
+			this.getBaseStyle();
+			this.getVisibleState(this);
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			var _props = this.props,
+			    text = _props.text,
+			    type = _props.type;
+
+			var styles = this.getStyles();
+			var styleParent = this.state.styleParent;
+
+			return _react2.default.createElement(
+				'div',
+				{ className: 'toast-notification', style: styleParent },
+				_react2.default.createElement(
+					'span',
+					{ className: type, style: styles.content },
+					text
+				)
+			);
+		}
+	}]);
+
+	return Toast;
 }(_react2.default.Component);
 
-Icon.displayName = 'Icon';
-Icon.defaultProps = {
-  size: 32
+/* Private Functions */
+
+/* Render React component */
+
+
+Toast.propTypes = {
+	text: _react.PropTypes.string,
+	timeout: _react.PropTypes.number,
+	type: _react.PropTypes.string,
+	color: _react.PropTypes.object,
+	style: _react.PropTypes.oneOfType([_react.PropTypes.object, _react.PropTypes.bool])
 };
-exports.default = Icon;
+function renderToast(text, type, timeout, color) {
+	_reactDom2.default.render(_react2.default.createElement(Toast, { text: text, timeout: timeout, type: type, color: color }), document.getElementById(notificationWrapperId));
+}
+
+/* Unmount React component */
+function hideToast() {
+	_reactDom2.default.unmountComponentAtNode(document.getElementById(notificationWrapperId));
+}
+
+/* Public functions */
+
+/* Show Animated Toast Message */
+/* Returns true if the toast was shown, or false if show failed due to an existing notification */
+function show(text, type, timeout, color) {
+	if (!document.getElementById(notificationWrapperId).hasChildNodes()) {
+		var renderTimeout = timeout;
+
+		// Use default timeout if not set.
+		if (!renderTimeout) {
+			renderTimeout = defaultTimeout;
+		}
+
+		// Render Component with Props.
+		renderToast(text, type, renderTimeout, color);
+
+		if (timeout === -1) {
+			return false;
+		}
+
+		// Unmount react component after the animation finished.
+		setTimeout(function () {
+			hideToast();
+		}, renderTimeout + animationDuration);
+
+		return true;
+	}
+	return false;
+}
 
-/***/ }),
-/* 686 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(3);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
-
-var ProgressBar = function (_Component) {
-  _inherits(ProgressBar, _Component);
-
-  function ProgressBar(props) {
-    _classCallCheck(this, ProgressBar);
-
-    var _this = _possibleConstructorReturn(this, _Component.call(this, props));
-
-    _this.state = { percent: 100 };
-    _this.intervalId = null;
-    return _this;
-  }
-
-  ProgressBar.prototype.componentDidMount = function componentDidMount() {
-    var _this2 = this;
-
-    var distance = 100 / (this.props.duration / 10);
-    this.intervalId = setInterval(function () {
-      var percent = _this2.state.percent - distance;
-
-      _this2.setState({ percent: percent > 0 ? percent : 0 });
-    }, 10);
-  };
-
-  ProgressBar.prototype.componentDidUpdate = function componentDidUpdate() {
-    if (this.state.percent <= 0 && this.intervalId) {
-      clearTimeout(this.intervalId);
-    }
-  };
-
-  ProgressBar.prototype.componentWillUnmount = function componentWillUnmount() {
-    if (this.intervalId) {
-      clearTimeout(this.intervalId);
-    }
-  };
-
-  ProgressBar.prototype.render = function render() {
-    var percent = this.state.percent;
-
-
-    return _react2.default.createElement(
-      'div',
-      { className: 'toastr-progress-container' },
-      _react2.default.createElement('div', { className: 'toastr-progressbar', style: { width: percent + '%' } })
-    );
-  };
-
-  return ProgressBar;
-}(_react.Component);
-
-ProgressBar.displayName = 'ProgressBar';
-ProgressBar.propTypes = {
-  duration: _react.PropTypes.number.isRequired
-};
-exports.default = ProgressBar;
-
-/***/ }),
-/* 687 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _react = __webpack_require__(3);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRedux = __webpack_require__(80);
-
-var _classnames = __webpack_require__(676);
-
-var _classnames2 = _interopRequireDefault(_classnames);
-
-var _ToastrBox = __webpack_require__(688);
-
-var _ToastrBox2 = _interopRequireDefault(_ToastrBox);
-
-var _ToastrConfirm = __webpack_require__(689);
-
-var _ToastrConfirm2 = _interopRequireDefault(_ToastrConfirm);
-
-var _actions = __webpack_require__(679);
-
-var actions = _interopRequireWildcard(_actions);
-
-var _toastrEmitter = __webpack_require__(682);
-
-var _config = __webpack_require__(677);
-
-var _config2 = _interopRequireDefault(_config);
-
-var _utils = __webpack_require__(675);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
-
-var ReduxToastr = function (_Component) {
-  _inherits(ReduxToastr, _Component);
-
-  function ReduxToastr(props) {
-    _classCallCheck(this, ReduxToastr);
-
-    var _this = _possibleConstructorReturn(this, _Component.call(this, props));
-
-    _this.toastrFired = {};
-
-    (0, _utils.updateConfig)(_config2.default, _this.props);
-    (0, _utils._bind)('_addToMemory', _this);
-    return _this;
-  }
-
-  ReduxToastr.prototype.componentDidMount = function componentDidMount() {
-    var _props = this.props,
-        add = _props.add,
-        showConfirm = _props.showConfirm,
-        clean = _props.clean,
-        removeByType = _props.removeByType;
-
-    _toastrEmitter.EE.on('toastr/confirm', showConfirm);
-    _toastrEmitter.EE.on('add/toastr', add);
-    _toastrEmitter.EE.on('clean/toastr', clean);
-    _toastrEmitter.EE.on('removeByType/toastr', removeByType);
-  };
-
-  ReduxToastr.prototype.componentWillUnmount = function componentWillUnmount() {
-    _toastrEmitter.EE.removeListener('toastr/confirm');
-    _toastrEmitter.EE.removeListener('add/toastr');
-    _toastrEmitter.EE.removeListener('clean/toastr');
-    _toastrEmitter.EE.removeListener('removeByType/toastr');
-    this.toastrFired = {};
-  };
-
-  ReduxToastr.prototype._addToMemory = function _addToMemory(id) {
-    this.toastrFired[id] = true;
-  };
-
-  ReduxToastr.prototype._renderToastrBox = function _renderToastrBox(item) {
-    // Default options from props, but item can override them with own.
-    var mergedItem = _extends({}, item, {
-      options: _extends({
-        progressBar: this.props.progressBar,
-        transitionIn: this.props.transitionIn,
-        transitionOut: this.props.transitionOut
-      }, item.options)
-    });
-
-    return _react2.default.createElement(_ToastrBox2.default, _extends({
-      key: item.id,
-      inMemory: this.toastrFired,
-      addToMemory: this._addToMemory,
-      item: mergedItem
-    }, this.props));
-  };
-
-  ReduxToastr.prototype.render = function render() {
-    var _this2 = this;
-
-    return _react2.default.createElement(
-      'div',
-      { className: (0, _classnames2.default)('redux-toastr', this.props.position, this.props.className) },
-      this.props.toastr.confirm && _react2.default.createElement(_ToastrConfirm2.default, _extends({
-        key: this.props.toastr.confirm.id,
-        confirm: this.props.toastr.confirm
-      }, this.props)),
-      this.props.toastr && this.props.toastr.toastrs.map(function (item) {
-        return _this2._renderToastrBox(item);
-      })
-    );
-  };
-
-  return ReduxToastr;
-}(_react.Component);
-
-ReduxToastr.displayName = 'ReduxToastr';
-ReduxToastr.propTypes = {
-  toastr: _react.PropTypes.object,
-  options: _react.PropTypes.object,
-  position: _react.PropTypes.string,
-  newestOnTop: _react.PropTypes.bool,
-  timeOut: _react.PropTypes.number,
-  confirmOptions: _react.PropTypes.object,
-  progressBar: _react.PropTypes.bool,
-  transitionIn: _react.PropTypes.string,
-  transitionOut: _react.PropTypes.string,
-  preventDuplicates: _react.PropTypes.bool
-};
-ReduxToastr.defaultProps = {
-  position: 'top-right',
-  newestOnTop: true,
-  timeOut: 5000,
-  progressBar: false,
-  transitionIn: 'bounceIn',
-  transitionOut: 'bounceOut',
-  preventDuplicates: false,
-  confirmOptions: {
-    transitionIn: 'bounceInDown',
-    transitionOut: 'bounceOutUp',
-    okText: 'ok',
-    cancelText: 'cancel',
-    disableCancel: false
-  }
-};
-exports.default = (0, _reactRedux.connect)(function (state) {
-  return {
-    toastr: state.toastr ? state.toastr : state.get('toastr')
-  };
-}, actions)(ReduxToastr);
-
-/***/ }),
-/* 688 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _CSSCore = __webpack_require__(678);
-
-var _CSSCore2 = _interopRequireDefault(_CSSCore);
-
-var _react = __webpack_require__(3);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _classnames = __webpack_require__(676);
-
-var _classnames2 = _interopRequireDefault(_classnames);
-
-var _ProgressBar = __webpack_require__(686);
-
-var _ProgressBar2 = _interopRequireDefault(_ProgressBar);
-
-var _Icon = __webpack_require__(685);
-
-var _Icon2 = _interopRequireDefault(_Icon);
-
-var _utils = __webpack_require__(675);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); } //  eslint-disable-line no-unused-vars
-
-
-var ToastrBox = function (_Component) {
-  _inherits(ToastrBox, _Component);
-
-  function ToastrBox(props) {
-    _classCallCheck(this, ToastrBox);
-
-    var _this = _possibleConstructorReturn(this, _Component.call(this, props));
-
-    var _props$item$options = props.item.options,
-        transitionIn = _props$item$options.transitionIn,
-        transitionOut = _props$item$options.transitionOut;
-
-
-    _this.isHiding = false;
-    _this.shouldClose = false;
-    _this.intervalId = null;
-    _this.ignoreIsHiding = false;
-
-    _this.transitionIn = transitionIn || _this.props.transitionIn;
-    _this.transitionOut = transitionOut || _this.props.transitionOut;
-
-    _this.state = { progressBar: null };
-
-    (0, _utils._bind)(['renderSubComponent', 'renderIcon', 'renderToastr', 'renderCloseButton', 'renderMessage', '_onAnimationComplete', '_removeToastr', '_setTransition', '_clearTransition', '_setIntervalId', '_setIsHiding', '_setShouldClose'], _this);
-    return _this;
-  }
-
-  ToastrBox.prototype.componentDidMount = function componentDidMount() {
-    var item = this.props.item;
-
-    if (this.props.inMemory[item.id]) return;
-
-    var timeOut = this._getItemTimeOut();
-
-    if (timeOut) {
-      this._setIntervalId(setTimeout(this._removeToastr, timeOut));
-    }
-
-    if (timeOut && item.options.progressBar) {
-      this.setState({ progressBar: { duration: this._getItemTimeOut() } });
-    }
-
-    this._setTransition();
-    (0, _utils.onCSSTransitionEnd)(this.toastrBox, this._onAnimationComplete);
-    this.props.addToMemory(item.id);
-  };
-
-  ToastrBox.prototype.componentWillUnmount = function componentWillUnmount() {
-    if (this.intervalId) {
-      clearTimeout(this.intervalId);
-    }
-  };
-
-  ToastrBox.prototype.handleClick = function handleClick() {
-    var onCloseButtonClick = this.props.item.options.onCloseButtonClick;
-
-    this.ignoreIsHiding = true;
-
-    if (onCloseButtonClick) {
-      onCloseButtonClick();
-    }
-
-    this._setShouldClose(true);
-    this._removeToastr();
-  };
-
-  ToastrBox.prototype.mouseEnter = function mouseEnter() {
-    clearTimeout(this.intervalId);
-
-    this._setIntervalId(null);
-    this._setIsHiding(false);
-
-    var progressBar = this.props.item.options.progressBar;
-
-    var timeOut = this._getItemTimeOut();
-
-    if (timeOut && progressBar) {
-      this.setState({ progressBar: null });
-    }
-  };
-
-  ToastrBox.prototype.mouseLeave = function mouseLeave() {
-    var removeOnHover = this.props.item.options.removeOnHover;
-
-
-    if (!this.isHiding && (removeOnHover || this.shouldClose)) {
-      var interval = removeOnHover === true ? 1000 : removeOnHover;
-      this._setIntervalId(setTimeout(this._removeToastr, interval));
-
-      var progressBar = this.props.item.options.progressBar;
-
-      var timeOut = this._getItemTimeOut();
-
-      if (timeOut && progressBar) {
-        this.setState({ progressBar: { duration: interval } });
-      }
-    }
-  };
-
-  ToastrBox.prototype.renderSubComponent = function renderSubComponent() {
-    var _this2 = this;
-
-    var _props$item = this.props.item,
-        id = _props$item.id,
-        options = _props$item.options;
-
-
-    var removeCurrentToastrFunc = function removeCurrentToastrFunc() {
-      return _this2.props.remove(id);
-    };
-
-    if ((0, _react.isValidElement)(options.component)) {
-      return _react2.default.cloneElement(options.component, {
-        remove: removeCurrentToastrFunc
-      });
-    }
-
-    return _react2.default.createElement(options.component, { remove: removeCurrentToastrFunc });
-  };
-
-  ToastrBox.prototype.renderIcon = function renderIcon() {
-    var _props$item2 = this.props.item,
-        type = _props$item2.type,
-        options = _props$item2.options;
-
-
-    if ((0, _react.isValidElement)(options.icon)) {
-      return _react2.default.cloneElement(options.icon);
-    }
-
-    var iconName = type === 'light' ? options.icon : type;
-    return _react2.default.createElement(_Icon2.default, { name: iconName });
-  };
-
-  ToastrBox.prototype.renderCloseButton = function renderCloseButton() {
-    return _react2.default.createElement(
-      'button',
-      {
-        type: 'button',
-        className: 'close-toastr',
-        onClick: this.handleClick.bind(this)
-      },
-      '\u2715'
-    );
-  };
-
-  ToastrBox.prototype.renderToastr = function renderToastr() {
-    var _props$item3 = this.props.item,
-        type = _props$item3.type,
-        options = _props$item3.options,
-        message = _props$item3.message,
-        title = _props$item3.title;
-
-
-    return _react2.default.createElement(
-      'div',
-      null,
-      _react2.default.createElement(
-        'div',
-        { className: 'toastr-left-container' },
-        _react2.default.createElement(
-          'div',
-          { className: 'holder' },
-          this.renderIcon()
-        )
-      ),
-      options.status && type === 'light' && _react2.default.createElement('div', { className: (0, _classnames2.default)('toastr-status', options.status) }),
-      _react2.default.createElement(
-        'div',
-        { className: 'toastr-middle-container' },
-        title && _react2.default.createElement(
-          'div',
-          { className: 'title' },
-          title
-        ),
-        message && _react2.default.createElement(
-          'div',
-          { className: 'message' },
-          message
-        ),
-        options.component && this.renderSubComponent()
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'toastr-right-container' },
-        options.showCloseButton && this.renderCloseButton()
-      ),
-      this.state.progressBar ? _react2.default.createElement(_ProgressBar2.default, this.state.progressBar) : null
-    );
-  };
-
-  ToastrBox.prototype.renderMessage = function renderMessage() {
-    var _props$item4 = this.props.item,
-        title = _props$item4.title,
-        message = _props$item4.message,
-        options = _props$item4.options;
-
-
-    return _react2.default.createElement(
-      'div',
-      null,
-      _react2.default.createElement(
-        'div',
-        { className: 'title' },
-        title,
-        this.renderCloseButton()
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'message' },
-        message,
-        options.component && this.renderSubComponent()
-      )
-    );
-  };
-
-  ToastrBox.prototype.toastr = function toastr() {
-    if (this.props.item.type === 'message') {
-      return this.renderMessage();
-    }
-
-    return this.renderToastr();
-  };
-
-  ToastrBox.prototype._getItemTimeOut = function _getItemTimeOut() {
-    var item = this.props.item;
-    var timeOut = item.options.timeOut;
-
-    if (typeof timeOut === 'undefined') {
-      timeOut = this.props.timeOut;
-    }
-
-    return timeOut;
-  };
-
-  ToastrBox.prototype._onAnimationComplete = function _onAnimationComplete() {
-    var _props = this.props,
-        remove = _props.remove,
-        item = _props.item;
-    var options = item.options,
-        id = item.id;
-
-
-    if (this.isHiding || this.ignoreIsHiding) {
-      this._setIsHiding(false);
-      this.ignoreIsHiding = false;
-      remove(id);
-      if (options.onHideComplete) {
-        options.onHideComplete();
-      }
-    } else if (!this.isHiding && options.onShowComplete) {
-      options.onShowComplete();
-    }
-  };
-
-  ToastrBox.prototype._removeToastr = function _removeToastr() {
-    if (!this.isHiding) {
-      this._setIsHiding(true);
-      this._setTransition(true);
-      (0, _utils.onCSSTransitionEnd)(this.toastrBox, this._onAnimationComplete);
-    }
-  };
-
-  ToastrBox.prototype._setTransition = function _setTransition(hide) {
-    var node = this.toastrBox;
-    var animationType = hide ? this.transitionOut : this.transitionIn;
-
-    var onEndListener = function onEndListener(e) {
-      if (e && e.target == node) {
-        _CSSCore2.default.removeClass(node, animationType);
-      }
-    };
-
-    (0, _utils.onCSSTransitionEnd)(this.toastrBox, onEndListener);
-    _CSSCore2.default.addClass(node, animationType);
-  };
-
-  ToastrBox.prototype._clearTransition = function _clearTransition() {
-    var node = this.toastrBox;
-    _CSSCore2.default.removeClass(node, this.transitionIn);
-    _CSSCore2.default.removeClass(node, this.transitionOut);
-  };
-
-  ToastrBox.prototype._setIntervalId = function _setIntervalId(intervalId) {
-    this.intervalId = intervalId;
-  };
-
-  ToastrBox.prototype._setIsHiding = function _setIsHiding(val) {
-    this.isHiding = val;
-  };
-
-  ToastrBox.prototype._setShouldClose = function _setShouldClose(val) {
-    this.shouldClose = val;
-  };
-
-  ToastrBox.prototype.render = function render() {
-    var _this3 = this;
-
-    var _props$item5 = this.props.item,
-        options = _props$item5.options,
-        type = _props$item5.type;
-
-
-    return _react2.default.createElement(
-      'div',
-      {
-        ref: function ref(_ref) {
-          return _this3.toastrBox = _ref;
-        },
-        className: (0, _classnames2.default)('toastr', 'animated', type, options.className),
-        onMouseEnter: this.mouseEnter.bind(this),
-        onMouseLeave: this.mouseLeave.bind(this)
-      },
-      this.toastr()
-    );
-  };
-
-  return ToastrBox;
-}(_react.Component);
-
-ToastrBox.displayName = 'ToastrBox';
-ToastrBox.propTypes = {
-  item: _react.PropTypes.object.isRequired
-};
-exports.default = ToastrBox;
-
-/***/ }),
-/* 689 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(3);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _CSSCore = __webpack_require__(678);
-
-var _CSSCore2 = _interopRequireDefault(_CSSCore);
-
-var _utils = __webpack_require__(675);
-
-var _Button = __webpack_require__(684);
-
-var _Button2 = _interopRequireDefault(_Button);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
-
-var ENTER = 13;
-var ESC = 27;
-
-var ToastrConfirm = function (_Component) {
-  _inherits(ToastrConfirm, _Component);
-
-  function ToastrConfirm(props) {
-    _classCallCheck(this, ToastrConfirm);
-
-    var _this = _possibleConstructorReturn(this, _Component.call(this, props));
-
-    var _this$props = _this.props,
-        confirmOptions = _this$props.confirmOptions,
-        confirm = _this$props.confirm;
-    var _confirm$options = confirm.options,
-        okText = _confirm$options.okText,
-        cancelText = _confirm$options.cancelText,
-        transitionIn = _confirm$options.transitionIn,
-        transitionOut = _confirm$options.transitionOut,
-        disableCancel = _confirm$options.disableCancel;
-
-
-    _this.okText = okText || confirmOptions.okText;
-    _this.cancelText = cancelText || confirmOptions.cancelText;
-    _this.transitionIn = transitionIn || confirmOptions.transitionIn;
-    _this.transitionOut = transitionOut || confirmOptions.transitionOut;
-    _this.disableCancel = disableCancel != null ? disableCancel : confirmOptions.disableCancel;
-    (0, _utils._bind)('setTransition removeConfirm handleOnKeyUp handleOnKeyDown', _this);
-    _this.isKeyDown = false;
-    return _this;
-  }
-
-  ToastrConfirm.prototype.componentDidMount = function componentDidMount() {
-    this.isHiding = false;
-    this.hasClicked = false;
-    this.confirmHolder.focus();
-
-    if (this.props.confirm.show) {
-      this.setTransition(true);
-    }
-  };
-
-  ToastrConfirm.prototype.handleOnKeyDown = function handleOnKeyDown(e) {
-    if ((0, _utils.keyCode)(e) == ENTER) {
-      e.preventDefault();
-    }
-    this.isKeyDown = true;
-  };
-
-  ToastrConfirm.prototype.handleConfirmClick = function handleConfirmClick() {
-    var _this2 = this;
-
-    if (this.hasClicked) return;
-    this.hasClicked = true;
-
-    var options = this.props.confirm.options;
-
-    var onAnimationEnd = function onAnimationEnd() {
-      _this2.removeConfirm();
-      if (options && options.onOk) {
-        options.onOk();
-      }
-    };
-
-    this.setTransition();
-    (0, _utils.onCSSTransitionEnd)(this.confirm, onAnimationEnd);
-  };
-
-  ToastrConfirm.prototype.handleCancelClick = function handleCancelClick() {
-    var _this3 = this;
-
-    if (this.hasClicked) return;
-    this.hasClicked = true;
-
-    var options = this.props.confirm.options;
-
-    var onAnimationEnd = function onAnimationEnd() {
-      _this3.removeConfirm();
-      if (options && options.onCancel) {
-        options.onCancel();
-      }
-    };
-
-    this.setTransition();
-    (0, _utils.onCSSTransitionEnd)(this.confirm, onAnimationEnd);
-  };
-
-  ToastrConfirm.prototype.setTransition = function setTransition(add) {
-    var body = document.querySelector('body');
-
-    if (add) {
-      this.isHiding = false;
-      _CSSCore2.default.addClass(body, 'toastr-confirm-active');
-      _CSSCore2.default.addClass(this.confirm, this.transitionIn);
-      return;
-    }
-
-    this.isHiding = true;
-    _CSSCore2.default.addClass(this.confirm, this.transitionOut);
-  };
-
-  ToastrConfirm.prototype.removeConfirm = function removeConfirm() {
-    this.isHiding = false;
-    this.props.hideConfirm();
-    var body = document.querySelector('body');
-    _CSSCore2.default.removeClass(body, 'toastr-confirm-active');
-  };
-
-  ToastrConfirm.prototype.handleOnKeyUp = function handleOnKeyUp(e) {
-    var code = (0, _utils.keyCode)(e);
-    if (code == ESC && !this.disableCancel) {
-      this.handleCancelClick();
-    } else if (code == ESC && this.disableCancel) {
-      this.handleConfirmClick();
-    } else if (code == ENTER && this.isKeyDown) {
-      this.isKeyDown = false;
-      this.handleConfirmClick();
-    }
-  };
-
-  ToastrConfirm.prototype.render = function render() {
-    var _this4 = this;
-
-    return _react2.default.createElement(
-      'div',
-      {
-        className: 'confirm-holder',
-        tabIndex: '-1',
-        ref: function ref(_ref2) {
-          return _this4.confirmHolder = _ref2;
-        },
-        onKeyDown: this.handleOnKeyDown,
-        onKeyUp: this.handleOnKeyUp
-      },
-      _react2.default.createElement(
-        'div',
-        { className: 'confirm animated', ref: function ref(_ref) {
-            return _this4.confirm = _ref;
-          } },
-        _react2.default.createElement(
-          'div',
-          { className: 'message' },
-          this.props.confirm.message
-        ),
-        _react2.default.createElement(
-          _Button2.default,
-          { className: this.disableCancel ? 'full-width' : '', onClick: this.handleConfirmClick.bind(this) },
-          this.okText
-        ),
-        this.disableCancel ? null : _react2.default.createElement(
-          _Button2.default,
-          { onClick: this.handleCancelClick.bind(this) },
-          this.cancelText
-        )
-      ),
-      _react2.default.createElement('div', { className: 'shadow' })
-    );
-  };
-
-  return ToastrConfirm;
-}(_react.Component);
-
-ToastrConfirm.displayName = 'ToastrConfirm';
-ToastrConfirm.propTypes = {
-  confirm: _react.PropTypes.object.isRequired
-};
-
-exports.default = ToastrConfirm;
-
-/***/ }),
-/* 690 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-exports.default = function (name) {
-  switch (name) {
-    case 'success':
-      return _react2.default.createElement(
-        'g',
-        null,
-        _react2.default.createElement('path', { d: 'M27 4l-15 15-7-7-5 5 12 12 20-20z' })
-      );
-    case 'info':
-      return _react2.default.createElement(
-        'g',
-        null,
-        _react2.default.createElement('path', { d: 'M14 9.5c0-0.825 0.675-1.5 1.5-1.5h1c0.825 0 1.5 0.675 1.5 1.5v1c0 0.825-0.675 1.5-1.5 1.5h-1c-0.825 0-1.5-0.675-1.5-1.5v-1z' }),
-        _react2.default.createElement('path', { d: 'M20 24h-8v-2h2v-6h-2v-2h6v8h2z' }),
-        _react2.default.createElement('path', { d: 'M16 0c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16zM16 29c-7.18 0-13-5.82-13-13s5.82-13 13-13 13 5.82 13 13-5.82 13-13 13z' })
-      );
-    case 'warning':
-      return _react2.default.createElement(
-        'g',
-        null,
-        _react2.default.createElement('path', { d: 'M16 2.899l13.409 26.726h-26.819l13.409-26.726zM16 0c-0.69 0-1.379 0.465-1.903 1.395l-13.659 27.222c-1.046 1.86-0.156 3.383 1.978 3.383h27.166c2.134 0 3.025-1.522 1.978-3.383h0l-13.659-27.222c-0.523-0.93-1.213-1.395-1.903-1.395v0z' }),
-        _react2.default.createElement('path', { d: 'M18 26c0 1.105-0.895 2-2 2s-2-0.895-2-2c0-1.105 0.895-2 2-2s2 0.895 2 2z' }),
-        _react2.default.createElement('path', { d: 'M16 22c-1.105 0-2-0.895-2-2v-6c0-1.105 0.895-2 2-2s2 0.895 2 2v6c0 1.105-0.895 2-2 2z' })
-      );
-    case 'error':
-      return _react2.default.createElement(
-        'g',
-        null,
-        _react2.default.createElement('path', { d: 'M12,0C5.373,0,0,5.373,0,12s5.373,12,12,12s12-5.373,12-12S18.627,0,12,0z M12,19.66 c-0.938,0-1.58-0.723-1.58-1.66c0-0.964,0.669-1.66,1.58-1.66c0.963,0,1.58,0.696,1.58,1.66C13.58,18.938,12.963,19.66,12,19.66z M12.622,13.321c-0.239,0.815-0.992,0.829-1.243,0c-0.289-0.956-1.316-4.585-1.316-6.942c0-3.11,3.891-3.125,3.891,0 C13.953,8.75,12.871,12.473,12.622,13.321z' })
-      );
-    default:
-      return null;
-  }
-};
-
-var _react = __webpack_require__(3);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/***/ }),
-/* 691 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.toastr = exports.reducer = exports.actions = undefined;
-
-var _ReduxToastr = __webpack_require__(687);
-
-var _ReduxToastr2 = _interopRequireDefault(_ReduxToastr);
-
-var _actions = __webpack_require__(679);
-
-var ReduxToastrActions = _interopRequireWildcard(_actions);
-
-var _reducer = __webpack_require__(681);
-
-var _reducer2 = _interopRequireDefault(_reducer);
-
-var _toastrEmitter = __webpack_require__(682);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _ReduxToastr2.default;
-var actions = exports.actions = ReduxToastrActions;
-var reducer = exports.reducer = _reducer2.default;
-var toastr = exports.toastr = _toastrEmitter.toastrEmitter;
-
-/***/ }),
-/* 692 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
 /**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
+ * Add to Animated Toast Message Queue
+ * Display immediately if no queue
+ * @param  {Number} initialRecallDelay   If the call to show fails because of an existing
+ *                                       notification, how long to wait until we retry (ms)
+ * @param  {Number} recallDelayIncrement Each time a successive call fails, the recall delay
+ *                                       will be incremented by this (ms)
+ * @return {[type]}                      [description]
  */
+function createShowQueue() {
+	var _this2 = this;
 
+	var initialRecallDelay = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 500;
+	var recallDelayIncrement = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 500;
 
+	// Array to hold queued messages
+	this.msgs = [];
 
-var ExecutionEnvironment = __webpack_require__(18);
+	// Is the showNotify function in progress - used so we can call showNotify when a
+	// message is added to an empty queue.
+	this.isNotifying = false;
 
-var getVendorPrefixedEventName = __webpack_require__(559);
+	this.currentRecallDelay = initialRecallDelay;
 
-var endEvents = [];
+	// Retrieve the next message from the queue and try to show it
+	this.showNotify = function () {
+		// If there are no messages in the queue
+		if (_this2.msgs.length === 0) {
+			_this2.isNotifying = false;
+			return;
+		}
 
-function detectEvents() {
-  var animEnd = getVendorPrefixedEventName('animationend');
-  var transEnd = getVendorPrefixedEventName('transitionend');
+		_this2.isNotifying = true;
 
-  if (animEnd) {
-    endEvents.push(animEnd);
-  }
+		var current = _this2.msgs.pop();
 
-  if (transEnd) {
-    endEvents.push(transEnd);
-  }
+		// show will now return true if it is able to send the message,
+		// or false if there is an existing message
+		if (show(current.text, current.type, current.timeout, current.color)) {
+			_this2.currentRecallDelay = initialRecallDelay;
+			if (current.timeout > 0) {
+				setTimeout(function () {
+					return _this2.showNotify();
+				}, current.timeout + animationDuration);
+			}
+		} else {
+			// If message show failed, re-add the current message to the front of the queue
+			_this2.msgs.unshift(current);
+			setTimeout(function () {
+				return _this2.showNotify();
+			}, _this2.currentRecallDelay);
+			_this2.currentRecallDelay += recallDelayIncrement;
+		}
+	};
+
+	return function (text) {
+		var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+		var timeout = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : defaultTimeout;
+		var color = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : colorWhite;
+
+		_this2.msgs.push({ text: text, type: type, timeout: timeout, color: color });
+		if (!_this2.isNotifying) {
+			_this2.showNotify();
+		}
+	};
 }
 
-if (ExecutionEnvironment.canUseDOM) {
-  detectEvents();
-}
+/* Export notification container */
 
-// We use the raw {add|remove}EventListener() call because EventListener
-// does not know how to remove event listeners and we really should
-// clean up. Also, these events are not triggered in older browsers
-// so we should be A-OK here.
+var _class = function (_React$Component2) {
+	_inherits(_class, _React$Component2);
 
-function addEventListener(node, eventName, eventListener) {
-  node.addEventListener(eventName, eventListener, false);
-}
+	function _class() {
+		_classCallCheck(this, _class);
 
-function removeEventListener(node, eventName, eventListener) {
-  node.removeEventListener(eventName, eventListener, false);
-}
+		return _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).apply(this, arguments));
+	}
 
-var ReactTransitionEvents = {
-  addEndEventListener: function (node, eventListener) {
-    if (endEvents.length === 0) {
-      // If CSS transitions are not supported, trigger an "end animation"
-      // event immediately.
-      window.setTimeout(eventListener, 0);
-      return;
-    }
-    endEvents.forEach(function (endEvent) {
-      addEventListener(node, endEvent, eventListener);
-    });
-  },
+	_createClass(_class, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement('div', { id: notificationWrapperId });
+		}
+	}]);
 
-  removeEndEventListener: function (node, eventListener) {
-    if (endEvents.length === 0) {
-      return;
-    }
-    endEvents.forEach(function (endEvent) {
-      removeEventListener(node, endEvent, eventListener);
-    });
-  }
+	return _class;
+}(_react2.default.Component);
+
+/* Export notification functions */
+
+
+exports.default = _class;
+var notify = exports.notify = {
+	show: show,
+	createShowQueue: createShowQueue
 };
 
-module.exports = ReactTransitionEvents;
+/***/ }),
+/* 852 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+
+function ToObject(val) {
+	if (val == null) {
+		throw new TypeError('Object.assign cannot be called with null or undefined');
+	}
+
+	return Object(val);
+}
+
+function ownEnumerableKeys(obj) {
+	var keys = Object.getOwnPropertyNames(obj);
+
+	if (Object.getOwnPropertySymbols) {
+		keys = keys.concat(Object.getOwnPropertySymbols(obj));
+	}
+
+	return keys.filter(function (key) {
+		return propIsEnumerable.call(obj, key);
+	});
+}
+
+module.exports = Object.assign || function (target, source) {
+	var from;
+	var keys;
+	var to = ToObject(target);
+
+	for (var s = 1; s < arguments.length; s++) {
+		from = arguments[s];
+		keys = ownEnumerableKeys(Object(from));
+
+		for (var i = 0; i < keys.length; i++) {
+			to[keys[i]] = from[keys[i]];
+		}
+	}
+
+	return to;
+};
+
 
 /***/ })
 /******/ ]);

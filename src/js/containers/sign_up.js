@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { toastr } from 'react-redux-toastr';
 import { isEmail } from 'validator';
+import { notify } from 'react-notify-toast';
 
 import ErrorMessage from '../components/Errors';
 
@@ -30,18 +30,20 @@ export default class SignUp extends Component {
     if (this.state.showPasswordError === true) {
       return this.state.showPasswordError;
     }
-    axios.post('/api/register', {
+    return axios.post('/api/register', {
       username: this.state.username,
       email: this.state.email,
       password: this.state.password
     })
     .then(res => {
       console.log(res.data.user._id);
-      toastr.success('Registration Successful!', 'You can now save videos and streams.');
+      notify.show('Registration Successful! You can now save videos or streams!', 'success', 5000);
     })
-    .catch(err => console.log(err.message));
+    .catch(err => {
+      notify.show(`Oops! ${err.response.data.error} Please use a different one.`, 'error', 5000);
+    });
   }
-//toastr.error('Error:', err.res)
+
   usernameChange(e) {
     this.setState({ username: e.target.value });
     if (this.state.username.length < 4) {
@@ -73,56 +75,58 @@ export default class SignUp extends Component {
 
   render() {
     return (
-      <form id="sign-up-form" onSubmit={this.onFormSubmit}>
-        <div className="sign-up-group">
-          <label htmlFor="username" />
-          <input 
-            type="text"
-            placeholder="Username" 
-            id="username" 
-            onChange={this.usernameChange} 
-            required 
-          />
-          { this.state.showUsernameError ? 
-            <ErrorMessage message='Username is too short!' /> : null }
-        </div>
-        <div className="sign-up-group">
-          <label htmlFor="email" />
-          <input 
-            type="email" 
-            placeholder="Email Address" 
-            id="userEmail" 
-            onChange={this.emailChange} 
-            required 
-          />
-        </div>
-        <div className="sign-up-group">
-          <label htmlFor="password" />
-          <input 
-            type="password" 
-            id="password" 
-            placeholder="Password" 
-            onChange={this.passwordChange} 
-            required 
-          />
-          { this.state.showPasswordError ? <ErrorMessage message='Passwords do not match' /> : null }
-        </div>
-        <div className="sign-up-group">
-          <label htmlFor="verifyPassword" />
-          <input 
-            type="password" 
-            id="verifyPassword" 
-            placeholder="Re-type Password" 
-            onChange={this.verifyPassword}
-            required 
-          />
-          { this.state.showPasswordError ? <ErrorMessage message='Passwords do not match' /> : null }
-        </div>
-        <div className="sign-up-group">
-          <button 
-            type="submit" id="signup-btn" disabled={this.state.disabled}>Sign Up</button>
-        </div>
-      </form>
+      <div>
+        <form id="sign-up-form" onSubmit={this.onFormSubmit}>
+          <div className="sign-up-group">
+            <label htmlFor="username" />
+            <input 
+              type="text"
+              placeholder="Username" 
+              id="username" 
+              onChange={this.usernameChange} 
+              required 
+            />
+            { this.state.showUsernameError ? 
+              <ErrorMessage message='Username is too short!' /> : null }
+          </div>
+          <div className="sign-up-group">
+            <label htmlFor="email" />
+            <input 
+              type="email" 
+              placeholder="Email Address" 
+              id="userEmail" 
+              onChange={this.emailChange} 
+              required 
+            />
+          </div>
+          <div className="sign-up-group">
+            <label htmlFor="password" />
+            <input 
+              type="password" 
+              id="password" 
+              placeholder="Password" 
+              onChange={this.passwordChange} 
+              required 
+            />
+            { this.state.showPasswordError ? <ErrorMessage message='Passwords do not match' /> : null }
+          </div>
+          <div className="sign-up-group">
+            <label htmlFor="verifyPassword" />
+            <input 
+              type="password" 
+              id="verifyPassword" 
+              placeholder="Re-type Password" 
+              onChange={this.verifyPassword}
+              required 
+            />
+            { this.state.showPasswordError ? <ErrorMessage message='Passwords do not match' /> : null }
+          </div>
+          <div className="sign-up-group">
+            <button 
+              type="submit" id="signup-btn" disabled={this.state.disabled}>Sign Up</button>
+          </div>
+        </form>
+      </div>
     );
   }
 }

@@ -2,7 +2,7 @@ import path from 'path';
 import express from 'express';
 import passport from 'passport';
 import LocalStrategy from 'passport-local';
-import { isEmail } from "validator";
+import { isEmail } from 'validator';
 import User from './user';
 
 const ROUTER = express.Router();
@@ -40,7 +40,7 @@ ROUTER.post('/register', (req, res) => {
 
   User.findOne({ email })
     .then(auth => {
-      if (auth) { return res.status(422).json({ error: 'Email already in use.', code: 11000 }); }
+      if (auth) { return res.status(422).json({ success: false, error: 'Email already in use.' }); }
     });
     const newUser = new User({
       email,

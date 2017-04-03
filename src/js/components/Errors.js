@@ -6,6 +6,4 @@ const ErrorMessage = ({ message }) => {
     );
 };
 
-module.exports = {
-    ErrorMessage
-};
+export default ErrorMessage;

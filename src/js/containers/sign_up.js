@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { toastr } from 'react-redux-toastr';
 import { isEmail } from 'validator';
 
 import ErrorMessage from '../components/Errors';
@@ -34,10 +35,13 @@ export default class SignUp extends Component {
       email: this.state.email,
       password: this.state.password
     })
-    .then(res => console.log(res))
-    .catch(err => console.log(err.response.status));
+    .then(res => {
+      console.log(res.data.user._id);
+      toastr.success('Registration Successful!', 'You can now save videos and streams.');
+    })
+    .catch(err => console.log(err.message));
   }
-
+//toastr.error('Error:', err.res)
   usernameChange(e) {
     this.setState({ username: e.target.value });
     if (this.state.username.length < 4) {
@@ -80,7 +84,7 @@ export default class SignUp extends Component {
             required 
           />
           { this.state.showUsernameError ? 
-            <ErrorMessage message="Username is too short!" /> : null }
+            <ErrorMessage message='Username is too short!' /> : null }
         </div>
         <div className="sign-up-group">
           <label htmlFor="email" />
@@ -112,12 +116,11 @@ export default class SignUp extends Component {
             onChange={this.verifyPassword}
             required 
           />
-          { this.state.showPasswordError ? <ErrorMessage message="Passwords do not match" /> : null }
+          { this.state.showPasswordError ? <ErrorMessage message='Passwords do not match' /> : null }
         </div>
         <div className="sign-up-group">
           <button 
-            type="submit" id="signup-btn" 
-            disabled={true}>Sign Up</button>
+            type="submit" id="signup-btn" disabled={this.state.disabled}>Sign Up</button>
         </div>
       </form>
     );

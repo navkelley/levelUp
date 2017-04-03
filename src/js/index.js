@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import ReduxPromise from 'redux-promise';
 import thunk from 'redux-thunk';
+import ReduxToastr from 'react-redux-toastr';
 
 import MainLayout from './components/main_layout';
 import Home from './components/home';
@@ -28,6 +29,7 @@ const store = createStore(
 const routes = (
   <Provider store={store}>
     <Router history={hashHistory}>
+      <ReduxToastr position='bottom-center' transitionIn='fadeIn' transitionOut='fadeOut' />
       <Route path="/" component={MainLayout}>
         <IndexRoute component={Home} />
         <Route path="/search">

@@ -40,7 +40,7 @@ ROUTER.post('/register', (req, res) => {
 
   User.findOne({ email })
     .then(auth => {
-      if (auth) { return res.status(422).json({ error: 'Email already in use.' }); }
+      if (auth) { return res.status(422).json({ error: 'Email already in use.', code: 11000 }); }
     });
     const newUser = new User({
       email,
@@ -56,7 +56,11 @@ ROUTER.post('/register', (req, res) => {
         });
       })
       .catch(err => {
-        return res.status(422).json({ message: err });
+        let error;
+        if (err.code === 11000) {
+          error = 'Duplicate email, please provide another one.';
+        }
+        return res.status(422).json({ message: error || err });
       });
   }
 );

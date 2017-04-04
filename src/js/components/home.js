@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 import SignUp from '../containers/SignUp';
 
@@ -22,6 +23,7 @@ const Home = () => {
           <p id="signup-guest">Sign up to save your favorite videos or streamer channel to watch at a later time
             or browse now as a guest!</p>
           <SignUp />
+          <p>Already have an account?&nbsp;<Link to='/login'>Login</Link></p>
         </div>
       </div>
     </section>

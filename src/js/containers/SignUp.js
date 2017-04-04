@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
 import axios from 'axios';
 import { isEmail } from 'validator';
 import { notify } from 'react-notify-toast';
@@ -129,7 +128,6 @@ export default class SignUp extends Component {
               type="submit" id="signup-btn" disabled={this.state.disabled}>Sign Up</button>
           </div>
         </form>
-        <p>Already have an account?&nbsp;<Link to='/login'>Login</Link></p>
       </div>
     );
   }

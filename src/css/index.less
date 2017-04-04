@@ -84,7 +84,7 @@ button:hover {
   border-bottom-right-radius: 0;
 }
 
-#signup-btn {
+#signup-btn, #login-btn {
   width: 22em;
   font-size: 1.25em;
 }
@@ -180,13 +180,13 @@ strong {
   text-align: left; 
 }
 
-.sign-up {
+.sign-up, .login-sign {
   background-color: lighten(#BF3028, 40%); 
   text-align: center;
   min-height: 32em;
 }
 
-.sign-up input {
+.sign-up input, .login-sign input {
   width: 22em;
   border: 2px solid darken(#ccc, 20%);
   border-left: none;
@@ -203,7 +203,21 @@ strong {
   outline: none;
 }
 
-#sign-up-form span {
+.login-sign #sign-up-form, .login-sign #login-form {
+  display: inline;
+}
+
+.login-sign #login-form {
+  float: right;
+  margin: 6.5vh 1.2vw;
+}
+
+.login-sign #sign-up-form {
+  float: left;
+  margin: 2.3vh 1.2vw;
+}
+
+#sign-up-form span, #login-form span {
   color: red;
   display: block;
 }

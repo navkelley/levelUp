@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
 import axios from 'axios';
 import { isEmail } from 'validator';
 import { notify } from 'react-notify-toast';
@@ -21,20 +20,16 @@ export default class Login extends Component {
 
     onFormSubmit(e) {
         e.preventDefault();
-        if (this.state.showPasswordError === true) {
-            return this.state.showPasswordError;
-        }
-        return axios.post('/api/register', {
-            username: this.state.username,
+        return axios.post('/api/login', {
             email: this.state.email,
             password: this.state.password
         })
         .then(res => {
             console.log(res.data.user._id);
-            notify.show('Registration Successful! You can now save videos or streams!', 'success', 5000);
+            notify.show('Login successful!', 'success', 5000);
         })
         .catch(err => {
-            notify.show(`Oops! ${err.response.data.error} Please use a different one.`, 'error', 5000);
+            notify.show(`Oops! ${err}`, 'error', 5000);
         });
     }
 

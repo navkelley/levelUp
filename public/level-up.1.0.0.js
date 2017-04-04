@@ -20458,8 +20458,6 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouter = __webpack_require__(103);
-
 var _axios = __webpack_require__(106);
 
 var _axios2 = _interopRequireDefault(_axios);
@@ -20503,18 +20501,14 @@ var Login = function (_Component) {
         key: 'onFormSubmit',
         value: function onFormSubmit(e) {
             e.preventDefault();
-            if (this.state.showPasswordError === true) {
-                return this.state.showPasswordError;
-            }
-            return _axios2.default.post('/api/register', {
-                username: this.state.username,
+            return _axios2.default.post('/api/login', {
                 email: this.state.email,
                 password: this.state.password
             }).then(function (res) {
                 console.log(res.data.user._id);
-                _reactNotifyToast.notify.show('Registration Successful! You can now save videos or streams!', 'success', 5000);
+                _reactNotifyToast.notify.show('Login successful!', 'success', 5000);
             }).catch(function (err) {
-                _reactNotifyToast.notify.show('Oops! ' + err.response.data.error + ' Please use a different one.', 'error', 5000);
+                _reactNotifyToast.notify.show('Oops! ' + err, 'error', 5000);
             });
         }
     }, {

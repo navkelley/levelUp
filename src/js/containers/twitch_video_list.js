@@ -23,7 +23,7 @@ class TwitchVideoList extends Component {
     );
 	}
 	render() {
-    if(this.props.streams.isFetched) {
+    if (this.props.streams.isFetched) {
       return (
         <div className="table-wrapper">
           {this.renderResultsTable()}

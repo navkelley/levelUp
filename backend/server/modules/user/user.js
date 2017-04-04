@@ -29,18 +29,9 @@ UserSchema.pre('save', function(next) {
     });
 });
 
-/*UserSchema.methods.getUserByUsername = (username, callback) => {
-    const query = { username };
-    User.findOne(query, callback);
-};
-
-UserSchema.methods.getUserbyId = (id, callback) => {
-    User.findById(id, callback);
-};*/
-
 UserSchema.methods.comparePassword = (candidatePassword, callback) => {
   compare(candidatePassword, this.password, (err, isMatch) => {
-     if (err) { return callback(err);}
+     if (err) { return callback(err); }
      callback(null, isMatch);
   });
 };

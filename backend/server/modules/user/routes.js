@@ -65,37 +65,30 @@ ROUTER.post('/register', (req, res) => {
   }
 );
 
-passport.use(new LocalStrategy(
-  (username, password, done) => {
-    User.getUserByUsername(username, (err, user) => {
-      if (err) throw err;
-      if (!user) {
-        return done(null, false, { error: 'Could not find this user' });
-      }
-      User.comparePassword(password, user.password, (err, isMatch) => {
-        if (err) throw err;
-        if (isMatch) {
+const localLogin = new LocalStrategy((email, password, done) => {
+    User.findOne({ email })
+      .then(user => {
+        if (!user) { return done(null, false, { error: 'Login unsuccessful. Please try again!' }); }
+        User.comparePassword(password, (err, isMatch) => {
+          if (err) {
+            return done(err);
+          }
+          else if (!isMatch) {
+            return done(null, false, { error: 'Password did not match. Please try again!' });
+          }
           return done(null, user);
-        }
-        return done(null, false, { message: 'Invalid password' });  
-      });
-    });
-  }));
-
-  passport.serializeUser((user, done) => {
-    done(null, user.id);
-  });
-
-  passport.deserializeUser((id, done) => {
-    User.getUserbyId(id, (err, user) => {
-      done(err, user);
-    });
-  });
-
-ROUTER.post('/login',
-  passport.authenticate('local', { successRedirect: '/', failureRedirect: '/', failureFlash: true }),
-  (req, res) => {
+        });
+      })
+      .catch(err => done(err));
 });
+
+passport.use(localLogin);
+
+ROUTER.post('/login', passport.authenticate('local', { session: false }, (req, res, next) => {
+  const user = req.body.email;
+  res.send({ success: true, user });
+  return next();
+}));
 
 ROUTER.post('/getUserId', (req, res) => {
     User.getUserByUsername(req.body.username, (err, user) => {

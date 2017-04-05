@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import passport from 'passport';
 import dbconfig from './config/db';
-import { userRoutes } from './modules';
+import { userRoutes, streamerRoutes } from './modules';
 
 const app = express();
 
@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use(passport.initialize());
 
-app.use('/api', [userRoutes]);
+app.use('/api', [userRoutes, streamerRoutes]);
 app.use(express.static('public'));
 
 const PORT = process.env.PORT || 8080;

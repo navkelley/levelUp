@@ -1,3 +1,5 @@
-import UserRoutes from './routes';
+import userRoutes from './routes';
+import User from './user';
+import * as UserController from './controller';
 
-export { UserRoutes };
+export { userRoutes, User, UserController };

@@ -11,13 +11,14 @@ export const login = (req, res, next) => {
 
 export const signup = (req, res) => {
     console.log(req.body);
-    const { email, password, username } = req.body;
+    const { email, password, verifyPassword, username } = req.body;
 
     //validation
     if (email.length === 0) { return res.status(400).json({ error: 'Email is required' }); }  
     else if (!isEmail(email)) { return res.status(400).json({ message: 'Email is not valid.' }); }
     else if (username.length === 0) { return res.status(400).json({ error: 'Username is required' }); }
     else if (password.length === 0) { return res.status(400).json({ error: 'A password is required' }); }
+    else if (password !== verifyPassword) { return res.status(400).json({ message: 'Passwords do not match!' }); }
 
     User.findOne({ email })
         .then(auth => {

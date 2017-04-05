@@ -1,23 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import axios from 'axios';
-import { notify } from 'react-notify-toast';
+//import axios from 'axios';
+//import { notify } from 'react-notify-toast';
+import { connect } from 'react-redux';
 
 import SignUpForm from '../containers/SignUp';
+import { signupUser } from '../actions/auth';
 
 class Home extends Component {
-  submit = (values) => {
-    axios.post('/api/register', values)
-      .then(res => {
-        console.log(res.data.user);
-        notify.show('Registration Successful! You can now save videos or streams!', 'success', 5000);
-        this.refs.form.reset();
-      })
-      .catch(err => {
-        console.log(err);
-        notify.show(`Oops! ${err.response.data.error} Please use a different one.`, 'error', 5000);
-      });
-  }
   render() {
     return (
       <section className="home">
@@ -37,7 +27,7 @@ class Home extends Component {
           <div className="sign-up">
             <p id="signup-guest">Sign up to save your favorite videos or streamer channel to watch at a later time
               or browse now as a guest!</p>
-            <SignUpForm ref="form" onSubmit={this.submit} />
+            <SignUpForm signupUser={this.props.signupUser} />
             <p>Already have an account?&nbsp;<Link to='/login'>Login</Link></p>
           </div>
         </div>
@@ -46,4 +36,4 @@ class Home extends Component {
   }
 };
 
-export default Home;
+export default connect(undefined, { signupUser })(Home);

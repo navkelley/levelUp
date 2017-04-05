@@ -10,10 +10,10 @@ const StreamSchema = new Schema({
         type: String
     },
     //user who request to follow streamer
-    follow: {
+    follows: [{
         type: Schema.Types.ObjectId,
         ref: 'User'
-    }
+    }]
 });
 
 export default mongoose.model('Streamer', StreamSchema);

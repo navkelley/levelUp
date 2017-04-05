@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import ReduxPromise from 'redux-promise';
 import thunk from 'redux-thunk';
-
+import { createLogger } from 'redux-logger';
 
 import MainLayout from './components/main_layout';
 import Home from './components/home';
@@ -19,7 +19,7 @@ const ISPROD = process.env.NODE_ENV === 'production';
 
 //tool for redux dev
 const ENHANCERS = compose(
-  applyMiddleware(ReduxPromise, thunk),
+  applyMiddleware(ReduxPromise, thunk, createLogger()),
   (/*!ISPROD &&*/ window.devToolsExtension ? window.devToolsExtension() : f => f)
 );
 

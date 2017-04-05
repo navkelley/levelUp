@@ -2,10 +2,10 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 const SignUpForm = (props) => {
-  const { handleSubmit, submitting } = props;
+  const { handleSubmit, signupUser, submitting } = props;
   return (
     <div>
-      <form id="sign-up-form" onSubmit={handleSubmit}>
+      <form id="sign-up-form" onSubmit={handleSubmit(signupUser)}>
         <div className="sign-up-group">
           <label htmlFor="username" />
           <Field 

@@ -25,8 +25,10 @@ export default class Login extends Component {
             password: this.state.password
         })
         .then(res => {
-            console.log(res.data.user._id);
+            console.log(res.data.user.id);
             notify.show('Login successful!', 'success', 5000);
+            this.setState({ email: '', password: '', showEmailError: false });
+            this.refs.form.reset();
         })
         .catch(err => {
             notify.show(`Oops! ${err}`, 'error', 5000);
@@ -48,7 +50,7 @@ export default class Login extends Component {
     render() {
         return (
             <div>
-                <form id="login-form" onSubmit={this.onFormSubmit}>
+                <form id="login-form" ref="form" onSubmit={this.onFormSubmit}>
                     <div className="login-group">
                         <label htmlFor="email" />
                         <input 

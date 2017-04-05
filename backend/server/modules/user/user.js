@@ -1,13 +1,11 @@
 import mongoose, { Schema } from 'mongoose';
 import { hash, compare } from 'bcrypt';
-import { isEmail } from 'validator';
 
 const UserSchema = new Schema({
     username: { 
         type: String, 
         unique: true,  
         trim: true,
-        validate: [isEmail, 'You must provide a valid email address.']
     },
     password: { 
         type: String,  

@@ -16,7 +16,7 @@ export default class SignUp extends Component {
       showUsernameError: false,
       showPasswordError: false,
       showEmailError: false,
-      disabled: true,
+      disabled: true
     };
     this.onFormSubmit = this.onFormSubmit.bind(this);
     this.usernameChange = this.usernameChange.bind(this);
@@ -36,8 +36,18 @@ export default class SignUp extends Component {
       password: this.state.password
     })
     .then(res => {
-      console.log(res.data.user._id);
+      console.log(res.data.user.id);
       notify.show('Registration Successful! You can now save videos or streams!', 'success', 5000);
+      this.setState({
+        username: '',
+        email: '',
+        password: '',
+        showUserNameError: false,
+        showPasswordError: false,
+        showEmailError: false,
+        disabled: true
+      });
+      this.refs.form.reset();
     })
     .catch(err => {
       notify.show(`Oops! ${err.response.data.error} Please use a different one.`, 'error', 5000);
@@ -76,7 +86,7 @@ export default class SignUp extends Component {
   render() {
     return (
       <div>
-        <form id="sign-up-form" onSubmit={this.onFormSubmit}>
+        <form id="sign-up-form" ref="form" onSubmit={this.onFormSubmit}>
           <div className="sign-up-group">
             <label htmlFor="username" />
             <input 

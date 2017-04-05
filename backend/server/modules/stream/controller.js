@@ -28,7 +28,7 @@ export const followStreamer = (req, res) => {
         });
 };
 
-export const unFollowStreamer = (req, res) => {
+export const unfollowStreamer = (req, res) => {
     const { id } = req.params;
 
     Streamer.remove(id, (err, streamer) => {

@@ -11,7 +11,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installing
 
-To begin installation of Baby Steps first fork the repo then click the button titled "Clone or download" inside of your version of the repo.
+To begin installation of Level Up first fork the repo then click the button titled "Clone or download" inside of your version of the repo.
 
 In your terminal (in the desired directory) type:
 ```
@@ -48,6 +48,9 @@ Now you are ready to go!
 * Heroku 
 * [Webpack](http://webpack.github.io/docs/tutorials/getting-started/)
 * [Babel](https://babeljs.io/) 
+* [Node.js](https://nodejs.org/en/docs/)
+* [Express](https://expressjs.com/en/starter/installing.html)
+* [Yarn](https://yarnpkg.com/en/docs)
 
 ## Authors
 

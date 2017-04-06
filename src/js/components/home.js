@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-//import axios from 'axios';
-//import { notify } from 'react-notify-toast';
 import { connect } from 'react-redux';
 
 import SignUpForm from '../containers/SignUp';

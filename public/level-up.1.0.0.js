@@ -13696,9 +13696,11 @@ var _reduxForm = __webpack_require__(322);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//take out for temp
+//const { handleSubmit, signupUser, submitting } = props;
+
 var SignUpForm = function SignUpForm(props) {
   var handleSubmit = props.handleSubmit,
-      signupUser = props.signupUser,
       submitting = props.submitting;
 
   return _react2.default.createElement(
@@ -13706,7 +13708,7 @@ var SignUpForm = function SignUpForm(props) {
     null,
     _react2.default.createElement(
       'form',
-      { id: 'sign-up-form', onSubmit: handleSubmit(signupUser) },
+      { id: 'sign-up-form', onSubmit: handleSubmit },
       _react2.default.createElement(
         'div',
         { className: 'sign-up-group' },
@@ -22253,7 +22255,7 @@ module.exports = function spread(callback) {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.signupUser = exports.SIGNUP_ERROR = exports.SIGNUP_SUCCESS = exports.SIGNUP = undefined;
+exports.signupContact = exports.signupUser = exports.SIGNUP_CONTACT_SUCCESS = exports.SIGNUP_CONTACT_ERROR = exports.SIGNUP_CONTACT = exports.SIGNUP_ERROR = exports.SIGNUP_SUCCESS = exports.SIGNUP = undefined;
 
 var _axios = __webpack_require__(125);
 
@@ -22261,11 +22263,17 @@ var _axios2 = _interopRequireDefault(_axios);
 
 var _reactNotifyToast = __webpack_require__(191);
 
+var _reduxForm = __webpack_require__(322);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var SIGNUP = exports.SIGNUP = 'SIGNUP';
 var SIGNUP_SUCCESS = exports.SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
 var SIGNUP_ERROR = exports.SIGNUP_ERROR = 'SIGNUP_ERROR';
+
+var SIGNUP_CONTACT = exports.SIGNUP_CONTACT = 'SIGNUP_CONTACT';
+var SIGNUP_CONTACT_ERROR = exports.SIGNUP_CONTACT_ERROR = 'SIGNUP_CONTACT_ERROR';
+var SIGNUP_CONTACT_SUCCESS = exports.SIGNUP_CONTACT_SUCCESS = 'SIGNUP_CONTACT_SUCCESS';
 
 var signupUser = exports.signupUser = function signupUser(values) {
     return function (dispatch) {
@@ -22287,6 +22295,32 @@ var signupUser = exports.signupUser = function signupUser(values) {
                 type: SIGNUP_ERROR
             });
             _reactNotifyToast.notify.show('Oops! ' + err.response.data.error + ' Please use a different one.', 'error', 5000);
+        });
+    };
+};
+
+var signupContact = exports.signupContact = function signupContact(values) {
+    return function (dispatch) {
+        var name = values.name,
+            email = values.email;
+
+        dispatch({
+            type: SIGNUP_CONTACT
+        });
+        return _axios2.default.post('/api/contact', { name: name, email: email }).then(function (res) {
+            dispatch({
+                type: SIGNUP_CONTACT_SUCCESS,
+                name: res.data.name,
+                message: res.data.message
+            });
+            dispatch((0, _reduxForm.reset)('contact'));
+            return _reactNotifyToast.notify.show('You are added to the list!', 'success', 5000);
+        }).catch(function (err) {
+            dispatch({
+                type: SIGNUP_CONTACT_ERROR,
+                message: err.response.error
+            });
+            _reactNotifyToast.notify.show('Oops! ' + err.response.error, 'error', 5000);
         });
     };
 };
@@ -22387,13 +22421,11 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouter = __webpack_require__(197);
-
 var _reactRedux = __webpack_require__(33);
 
-var _SignUp = __webpack_require__(219);
+var _contact_form = __webpack_require__(886);
 
-var _SignUp2 = _interopRequireDefault(_SignUp);
+var _contact_form2 = _interopRequireDefault(_contact_form);
 
 var _auth = __webpack_require__(358);
 
@@ -22404,6 +22436,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+//import { Link } from 'react-router';
+
+
+//take out signup until ready
+//import SignUpForm from '../containers/SignUp';
+//import { signupUser } from '../actions/auth';
 
 var Home = function (_Component) {
   _inherits(Home, _Component);
@@ -22453,18 +22491,13 @@ var Home = function (_Component) {
             _react2.default.createElement(
               'p',
               { id: 'signup-guest' },
-              'Sign up to save your favorite videos or streamer channel to watch at a later time or browse now as a guest!'
+              'We are working to add new features. Soon you will be able to register for an account to save your favorite videos or streamer channel to watch at a later time. You are welcome to sign up to be contacted when these features are added!'
             ),
-            _react2.default.createElement(_SignUp2.default, { signupUser: this.props.signupUser }),
+            _react2.default.createElement(_contact_form2.default, { signupContact: this.props.signupContact }),
             _react2.default.createElement(
               'p',
               null,
-              'Already have an account?\xA0',
-              _react2.default.createElement(
-                _reactRouter.Link,
-                { to: '/login' },
-                'Login'
-              )
+              'Thank you for your interest!'
             )
           )
         )
@@ -22475,9 +22508,7 @@ var Home = function (_Component) {
   return Home;
 }(_react.Component);
 
-;
-
-exports.default = (0, _reactRedux.connect)(undefined, { signupUser: _auth.signupUser })(Home);
+exports.default = (0, _reactRedux.connect)(undefined, { signupContact: _auth.signupContact })(Home);
 
 /***/ }),
 /* 362 */
@@ -53740,6 +53771,75 @@ module.exports = function(module) {
 __webpack_require__(340);
 module.exports = __webpack_require__(339);
 
+
+/***/ }),
+/* 886 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(2);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reduxForm = __webpack_require__(322);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//using redux form to hold data for entire application
+
+var ContactForm = function ContactForm(props) {
+    var handleSubmit = props.handleSubmit,
+        signupContact = props.signupContact,
+        submitting = props.submitting;
+
+    return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+            'form',
+            { id: 'sign-up-form', onSubmit: handleSubmit(signupContact) },
+            _react2.default.createElement(
+                'div',
+                { className: 'sign-up-group' },
+                _react2.default.createElement('label', { htmlFor: 'name' }),
+                _react2.default.createElement(_reduxForm.Field, {
+                    name: 'name',
+                    component: 'input',
+                    type: 'text',
+                    placeholder: 'Name'
+                })
+            ),
+            _react2.default.createElement(
+                'div',
+                { className: 'sign-up-group' },
+                _react2.default.createElement('label', { htmlFor: 'email' }),
+                _react2.default.createElement(_reduxForm.Field, {
+                    name: 'email',
+                    component: 'input',
+                    type: 'email',
+                    placeholder: 'Email Address'
+                })
+            ),
+            _react2.default.createElement(
+                'div',
+                { className: 'sign-up-group' },
+                _react2.default.createElement(
+                    'button',
+                    { type: 'submit', id: 'signup-btn', disabled: submitting },
+                    'Sign Up'
+                )
+            )
+        )
+    );
+};
+
+exports.default = (0, _reduxForm.reduxForm)({ form: 'contact' })(ContactForm);
 
 /***/ })
 /******/ ]);

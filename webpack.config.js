@@ -8,8 +8,6 @@ const packageData = require('./package.json');
 
 const filename = [packageData.name, packageData.version, 'js'];
 
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
 module.exports = {
 	entry: ['babel-polyfill', './src/js/index.js'],
 	output: {

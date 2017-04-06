@@ -11,6 +11,10 @@ const UserSchema = new Schema({
         type: String,  
         trim: true 
     },
+    verifyPassword: {
+        type: String,
+        trim: true
+    },
     email: { 
         type: String, 
         unique: true

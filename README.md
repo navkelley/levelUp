@@ -28,7 +28,7 @@ mongod
 ``` 
 Finally, start the server 
 ```
-yarn start
+yarn dev
 ```
 Now you are ready to go! 
 

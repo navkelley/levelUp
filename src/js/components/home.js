@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router';
 
-import SignUp from './sign_up';
+import SignUp from '../containers/SignUp';
 
 const Home = () => {
   return (
@@ -18,11 +19,11 @@ const Home = () => {
             </div>
           <img id="kodama" className="col-1" src={'http://i.imgur.com/6V5PqZ1.png'} alt="Nioh Game Kodama" />
         </div>
-        <div className="sign-up" id="temp-disable">
-          <div id="hover-content">Coming Soon...</div>
+        <div className="sign-up">
           <p id="signup-guest">Sign up to save your favorite videos or streamer channel to watch at a later time
             or browse now as a guest!</p>
           <SignUp />
+          <p>Already have an account?&nbsp;<Link to='/login'>Login</Link></p>
         </div>
       </div>
     </section>

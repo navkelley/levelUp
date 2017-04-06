@@ -34,7 +34,7 @@ address {
 input {
   display: inline;
   padding: 5px;
-  box-shadow: 0 3px 3px #ccc;
+  box-shadow: 0 2px 0 #bfbfbf, 2px 4px 6px #c7c7c7;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
@@ -48,23 +48,31 @@ button {
   color: white;
   border-radius: 5px;
   margin-top: 7px;
-  background-color: #ff4f45;
-  border: 1px solid #ff2d22;
+  background-color: #a92b24;
+  border: 1px solid #7F201B;
   padding: 6px;
-  box-shadow: 0 2px 0 #ff281c, 2px 4px 6px #ff362c;
-  font-weight: 900;
+  box-shadow: 0 2px 0 #771e19, 2px 4px 6px #6e1c17;
   letter-spacing: 1px;
+  outline: none;
 }
 button:hover {
-  background: #ff392e;
-  border: 1px solid #FF4036;
-  box-shadow: 1px 1px 2px #FF4036;
-  color: #ff9792;
+  background: #791e1a;
+  border: 1px solid #7F201B;
+  box-shadow: 1px 1px 2px #7F201B;
   text-decoration: none;
-  text-shadow: -1px -1px 0 #ff1206;
+  text-shadow: -1px -1px 0 #571613;
   transition: all 250ms linear;
 }
-#signup-btn {
+.search-bar button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.search-bar input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+#signup-btn,
+#login-btn {
   width: 22em;
   font-size: 1.25em;
 }
@@ -104,20 +112,12 @@ strong {
 .welcome {
   position: relative;
   top: 3em;
-  margin: 2%;
 }
 #signup-guest {
   padding-top: 1.5em;
   margin: 0 2%;
 }
 /*////////// Layouts ///////////*/
-#temp-disable:hover > #hover-content {
-  display: block;
-  background-color: grey;
-}
-#hover-content {
-  display: none;
-}
 .home {
   padding: 0;
   margin: 0;
@@ -130,6 +130,9 @@ strong {
 .main-layout {
   padding-bottom: 3.75em;
 }
+#layout {
+  margin: 0 auto;
+}
 .col-1 {
   float: left;
   width: 48%;
@@ -140,18 +143,20 @@ strong {
 .info-card-1,
 .sign-up {
   box-shadow: 0 4px 8px 0 #ccc, 0 6px 20px 0 #ccc;
-  margin: 2%;
+  margin: 2% 0;
 }
 #for-all,
 #choose-path {
   text-align: left;
 }
-.sign-up {
+.sign-up,
+.login-sign {
   background-color: #f2c4c1;
   text-align: center;
   min-height: 32em;
 }
-.sign-up input {
+.sign-up input,
+.login-sign input {
   width: 22em;
   border: 2px solid #999999;
   border-left: none;
@@ -165,6 +170,24 @@ strong {
   margin-top: 1em;
   text-align: center;
   border-radius: 0;
+  outline: none;
+}
+.login-sign #sign-up-form,
+.login-sign #login-form {
+  display: inline;
+}
+.login-sign #login-form {
+  float: right;
+  margin: 6.5vh 1.2vw;
+}
+.login-sign #sign-up-form {
+  float: left;
+  margin: 2.3vh 1.2vw;
+}
+#sign-up-form span,
+#login-form span {
+  color: red;
+  display: block;
 }
 /*////////// BACKGROUNDS //////////*/
 .header-img {
@@ -290,11 +313,10 @@ tbody {
 #social a {
   display: inline;
   color: black;
-  margin-bottom: 1em;
   margin-right: 1em;
 }
 #social a:hover {
-  color: #FF4036;
+  color: #94251f;
 }
 /*////////// NAVBAR //////////*/
 .nav-container {
@@ -337,12 +359,10 @@ tbody {
 /*///////// @media queries ////////*/
 @media only screen and (min-width: 960px) {
   #app {
-    max-width: 60em;
     width: 100%;
     margin: 0 auto;
   }
-  .nav-container,
-  .footer-wrapper {
+  #layout {
     max-width: 60em;
   }
 }

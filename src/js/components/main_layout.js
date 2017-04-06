@@ -1,6 +1,6 @@
 //main-layout will hold navbar, social links, and address 
-
-import React, { Component } from 'react';
+import React from 'react';
+import Notifications from 'react-notify-toast';
 
 import NavContainer from './nav_bar';
 
@@ -8,6 +8,7 @@ const MainLayout = (props) => {
   return (
     <div className="main-layout">
       <NavContainer />
+      <Notifications />
       <div id="layout">
         {props.children}
       </div>

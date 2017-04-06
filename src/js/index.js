@@ -6,12 +6,14 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import ReduxPromise from 'redux-promise';
 import thunk from 'redux-thunk';
 
+
 import MainLayout from './components/main_layout';
 import Home from './components/home';
 import reducers from './reducers';
 import YouTubeSearch from './components/youtube/youtube_search';
 import TwitchSearch from './components/twitch/twitch_search';
 import PunchSearch from './components/punch_search';
+import Account from './components/Account';
 
 const ISPROD = process.env.NODE_ENV === 'production';
 
@@ -29,6 +31,7 @@ const routes = (
   <Provider store={store}>
     <Router history={hashHistory}>
       <Route path="/" component={MainLayout}>
+        <Route path="login" component={Account} />
         <IndexRoute component={Home} />
         <Route path="/search">
           <Route path="youtube" component={YouTubeSearch} />

@@ -40,7 +40,7 @@ Now you are ready to go!
 ## Development Roadmap
 * Add ability to save videos/streams to account
 * User login/authentication 
-* Change background to match theme
+* Add ability to send emails to users--Examples(welcome, reset password)
 
 ## Built With
 * [React](https://facebook.github.io/react/) 

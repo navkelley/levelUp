@@ -20,7 +20,7 @@ const ISPROD = process.env.NODE_ENV === 'production';
 //tool for redux dev
 const ENHANCERS = compose(
   applyMiddleware(ReduxPromise, thunk, createLogger()),
-  (/*!ISPROD &&*/ window.devToolsExtension ? window.devToolsExtension() : f => f)
+  (!ISPROD && window.devToolsExtension ? window.devToolsExtension() : f => f)
 );
 
 const store = createStore(

@@ -21345,7 +21345,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var ISPROD = "production" === 'production';
 
 //tool for redux dev
-var ENHANCERS = (0, _redux.compose)((0, _redux.applyMiddleware)(_reduxPromise2.default, _reduxThunk2.default, (0, _reduxLogger.createLogger)()), /*!ISPROD &&*/window.devToolsExtension ? window.devToolsExtension() : function (f) {
+var ENHANCERS = (0, _redux.compose)((0, _redux.applyMiddleware)(_reduxPromise2.default, _reduxThunk2.default, (0, _reduxLogger.createLogger)()), !ISPROD && window.devToolsExtension ? window.devToolsExtension() : function (f) {
   return f;
 });
 

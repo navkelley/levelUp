@@ -13494,11 +13494,7 @@ var YouTubeVideoDetail = function YouTubeVideoDetail(_ref) {
   return _react2.default.createElement(
     "div",
     { className: "video-detail" },
-    _react2.default.createElement(
-      "div",
-      { className: "embed" },
-      _react2.default.createElement("iframe", { className: "embed-item", src: url })
-    ),
+    _react2.default.createElement("iframe", { src: url }),
     _react2.default.createElement(
       "div",
       { className: "details" },

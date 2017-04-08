@@ -175,6 +175,9 @@ ul {
   text-align: center;
   color: #7F201B;
 }
+.search-bar {
+  text-align: center;
+}
 .search-bar input {
   padding: 5px;
   box-shadow: 0 2px 0 #bfbfbf, 2px 4px 6px #c7c7c7;
@@ -224,6 +227,15 @@ td {
 /*////////// YOUTUBE //////////*/
 .youtube {
   margin: 1.618rem auto;
+}
+strong {
+  color: #7F201B;
+}
+.video-detail {
+  margin: 1rem auto;
+}
+.video-detail iframe {
+  height: 13.4rem;
 }
 /*////////// FOOTER //////////*/
 footer {

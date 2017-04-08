@@ -6,7 +6,7 @@ import { Field, reduxForm } from 'redux-form';
 const ContactForm = (props) => {
     const { handleSubmit, signupContact, submitting } = props;
     return (
-        <div>
+        <div className="form">
             <form id="sign-up-form" onSubmit={handleSubmit(signupContact)}>
                 <div className="sign-up-group">
                 <label htmlFor="name" />
@@ -14,7 +14,7 @@ const ContactForm = (props) => {
                     name="name"
                     component="input"
                     type="text"
-                    placeholder="Name"  
+                    placeholder=" Name"  
                 />
                 </div>
                 <div className="sign-up-group">
@@ -23,7 +23,7 @@ const ContactForm = (props) => {
                     name="email"
                     component="input"
                     type="email" 
-                    placeholder="Email Address" 
+                    placeholder=" Email Address" 
                 />
                 </div>
                 <div className="sign-up-group">

@@ -12,19 +12,15 @@ import { signupContact } from '../actions/auth';
 class Home extends Component {
   render() {
     return (
-      <section className="home">
-        <header className="home-img header-img">
-          <img id="app-logo" src={'http://i.imgur.com/jspyWnl.png?2'} alt="Level Up Logo" />
+      <div className="home wrapper">
+        <header className="header-img">
+          <img src="http://i.imgur.com/4hvwDzl.jpg" alt="level-up logo" />
         </header>
         <div className="welcome">
-          <div className="info-card-1 clearfix">
-            <div className="col-1 info-text">
-              <p id="for-all">Designed for all levels of gamers. Learn, strategize and find those Kodama's!
-                Or preview your next game.</p>
-              <p id="choose-path">Choose your path: search just YouTube,
-                just Twitch, or by Dragon Punch! (both).</p>
-              </div>
-            <img id="kodama" className="col-1" src={'http://i.imgur.com/6V5PqZ1.png'} alt="Nioh Game Kodama" />
+          <div className="info-text">
+            <p>Designed for all levels of gamers. Learn, strategize and find those Kodama's! Preview your next game now!</p>
+            <p>Choose your path: search just YouTube, just Twitch, or by Dragon Punch! (both).</p>
+            <img className="kodama" src={'http://i.imgur.com/6V5PqZ1.png'} alt="Nioh Game Kodama" />
           </div>
           <div className="sign-up">
             <p id="signup-guest">We are working to add new features. 
@@ -36,7 +32,7 @@ class Home extends Component {
             <p>Thank you for your interest!</p>
           </div>
         </div>
-      </section>
+      </div>
     );
   }
 }

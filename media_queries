@@ -39,7 +39,6 @@ address {
 }
 
 input {
-  display: inline;
   padding: 5px;
   box-shadow: 0 2px 0 darken(#ccc, 5%), 2px 4px 6px darken(#ccc, 2%);
   border: 1px solid #ccc;
@@ -119,7 +118,6 @@ strong {
 
 .funFact a {
   text-decoration: none;
-  left: 0;
   color: black;
 }
 .funFact p {

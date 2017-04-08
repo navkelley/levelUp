@@ -22890,12 +22890,16 @@ var YouTubeSearch = function (_Component) {
       var _this2 = this;
 
       return _react2.default.createElement(
-        'section',
-        null,
-        _react2.default.createElement('header', { className: 'aCreed header-img' }),
+        'div',
+        { className: 'youtube wrapper' },
+        _react2.default.createElement(
+          'header',
+          { className: 'aCreed header-img' },
+          _react2.default.createElement('img', { src: 'http://i.imgur.com/gURoEL7.jpg', alt: 'assassin creed' })
+        ),
         _react2.default.createElement(
           'h1',
-          { className: 'logo' },
+          { className: 'path' },
           'Chosen Path: YouTube'
         ),
         _react2.default.createElement(_search_bar2.default, null),

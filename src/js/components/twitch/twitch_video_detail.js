@@ -19,8 +19,14 @@ const TwitchVideoDetail = ({ stream }) => {
   const url = `https://player.twitch.tv/?channel=${name}`;
 
   return (
-    <div className="embed">
-      <iframe className="embed-item" src={url} />
+    <div className="video-detail">
+      <iframe src={url} alt="twitch player" />
+      <div className="details">
+        <p className="streamer">
+          <strong>Streamer: </strong>
+           {stream.channel.display_name}
+        </p>
+      </div>
     </div>
   );
 };

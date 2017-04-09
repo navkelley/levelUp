@@ -13396,8 +13396,22 @@ var TwitchVideoDetail = function TwitchVideoDetail(_ref) {
 
   return _react2.default.createElement(
     "div",
-    { className: "embed" },
-    _react2.default.createElement("iframe", { className: "embed-item", src: url })
+    { className: "video-detail" },
+    _react2.default.createElement("iframe", { src: url, alt: "twitch player" }),
+    _react2.default.createElement(
+      "div",
+      { className: "details" },
+      _react2.default.createElement(
+        "p",
+        { className: "streamer" },
+        _react2.default.createElement(
+          "strong",
+          null,
+          "Streamer: "
+        ),
+        stream.channel.display_name
+      )
+    )
   );
 };
 
@@ -13442,7 +13456,7 @@ var TwitchVideoListItem = function TwitchVideoListItem(_ref) {
     _react2.default.createElement(
       'p',
       null,
-      'Streamer:',
+      'Streamer: ',
       truncateText(stream.channel.display_name)
     )
   );
@@ -13494,7 +13508,7 @@ var YouTubeVideoDetail = function YouTubeVideoDetail(_ref) {
   return _react2.default.createElement(
     "div",
     { className: "video-detail" },
-    _react2.default.createElement("iframe", { src: url }),
+    _react2.default.createElement("iframe", { src: url, alt: "youtube player" }),
     _react2.default.createElement(
       "div",
       { className: "details" },
@@ -22718,12 +22732,16 @@ var PunchSearch = function (_Component) {
       var _this2 = this;
 
       return _react2.default.createElement(
-        'section',
-        { className: 'dragon-punch' },
-        _react2.default.createElement('header', { className: 'ryu-punch header-img' }),
+        'div',
+        { className: 'dragon-punch wrapper' },
+        _react2.default.createElement(
+          'header',
+          { className: 'header-img' },
+          _react2.default.createElement('img', { src: 'http://i.imgur.com/lnZpsTe.jpg?1', alt: 'ryu punch' })
+        ),
         _react2.default.createElement(
           'h1',
-          { className: 'logo' },
+          { className: 'path' },
           'Chosen Path: Dragon Punch!'
         ),
         _react2.default.createElement(_search_bar2.default, null),
@@ -22804,12 +22822,16 @@ var TwitchSearch = function (_Component) {
       var _this2 = this;
 
       return _react2.default.createElement(
-        'section',
-        { className: 'twitch' },
-        _react2.default.createElement('header', { className: 'nioh header-img' }),
+        'div',
+        { className: 'twitch wrapper' },
+        _react2.default.createElement(
+          'header',
+          { className: 'header-img' },
+          _react2.default.createElement('img', { src: 'http://i.imgur.com/KnlLxMy.jpg', alt: 'nioh spirit animal' })
+        ),
         _react2.default.createElement(
           'h1',
-          { className: 'logo' },
+          { className: 'path' },
           'Chosen Path: Twitch'
         ),
         _react2.default.createElement(_search_bar2.default, null),
@@ -22890,7 +22912,7 @@ var YouTubeSearch = function (_Component) {
         { className: 'youtube wrapper' },
         _react2.default.createElement(
           'header',
-          { className: 'aCreed header-img' },
+          { className: 'header-img' },
           _react2.default.createElement('img', { src: 'http://i.imgur.com/gURoEL7.jpg', alt: 'assassin creed' })
         ),
         _react2.default.createElement(

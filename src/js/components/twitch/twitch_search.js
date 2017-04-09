@@ -16,15 +16,17 @@ export default class TwitchSearch extends Component {
 
   render() {
     return (
-      <section className="twitch">
-        <header className="nioh header-img"></header>
-        <h1 className="logo">Chosen Path: Twitch</h1>
+      <div className="twitch wrapper">
+        <header className="header-img">
+          <img src="http://i.imgur.com/KnlLxMy.jpg" alt="nioh spirit animal" />
+        </header>
+        <h1 className="path">Chosen Path: Twitch</h1>
         <SearchBar />
         <TwitchVideoDetail stream={this.state.selectedStream} />
         <TwitchVideoList
           onStreamSelect={selectedStream => this.setState({ selectedStream })}
         />
-      </section>
+      </div>
     );
   }
 }

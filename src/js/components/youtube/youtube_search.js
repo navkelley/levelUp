@@ -16,7 +16,7 @@ export default class YouTubeSearch extends Component {
   render() {
     return (
       <div className="youtube wrapper">
-        <header className="aCreed header-img">
+        <header className="header-img">
           <img src="http://i.imgur.com/gURoEL7.jpg" alt="assassin creed" />
         </header>
         <h1 className="path">Chosen Path: YouTube</h1>

@@ -18,7 +18,7 @@ const YouTubeVideoDetail = ({ video }) => {
 
   return (
     <div className="video-detail">
-      <iframe src={url} />
+      <iframe src={url} alt="youtube player" />
       <div className="details">
         <p className="description"><strong>Title:</strong> {video.snippet.title}</p>
         <p className="description"><strong>Description:</strong> {video.snippet.description}</p>

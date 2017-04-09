@@ -20,9 +20,11 @@ export default class PunchSearch extends Component {
 
   render() {
     return (
-      <section className="dragon-punch">
-        <header className="ryu-punch header-img"></header>
-        <h1 className="logo">Chosen Path: Dragon Punch!</h1>
+      <div className="dragon-punch wrapper">
+        <header className="header-img">
+          <img src="http://i.imgur.com/lnZpsTe.jpg?1" alt="ryu punch" />
+        </header>
+        <h1 className="path">Chosen Path: Dragon Punch!</h1>
         <SearchBar />
         <TwitchVideoDetail stream={this.state.selectedStream} />
         <YouTubeVideoDetail video={this.state.selectedVideo} />
@@ -30,7 +32,7 @@ export default class PunchSearch extends Component {
           onVideoSelect={selectedVideo => this.setState({ selectedVideo })}
           onStreamSelect={selectedStream => this.setState({ selectedStream })}
         />
-      </section>
+      </div>
     );
   }
 }

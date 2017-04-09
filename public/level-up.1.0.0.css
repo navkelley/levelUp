@@ -231,6 +231,10 @@ h3 {
 .video-detail {
   margin: 1rem auto;
 }
+.no-results {
+  text-align: center;
+  color: red;
+}
 /*////////// YOUTUBE //////////*/
 .youtube {
   margin: 1.618rem auto;

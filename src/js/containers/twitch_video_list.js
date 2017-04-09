@@ -24,15 +24,16 @@ class TwitchVideoList extends Component {
 	}
 	render() {
     if (this.props.streams.isFetched) {
+      if (this.props.streams.data.length === 0) {
+        return (<p className="no-results">No results found!</p>);
+      }
       return (
         <div className="table-wrapper">
           {this.renderResultsTable()}
         </div>
       );
     }
-    else {
-      return (<p className="placeholder" />);
-    }
+    return (<p className="placeholder" />);
 	}
 }
 

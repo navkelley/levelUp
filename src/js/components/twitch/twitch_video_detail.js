@@ -1,4 +1,7 @@
 import React from 'react';
+import Scroll from 'react-scroll';
+
+const Element = Scroll.Element;
 
 const TwitchVideoDetail = ({ stream }) => {
   //edge case for no selected stream
@@ -19,6 +22,7 @@ const TwitchVideoDetail = ({ stream }) => {
   const url = `https://player.twitch.tv/?channel=${name}`;
 
   return (
+    <Element name="videoPlayer">
     <div className="video-detail">
       <iframe src={url} alt="twitch player" />
       <div className="details">
@@ -28,6 +32,7 @@ const TwitchVideoDetail = ({ stream }) => {
         </p>
       </div>
     </div>
+    </Element>
   );
 };
 

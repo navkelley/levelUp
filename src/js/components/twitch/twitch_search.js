@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import Scroll from 'react-scroll';
 
 import TwitchVideoList from '../../containers/twitch_video_list';
 import TwitchVideoDetail from './twitch_video_detail';
 import SearchBar from '../../containers/search_bar';
+
+const scroller = Scroll.scroller;
 
 export default class TwitchSearch extends Component {
   constructor(props) {
@@ -12,6 +15,20 @@ export default class TwitchSearch extends Component {
       //state of embed player
       selectedStream: null
     };
+  }
+
+  componentDidUpdate() {
+    this.scrollToPlayer();
+  }
+
+  scrollToPlayer =() => {
+    scroller.scrollTo('videoPlayer', {
+      duration: 1000,
+      offset: -35,
+      isDynamic: true,
+      smooth: true,
+      containerId: 'wrapper'
+    });
   }
 
   render() {

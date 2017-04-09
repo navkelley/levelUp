@@ -2,6 +2,7 @@ import React from 'react';
 import Scroll from 'react-scroll';
 
 const Element = Scroll.Element;
+
 //set props as video: video--shorthand below
 const YouTubeVideoDetail = ({ video }) => {
   if (!video) {

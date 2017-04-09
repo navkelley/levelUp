@@ -13367,7 +13367,13 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactScroll = __webpack_require__(896);
+
+var _reactScroll2 = _interopRequireDefault(_reactScroll);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Element = _reactScroll2.default.Element;
 
 var TwitchVideoDetail = function TwitchVideoDetail(_ref) {
   var stream = _ref.stream;
@@ -13375,16 +13381,16 @@ var TwitchVideoDetail = function TwitchVideoDetail(_ref) {
   //edge case for no selected stream
   if (!stream) {
     return _react2.default.createElement(
-      "div",
-      { className: "funFact" },
+      'div',
+      { className: 'funFact' },
       _react2.default.createElement(
-        "p",
+        'p',
         null,
-        "Fun Fact: The highest grossing game of all time is actually World of WarCraft bringing in whopping ten billion dollars over its lifetime.",
+        'Fun Fact: The highest grossing game of all time is actually World of WarCraft bringing in whopping ten billion dollars over its lifetime.',
         _react2.default.createElement(
-          "a",
-          { target: "blank", href: "https://www.technotification.com/2015/01/15-interesting-video-game-facts.html" },
-          "-Technotification"
+          'a',
+          { target: 'blank', href: 'https://www.technotification.com/2015/01/15-interesting-video-game-facts.html' },
+          '-Technotification'
         )
       )
     );
@@ -13392,24 +13398,28 @@ var TwitchVideoDetail = function TwitchVideoDetail(_ref) {
   //in {} makes end property variable as well 
   var name = stream.channel.name;
 
-  var url = "https://player.twitch.tv/?channel=" + name;
+  var url = 'https://player.twitch.tv/?channel=' + name;
 
   return _react2.default.createElement(
-    "div",
-    { className: "video-detail" },
-    _react2.default.createElement("iframe", { src: url, alt: "twitch player" }),
+    Element,
+    { name: 'videoPlayer' },
     _react2.default.createElement(
-      "div",
-      { className: "details" },
+      'div',
+      { className: 'video-detail' },
+      _react2.default.createElement('iframe', { src: url, alt: 'twitch player' }),
       _react2.default.createElement(
-        "p",
-        { className: "streamer" },
+        'div',
+        { className: 'details' },
         _react2.default.createElement(
-          "strong",
-          null,
-          "Streamer: "
-        ),
-        stream.channel.display_name
+          'p',
+          { className: 'streamer' },
+          _react2.default.createElement(
+            'strong',
+            null,
+            'Streamer: '
+          ),
+          stream.channel.display_name
+        )
       )
     )
   );
@@ -13486,6 +13496,7 @@ var _reactScroll2 = _interopRequireDefault(_reactScroll);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Element = _reactScroll2.default.Element;
+
 //set props as video: video--shorthand below
 var YouTubeVideoDetail = function YouTubeVideoDetail(_ref) {
   var video = _ref.video;
@@ -22688,21 +22699,17 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactScroll = __webpack_require__(896);
+
+var _reactScroll2 = _interopRequireDefault(_reactScroll);
+
 var _youtube_video_detail = __webpack_require__(216);
 
 var _youtube_video_detail2 = _interopRequireDefault(_youtube_video_detail);
 
-var _youtube_video_list = __webpack_require__(220);
-
-var _youtube_video_list2 = _interopRequireDefault(_youtube_video_list);
-
 var _search_bar = __webpack_require__(128);
 
 var _search_bar2 = _interopRequireDefault(_search_bar);
-
-var _twitch_video_list = __webpack_require__(219);
-
-var _twitch_video_list2 = _interopRequireDefault(_twitch_video_list);
 
 var _twitch_video_detail = __webpack_require__(214);
 
@@ -22720,6 +22727,9 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /** Combined YouTube and Twitch Search */
 
+
+var scroller = _reactScroll2.default.scroller;
+
 var PunchSearch = function (_Component) {
   _inherits(PunchSearch, _Component);
 
@@ -22727,6 +22737,16 @@ var PunchSearch = function (_Component) {
     _classCallCheck(this, PunchSearch);
 
     var _this = _possibleConstructorReturn(this, (PunchSearch.__proto__ || Object.getPrototypeOf(PunchSearch)).call(this, props));
+
+    _this.scrollToPlayer = function () {
+      scroller.scrollTo('videoPlayer', {
+        duration: 1000,
+        offset: -35,
+        isDynamic: true,
+        smooth: true,
+        containerId: 'wrapper'
+      });
+    };
 
     _this.state = {
       selectedVideo: null,
@@ -22736,6 +22756,11 @@ var PunchSearch = function (_Component) {
   }
 
   _createClass(PunchSearch, [{
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate() {
+      this.scrollToPlayer();
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
@@ -22790,6 +22815,10 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactScroll = __webpack_require__(896);
+
+var _reactScroll2 = _interopRequireDefault(_reactScroll);
+
 var _twitch_video_list = __webpack_require__(219);
 
 var _twitch_video_list2 = _interopRequireDefault(_twitch_video_list);
@@ -22810,6 +22839,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var scroller = _reactScroll2.default.scroller;
+
 var TwitchSearch = function (_Component) {
   _inherits(TwitchSearch, _Component);
 
@@ -22817,6 +22848,16 @@ var TwitchSearch = function (_Component) {
     _classCallCheck(this, TwitchSearch);
 
     var _this = _possibleConstructorReturn(this, (TwitchSearch.__proto__ || Object.getPrototypeOf(TwitchSearch)).call(this, props));
+
+    _this.scrollToPlayer = function () {
+      scroller.scrollTo('videoPlayer', {
+        duration: 1000,
+        offset: -35,
+        isDynamic: true,
+        smooth: true,
+        containerId: 'wrapper'
+      });
+    };
 
     _this.state = {
       //state of embed player
@@ -22826,6 +22867,11 @@ var TwitchSearch = function (_Component) {
   }
 
   _createClass(TwitchSearch, [{
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate() {
+      this.scrollToPlayer();
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
@@ -22914,7 +22960,7 @@ var YouTubeSearch = function (_Component) {
     _this.scrollToPlayer = function () {
       scroller.scrollTo('videoPlayer', {
         duration: 1000,
-        offset: -30,
+        offset: -35,
         isDynamic: true,
         smooth: true,
         containerId: 'wrapper'

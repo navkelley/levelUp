@@ -1,13 +1,13 @@
 /** Combined YouTube and Twitch Search */
-
 import React, { Component } from 'react';
+import Scroll from 'react-scroll';
 
 import YouTubeVideoDetail from './youtube/youtube_video_detail';
-import YouTubeVideoList from '../containers/youtube_video_list';
 import SearchBar from '../containers/search_bar';
-import TwitchVideoList from '../containers/twitch_video_list';
 import TwitchVideoDetail from './twitch/twitch_video_detail';
 import DragonPunchList from '../containers/dragon_punch_list';
+
+const scroller = Scroll.scroller;
 
 export default class PunchSearch extends Component {
   constructor(props) {
@@ -16,6 +16,20 @@ export default class PunchSearch extends Component {
       selectedVideo: null,
       selectedStream: null
     };
+  }
+
+  componentDidUpdate() {
+    this.scrollToPlayer();
+  }
+
+  scrollToPlayer =() => {
+    scroller.scrollTo('videoPlayer', {
+      duration: 1000,
+      offset: -35,
+      isDynamic: true,
+      smooth: true,
+      containerId: 'wrapper'
+    });
   }
 
   render() {

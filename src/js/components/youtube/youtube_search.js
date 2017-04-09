@@ -15,13 +15,15 @@ export default class YouTubeSearch extends Component {
       selectedVideo: null
     };
   }
+  
   componentDidUpdate() {
     this.scrollToPlayer();
   }
+
   scrollToPlayer =() => {
     scroller.scrollTo('videoPlayer', {
       duration: 1000,
-      offset: -30,
+      offset: -35,
       isDynamic: true,
       smooth: true,
       containerId: 'wrapper'

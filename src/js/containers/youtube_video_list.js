@@ -22,16 +22,17 @@ class YouTubeVideoList extends Component {
     );
   }
 	render() {
-    if(this.props.videos.isFetched) {
+		if (this.props.videos.isFetched) {
+			if (this.props.videos.data.length === 0) {
+        return (<p className="no-results">No results found!</p>);
+      }
       return (
         <div className="table-wrapper">
 				  {this.renderResultsTable()}
 			  </div>
       );
     } 
-    else {
-      return (<p className="placeholder" />);
-    }
+    return (<p className="placeholder" />);
 	}
 }
 

@@ -13904,14 +13904,20 @@ var YouTubeVideoList = function (_Component) {
 		key: 'render',
 		value: function render() {
 			if (this.props.videos.isFetched) {
+				if (this.props.videos.data.length === 0) {
+					return _react2.default.createElement(
+						'p',
+						{ className: 'no-results' },
+						'No results found!'
+					);
+				}
 				return _react2.default.createElement(
 					'div',
 					{ className: 'table-wrapper' },
 					this.renderResultsTable()
 				);
-			} else {
-				return _react2.default.createElement('p', { className: 'placeholder' });
 			}
+			return _react2.default.createElement('p', { className: 'placeholder' });
 		}
 	}]);
 
@@ -23412,14 +23418,20 @@ var DragonPunchList = function (_Component) {
     key: 'render',
     value: function render() {
       if (this.props.videos.isFetched && this.props.streams.isFetched) {
+        if (this.props.videos.data.length || this.props.streams.data.length === 0) {
+          return _react2.default.createElement(
+            'p',
+            { className: 'no-results' },
+            'No results found!'
+          );
+        }
         return _react2.default.createElement(
           'div',
           { className: 'table-wrapper' },
           this.renderResultsTable()
         );
-      } else {
-        return _react2.default.createElement('p', { className: 'placeholder' });
       }
+      return _react2.default.createElement('p', { className: 'placeholder' });
     }
   }]);
 

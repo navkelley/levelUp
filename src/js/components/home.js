@@ -17,19 +17,17 @@ class Home extends Component {
           <img src="http://i.imgur.com/4hvwDzl.jpg" alt="level-up logo" />
         </header>
         <div className="welcome">
-          <div className="info-text">
-            <p>Designed for all levels of gamers. Learn, strategize and find those Kodama's! Preview your next game now!</p>
-            <p>Choose your path: search just YouTube, just Twitch, or by Dragon Punch! (both).</p>
-            <img className="kodama" src={'http://i.imgur.com/6V5PqZ1.png'} alt="Nioh Game Kodama" />
+          <div className="info-text min-box">
+            <p>Designed for all levels of gamers. Learn, strategize and find those Kodama's! Preview your next game now! Choose your path: search just YouTube, just Twitch, or by Dragon Punch! (both).</p>
+            <img src={'http://i.imgur.com/6V5PqZ1.png'} alt="Nioh Game Kodama" />
           </div>
           <div className="sign-up">
-            <p id="signup-guest">We are working to add new features. 
+            <p>We are working to add new features. 
               Soon you will be able to register for an account to save 
               your favorite videos or streamer channel to watch at a later time.
               You are welcome to sign up to be contacted when these features are added!
             </p>
             <ContactForm signupContact={this.props.signupContact} />
-            <p>Thank you for your interest!</p>
           </div>
         </div>
       </div>

@@ -7,6 +7,7 @@ const ContactForm = (props) => {
     const { handleSubmit, signupContact, submitting } = props;
     return (
         <div className="form">
+            <p>Thank you for your interest!</p>
             <form id="sign-up-form" onSubmit={handleSubmit(signupContact)}>
                 <div className="sign-up-group">
                 <label htmlFor="name" />

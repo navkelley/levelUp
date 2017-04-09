@@ -22373,33 +22373,23 @@ var Home = function (_Component) {
           { className: 'welcome' },
           _react2.default.createElement(
             'div',
-            { className: 'info-text' },
+            { className: 'info-text min-box' },
             _react2.default.createElement(
               'p',
               null,
-              'Designed for all levels of gamers. Learn, strategize and find those Kodama\'s! Preview your next game now!'
+              'Designed for all levels of gamers. Learn, strategize and find those Kodama\'s! Preview your next game now! Choose your path: search just YouTube, just Twitch, or by Dragon Punch! (both).'
             ),
-            _react2.default.createElement(
-              'p',
-              null,
-              'Choose your path: search just YouTube, just Twitch, or by Dragon Punch! (both).'
-            ),
-            _react2.default.createElement('img', { className: 'kodama', src: 'http://i.imgur.com/6V5PqZ1.png', alt: 'Nioh Game Kodama' })
+            _react2.default.createElement('img', { src: 'http://i.imgur.com/6V5PqZ1.png', alt: 'Nioh Game Kodama' })
           ),
           _react2.default.createElement(
             'div',
             { className: 'sign-up' },
             _react2.default.createElement(
               'p',
-              { id: 'signup-guest' },
+              null,
               'We are working to add new features. Soon you will be able to register for an account to save your favorite videos or streamer channel to watch at a later time. You are welcome to sign up to be contacted when these features are added!'
             ),
-            _react2.default.createElement(_contact_form2.default, { signupContact: this.props.signupContact }),
-            _react2.default.createElement(
-              'p',
-              null,
-              'Thank you for your interest!'
-            )
+            _react2.default.createElement(_contact_form2.default, { signupContact: this.props.signupContact })
           )
         )
       );
@@ -22550,7 +22540,7 @@ var NavContainer = function (_Component) {
     value: function navigationLinks() {
       return _react2.default.createElement(
         'nav',
-        { className: 'nav-menu clearfix:after' },
+        { className: 'nav-menu wrapper' },
         _react2.default.createElement(
           'ul',
           null,
@@ -22614,7 +22604,7 @@ var NavContainer = function (_Component) {
   }, {
     key: 'renderNavigation',
     value: function renderNavigation() {
-      if (this.state.windowWidth <= 480) {
+      if (this.state.windowWidth <= 524) {
         return _react2.default.createElement(
           'div',
           { className: 'mobile-nav' },
@@ -23175,6 +23165,11 @@ var ContactForm = function ContactForm(props) {
     return _react2.default.createElement(
         'div',
         { className: 'form' },
+        _react2.default.createElement(
+            'p',
+            null,
+            'Thank you for your interest!'
+        ),
         _react2.default.createElement(
             'form',
             { id: 'sign-up-form', onSubmit: handleSubmit(signupContact) },

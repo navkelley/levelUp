@@ -12,6 +12,7 @@ export default class NavContainer extends Component {
       windowWidth: window.innerWidth,
       mobileNavVisible: false
     };
+    this.handleNavClick = this.handleNavClick.bind(this);
   }
 //add listeners for resize of window 
   componentDidMount() {
@@ -29,10 +30,12 @@ export default class NavContainer extends Component {
   navigationLinks() {
     return (
       <nav className="nav-menu clearfix:after">
-        <Link to="/" className="nav-link">Home</Link>
-        <Link to="/search/youtube" className="nav-link">YouTube</Link>
-        <Link to="/search/twitch" className="nav-link">Twitch</Link>
-        <Link to="/search" className="nav-link">Dragon Punch!</Link>
+        <ul>
+          <Link to="/" className="nav-link" onClick={this.handleNavClick}><li>Home</li></Link>
+          <Link to="/search/youtube" className="nav-link" onClick={this.handleNavClick}><li>YouTube</li></Link>
+          <Link to="/search/twitch" className="nav-link" onClick={this.handleNavClick}><li>Twitch</li></Link>
+          <Link to="/search" className="nav-link" onClick={this.handleNavClick}><li>Dragon Punch!</li></Link>
+        </ul>
       </nav>
     );
   }
@@ -53,10 +56,10 @@ export default class NavContainer extends Component {
   }
 //render mobile nav if window size certain width
   renderNavigation() {
-    if (this.state.windowWidth <= 770) {
+    if (this.state.windowWidth <= 480) {
       return (
         <div className="mobile-nav">
-          <p className="mobile-bars" onClick={this.handleNavClick.bind(this)}>
+          <p className="mobile-bars" onClick={this.handleNavClick}>
             <i className="fa fa-bars" id="hamburger" aria-hidden="true" />
           </p>
           {this.renderMobileNav()}
@@ -72,7 +75,7 @@ export default class NavContainer extends Component {
 
   render() {
     return (
-      <div className="nav-container light-fade">
+      <div className="nav-container light-fade-top">
         {this.renderNavigation()}
       </div>
     );

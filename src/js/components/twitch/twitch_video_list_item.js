@@ -13,7 +13,8 @@ const TwitchVideoListItem = ({ stream, onStreamSelect }) => {
   return (
     <td onClick={() => onStreamSelect(stream)} className="list-group-item twitch-media">
       <img alt="game stream" className="media-object" src={preview} />
-      <p>Streamer: {truncateText(stream.channel.display_name)}</p>
+      <p>Streamer:</p>
+      <p>{truncateText(stream.channel.display_name)}</p>
     </td>
   );
 };

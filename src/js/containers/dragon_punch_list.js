@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import YouTubeVideoListItem from '../components/youtube/youtube_video_list_item';
 import TwitchVideoListItem from '../components/twitch/twitch_video_list_item';
+import YouTubeVideoList from './youtube_video_list';
+import TwitchVideoList from './twitch_video_list';
 
 //map out videos to create list
 class DragonPunchList extends Component {
@@ -38,8 +40,21 @@ class DragonPunchList extends Component {
 	}
 	render() {
     if (this.props.videos.isFetched && this.props.streams.isFetched) {
-      if (this.props.videos.data.length || this.props.streams.data.length === 0) {
-        return (<p className="no-results">No results found!</p>);
+      if (this.props.streams.data.length === 0) {
+        return (
+          <div className="table-wrapper">
+            <p className="no-results">No Twitch results found!</p>
+            <YouTubeVideoList />
+          </div>
+        );
+      }
+      if (this.props.videos.data.length === 0) {
+        return (
+          <div className="table-wrapper">
+            <p className="no-results">No YouTube results found!</p>
+            <TwitchVideoList />
+          </div>
+        );
       }
       return (
         <div className="table-wrapper">

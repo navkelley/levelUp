@@ -4,7 +4,13 @@
 html {
   margin: 0;
 }
+html {
+  height: 100%;
+}
 body {
+  position: relative;
+  min-height: 100%;
+  padding-bottom: 6rem;
   font-size: 85%;
   line-height: 1.68;
 }
@@ -152,7 +158,6 @@ img {
 }
 /*////////// SEARCH PAGES //////////*/
 .path {
-  font-size: 1.618rem;
   text-align: center;
   color: #7F201B;
 }
@@ -186,7 +191,7 @@ img {
   border-bottom-left-radius: 0;
 }
 .funFact {
-  margin: 1rem auto;
+  margin: 1rem;
 }
 .funFact a {
   text-decoration: none;
@@ -199,7 +204,6 @@ img {
 td {
   display: inline-block;
   margin-bottom: 8px;
-  width: calc(98%);
 }
 .list-group-item {
   border: 1px solid #d3d3d3;
@@ -211,25 +215,27 @@ h3 {
 }
 .video-detail {
   margin: 1rem auto;
+  text-align: left;
+}
+.video-detail iframe {
+  width: 100%;
+  min-height: 52.62vh;
+  height: auto;
+  max-width: 90vw;
 }
 .no-results {
   text-align: center;
   color: red;
 }
+.note {
+  text-align: center;
+  font-style: italic;
+}
 /*////////// YOUTUBE //////////*/
 .youtube {
   margin: 2.618rem auto;
 }
-.video-detail iframe {
-  height: 13.4rem;
-}
-.youtube .placeholder {
-  height: 5.7rem;
-}
 /*////////// TWITCH //////////*/
-.twitch .placeholder {
-  height: 5rem;
-}
 .twitch {
   margin: 2.618rem auto;
 }
@@ -239,12 +245,16 @@ h3 {
 }
 /*////////// FOOTER //////////*/
 footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #efefef;
+  text-align: center;
   font-family: 'Exo', sans-serif;
-  margin-top: 2.618rem;
 }
 .foot-content {
   padding: 0.618rem 1rem;
-  text-align: center;
 }
 /*////////// SOCIAL //////////*/
 .social a {
@@ -255,6 +265,13 @@ footer {
   color: #94251f;
 }
 /*///////// @MEDIA QUERIES ////////*/
+@media screen and (min-width: 480px) {
+  td {
+    display: inline-block;
+    margin: 0 8px 8px 0;
+    width: calc(48%);
+  }
+}
 @media screen and (min-width: 524px) {
   .nav-menu ul {
     display: flex;
@@ -296,6 +313,18 @@ footer {
 @media screen and (min-width: 683px) {
   body {
     font-size: 100%;
+  }
+  td {
+    display: inline-block;
+    margin: 0 8px 8px 0;
+    width: calc(31%);
+  }
+}
+@media screen and (min-width: 768px) {
+  td {
+    display: inline-block;
+    margin: 0 8px 8px 0;
+    width: calc(23%);
   }
 }
 /*# sourceMappingURL=level-up.1.0.0.css.map */

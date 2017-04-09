@@ -38,6 +38,7 @@ export default class TwitchSearch extends Component {
           <img src="http://i.imgur.com/KnlLxMy.jpg" alt="nioh spirit animal" />
         </header>
         <h1 className="path">Chosen Path: Twitch</h1>
+        <p className="note">For best results do not use abbreviation (ex. World of Warcraft, not WOW)</p>
         <SearchBar />
         <TwitchVideoDetail stream={this.state.selectedStream} />
         <TwitchVideoList

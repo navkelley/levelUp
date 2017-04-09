@@ -39,6 +39,7 @@ export default class PunchSearch extends Component {
           <img src="http://i.imgur.com/lnZpsTe.jpg?1" alt="ryu punch" />
         </header>
         <h1 className="path">Chosen Path: Dragon Punch!</h1>
+        <p className="note">Note: For best results in Twitch do not use abbreviation (ex. World of Warcraft, not WOW)</p>
         <SearchBar />
         <TwitchVideoDetail stream={this.state.selectedStream} />
         <YouTubeVideoDetail video={this.state.selectedVideo} />

@@ -14002,7 +14002,11 @@ var TwitchVideoListItem = function TwitchVideoListItem(_ref) {
     _react2.default.createElement(
       'p',
       null,
-      'Streamer: ',
+      'Streamer:'
+    ),
+    _react2.default.createElement(
+      'p',
+      null,
       truncateText(stream.channel.display_name)
     )
   );
@@ -23357,6 +23361,11 @@ var PunchSearch = function (_Component) {
           { className: 'path' },
           'Chosen Path: Dragon Punch!'
         ),
+        _react2.default.createElement(
+          'p',
+          { className: 'note' },
+          'Note: For best results in Twitch do not use abbreviation (ex. World of Warcraft, not WOW)'
+        ),
         _react2.default.createElement(_search_bar2.default, null),
         _react2.default.createElement(_twitch_video_detail2.default, { stream: this.state.selectedStream }),
         _react2.default.createElement(_youtube_video_detail2.default, { video: this.state.selectedVideo }),
@@ -23467,6 +23476,11 @@ var TwitchSearch = function (_Component) {
           'h1',
           { className: 'path' },
           'Chosen Path: Twitch'
+        ),
+        _react2.default.createElement(
+          'p',
+          { className: 'note' },
+          'For best results do not use abbreviation (ex. World of Warcraft, not WOW)'
         ),
         _react2.default.createElement(_search_bar2.default, null),
         _react2.default.createElement(_twitch_video_detail2.default, { stream: this.state.selectedStream }),
@@ -23924,6 +23938,14 @@ var _twitch_video_list_item = __webpack_require__(220);
 
 var _twitch_video_list_item2 = _interopRequireDefault(_twitch_video_list_item);
 
+var _youtube_video_list = __webpack_require__(376);
+
+var _youtube_video_list2 = _interopRequireDefault(_youtube_video_list);
+
+var _twitch_video_list = __webpack_require__(375);
+
+var _twitch_video_list2 = _interopRequireDefault(_twitch_video_list);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -23990,11 +24012,28 @@ var DragonPunchList = function (_Component) {
     key: 'render',
     value: function render() {
       if (this.props.videos.isFetched && this.props.streams.isFetched) {
-        if (this.props.videos.data.length || this.props.streams.data.length === 0) {
+        if (this.props.streams.data.length === 0) {
           return _react2.default.createElement(
-            'p',
-            { className: 'no-results' },
-            'No results found!'
+            'div',
+            { className: 'table-wrapper' },
+            _react2.default.createElement(
+              'p',
+              { className: 'no-results' },
+              'No Twitch results found!'
+            ),
+            _react2.default.createElement(_youtube_video_list2.default, null)
+          );
+        }
+        if (this.props.videos.data.length === 0) {
+          return _react2.default.createElement(
+            'div',
+            { className: 'table-wrapper' },
+            _react2.default.createElement(
+              'p',
+              { className: 'no-results' },
+              'No YouTube results found!'
+            ),
+            _react2.default.createElement(_twitch_video_list2.default, null)
           );
         }
         return _react2.default.createElement(

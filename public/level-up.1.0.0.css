@@ -257,6 +257,10 @@ footer {
   padding: 0.618rem 1rem;
 }
 /*////////// SOCIAL //////////*/
+.social img {
+  width: 2rem;
+  height: 2rem;
+}
 .social a {
   color: black;
   margin-right: 1em;

@@ -23072,17 +23072,17 @@ var MainLayout = function MainLayout(props) {
           _react2.default.createElement(
             'a',
             { href: 'https://twitter.com/navkelley', target: 'blank', className: 'twit', title: 'Twitter' },
-            _react2.default.createElement('i', { className: 'fa fa-twitter', 'aria-hidden': 'true' })
+            _react2.default.createElement('img', { src: 'http://i.imgur.com/wFKLQQm.png', alt: 'Twiter Icon' })
           ),
           _react2.default.createElement(
             'a',
             { href: 'https://www.linkedin.com/in/nicolevkelley', target: 'blank', className: 'linkedIn', title: 'LinkedIn' },
-            _react2.default.createElement('i', { className: 'fa fa-linkedin-square', 'aria-hidden': 'true' })
+            _react2.default.createElement('img', { src: 'http://i.imgur.com/INarVJ7.png', alt: 'LinkedIn Icon' })
           ),
           _react2.default.createElement(
             'a',
             { href: 'https://github.com/navkelley', target: 'blank', className: 'github', title: 'GitHub' },
-            _react2.default.createElement('i', { className: 'fa fa-github', 'aria-hidden': 'true' })
+            _react2.default.createElement('img', { src: 'http://i.imgur.com/GM1gYXS.png', alt: 'Github Icon' })
           )
         ),
         _react2.default.createElement(

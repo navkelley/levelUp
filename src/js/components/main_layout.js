@@ -13,9 +13,9 @@ const MainLayout = (props) => {
       <footer className="light-fade-bottom">
         <div className="foot-content">
           <div className="social">
-            <a href="https://twitter.com/navkelley" target="blank" className="twit" title="Twitter"><i className="fa fa-twitter" aria-hidden="true" /></a>
-            <a href="https://www.linkedin.com/in/nicolevkelley" target="blank" className="linkedIn" title="LinkedIn"><i className="fa fa-linkedin-square" aria-hidden="true" /></a>
-            <a href="https://github.com/navkelley" target="blank" className="github" title="GitHub"><i className="fa fa-github" aria-hidden="true" /></a>
+            <a href="https://twitter.com/navkelley" target="blank" className="twit" title="Twitter"><img src="http://i.imgur.com/wFKLQQm.png" alt="Twiter Icon"/></a>
+            <a href="https://www.linkedin.com/in/nicolevkelley" target="blank" className="linkedIn" title="LinkedIn"><img src="http://i.imgur.com/INarVJ7.png" alt="LinkedIn Icon"/></a>
+            <a href="https://github.com/navkelley" target="blank" className="github" title="GitHub"><img src="http://i.imgur.com/GM1gYXS.png" alt="Github Icon"/></a>
           </div>
           <address>Designed and built by Nicole V. Kelley</address>
         </div>

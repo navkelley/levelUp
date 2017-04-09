@@ -6,8 +6,12 @@
 }
 
 body {
-  font-size: 100%;
+  font-size: 85%;
   line-height: 1.68; 
+}
+
+img {
+  max-width: 100%;
 }
 
 .light-fade-bottom {
@@ -34,38 +38,15 @@ body {
     background-image: -ms-linear-gradient(top,rgb(206, 206, 206) 8.8%,rgb(206, 206, 206) 60.8%,rgb(206, 206, 206) 68.6%,rgb(206, 206, 206) 68.6%,rgb(243, 243, 243) 100%);
 }
  
-.col-1 {
-  float: left;
-  width: 48%;
-}
-
-/*/////// MEDIA ////////*/
-img, video, audio, iframe, table, form {
-  width: 100%;
-  /* IE */
-  max-width: 100%;
-  /* FF, Safari, Chrome */ 
-}
-
 /*////////// FIXES //////////*/
 * {
   box-sizing: border-box;
-}
-
-.clearfix:after {
-  content: ".";
-  display: block;
-  clear: both;
-  visibility: hidden;
-  height: 0;
-  line-height: 0; 
 }
 
 /*/////// LAYOUT ////////*/
 .wrapper {
   font-family: 'Exo', sans-serif;
   max-width: 960px;
-  min-width: 300px;
   width: 90vw;
   margin: 0 auto; 
 }
@@ -85,13 +66,6 @@ img, video, audio, iframe, table, form {
   max-width: 960px;
 }
 
-ul {
-  list-style: none;
-  margin: 0;
-  padding-left: 1.618rem;
-  float: left;
-}
-
 .navbar nav {
   border-left: 1px solid #ccc;
   display: block;
@@ -105,10 +79,6 @@ ul {
   text-align: center;
   border-right: 1px solid #ccc;
   text-decoration: none;
-}
-
-.navbar nav a:last-child {
-  border-right: none;
 }
 
 .navbar nav a:hover {
@@ -129,6 +99,8 @@ ul {
 }
 
 .mobile-bars {
+  width: 100%;
+  padding-top: 0.5rem;
   padding-left: 1rem;
   float: left;
 }
@@ -137,38 +109,51 @@ ul {
   color: #7F201B;
   text-decoration: none;
   list-style: none;
+  text-transform: uppercase;
+}
+
+.mobile-nav nav a:hover {
+  color: black;
+}
+
+.mobile-nav ul {
+  list-style: none;
+  padding-left: 1.618rem;
 }
 
 /*////////// SECTIONS //////////*/
   /*////////// HOME //////////*/
 .home {
-  padding: 0;
-  margin: 1.618rem auto; 
+  padding: 0; 
+  margin: 2.618rem auto;
 }
 
 .info-text {
+  text-align: center;
+  background-color: #eee;
   margin: 1.618rem auto;
+  padding: 1.618rem;
+  box-shadow: 2px 2px 3px #aaa;		  
 }
 
 .info-text p {
-  padding-bottom: 1.618rem;
+  text-align: left;
 }
 
-.kodama {
-  width: 50%;
-  position: relative;
-  left: 25vw;
+.info-text img {
+  max-width: 100%;
+  padding: 1.618rem;
 }
 
   /*////////// SIGNUP-LOGIN //////////*/
-.sign-up, .login-sign {
+.sign-up {
   padding: 1.618rem;
   background-color: #eee;
   box-shadow: 2px 2px 3px #aaa;
-  text-align: center;
 }
 
 .form {
+  text-align: center;
   padding: 1.618rem;
 }
 
@@ -265,7 +250,7 @@ strong, h3 {
 
   /*////////// YOUTUBE //////////*/
 .youtube {
-  margin: 1.618rem auto;
+  margin: 2.618rem auto;
 }
 
 .video-detail iframe {
@@ -273,7 +258,7 @@ strong, h3 {
 }
 
 .youtube .placeholder {
-  height: 6.45rem;
+  height: 5.7rem;
 }
 
  /*////////// TWITCH //////////*/
@@ -281,9 +266,18 @@ strong, h3 {
   height: 5rem;
 }
 
+.twitch {
+  margin: 2.618rem auto;
+}
+
+/*////////// DRAGON PUNCH //////////*/
+.dragon-punch {
+  margin: 2.618rem auto;
+}
+
   /*////////// FOOTER //////////*/
 footer {
-  font: 0.618rem 'Exo', sans-serif;
+  font-family: 'Exo', sans-serif;
   margin-top: 2.618rem;
 }
 .foot-content {
@@ -302,9 +296,48 @@ footer {
   color: lighten(#7F201B, 5%);
 }
 
-
-
-
-
-
 /*///////// @MEDIA QUERIES ////////*/
+@media screen and (min-width: 524px) {
+  .nav-menu ul {
+    display: flex;
+    padding: 0;
+    list-style: none;
+  }
+  .nav-menu ul a {
+    padding: 0.618rem 0;
+  }
+}
+@media screen and (min-width: 580px) {
+  body {
+    font-size: 90%;
+  }
+  .info-text {
+    display: inline-flex;
+    display: -webkit-inline-flex;
+    padding: 1.618rem;
+  }
+  .info-text p {
+    margin: auto;
+  }
+  .info-text img {
+    padding: 1.618rem;
+  }
+  .sign-up {
+    display: inline-flex;
+    display: -webkit-inline-flex;
+  }
+  .sign-up p {
+    margin: auto;
+  }
+}
+@media screen and (min-width: 603px) {
+  body {
+    font-size: 95%;
+  }
+}
+@media screen and (min-width: 683px) {
+  body {
+    font-size: 100%;
+  }
+}
+

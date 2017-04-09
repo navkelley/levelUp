@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import Scroll from 'react-scroll';
 
 import YouTubeVideoList from '../../containers/youtube_video_list';
 import YouTubeVideoDetail from './youtube_video_detail';
 import SearchBar from '../../containers/search_bar';
+
+const scroller = Scroll.scroller;
 
 export default class YouTubeSearch extends Component {
   constructor(props) {
@@ -11,6 +14,18 @@ export default class YouTubeSearch extends Component {
     this.state = {
       selectedVideo: null
     };
+  }
+  componentDidUpdate() {
+    this.scrollToPlayer();
+  }
+  scrollToPlayer =() => {
+    scroller.scrollTo('videoPlayer', {
+      duration: 1000,
+      offset: -30,
+      isDynamic: true,
+      smooth: true,
+      containerId: 'wrapper'
+    });
   }
 
   render() {

@@ -1,4 +1,7 @@
 import React from 'react';
+import Scroll from 'react-scroll';
+
+const Element = Scroll.Element;
 //set props as video: video--shorthand below
 const YouTubeVideoDetail = ({ video }) => {
   if (!video) {
@@ -17,6 +20,7 @@ const YouTubeVideoDetail = ({ video }) => {
   const url = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
 
   return (
+    <Element name="videoPlayer">
     <div className="video-detail">
       <iframe src={url} alt="youtube player" />
       <div className="details">
@@ -24,6 +28,7 @@ const YouTubeVideoDetail = ({ video }) => {
         <p className="description"><strong>Description:</strong> {video.snippet.description}</p>
       </div>
     </div>
+    </Element>
   );
 };
 

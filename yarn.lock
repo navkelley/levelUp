@@ -5071,6 +5071,12 @@ react-router@^3.0.2:
     loose-envify "^1.2.0"
     warning "^3.0.0"
 
+react-scroll@^1.4.8:
+  version "1.4.8"
+  resolved "https://registry.yarnpkg.com/react-scroll/-/react-scroll-1.4.8.tgz#e441ecad47f319011ef7b973b5629876bfce5327"
+  dependencies:
+    object-assign "^4.0.1"
+
 react-simple-dropdown@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/react-simple-dropdown/-/react-simple-dropdown-2.0.0.tgz#685215e77d69133fe490b06b5cb4c16a7eae3968"

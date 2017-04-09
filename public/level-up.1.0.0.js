@@ -13479,60 +13479,69 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactScroll = __webpack_require__(896);
+
+var _reactScroll2 = _interopRequireDefault(_reactScroll);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var Element = _reactScroll2.default.Element;
 //set props as video: video--shorthand below
 var YouTubeVideoDetail = function YouTubeVideoDetail(_ref) {
   var video = _ref.video;
 
   if (!video) {
     return _react2.default.createElement(
-      "div",
-      { className: "funFact" },
+      'div',
+      { className: 'funFact' },
       _react2.default.createElement(
-        "p",
+        'p',
         null,
-        "Fun Fact: Pac-Man was invented by the designer Toru Iwatani while he was eating pizza.",
+        'Fun Fact: Pac-Man was invented by the designer Toru Iwatani while he was eating pizza.',
         _react2.default.createElement(
-          "a",
-          { target: "blank", href: "https://www.technotification.com/2015/01/15-interesting-video-game-facts.html" },
-          "-Technotification"
+          'a',
+          { target: 'blank', href: 'https://www.technotification.com/2015/01/15-interesting-video-game-facts.html' },
+          '-Technotification'
         )
       )
     );
   }
 
   var videoId = video.id.videoId;
-  var url = "https://www.youtube.com/embed/" + videoId + "?autoplay=1";
+  var url = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
 
   return _react2.default.createElement(
-    "div",
-    { className: "video-detail" },
-    _react2.default.createElement("iframe", { src: url, alt: "youtube player" }),
+    Element,
+    { name: 'videoPlayer' },
     _react2.default.createElement(
-      "div",
-      { className: "details" },
+      'div',
+      { className: 'video-detail' },
+      _react2.default.createElement('iframe', { src: url, alt: 'youtube player' }),
       _react2.default.createElement(
-        "p",
-        { className: "description" },
+        'div',
+        { className: 'details' },
         _react2.default.createElement(
-          "strong",
-          null,
-          "Title:"
+          'p',
+          { className: 'description' },
+          _react2.default.createElement(
+            'strong',
+            null,
+            'Title:'
+          ),
+          ' ',
+          video.snippet.title
         ),
-        " ",
-        video.snippet.title
-      ),
-      _react2.default.createElement(
-        "p",
-        { className: "description" },
         _react2.default.createElement(
-          "strong",
-          null,
-          "Description:"
-        ),
-        " ",
-        video.snippet.description
+          'p',
+          { className: 'description' },
+          _react2.default.createElement(
+            'strong',
+            null,
+            'Description:'
+          ),
+          ' ',
+          video.snippet.description
+        )
       )
     )
   );
@@ -22867,6 +22876,10 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactScroll = __webpack_require__(896);
+
+var _reactScroll2 = _interopRequireDefault(_reactScroll);
+
 var _youtube_video_list = __webpack_require__(220);
 
 var _youtube_video_list2 = _interopRequireDefault(_youtube_video_list);
@@ -22887,6 +22900,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var scroller = _reactScroll2.default.scroller;
+
 var YouTubeSearch = function (_Component) {
   _inherits(YouTubeSearch, _Component);
 
@@ -22896,6 +22911,16 @@ var YouTubeSearch = function (_Component) {
     //state of embed player 
     var _this = _possibleConstructorReturn(this, (YouTubeSearch.__proto__ || Object.getPrototypeOf(YouTubeSearch)).call(this, props));
 
+    _this.scrollToPlayer = function () {
+      scroller.scrollTo('videoPlayer', {
+        duration: 1000,
+        offset: -30,
+        isDynamic: true,
+        smooth: true,
+        containerId: 'wrapper'
+      });
+    };
+
     _this.state = {
       selectedVideo: null
     };
@@ -22903,6 +22928,11 @@ var YouTubeSearch = function (_Component) {
   }
 
   _createClass(YouTubeSearch, [{
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate() {
+      this.scrollToPlayer();
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
@@ -53874,6 +53904,931 @@ module.exports = function(module) {
 
 __webpack_require__(339);
 module.exports = __webpack_require__(338);
+
+
+/***/ }),
+/* 887 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var React = __webpack_require__(2);
+var ReactDOM = __webpack_require__(277);
+
+var animateScroll = __webpack_require__(888);
+var scrollSpy = __webpack_require__(891);
+var defaultScroller = __webpack_require__(892);
+var assign = __webpack_require__(11);
+
+
+var protoTypes = {
+  to: React.PropTypes.string.isRequired,
+  containerId: React.PropTypes.string,
+  activeClass:React.PropTypes.string,
+  spy: React.PropTypes.bool,
+  smooth: React.PropTypes.oneOfType([React.PropTypes.bool, React.PropTypes.string]),
+  offset: React.PropTypes.number,
+  delay: React.PropTypes.number,
+  isDynamic: React.PropTypes.bool,
+  onClick: React.PropTypes.func,
+  duration: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.func]),
+  absolute: React.PropTypes.bool,
+  onSetActive: React.PropTypes.func,
+  onSetInactive: React.PropTypes.func,
+  ignoreCancelEvents: React.PropTypes.bool
+};
+
+var Helpers = {
+
+  Scroll: function (Component, customScroller) {
+
+    var scroller = customScroller || defaultScroller;
+
+    return React.createClass({
+
+      propTypes: protoTypes,
+
+      getDefaultProps: function() {
+        return {offset: 0};
+      },
+
+      scrollTo : function(to, props) {
+          scroller.scrollTo(to, props);
+      },
+
+      handleClick: function(event) {
+
+        /*
+         * give the posibility to override onClick
+         */
+
+        if(this.props.onClick) {
+          this.props.onClick(event);
+        }
+
+        /*
+         * dont bubble the navigation
+         */
+
+        if (event.stopPropagation) event.stopPropagation();
+        if (event.preventDefault) event.preventDefault();
+
+        /*
+         * do the magic!
+         */
+        this.scrollTo(this.props.to, this.props);
+
+      },
+
+      spyHandler: function(y) {
+        var element = scroller.get(this.props.to);
+        if (!element) return;
+        var cords = element.getBoundingClientRect();
+        var topBound = cords.top + y;
+        var bottomBound = topBound + cords.height;
+        var offsetY = y - this.props.offset;
+        var to = this.props.to;
+        var isInside = (offsetY >= topBound && offsetY <= bottomBound);
+        var isOutside = (offsetY < topBound || offsetY > bottomBound);
+        var activeLink = scroller.getActiveLink();
+
+        if (isOutside && activeLink === to) {
+          scroller.setActiveLink(void 0);
+          this.setState({ active : false });
+
+          if(this.props.onSetInactive) {
+            this.props.onSetInactive();
+          }
+
+        } else if (isInside && activeLink != to) {
+          scroller.setActiveLink(to);
+          this.setState({ active : true });
+
+          if(this.props.onSetActive) {
+            this.props.onSetActive(to);
+          }
+
+          scrollSpy.updateStates();
+        }
+      },
+
+      componentDidMount: function() {
+
+
+
+        var containerId = this.props.containerId;
+
+        var scrollSpyContainer = containerId ? document.getElementById(containerId) : document;
+
+        if(!scrollSpy.isMounted(scrollSpyContainer)) {
+          scrollSpy.mount(scrollSpyContainer);
+        }
+
+
+        if(this.props.spy) {
+          var to = this.props.to;
+          var element = null;
+          var elemTopBound = 0;
+          var elemBottomBound = 0;
+
+          this._stateHandler = function() {
+            if(scroller.getActiveLink() != to) {
+                if(this.state !== null && this.state.active && this.props.onSetInactive) {
+                  this.props.onSetInactive();
+                }
+                this.setState({ active : false });
+            }
+          }.bind(this)
+
+          scrollSpy.addStateHandler(this._stateHandler);
+
+          this._spyHandler = function(y) {
+
+            var containerTop = 0;
+            if(scrollSpyContainer.getBoundingClientRect) {
+              var containerCords = scrollSpyContainer.getBoundingClientRect();
+              containerTop = containerCords.top;
+            }
+
+            if(!element || this.props.isDynamic) {
+                element = scroller.get(to);
+                if(!element){ return;}
+
+                var cords = element.getBoundingClientRect();
+                elemTopBound = (cords.top - containerTop + y);
+                elemBottomBound = elemTopBound + cords.height;
+            }
+
+
+
+            var offsetY = y - this.props.offset;
+            var isInside = (offsetY >= Math.floor(elemTopBound) && offsetY <= Math.floor(elemBottomBound));
+            var isOutside = (offsetY < Math.floor(elemTopBound) || offsetY > Math.floor(elemBottomBound));
+            var activeLink = scroller.getActiveLink();
+
+            if (isOutside && activeLink === to) {
+              scroller.setActiveLink(void 0);
+              this.setState({ active : false });
+
+              if(this.props.onSetInactive) {
+                this.props.onSetInactive();
+              }
+
+            } else if (isInside && activeLink != to) {
+              scroller.setActiveLink(to);
+              this.setState({ active : true });
+
+              if(this.props.onSetActive) {
+                this.props.onSetActive(to);
+              }
+
+              scrollSpy.updateStates();
+
+            }
+          }.bind(this);
+
+          scrollSpy.addSpyHandler(this._spyHandler, scrollSpyContainer);
+        }
+      },
+      componentWillUnmount: function() {
+        scrollSpy.unmount(this._stateHandler, this._spyHandler);
+      },
+      render: function() {
+
+        var className = "";
+        if(this.state && this.state.active) {
+          className = ((this.props.className || "") + " " + (this.props.activeClass || "active")).trim();
+        } else {
+          className = this.props.className;
+        }
+
+        var props = assign({}, this.props);
+
+        for(var prop in protoTypes) {
+          if(props.hasOwnProperty(prop)) {
+            delete props[prop];
+          }
+        }
+
+        props.className = className;
+        props.onClick = this.handleClick;
+
+        return React.createElement(Component, props);
+      }
+    });
+  },
+
+
+  Element: function(Component) {
+    return React.createClass({
+      propTypes: {
+        name: React.PropTypes.string,
+        id:   React.PropTypes.string
+      },
+      componentDidMount: function() {
+        this.registerElems(this.props.name);
+      },
+      componentWillReceiveProps: function(nextProps) {
+        if (this.props.name !== nextProps.name) {
+          this.registerElems(nextProps.name);
+        }
+      },
+      componentWillUnmount: function() {
+        defaultScroller.unregister(this.props.name);
+      },
+      registerElems: function(name) {
+        var domNode = ReactDOM.findDOMNode(this);
+        defaultScroller.register(name, domNode);
+      },
+      render: function() {
+        return React.createElement(Component, this.props);
+      }
+    });
+  }
+};
+
+module.exports = Helpers;
+
+
+/***/ }),
+/* 888 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var assign = __webpack_require__(11);
+
+var smooth = __webpack_require__(898);
+
+var cancelEvents = __webpack_require__(897);
+
+var events = __webpack_require__(889);
+
+/*
+ * Gets the easing type from the smooth prop within options.
+ */
+var getAnimationType = function (options) {
+  if (typeof options.smooth === Boolean && options.smooth === true) {
+    return smooth.defaultEasing;
+  } else {
+    var animationType = options.smooth;
+    switch (animationType) {
+      case "linear":
+        return smooth.linear;
+      case "easeInQuad":
+        return smooth.easeInQuad;
+      case "easeOutQuad":
+        return smooth.easeOutQuad;
+      case "easeInOutQuad":
+        return smooth.easeInOutQuad;
+      case "easeInCubic":
+        return smooth.easeInCubic;
+      case "easeOutCubic":
+        return smooth.easeOutQuad;
+      case "easeInOutCubic":
+        return smooth.easeInQuad;
+      case "easeInQuart":
+        return smooth.easeInQuart;
+      case "easeOutQuart":
+        return smooth.easeOutQuart;
+      case "easeInOutQuart":
+        return smooth.easeInOutQuart;
+      case "easeInQuint":
+        return smooth.easeInQuint;
+      case "easeOutQuint":
+        return smooth.easeInQuint;
+      case "easeInOutQuint":
+        return smooth.easeInOutQuint;
+      default:
+        return smooth.defaultEasing;
+    }
+  }
+};
+
+/*
+ * Function helper
+ */
+var functionWrapper = function(value) {
+  return typeof value === 'function' ? value : function() { return value; };
+};
+
+/*
+ * Wraps window properties to allow server side rendering
+ */
+var currentWindowProperties = function() {
+  if (typeof window !== 'undefined') {
+    return window.requestAnimationFrame || window.webkitRequestAnimationFrame;
+  }
+};
+
+/*
+ * Helper function to never extend 60fps on the webpage.
+ */
+var requestAnimationFrameHelper = (function () {
+  return  currentWindowProperties() ||
+          function (callback, element, delay) {
+              window.setTimeout(callback, delay || (1000/60), new Date().getTime());
+          };
+})();
+
+
+var __currentPositionY  = 0;
+var __startPositionY    = 0;
+var __targetPositionY   = 0;
+var __progress          = 0;
+var __duration          = 0;
+var __cancel            = false;
+
+var __target;
+var __containerElement;
+var __to;
+var __start;
+var __deltaTop;
+var __percent;
+var __delayTimeout;
+
+
+var currentPositionY = function() {
+  if (__containerElement) {
+        return __containerElement.scrollTop;
+	} else {
+    var supportPageOffset = window.pageXOffset !== undefined;
+    var isCSS1Compat = ((document.compatMode || "") === "CSS1Compat");
+    return supportPageOffset ? window.pageYOffset : isCSS1Compat ?
+           document.documentElement.scrollTop : document.body.scrollTop;
+   }
+};
+
+var scrollContainerHeight = function() {
+  if(__containerElement) {
+    return Math.max(
+      __containerElement.scrollHeight,
+      __containerElement.offsetHeight,
+      __containerElement.clientHeight
+    );
+  } else {
+    var body = document.body;
+    var html = document.documentElement;
+
+    return Math.max(
+      body.scrollHeight,
+      body.offsetHeight,
+      html.clientHeight,
+      html.scrollHeight,
+      html.offsetHeight
+    );
+  }
+};
+
+var animateTopScroll = function(easing, timestamp) {
+
+  // Cancel on specific events
+  if(__cancel) { 
+    if(events.registered['end']) {
+      events.registered['end'](__to, __target, __currentPositionY);
+    }
+    return 
+  };
+
+  __deltaTop = Math.round(__targetPositionY - __startPositionY);
+
+  if (__start === null) {
+    __start = timestamp;
+  }
+
+  __progress = timestamp - __start;
+
+  __percent = (__progress >= __duration ? 1 : easing(__progress/__duration));
+
+  __currentPositionY = __startPositionY + Math.ceil(__deltaTop * __percent);
+
+  if(__containerElement) {
+    __containerElement.scrollTop = __currentPositionY;
+  } else {
+    window.scrollTo(0, __currentPositionY);
+  }
+
+  if(__percent < 1) {
+    var easedAnimate = animateTopScroll.bind(null, easing);
+    requestAnimationFrameHelper.call(window, easedAnimate);
+    return;
+  }
+
+  if(events.registered['end']) {
+    events.registered['end'](__to, __target, __currentPositionY);
+  }
+
+};
+
+var setContainer = function (options) {
+  if(!options || !options.containerId) {
+    __containerElement = null;
+    return;
+  }
+
+  __containerElement = document.getElementById(options.containerId);
+};
+
+var startAnimateTopScroll = function(y, options, to, target) {
+
+  window.clearTimeout(__delayTimeout);
+
+
+  if (!options.ignoreCancelEvents) {
+    /*
+     * Sets the cancel trigger
+     */
+
+    cancelEvents.register(function() {
+      __cancel = true;
+    });
+  }
+
+  setContainer(options);
+
+
+  __start           = null;
+  __cancel          = false;
+  __startPositionY  = currentPositionY();
+  __targetPositionY = options.absolute ? y : y + __startPositionY;
+  __deltaTop        = Math.round(__targetPositionY - __startPositionY);
+
+  __duration        = functionWrapper(options.duration)(__deltaTop);
+  __duration        = isNaN(parseFloat(__duration)) ? 1000 : parseFloat(__duration);
+  __to              = to;
+  __target          = target;
+
+  var easing = getAnimationType(options);
+  var easedAnimate = animateTopScroll.bind(null, easing);
+
+  if(options && options.delay > 0) {
+    __delayTimeout = window.setTimeout(function animate() {
+      requestAnimationFrameHelper.call(window, easedAnimate);
+    }, options.delay);
+    return;
+  }
+
+  requestAnimationFrameHelper.call(window, easedAnimate);
+
+};
+
+var scrollToTop = function (options) {
+  startAnimateTopScroll(0, assign(options || {}, { absolute : true }));
+};
+
+var scrollTo = function (toY, options) {
+  startAnimateTopScroll(toY, assign(options || {}, { absolute : true }));
+};
+
+var scrollToBottom = function(options) {
+  setContainer(options);
+  startAnimateTopScroll(scrollContainerHeight(), assign(options || {}, { absolute : true }));
+};
+
+var scrollMore = function(toY, options) {
+  setContainer(options);
+  startAnimateTopScroll(currentPositionY() + toY, assign(options || {}, { absolute : true }));
+};
+
+module.exports = {
+  animateTopScroll: startAnimateTopScroll,
+  getAnimationType: getAnimationType,
+  scrollToTop: scrollToTop,
+  scrollToBottom: scrollToBottom,
+  scrollTo: scrollTo,
+  scrollMore: scrollMore,
+};
+
+
+/***/ }),
+/* 889 */
+/***/ (function(module, exports) {
+
+
+var Events = {
+	registered : {},
+	scrollEvent : {
+		register: function(evtName, callback) {
+			Events.registered[evtName] = callback;
+		},
+		remove: function(evtName) {
+			Events.registered[evtName] = null;
+		}
+	}
+};
+
+module.exports = Events;
+
+/***/ }),
+/* 890 */
+/***/ (function(module, exports) {
+
+/*
+ * Tell the browser that the event listener won't prevent a scroll.
+ * Allowing the browser to continue scrolling without having to
+ * to wait for the listener to return.
+ */
+var addPassiveEventListener = function(target, eventName, listener) {
+    var supportsPassiveOption = (function(){
+        var supportsPassiveOption = false;
+        try {
+            var opts = Object.defineProperty({}, 'passive', {
+                get: function() {
+                    supportsPassiveOption = true;
+                }
+            });
+            window.addEventListener('test', null, opts);
+        } catch (e) {}
+        return supportsPassiveOption;
+    })();
+
+    target.addEventListener(eventName, listener, supportsPassiveOption ? {passive: true} : false);
+};
+
+module.exports = addPassiveEventListener;
+
+
+/***/ }),
+/* 891 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var addPassiveEventListener = __webpack_require__(890);
+
+var eventThrottler = function(eventHandler) {
+  var eventHandlerTimeout;
+  return function(event) {
+    // ignore events as long as an eventHandler execution is in the queue
+    if ( !eventHandlerTimeout ) {
+      eventHandlerTimeout = setTimeout(function() {
+        eventHandlerTimeout = null;
+        eventHandler(event);
+        // The eventHandler will execute at a rate of 15fps
+      }, 66);
+    }
+  };
+};
+
+var scrollSpy = {
+
+  spyCallbacks: [],
+  spySetState: [],
+  scrollSpyContainers: [],
+
+  mount: function (scrollSpyContainer) {
+    var t = this;
+    if (scrollSpyContainer) {
+      var eventHandler = eventThrottler(function(event) {
+        t.scrollHandler(scrollSpyContainer);
+      });
+      this.scrollSpyContainers.push(scrollSpyContainer);
+      addPassiveEventListener(scrollSpyContainer, 'scroll', eventHandler);
+    }
+  },
+
+  isMounted: function (scrollSpyContainer) {
+    return this.scrollSpyContainers.indexOf(scrollSpyContainer) !== -1;
+  },
+
+  currentPositionY: function (scrollSpyContainer) {
+    if(scrollSpyContainer === document) {
+      var supportPageOffset = window.pageXOffset !== undefined;
+      var isCSS1Compat = ((document.compatMode || "") === "CSS1Compat");
+      return supportPageOffset ? window.pageYOffset : isCSS1Compat ?
+      document.documentElement.scrollTop : document.body.scrollTop;
+    } else {
+      return scrollSpyContainer.scrollTop;
+    }
+  },
+
+  scrollHandler: function (scrollSpyContainer) {
+    var callbacks = this.scrollSpyContainers[this.scrollSpyContainers.indexOf(scrollSpyContainer)].spyCallbacks;
+    if (callbacks) {
+      for(var i = 0; i < callbacks.length; i++) {
+        var position =this.currentPositionY(scrollSpyContainer);
+        callbacks[i](this.currentPositionY(scrollSpyContainer));
+      }
+    }
+  },
+
+  addStateHandler: function(handler){
+    this.spySetState.push(handler);
+  },
+
+  addSpyHandler: function(handler, scrollSpyContainer) {
+    var container = this.scrollSpyContainers[this.scrollSpyContainers.indexOf(scrollSpyContainer)];
+    if(!container.spyCallbacks) {
+      container.spyCallbacks = [];
+    }
+    container.spyCallbacks.push(handler);
+  },
+
+  updateStates: function(){
+    var length = this.spySetState.length;
+
+    for(var i = 0; i < length; i++) {
+      this.spySetState[i]();
+    }
+  },
+
+  unmount: function (stateHandler, spyHandler) {
+    for (var i = 0; i < this.scrollSpyContainers.length; i++) {
+      var callbacks = this.scrollSpyContainers[i].spyCallbacks;
+      if(callbacks && callbacks.length) {
+        callbacks.splice(callbacks.indexOf(spyHandler), 1);
+      }
+    }
+
+    if(this.spySetState && this.spySetState.length) {
+      this.spySetState.splice(this.spySetState.indexOf(stateHandler), 1);
+    }
+
+    document.removeEventListener('scroll', this.scrollHandler);
+  },
+
+  update: function() {
+    for (var i = 0; i < this.scrollSpyContainers.length; i++) {
+      this.scrollHandler(this.scrollSpyContainers[i]);
+    }
+  }
+}
+
+module.exports = scrollSpy;
+
+
+/***/ }),
+/* 892 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var assign = __webpack_require__(11);
+
+var animateScroll = __webpack_require__(888);
+var events = __webpack_require__(889);
+
+var __mapped = {};
+var __activeLink;
+
+module.exports = {
+
+  unmount: function() {
+    __mapped = {};
+  },
+
+  register: function(name, element){
+    __mapped[name] = element;
+  },
+
+  unregister: function(name) {
+    delete __mapped[name];
+  },
+
+  get: function(name) {
+    return __mapped[name] || document.getElementById(name);
+  },
+
+  setActiveLink: function(link) {
+    __activeLink = link;
+  },
+
+  getActiveLink: function() {
+    return __activeLink;
+  },
+
+  scrollTo: function(to, props) {
+
+     /*
+     * get the mapped DOM element
+     */
+
+      var target = this.get(to);
+
+      if(!target) {
+        console.warn("target Element not found");
+        return;
+      }
+
+      props = assign({}, props, { absolute : false });
+
+
+      if(events.registered['begin']) {
+        events.registered['begin'](to, target);
+      }
+
+      var containerId = props.containerId;
+      var containerElement = containerId ? document.getElementById(containerId) : null;
+
+      var scrollOffset;
+
+      if(containerId && containerElement) {
+        props.absolute = true;
+        if(containerElement !== target.offsetParent) {
+          if(!containerElement.contains(target)) {
+            throw new Error('Container with ID ' + containerId + ' is not a parent of target ' + to);
+          } else {
+            throw new Error('Container with ID ' + containerId + ' is not a positioned element');
+          }
+        }
+
+        scrollOffset = target.offsetTop;
+      } else {
+        var coordinates = target.getBoundingClientRect();
+        scrollOffset = coordinates.top;
+      }
+
+      scrollOffset += (props.offset || 0);
+
+
+      /*
+       * if animate is not provided just scroll into the view
+       */
+      if(!props.smooth) {
+        if(containerId && containerElement) {
+          containerElement.scrollTop = scrollOffset;
+        } else {
+          // window.scrollTo accepts only absolute values so body rectangle needs to be subtracted
+          var bodyRect = document.body.getBoundingClientRect();
+          window.scrollTo(0, scrollOffset - bodyRect.top);
+        }
+
+        if(events.registered['end']) {
+          events.registered['end'](to, target);
+        }
+
+        return;
+      }
+
+      /*
+       * Animate scrolling
+       */
+
+      animateScroll.animateTopScroll(scrollOffset, props, to, target);
+  }
+};
+
+
+/***/ }),
+/* 893 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var React = __webpack_require__(2);
+var Helpers = __webpack_require__(887);
+
+var Button = React.createClass({
+  render: function () {
+    return React.DOM.input(this.props, this.props.children);
+  }
+});
+
+module.exports = Helpers.Scroll(Button);
+
+
+/***/ }),
+/* 894 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var React = __webpack_require__(2);
+var Helpers = __webpack_require__(887);
+
+var Element = React.createClass({
+  render: function () {
+    return React.DOM.div(this.props, this.props.children);
+  }
+});
+
+module.exports = Helpers.Element(Element);
+
+
+/***/ }),
+/* 895 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var React = __webpack_require__(2);
+var Helpers = __webpack_require__(887);
+
+var Link = React.createClass({
+  render: function () {
+    return React.DOM.a(this.props, this.props.children);
+  }
+});
+
+module.exports = Helpers.Scroll(Link);
+
+
+/***/ }),
+/* 896 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports.Link = __webpack_require__(895);
+exports.Button = __webpack_require__(893);
+exports.Element = __webpack_require__(894);
+exports.Helpers = __webpack_require__(887);
+exports.scroller = __webpack_require__(892);
+exports.Events = __webpack_require__(889);
+exports.scrollSpy = __webpack_require__(891);
+exports.animateScroll = __webpack_require__(888);
+
+
+/***/ }),
+/* 897 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var addPassiveEventListener = __webpack_require__(890);
+
+var events = ['mousedown', 'mousewheel', 'touchmove', 'keydown']
+
+module.exports = {
+	register : function(cancelEvent) {
+		if (typeof document === 'undefined') {
+			return;
+		}
+
+		for(var i = 0; i < events.length; i = i + 1) {
+			addPassiveEventListener(document, events[i], cancelEvent);
+		}
+	}
+};
+
+
+/***/ }),
+/* 898 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = {
+ /*
+  * https://github.com/oblador/angular-scroll (duScrollDefaultEasing)
+  */
+  defaultEasing : function (x) {
+    if(x < 0.5) {
+      return Math.pow(x*2, 2)/2;
+    }
+    return 1-Math.pow((1-x)*2, 2)/2;
+  },
+  /*
+   * https://gist.github.com/gre/1650294
+   */
+  // no easing, no acceleration
+  linear: function (x) {
+    return x;
+  },
+  // accelerating from zero velocity
+  easeInQuad: function (x) {
+    return x * x;
+  },
+  // decelerating to zero velocity
+  easeOutQuad: function (x) {
+    return x * (2 - x);
+  },
+  // acceleration until halfway, then deceleration
+  easeInOutQuad: function (x) {
+    return x < .5 ? 2 * x * x : -1 + (4 - 2 * x) * x;
+  },
+  // accelerating from zero velocity 
+  easeInCubic: function (x) {
+    return x * x * x;
+  },
+  // decelerating to zero velocity π
+  easeOutCubic: function (x) {
+    return (--x) * x * x + 1;
+  },
+  // acceleration until halfway, then deceleration 
+  easeInOutCubic: function (x) {
+    return x < .5 ? 4 * x * x * x : (x - 1) * (2 * x - 2) * (2 * x - 2) + 1;
+  },
+  // accelerating from zero velocity 
+  easeInQuart: function (x) {
+    return x * x * x * x;
+  },
+  // decelerating to zero velocity 
+  easeOutQuart: function (x) {
+    return 1 - (--x) * x * x * x;
+  },
+  // acceleration until halfway, then deceleration
+  easeInOutQuart: function (x) {
+    return x < .5 ? 8 * x * x * x * x : 1 - 8 * (--x) * x * x * x;
+  },
+  // accelerating from zero velocity
+  easeInQuint: function (x) {
+    return x * x * x * x * x;
+  },
+  // decelerating to zero velocity
+  easeOutQuint: function (x) {
+    return 1 + (--x) * x * x * x * x;
+  },
+  // acceleration until halfway, then deceleration 
+  easeInOutQuint: function (x) {
+    return x < .5 ? 16 * x * x * x * x * x : 1 + 16 * (--x) * x * x * x * x;
+  }
+};
 
 
 /***/ })

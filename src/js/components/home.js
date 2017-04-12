@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 //import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
-//take out signup until ready
-//import SignUpForm from '../containers/SignUp';
-//import { signupUser } from '../actions/auth';
+// take out signup until ready import SignUpForm from '../containers/SignUp';
+// import { signupUser } from '../actions/auth';
 
 import ContactForm from '../containers/contact_form';
 import { signupContact } from '../actions/auth';
@@ -18,14 +17,16 @@ class Home extends Component {
         </header>
         <div className="welcome">
           <div className="info-text min-box">
-            <p>Designed for all levels of gamers. Learn, strategize and find those Kodama's! Preview your next game now! Choose your path: search just YouTube, just Twitch, or by Dragon Punch! (both).</p>
+            <p>Designed for all levels of gamers. Learn, strategize and find those Kodama's!
+              Preview your next game now! Choose your path: search just YouTube, just Twitch,
+              or by Dragon Punch! (both).</p>
             <img src={'http://i.imgur.com/6V5PqZ1.png'} alt="Nioh Game Kodama" />
           </div>
           <div className="sign-up">
-            <p>We are working to add new features. 
-              Soon you will be able to register for an account to save 
-              your favorite videos or streamer channel to watch at a later time.
-              You are welcome to sign up to be contacted when these features are added!
+            <p>We are always working on adding new features! If you want to receive updates
+              when new features are added, feel free to enter your email below. If you have
+              any comments or recommendations, please contact us using one of the social 
+              options below!
             </p>
             <ContactForm signupContact={this.props.signupContact} />
           </div>

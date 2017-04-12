@@ -12,6 +12,6 @@ deploy:
   provider: heroku
   api_key:
     secure: mOaiwH1cjt+XLZbUkes9tdnhJJwMkqRZsDd8UWvJI7YF4KbytjY1RAKbwWaJ+/5fC2PkAVWb7tRGvUgJcFBVeNOlvCIswKNBrp6u5XefOQglxtSnhAGy+JDFmRVwNVkbsZMZ88cNZ/M+uugnqSmJlx0dWaaYb8N8l0aR/K8IesAI6t92XV2b6EcOk/rgYKT0Lr1DJJS20zlyWQOENDGfyEtwflRkmy2OatXUgsG+BMlVo5WgTGNfGu+pv02DhU06UfPwOyFOzt+0xwLShmGhDBokmteE/SZVuiqKLVuniocXwGdntxubVQBOwyLIkRz1LbKxO2B89z74ZuUJCmSZP3x8ehKv7oOCoa9Rh7xFDmAbP/g3dBDVwSQw1JGH1L31VpD0AAbn6Beo/FDjXeRBJEk2wgOJHIlgMNVXYfVyDjuuR/7hhOHTx8jxAZ4RpY+NkgpY5r7ilWMJzLn8fdk18zBOYZBOdFQnauuRsDVHzcGeOH+yDLMAwuddrLVYut4PqoTRg4DvQ8meOPTe0dawTBroKr0Xv5ulPA00krHBoBzJcCsRCpja1H6dmNy46V2/Xyx+VSEkGt638b4QuOogCX/s3n8J+YQqbSFWvhWpoCh+f6KncI5L6G9HO0Q7F20nNZyG1aFuLxy1l1AgVnx17++b94JHTXUBsvHMwo1GW5c=
-  app: secret-reef-14848
+  app: thawing-tor-86148
   on:
     repo: navkelley/levelUp

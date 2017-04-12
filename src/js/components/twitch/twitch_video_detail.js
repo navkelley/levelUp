@@ -24,7 +24,7 @@ const TwitchVideoDetail = ({ stream }) => {
   return (
     <Element name="videoPlayer">
     <div className="video-detail">
-      <iframe src={url} alt="twitch player" />
+      <iframe src={url} alt="twitch player" allowFullScreen="true" />
       <div className="details">
         <p className="streamer">
           <strong>Streamer: </strong>

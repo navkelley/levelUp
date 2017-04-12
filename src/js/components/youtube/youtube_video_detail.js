@@ -21,9 +21,9 @@ const YouTubeVideoDetail = ({ video }) => {
   const url = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
 
   return (
-    <Element name="videoPlayer">
+    <Element name="videoPlayer" allowFullscreen="true">
     <div className="video-detail">
-      <iframe src={url} alt="youtube player" />
+      <iframe src={url} alt="youtube player" allowFullScreen="true" />
       <div className="details">
         <p className="description"><strong>Title:</strong> {video.snippet.title}</p>
         <p className="description"><strong>Description:</strong> {video.snippet.description}</p>
